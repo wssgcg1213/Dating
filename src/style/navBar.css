@@ -1,0 +1,35 @@
+nav {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1.22222222rem;
+  line-height: 1.22222222rem;
+  background-color: #ff6633;
+  color: #ffffff;
+}
+nav .nav-container {
+  margin: 0 0.37037037rem;
+  *zoom: 1;
+}
+nav .nav-container:before,
+nav .nav-container:after {
+  display: table;
+  content: "";
+}
+nav .nav-container:after {
+  clear: both;
+}
+nav .title {
+  font-size: 22px;
+  float: left;
+}
+[data-dpr="2"] nav .title {
+  font-size: 44px;
+}
+[data-dpr="3"] nav .title {
+  font-size: 66px;
+}
+nav .user {
+  float: right;
+  cursor: pointer;
+}

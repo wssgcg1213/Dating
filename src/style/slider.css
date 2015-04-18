@@ -1,0 +1,17 @@
+.slider ul,
+.slider li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.slider .focus span {
+  width: 0.14814815rem;
+  height: 0.14814815rem;
+  margin-right: 0.14814815rem;
+  border-radius: 50%;
+  background: #ffffff;
+  font-size: 0;
+}
+.slider .focus span.current {
+  background: #db3528;
+}

@@ -1,0 +1,24 @@
+@import "var";
+//namespace
+nav{
+//  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 132rem / @psdWidth;
+  line-height: 132rem / @psdWidth;
+  background-color: @navBgc;
+  color: @navColor;
+  .nav-container{
+    margin: 0 40rem / @psdWidth;
+    .clearfix();
+  }
+  .title{
+    .rfz(22px);
+    float: left;
+  }
+  .user{
+    float: right;
+    cursor: pointer;
+  }
+}

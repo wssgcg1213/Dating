@@ -1,0 +1,24 @@
+@import "var";
+.slider{
+  ul, li{
+    margin: 0;
+    padding: 0;
+    .reset-list-style();
+  }
+//  display: none;
+//  li{
+//    float: left;
+//    display: inline;
+//  }
+  .focus span{
+    width: 16rem / @psdWidth;
+    height: 16rem / @psdWidth;
+    margin-right: 16rem / @psdWidth;
+    border-radius: 50%;
+    background: @sliderDot;
+    font-size: 0
+  }
+  .focus span.current{
+    background: @sliderCurrentDot
+  }
+}

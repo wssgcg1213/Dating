@@ -1,0 +1,18 @@
+@psdWidth: 108; //设计稿宽度, 用作rem结果的被除数
+
+//mixin dpr font-size
+.rfz(@px){
+  font-size: @px;
+  [data-dpr="2"] &{
+    font-size: @px * 2;
+  }
+  [data-dpr="3"] &{
+    font-size: @px * 3;
+  }
+}
+
+@navBgc: #ff6633;
+@navColor: #FFF;
+
+@sliderCurrentDot: #db3528;
+@sliderDot: #FFF;
