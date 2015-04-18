@@ -1,0 +1,23 @@
+@import "var";
+.fliter-btns{
+  height: 118rem / @psdWidth;
+  line-height: 100rem / @psdWidth;
+  background-color: #FFF;
+  color: @filterBtnColor;
+  border-bottom: 1px solid #DDD;
+  .iconfont{
+    color: @filterBtnTriColor;
+  }
+  a{
+    .rfz(18px);
+    color: @filterBtnColor;
+    float: left;
+    box-sizing: border-box;
+    width: 100/3%;
+    text-align: center;
+    &:active, &:visited, &:hover{
+      color: @filterBtnColor;
+      text-decoration: none;
+    }
+  }
+}

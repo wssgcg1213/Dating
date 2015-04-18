@@ -1,0 +1,30 @@
+.fliter-btns {
+  height: 1.09259259rem;
+  line-height: 0.92592593rem;
+  background-color: #FFF;
+  color: #333333;
+  border-bottom: 1px solid #DDD;
+}
+.fliter-btns .iconfont {
+  color: #666666;
+}
+.fliter-btns a {
+  font-size: 18px;
+  color: #333333;
+  float: left;
+  box-sizing: border-box;
+  width: 33.33333333%;
+  text-align: center;
+}
+[data-dpr="2"] .fliter-btns a {
+  font-size: 36px;
+}
+[data-dpr="3"] .fliter-btns a {
+  font-size: 54px;
+}
+.fliter-btns a:active,
+.fliter-btns a:visited,
+.fliter-btns a:hover {
+  color: #333333;
+  text-decoration: none;
+}

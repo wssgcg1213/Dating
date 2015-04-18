@@ -26,7 +26,8 @@ define(['jQuery'], function($){
                 _this.width(s.width).height(s.height).css({
                     position: 'relative',
                     overflow: 'hidden',
-                    margin:'0 auto'
+                    margin:'0 auto',
+                    textAlign: 'center'
                 }); //设定容器宽高及样式
                 oMover.css({
                     position: 'absolute',
@@ -50,17 +51,19 @@ define(['jQuery'], function($){
                     minHeight: $(this).find('span').height() * 2,
                     position: 'absolute',
                     bottom: 0,
+                    width: '100%'
                     //background: 'rgba(0,0,0,0.5)'
                 })
                 $("span", oFocusContainer).css({
-                    display: 'block',
-                    float: 'left',
+                    display: 'inline-block',
+                    //float: 'left',
                     cursor: 'pointer'
                 })
-                $("div", oFocusContainer).width(oFocus.outerWidth(true) * num).css({
+                $("div", oFocusContainer).css({
                     position: 'absolute',
                     left: 0,
                     right: 0,
+                    width: '100%',
                     top: '50%',
                     //marginTop: -$(this).find('span').width() / 2,
                     margin: "0 auto"
@@ -74,7 +77,7 @@ define(['jQuery'], function($){
                     }
                     oLi.width(_this.width()).height(_this.height());//设定滚动单元宽高
                     oMover.width(num * s.width);
-                    oFocusContainer.width(_this.width()).height(_this.height() * 0.15).css({
+                    oFocusContainer.height(_this.height() * 0.15).css({
                         zIndex: 2
                     });//设定焦点容器宽高样式
                     _this.fadeIn(300);

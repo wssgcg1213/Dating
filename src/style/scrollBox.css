@@ -1,0 +1,25 @@
+.scroll-container {
+  background-color: #EFEFEF;
+  *zoom: 1;
+}
+.scroll-container ul,
+.scroll-container li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.scroll-container li {
+  margin-top: 0.24074074rem;
+  border-top: 1px solid #DDD;
+  border-bottom: 1px solid #DDD;
+  height: 3.37037037rem;
+  background-color: #fff;
+}
+.scroll-container:before,
+.scroll-container:after {
+  display: table;
+  content: "";
+}
+.scroll-container:after {
+  clear: both;
+}
