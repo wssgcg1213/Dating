@@ -22,6 +22,9 @@ nav .nav-container:after {
 nav .title {
   font-size: 22px;
   float: left;
+  color: #FFF;
+  text-decoration: none;
+  outline: none;
 }
 [data-dpr="2"] nav .title {
   font-size: 44px;

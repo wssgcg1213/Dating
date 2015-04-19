@@ -14,13 +14,18 @@ require.config({
     }
 });
 
+var urls = {
+    "slider": "http://106.184.7.12:8002/index.php/home/index/pic",
+    "scrollBox": "http://106.184.7.12:8002/index.php/home/index/showBox",
+    "category": "http://106.184.7.12:8002/index.php/home/index/category"
+};
 require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
     //debugger;
     var ep; //用来装载EventProxy的实例对象
     avalon.define({
         $id: "main", //主vm
         sliderCb: function() { //初始化slider
-            var width = $(document).width(),
+            var width = $(window).width(),
                 height = width * 0.5625;
             $('.slider').slider({
                 width: width,
@@ -41,6 +46,8 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
                     $id: "nav",
                     title: "约"
                 });
+            }else{
+                avalon.vmodels['nav']['title'] = '约';
             }
 
             if(!avalon.vmodels['slider']){
@@ -60,20 +67,24 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
             //异步处理, getdata
             ep = EventProxy.create('user', 'slider', 'fliter', function(user, slider, fliter) {
                 avalon.vmodels['slider']['items'] = slider;
+                console.log('cats:', fliter); //todo with categories
+
                 console.log('before scan');
                 avalon.scan();
             });
 
             ep.emit('user');//todo user data
-            //$.post('') //todo 获取slider的数据
-            ep.emit('slider', [{
-                href: "#!/collect",
-                img: "imgs/test.png"
-            },{
-                href: "#!/collect",
-                img: "imgs/test.png"
-            }]);
-            ep.emit('fliter'); //todo 获取fliter的分类数据
+            $.post(urls.slider, {}).success(function(res) {
+                ep.emit('slider', res.map(function(val){
+                    return {
+                        href: val.url,
+                        img: val.src
+                    };
+                }));
+            });
+            $.post(urls.category).success(function(res) {
+                ep.emit('fliter', res);
+            });
         }
     });
     avalon.state('collect', {
