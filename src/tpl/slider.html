@@ -1,10 +1,6 @@
-<div class="slider">
+<div class="slider" ms-controller="slider">
     <ul>
-        <li><a href="http://baidu.com"><img src="imgs/test.png"></a></li>
-        <li><a href="http://baidu.com"><img src="imgs/test.png"></a></li>
-        <li><a href="http://baidu.com"><img src="imgs/test.png"></a></li>
-        <li><a href="http://baidu.com"><img src="imgs/test.png"></a></li>
-        <li><a href="http://baidu.com"><img src="imgs/test.png"></a></li>
+        <li ms-repeat="items"><a ms-attr-href="el.href"><img ms-src="el.img"></a></li>
     </ul>
     <div class="focus">
         <div></div>
