@@ -87,6 +87,7 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
             });
         }
     });
+
     avalon.state('collect', {
         url: "/collect",
         templateUrl: "tpl/collectCtrl.html",
@@ -102,9 +103,32 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
             }
         }
     });
+
+    avalon.state('detail', {
+        url: '/detail',
+        templateUrl: "tpl/detailCtrl.html",
+        onEnter: function() {
+            if(!avalon.vmodels['nav']){
+                avalon.define({
+                    $id: "nav",
+                    title: "详情"
+                });
+            }else{
+                avalon.vmodels['nav']['title'] = "详情";
+            }
+
+            //todo
+            if(!avalon.vmodels['userInfo']){
+                avalon.define({
+                    $id: "userInfo",
+                    users: [{}]
+                });
+            }
+        }
+    });
     avalon.history.start({
         basepath: "/"
     });
     avalon.router.navigate(avalon.history.fragment);
-    //avalon.scan();
+    avalon.scan();
 });
