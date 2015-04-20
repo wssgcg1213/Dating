@@ -529,6 +529,7 @@ nav .dropdown li {
   background-color: #ff6633;
   border-bottom: 1px solid #ff9470;
   font-size: 20px;
+  cursor: pointer;
   text-align: center;
 }
 [data-dpr="2"] nav .dropdown li {
@@ -536,6 +537,9 @@ nav .dropdown li {
 }
 [data-dpr="3"] nav .dropdown li {
   font-size: 60px;
+}
+nav .dropdown li:hover {
+  background-color: #000000;
 }
 nav .dropdown li a {
   text-decoration: none;

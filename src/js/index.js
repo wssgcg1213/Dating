@@ -35,20 +35,28 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
         }
     });
 
+    avalon.define({
+        $id: "nav",
+        title: "约",
+        showDropDown: false,
+        toggleDropDown: function(show){
+            var _flag = avalon.vmodels.nav.showDropDown;
+            if(typeof show !== 'object'){//默认传event对象
+                return avalon.vmodels.nav.showDropDown = show;
+            }
+            avalon.vmodels.nav.showDropDown = !_flag;
+
+        }
+    });
+
     avalon.state('home', {
         controller: "main",
         url: "/",
         templateUrl: "tpl/indexCtrl.html",
         onEnter: function(){
+            setTimeout(avalon.scan, 1000); //timeout
             //define vms
-            if(!avalon.vmodels['nav']){
-                avalon.define({
-                    $id: "nav",
-                    title: "约"
-                });
-            }else{
-                avalon.vmodels['nav']['title'] = '约';
-            }
+            avalon.vmodels['nav']['title'] = '约';
 
             if(!avalon.vmodels['slider']){
                 avalon.define({
@@ -93,16 +101,7 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
         url: "/collect",
         templateUrl: "tpl/collectCtrl.html",
         onEnter: function(state) {
-            var nav = avalon.vmodels['nav'];
-            if(nav){
-                nav['title'] = "收藏";
-            }else{
-                avalon.define({
-                    $id: "nav",
-                    title: "收藏"
-                });
-            }
-
+            avalon.vmodels['nav']['title'] = "收藏";
             avalon.scan();
         }
     });
@@ -111,15 +110,7 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
         url: '/detail',
         templateUrl: "tpl/detailCtrl.html",
         onEnter: function() {
-            if(!avalon.vmodels['nav']){
-                avalon.define({
-                    $id: "nav",
-                    title: "详情"
-                });
-            }else{
-                avalon.vmodels['nav']['title'] = "详情";
-            }
-
+            avalon.vmodels['nav']['title'] = "详情";
             //todo
             if(!avalon.vmodels['userInfo']){
                 avalon.define({
