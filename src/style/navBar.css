@@ -36,3 +36,35 @@ nav .user {
   float: right;
   cursor: pointer;
 }
+nav .dropdown {
+  margin: 0;
+  padding: 0;
+  float: right;
+  position: absolute;
+  z-index: 1000;
+  top: 1.22222222rem;
+  right: 0;
+}
+nav .dropdown li {
+  width: 3.01851852rem;
+  height: 0.76851852rem;
+  line-height: 0.76851852rem;
+  background-color: #ff6633;
+  border-bottom: 1px solid #ff9470;
+  font-size: 20px;
+  text-align: center;
+}
+[data-dpr="2"] nav .dropdown li {
+  font-size: 40px;
+}
+[data-dpr="3"] nav .dropdown li {
+  font-size: 60px;
+}
+nav .dropdown li a {
+  text-decoration: none;
+  color: #FFF;
+  outline: none;
+}
+nav .dropdown li:first-child {
+  border-top: 1px solid #ff9470;
+}

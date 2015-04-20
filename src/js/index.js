@@ -75,6 +75,7 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
 
             ep.emit('user');//todo user data
             $.post(urls.slider, {}).success(function(res) {
+                console.log('slider', res);
                 ep.emit('slider', res.map(function(val){
                     return {
                         href: val.url,
@@ -101,6 +102,8 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
                     title: "收藏"
                 });
             }
+
+            avalon.scan();
         }
     });
 
@@ -124,11 +127,13 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
                     users: [{}]
                 });
             }
+
+            avalon.scan();
         }
     });
     avalon.history.start({
         basepath: "/"
     });
     avalon.router.navigate(avalon.history.fragment);
-    avalon.scan();
+
 });

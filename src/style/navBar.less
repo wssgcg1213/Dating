@@ -24,4 +24,31 @@ nav{
     float: right;
     cursor: pointer;
   }
+
+  .dropdown{
+    margin: 0;
+    padding: 0;
+    float: right;
+    position: absolute;
+    z-index: 1000;
+    top: 132rem / @psdWidth;
+    right: 0;
+    li{
+      width: 326rem / @psdWidth;
+      height: 83rem / @psdWidth;
+      line-height: 83rem / @psdWidth;
+      background-color: @navBgc;
+      border-bottom: 1px solid @navBorder;
+      .rfz(20px);
+      text-align: center;
+      a{
+        text-decoration: none;
+        color: #FFF;
+        outline: none;
+      }
+      &:first-child{
+        border-top: 1px solid @navBorder;
+      }
+    }
+  }
 }
