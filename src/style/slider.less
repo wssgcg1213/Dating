@@ -5,18 +5,45 @@
     padding: 0;
     .reset-list-style();
   }
-//  display: none;
-//  li{
-//    float: left;
-//    display: inline;
-//  }
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  text-align: center;
+  ul{
+    position: absolute;
+    .clearfix();
+    transition: transform 300ms ease-in-out;
+    transform: translate3d(0px, 0px, 0px);
+  }
+  li{
+    float: left;
+  }
+
+  .focus{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+  }
+
   .focus span{
-    width: 16rem / @psdWidth;
-    height: 16rem / @psdWidth;
+    width: 9px;
+    height: 9px;
+    [data-dpr="2"] &{
+      width: 18px;
+      height: 18px;
+    }
+    [data-dpr="3"] &{
+      width: 27px;
+      height: 27px;
+    }
     margin-right: 16rem / @psdWidth;
     border-radius: 50%;
     background: @sliderDot;
-    font-size: 0
+    font-size: 0;
+    display: inline-block;
+    cursor: pointer;
+    z-index: 2;
   }
   .focus span.current{
     background: @sliderCurrentDot

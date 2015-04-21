@@ -15,7 +15,7 @@ require.config({
 });
 
 var urls = {
-    "slider": "http://106.184.7.12:8002/index.php/home/index/pic",
+    "slider": "../mock.php",
     "scrollBox": "http://106.184.7.12:8002/index.php/home/index/showBox",
     "category": "http://106.184.7.12:8002/index.php/home/index/category"
 };
@@ -45,8 +45,17 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
                 return avalon.vmodels.nav.showDropDown = show;
             }
             avalon.vmodels.nav.showDropDown = !_flag;
-
-        }
+        },
+        menus: [{
+            link: "#!/",
+            text: "首页"
+        },{
+            link: "#!/login",
+            text: "登陆todo"
+        },{
+            link: "#!/collect",
+            text: "收藏"
+        }]
     });
 
     avalon.state('home', {
@@ -55,6 +64,15 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
         templateUrl: "tpl/indexCtrl.html",
         onEnter: function(){
             setTimeout(avalon.scan, 1000); //timeout
+
+            //异步处理, getdata
+            ep = EventProxy.create('user', 'slider', 'fliter', function(user, slider, fliter) {
+                avalon.vmodels['slider']['items'] = slider;
+                console.log('cats:', fliter); //todo with categories
+                console.log('before scan');
+                avalon.scan();
+            });
+
             //define vms
             avalon.vmodels['nav']['title'] = '约';
 
@@ -63,6 +81,21 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
                     $id: "slider",
                     items: [{}]
                 });
+
+                $.post(urls.slider, {}).success(function(res) {
+                    console.log('slider', res);
+                    ep.emit('slider', res.map(function(val){
+                        return {
+                            href: val.url,
+                            img: val.src
+                        };
+                    }));
+                });
+                $.post(urls.category).success(function(res) {
+                    ep.emit('fliter', res);
+                });
+
+                ep.emit('user');//todo user data
             }
 
             if(!avalon.vmodels['fliterBtns']){
@@ -72,28 +105,9 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
             }
 
             console.log('onenter home');
-            //异步处理, getdata
-            ep = EventProxy.create('user', 'slider', 'fliter', function(user, slider, fliter) {
-                avalon.vmodels['slider']['items'] = slider;
-                console.log('cats:', fliter); //todo with categories
 
-                console.log('before scan');
-                avalon.scan();
-            });
 
-            ep.emit('user');//todo user data
-            $.post(urls.slider, {}).success(function(res) {
-                console.log('slider', res);
-                ep.emit('slider', res.map(function(val){
-                    return {
-                        href: val.url,
-                        img: val.src
-                    };
-                }));
-            });
-            $.post(urls.category).success(function(res) {
-                ep.emit('fliter', res);
-            });
+
         }
     });
 
@@ -140,6 +154,15 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
             avalon.scan();
         }
     });
+
+    avalon.state('typeSelect', {
+        url: "/typeSelect",
+        templateUrl: "tpl/typeSelectCtrl.html",
+        onEnter: function() {
+
+        }
+    });
+
     avalon.history.start({
         basepath: "/"
     });

@@ -1,10 +1,7 @@
 <div class="nav-container" ms-controller="nav" ms-on-mouseleave="toggleDropDown(false)">
     <a class="title" href="#!/">{{title}}</a>
-    <i class="iconfont user" ms-on-click="toggleDropDown" ms-on-mouseenter="toggleDropDown(true)">&#xe686;</i>
+    <i class="iconfont user" ms-on-click="toggleDropDown" ms-on-mouseenter="toggleDropDown(true)">&#xe609;</i>
     <ul class="dropdown" ms-visible="showDropDown" ms-on-mouseleave="toggleDropDown(false)">
-        <li><a href="#!/collect">登陆</a></li>
-        <li><a href="#!/userInfro">登陆</a></li>
-        <li><a href="#!/login">登陆</a></li>
-        <li><a href="#!/login">登陆</a></li>
+        <li ms-repeat="menus"><a ms-attr-href="el.link" ms-on-click="toggleDropDown(false)">{{el.text}}</a></li>
     </ul>
 </div>
