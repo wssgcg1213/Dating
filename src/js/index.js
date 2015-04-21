@@ -15,7 +15,7 @@ require.config({
 });
 
 var urls = {
-    "slider": "http://106.184.7.12:8002/index.php/home/index/pic",
+    "slider": "../mock.php",
     "scrollBox": "http://106.184.7.12:8002/index.php/home/index/showBox",
     "category": "http://106.184.7.12:8002/index.php/home/index/category"
 };
@@ -45,8 +45,17 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
                 return avalon.vmodels.nav.showDropDown = show;
             }
             avalon.vmodels.nav.showDropDown = !_flag;
-
-        }
+        },
+        menus: [{
+            link: "#!/",
+            text: "首页"
+        },{
+            link: "#!/login",
+            text: "登陆"
+        },{
+            link: "#!/collect",
+            text: "collect"
+        }]
     });
 
     avalon.state('home', {
