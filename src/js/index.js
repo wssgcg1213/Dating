@@ -105,6 +105,25 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
             avalon.scan();
         }
     });
+    debugger;
+    avalon.state('userInfo', {
+        url: '/userInfo',
+        templateUrl: "tpl/userInfoCtrl.html",
+        onEnter: function(){
+            avalon.vmodels['nav']['title'] = "个人中心";
+            avalon.define({
+                $id : "userInfo",
+                //data :{
+                //    userLogo : 'imgs/1.jpg',
+                //    userName : '村里没有巧克力',
+                //    motto : '日日code',
+                //    college : '传媒学院',
+                //
+                //}
+            });
+            avalon.scan();
+        }
+    });
 
     avalon.state('detail', {
         url: '/detail',
@@ -118,7 +137,6 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
                     users: [{}]
                 });
             }
-
             avalon.scan();
         }
     });

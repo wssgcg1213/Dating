@@ -1,0 +1,34 @@
+.userinfo .userWrapper {
+  width: 100%;
+  height: 3.83333333rem;
+  background-color: white;
+  margin: 0.32407407rem 0;
+  padding-top: 0.32407407rem;
+  text-align: center;
+}
+.userinfo .userWrapper .userLogo {
+  width: 1.94444444rem;
+  height: 1.94444444rem;
+  border-radius: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.userinfo .userWrapper .userLogo img {
+  width: 100%;
+}
+.userinfo .userWrapper .userLogo .userName {
+  color: #333333 33;
+}
+.userinfo .userWrapper .userLogo .motto {
+  color: #666666;
+}
+.userinfo ul {
+  width: 100%;
+  list-style-type: none;
+  background-color: white;
+}
+.userinfo .tab li {
+  width: 50%;
+  height: 1.11111111rem;
+  float: left;
+}

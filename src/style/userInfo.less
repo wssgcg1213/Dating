@@ -1,0 +1,48 @@
+@import "var";
+
+.userinfo{//namespace
+
+  .userWrapper{
+    width:100%;
+    height: 414rem / @psdWidth;
+    background-color: white;
+    margin:35rem / @psdWidth 0;
+    padding-top:35rem / @psdWidth ;
+    text-align: center;
+    .userLogo{
+      width:210rem / @psdWidth;
+      height:210rem / @psdWidth;
+      border-radius: 100%;
+      margin:0 auto;
+      overflow: hidden;
+      img{
+        width:100%;
+        //      height:100%;
+      }
+      .userName{
+        color:@bolderColor;
+      }
+      .motto{
+        color:@lightColor;
+      }
+    }
+
+
+
+  }
+
+  ul{
+    //  padding-right: 0;
+    width:100%;
+    list-style-type: none;
+    background-color: white;
+  }
+  .tab{
+    li{
+      width:50%;
+      height:120rem / @psdWidth;
+      float:left;
+    }
+  }
+
+}
