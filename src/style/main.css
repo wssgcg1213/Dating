@@ -685,20 +685,87 @@ nav .dropdown li:first-child {
 }
 .userinfo .userWrapper .userLogo img {
   width: 100%;
+  height: 100%;
 }
-.userinfo .userWrapper .userLogo .userName {
-  color: #333333 33;
+.userinfo .userWrapper .userName {
+  color: #333333;
 }
-.userinfo .userWrapper .userLogo .motto {
+.userinfo .userWrapper .motto {
   color: #666666;
 }
+.userinfo .userWrapper p {
+  color: #666666;
+  font-size: 18px;
+  text-align: center;
+  margin: 0.18518519rem;
+}
+[data-dpr="2"] .userinfo .userWrapper p {
+  font-size: 36px;
+}
+[data-dpr="3"] .userinfo .userWrapper p {
+  font-size: 54px;
+}
 .userinfo ul {
+  padding: 0;
   width: 100%;
   list-style-type: none;
   background-color: white;
+  height: 1.11111111rem;
 }
-.userinfo .tab li {
+.userinfo .tab {
+  *zoom: 1;
+}
+.userinfo .tab:before,
+.userinfo .tab:after {
+  display: table;
+  content: "";
+}
+.userinfo .tab:after {
+  clear: both;
+}
+.userinfo .tab div {
   width: 50%;
   height: 1.11111111rem;
   float: left;
+}
+.userinfo .tab li {
+  width: 100%;
+  box-sizing: border-box;
+  height: 0.64814815rem;
+  float: inherit;
+  margin-top: 0.23148148rem;
+  line-height: 0.87962963rem;
+  text-align: center;
+  font-size: 18px;
+  color: #666666;
+}
+[data-dpr="2"] .userinfo .tab li {
+  font-size: 36px;
+}
+[data-dpr="3"] .userinfo .tab li {
+  font-size: 54px;
+}
+.userinfo .tab li:first-child {
+  border-right: 1px solid #666666;
+}
+.userinfo .detail_info {
+  box-shadow: 1px 1px 1px gray;
+}
+.userinfo .detail_info li {
+  width: 100%;
+  box-sizing: border-box;
+  height: 1.38888889rem;
+  line-height: 1.38888889rem;
+  background-color: #fff;
+  border-bottom: 1px solid #DDDDDD;
+  font-size: 18px;
+  color: #666666;
+  padding-left: 0.41666667rem;
+  font-family: "微软雅黑", "Arial Black", Gadget, sans-serif;
+}
+[data-dpr="2"] .userinfo .detail_info li {
+  font-size: 36px;
+}
+[data-dpr="3"] .userinfo .detail_info li {
+  font-size: 54px;
 }

@@ -119,7 +119,7 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
             avalon.scan();
         }
     });
-    debugger;
+
     avalon.state('userInfo', {
         url: '/userInfo',
         templateUrl: "tpl/userInfoCtrl.html",
@@ -167,5 +167,4 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
         basepath: "/"
     });
     avalon.router.navigate(avalon.history.fragment);
-
 });

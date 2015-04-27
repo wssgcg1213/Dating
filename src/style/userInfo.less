@@ -1,6 +1,6 @@
 @import "var";
 
-.userinfo{//namespace
+.userinfo{    //namespace
 
   .userWrapper{
     width:100%;
@@ -12,19 +12,25 @@
     .userLogo{
       width:210rem / @psdWidth;
       height:210rem / @psdWidth;
-      border-radius: 100%;
+      .border-radius(100%);
       margin:0 auto;
       overflow: hidden;
       img{
         width:100%;
-        //      height:100%;
+        height:100%;
       }
-      .userName{
-        color:@bolderColor;
-      }
-      .motto{
-        color:@lightColor;
-      }
+    }
+    .userName{
+      color:@filterBtnColor;
+    }
+    .motto{
+      color:@lightColor;
+    }
+    p{
+      color:@lightColor;
+      .rfz(18px);
+      text-align: center;
+      margin:20rem/@psdWidth;
     }
 
 
@@ -32,17 +38,49 @@
   }
 
   ul{
-    //  padding-right: 0;
+    padding: 0;
     width:100%;
     list-style-type: none;
     background-color: white;
+    height:120rem / @psdWidth;
   }
   .tab{
-    li{
+    .clearfix();
+    div{
       width:50%;
       height:120rem / @psdWidth;
       float:left;
     }
+    li{
+      width:100%;
+      .box-sizing(border-box);
+      height:70rem / @psdWidth;
+      float:inherit;
+      margin-top: 25rem / @psdWidth;
+      line-height: 95rem / @psdWidth;
+      text-align: center;
+      .rfz(18px);
+      color:@lightColor;
+    }
+    li:first-child{
+      border-right:1px solid @lightColor;
+    }
   }
-
+  .detail_info{
+    -webkit-box-shadow: 1px 1px 1px gray;
+    -moz-box-shadow: 1px 1px 1px gray;
+    box-shadow: 1px 1px 1px gray;
+    li{
+      width:100%;
+      .box-sizing(border-box);
+      height:150rem / @psdWidth;
+      line-height: 150rem / @psdWidth;
+      background-color: #fff;
+      border-bottom:1px solid #DDDDDD;
+      .rfz(18px);
+      color:@lightColor;
+      padding-left:45rem / @psdWidth;
+      font-family: "微软雅黑", "Arial Black", Gadget, sans-serif;
+    }
+  }
 }
