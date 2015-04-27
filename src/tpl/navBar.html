@@ -1,7 +1,4 @@
-<div class="nav-container" ms-controller="nav" ms-on-mouseleave="toggleDropDown(false)">
+<div class="nav-container" ms-controller="nav">
     <a class="title" href="#!/">{{title}}</a>
-    <i class="iconfont user" ms-on-click="toggleDropDown" ms-on-mouseenter="toggleDropDown(true)">&#xe609;</i>
-    <ul class="dropdown" ms-visible="showDropDown" ms-on-mouseleave="toggleDropDown(false)">
-        <li ms-repeat="menus"><a ms-attr-href="el.link" ms-on-click="toggleDropDown(false)">{{el.text}}</a></li>
-    </ul>
+    <i class="iconfont user" ms-on-click="gotoCenter">&#xe609;</i>
 </div>

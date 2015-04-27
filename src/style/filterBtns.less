@@ -1,12 +1,22 @@
 @import "var";
 .fliter-btns{
-  height: 118rem / @psdWidth;
-  line-height: 100rem / @psdWidth;
+  position: relative;
+  height: 144rem / @psdWidth;
+  line-height: 128rem / @psdWidth;
   background-color: #FFF;
   color: @filterBtnColor;
   border-bottom: 1px solid #DDD;
   .iconfont{
     color: @filterBtnTriColor;
+  }
+  .line{
+    width: 1px;
+    height: 48rem / @psdWidth;
+    float: left;
+    background-color: @filterLineColor;
+    position: relative;
+    top: 48rem / @psdWidth;
+    left: -20rem / @psdWidth;
   }
   a{
     .rfz(18px);
@@ -18,6 +28,10 @@
     &:active, &:visited, &:hover{
       color: @filterBtnColor;
       text-decoration: none;
+    }
+    .iconfont{
+      position: relative;
+      top: 10rem / @psdWidth;
     }
   }
 }

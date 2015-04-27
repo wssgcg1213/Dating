@@ -31,6 +31,27 @@ define(['jQuery', 'hammer'], function($, Hammer){
             var spans = $('span', _this);
             spans.first().addClass('current');
 
+            var ratio = s.width / s.height;
+            function initImg(){
+                _ul.find('img').each(function(n, img){
+                    img.onload = function() {
+                        var _ratio = img.width / img.height;
+                        if(_ratio > ratio){ //超宽
+                            $(img).css({
+                                height: "100%",
+                                left: (img.width * s.height / img.height - s.width) / 2
+                            });
+                        }else{ //超高
+                            $(img).css({
+                                width: "100%",
+                                top: - (img.height * s.width / img.width - s.height) / 2
+                            });
+                        }
+                    };
+                });
+            }
+            initImg();
+
             var pos = 0; //init pos
             function doScroll(_pos) {
                 pos = _pos < 0 ? 0 : _pos; //min to 0

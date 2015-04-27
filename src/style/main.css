@@ -476,17 +476,26 @@ body {
   background-color: #efefef;
   font-family: 'iconfont', 'Microsoft YaHei', "WenQuanYi MicroHei", sans-serif;
 }
+.loading:after {
+  content: " ";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 nav {
   top: 0;
   left: 0;
   width: 100%;
-  height: 1.22222222rem;
-  line-height: 1.22222222rem;
-  background-color: #ff6633;
+  height: 1.55555556rem;
+  line-height: 1.55555556rem;
+  background-color: #333333;
   color: #ffffff;
 }
 nav .nav-container {
-  margin: 0 0.37037037rem;
+  margin: 0 0.44444444rem;
   *zoom: 1;
 }
 nav .nav-container:before,
@@ -513,42 +522,6 @@ nav .title {
 nav .user {
   float: right;
   cursor: pointer;
-}
-nav .dropdown {
-  margin: 0;
-  padding: 0;
-  float: right;
-  position: absolute;
-  z-index: 1000;
-  top: 1.22222222rem;
-  right: 0;
-}
-nav .dropdown li {
-  width: 3.01851852rem;
-  height: 0.76851852rem;
-  line-height: 0.76851852rem;
-  background-color: #ff6633;
-  border-bottom: 1px solid #ff9470;
-  font-size: 20px;
-  cursor: pointer;
-  text-align: center;
-}
-[data-dpr="2"] nav .dropdown li {
-  font-size: 40px;
-}
-[data-dpr="3"] nav .dropdown li {
-  font-size: 60px;
-}
-nav .dropdown li:hover {
-  background-color: #dc002c;
-}
-nav .dropdown li a {
-  text-decoration: none;
-  color: #FFF;
-  outline: none;
-}
-nav .dropdown li:first-child {
-  border-top: 1px solid #ff9470;
 }
 .slider {
   position: relative;
@@ -610,18 +583,27 @@ nav .dropdown li:first-child {
   background: #db3528;
 }
 .slider img {
-  width: 100%;
-  height: 100%;
+  position: relative;
 }
 .fliter-btns {
-  height: 1.09259259rem;
-  line-height: 0.92592593rem;
+  position: relative;
+  height: 1.33333333rem;
+  line-height: 1.18518519rem;
   background-color: #FFF;
   color: #333333;
   border-bottom: 1px solid #DDD;
 }
 .fliter-btns .iconfont {
   color: #666666;
+}
+.fliter-btns .line {
+  width: 1px;
+  height: 0.44444444rem;
+  float: left;
+  background-color: #999999;
+  position: relative;
+  top: 0.44444444rem;
+  left: -0.18518519rem;
 }
 .fliter-btns a {
   font-size: 18px;
@@ -642,6 +624,10 @@ nav .dropdown li:first-child {
 .fliter-btns a:hover {
   color: #333333;
   text-decoration: none;
+}
+.fliter-btns a .iconfont {
+  position: relative;
+  top: 0.09259259rem;
 }
 .scroll-container {
   background-color: #EFEFEF;
@@ -768,4 +754,19 @@ nav .dropdown li:first-child {
 }
 [data-dpr="3"] .userinfo .detail_info li {
   font-size: 54px;
+}
+.publishBtn {
+  position: fixed;
+  bottom: 0.44444444rem;
+  right: 0.44444444rem;
+  border-radius: 50%;
+  background-color: #f33617;
+  width: 1.35185185rem;
+  height: 1.35185185rem;
+  box-shadow: 0 0 0 2px #c2c2c2;
+  color: #ffffff;
+  font-size: 0.66666667rem !important;
+  text-align: center;
+  line-height: 1.35185185rem;
+  -webkit-font-smoothing: subpixel-antialiased !important;
 }
