@@ -653,3 +653,18 @@ nav .user {
 .scroll-container:after {
   clear: both;
 }
+.publishBtn {
+  position: fixed;
+  bottom: 0.44444444rem;
+  right: 0.44444444rem;
+  border-radius: 50%;
+  background-color: #f33617;
+  width: 1.35185185rem;
+  height: 1.35185185rem;
+  box-shadow: 0 0 0 2px #c2c2c2;
+  color: #ffffff;
+  font-size: 0.66666667rem !important;
+  text-align: center;
+  line-height: 1.35185185rem;
+  -webkit-font-smoothing: subpixel-antialiased !important;
+}
