@@ -26,7 +26,7 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
         $id: "main", //主vm
         sliderCb: function() { //初始化slider
             var width = $(window).width(),
-                height = width * 0.5625;
+                height = width * 0.46;
             $('.slider').slider({
                 width: width,
                 height: height,
@@ -38,13 +38,8 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
     avalon.define({
         $id: "nav",
         title: "约",
-        showDropDown: false,
-        toggleDropDown: function(show){
-            var _flag = avalon.vmodels.nav.showDropDown;
-            if(typeof show !== 'object'){//默认传event对象
-                return avalon.vmodels.nav.showDropDown = show;
-            }
-            avalon.vmodels.nav.showDropDown = !_flag;
+        gotoCenter: function() {
+            avalon.router.navigate('center');
         },
         menus: [{
             link: "#!/",
@@ -55,6 +50,9 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
         },{
             link: "#!/collect",
             text: "收藏"
+        },{
+            link: "#/detail",
+            text: "详情"
         }]
     });
 
@@ -64,12 +62,8 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
         templateUrl: "tpl/indexCtrl.html",
         onEnter: function(){
             setTimeout(avalon.scan, 1000); //timeout
-
             //异步处理, getdata
             ep = EventProxy.create('user', 'slider', 'fliter', function(user, slider, fliter) {
-                avalon.vmodels['slider']['items'] = slider;
-                console.log('cats:', fliter); //todo with categories
-                console.log('before scan');
                 avalon.scan();
             });
 
@@ -84,12 +78,14 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
 
                 $.post(urls.slider, {}).success(function(res) {
                     console.log('slider', res);
-                    ep.emit('slider', res.map(function(val){
+                    var sliderData = res.map(function(val){
                         return {
                             href: val.url,
                             img: val.src
                         };
-                    }));
+                    });
+                    avalon.vmodels['slider']['items'] = sliderData;
+                    ep.emit('slider', sliderData);
                 });
                 $.post(urls.category).success(function(res) {
                     ep.emit('fliter', res);
@@ -103,10 +99,6 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
                     $id: "fliterBtns"
                 });
             }
-
-            console.log('onenter home');
-
-
 
         }
     });
@@ -140,13 +132,22 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
         url: "/typeSelect",
         templateUrl: "tpl/typeSelectCtrl.html",
         onEnter: function() {
+            avalon.vmodels['nav']['title'] = "请选择";
+        }
+    });
 
+    avalon.state('center', {
+        url: "/center",
+        templateUrl: "tpl/centerCtrl.html",
+        onEnter: function() {
+            avalon.vmodels['nav']['title'] = "个人中心";
         }
     });
 
     avalon.history.start({
         basepath: "/"
     });
+
     avalon.router.navigate(avalon.history.fragment);
 
 });
