@@ -1,23 +1,23 @@
-.detail_Wrapper {
+.detail-wrapper {
   width: 100%;
   font-size: 18px;
 }
-[data-dpr="2"] .detail_Wrapper {
+[data-dpr="2"] .detail-wrapper {
   font-size: 36px;
 }
-[data-dpr="3"] .detail_Wrapper {
+[data-dpr="3"] .detail-wrapper {
   font-size: 54px;
 }
-.detail_Wrapper p {
+.detail-wrapper p {
   margin: 0;
   padding: 0;
 }
-.detail_Wrapper .person_wrapper {
+.detail-wrapper .person-wrapper {
   width: 100%;
   height: 2.40740741rem;
   background-color: #fff;
 }
-.detail_Wrapper .person {
+.detail-wrapper .person {
   width: 100%;
   height: 2.40740741rem;
   background-color: #fff;
@@ -26,19 +26,42 @@
   display: table-cell;
   vertical-align: middle;
 }
-.detail_Wrapper .person .center_wrapper {
+.detail-wrapper .person .center-wrapper {
   display: inline-block;
   *display: inline;
   *zoom: 1;
   margin-left: 2.22222222rem;
 }
-.detail_Wrapper .person .motto {
+.detail-wrapper .person .center-wrapper i {
+  font-size: 18px;
+  color: white;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  border-radius: 100%;
+  width: 0.46296296rem;
+  height: 0.46296296rem;
+  background-color: #5aa4ff;
+  overflow: hidden;
+  margin-left: 10px;
+}
+[data-dpr="2"] .detail-wrapper .person .center-wrapper i {
+  font-size: 36px;
+}
+[data-dpr="3"] .detail-wrapper .person .center-wrapper i {
+  font-size: 54px;
+}
+.detail-wrapper .person .motto {
   color: #666666;
+  font-size: 12px;
 }
-.detail_Wrapper .person div {
-  float: left;
+[data-dpr="2"] .detail-wrapper .person .motto {
+  font-size: 24px;
 }
-.detail_Wrapper .person .logo_Wrapper {
+[data-dpr="3"] .detail-wrapper .person .motto {
+  font-size: 36px;
+}
+.detail-wrapper .person .logo-wrapper {
   position: absolute;
   top: 50%;
   -webkit-transform: translate(0, -50%);
@@ -50,34 +73,66 @@
   margin-left: 0.46296296rem;
   overflow: hidden;
 }
-.detail_Wrapper .content,
-.detail_Wrapper .requirement {
+.detail-wrapper .content,
+.detail-wrapper .requirement {
   height: auto;
   background-color: #fff;
   padding-left: 0.46296296rem;
   border-bottom: 1px solid #dddddd;
 }
-.detail_Wrapper ul {
+.detail-wrapper .content i,
+.detail-wrapper .requirement i {
+  font-size: 18px;
+  margin-right: 10px;
+}
+[data-dpr="2"] .detail-wrapper .content i,
+[data-dpr="2"] .detail-wrapper .requirement i {
+  font-size: 36px;
+}
+[data-dpr="3"] .detail-wrapper .content i,
+[data-dpr="3"] .detail-wrapper .requirement i {
+  font-size: 54px;
+}
+.detail-wrapper .content .location i,
+.detail-wrapper .requirement .location i {
+  color: #4ea1ff;
+}
+.detail-wrapper .content .time i,
+.detail-wrapper .requirement .time i {
+  color: #44d48b;
+}
+.detail-wrapper .content .cost i,
+.detail-wrapper .requirement .cost i {
+  color: #ff7660;
+}
+.detail-wrapper ul {
   padding: 0;
   width: 100%;
 }
-.detail_Wrapper ul li {
+.detail-wrapper ul li {
   color: #666666;
   line-height: 42px;
   height: 0.69444444rem;
   width: 100%;
+  font-size: 12px;
 }
-.detail_Wrapper .title {
+[data-dpr="2"] .detail-wrapper ul li {
+  font-size: 24px;
+}
+[data-dpr="3"] .detail-wrapper ul li {
+  font-size: 36px;
+}
+.detail-wrapper .title {
   font-size: 22px;
   color: #333333 33;
 }
-[data-dpr="2"] .detail_Wrapper .title {
+[data-dpr="2"] .detail-wrapper .title {
   font-size: 44px;
 }
-[data-dpr="3"] .detail_Wrapper .title {
+[data-dpr="3"] .detail-wrapper .title {
   font-size: 66px;
 }
-.detail_Wrapper .fixedFooter {
+.detail-wrapper .fixed-footer {
   position: fixed;
   bottom: 0;
   height: 1.34259259rem;
@@ -85,13 +140,13 @@
   width: 100%;
   border-bottom: 1px solid #dddddd;
 }
-.detail_Wrapper .fixedFooter ul {
+.detail-wrapper .fixed-footer ul {
   padding: 0;
 }
-.detail_Wrapper .fixedFooter ul a {
+.detail-wrapper .fixed-footer ul a {
   color: #000000;
 }
-.detail_Wrapper .fixedFooter ul li {
+.detail-wrapper .fixed-footer ul li {
   color: #404040;
   width: 50%;
   height: 1.34259259rem;
@@ -99,18 +154,18 @@
   text-align: center;
   font-size: 18px;
 }
-[data-dpr="2"] .detail_Wrapper .fixedFooter ul li {
+[data-dpr="2"] .detail-wrapper .fixed-footer ul li {
   font-size: 36px;
 }
-[data-dpr="3"] .detail_Wrapper .fixedFooter ul li {
+[data-dpr="3"] .detail-wrapper .fixed-footer ul li {
   font-size: 54px;
 }
-[data-dpr="2"] .detail_Wrapper .fixedFooter ul li {
+[data-dpr="2"] .detail-wrapper .fixed-footer ul li {
   font-size: 36px;
 }
-[data-dpr="3"] .detail_Wrapper .fixedFooter ul li {
+[data-dpr="3"] .detail-wrapper .fixed-footer ul li {
   font-size: 54px;
 }
-.detail_Wrapper .fixedFooter ul .special {
+.detail-wrapper .fixed-footer ul .special {
   color: #ff7d63;
 }

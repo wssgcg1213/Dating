@@ -56,6 +56,9 @@ require(['eventproxy', 'slider', 'DateTimePicker', 'domReady!', 'mmState'], func
         },{
             link:"#/userInfo",
             text:"个人中心"
+        },{
+            link:"#/letter",
+            text:"私信"
         }]
     });
 
@@ -150,6 +153,15 @@ require(['eventproxy', 'slider', 'DateTimePicker', 'domReady!', 'mmState'], func
         }
     });
 
+    avalon.state('letters',{
+        url:'/letters',
+        templateUrl:"tpl/lettersCtrl.html",
+        onEnter: function() {
+            //todo
+            avalon.vmodels['nav']['title'] = "私信";
+            avalon.scan();
+        }
+    });
     //avalon.state('typeSelect', {
     //    url: "/typeSelect",
     //    templateUrl: "tpl/typeSelectCtrl.html",
@@ -336,6 +348,15 @@ require(['eventproxy', 'slider', 'DateTimePicker', 'domReady!', 'mmState'], func
             avalon.scan();
         }
     });
+
+    avalon.state("litterLetter",{
+        url:"/litterLetter",
+        templateUrl:"tpl/litterLetterCtrl.html",
+        onEnter:function() {
+            avalon.vmodels['nav']['title'] = "私信";
+            avalon.scan();
+        }
+    })
 
     avalon.history.start({
         basepath: "/"
