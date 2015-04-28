@@ -654,6 +654,122 @@ nav .user {
 .scroll-container:after {
   clear: both;
 }
+.detail_Wrapper {
+  width: 100%;
+  font-size: 18px;
+}
+[data-dpr="2"] .detail_Wrapper {
+  font-size: 36px;
+}
+[data-dpr="3"] .detail_Wrapper {
+  font-size: 54px;
+}
+.detail_Wrapper p {
+  margin: 0;
+  padding: 0;
+}
+.detail_Wrapper .person_wrapper {
+  width: 100%;
+  height: 2.40740741rem;
+  background-color: #fff;
+}
+.detail_Wrapper .person {
+  width: 100%;
+  height: 2.40740741rem;
+  background-color: #fff;
+  border-bottom: 1px solid #dddddd;
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+}
+.detail_Wrapper .person .center_wrapper {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  margin-left: 2.22222222rem;
+}
+.detail_Wrapper .person .motto {
+  color: #666666;
+}
+.detail_Wrapper .person div {
+  float: left;
+}
+.detail_Wrapper .person .logo_Wrapper {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  width: 1.57407407rem;
+  height: 1.57407407rem;
+  border-radius: 100%;
+  margin-left: 0.46296296rem;
+  overflow: hidden;
+}
+.detail_Wrapper .content,
+.detail_Wrapper .requirement {
+  height: auto;
+  background-color: #fff;
+  padding-left: 0.46296296rem;
+  border-bottom: 1px solid #dddddd;
+}
+.detail_Wrapper ul {
+  padding: 0;
+  width: 100%;
+}
+.detail_Wrapper ul li {
+  color: #666666;
+  line-height: 42px;
+  height: 0.69444444rem;
+  width: 100%;
+}
+.detail_Wrapper .title {
+  font-size: 22px;
+  color: #333333 33;
+}
+[data-dpr="2"] .detail_Wrapper .title {
+  font-size: 44px;
+}
+[data-dpr="3"] .detail_Wrapper .title {
+  font-size: 66px;
+}
+.detail_Wrapper .fixedFooter {
+  position: fixed;
+  bottom: 0;
+  height: 1.34259259rem;
+  background-color: #fff;
+  width: 100%;
+  border-bottom: 1px solid #dddddd;
+}
+.detail_Wrapper .fixedFooter ul {
+  padding: 0;
+}
+.detail_Wrapper .fixedFooter ul a {
+  color: #000000;
+}
+.detail_Wrapper .fixedFooter ul li {
+  color: #404040;
+  width: 50%;
+  height: 1.34259259rem;
+  float: left;
+  text-align: center;
+  font-size: 18px;
+}
+[data-dpr="2"] .detail_Wrapper .fixedFooter ul li {
+  font-size: 36px;
+}
+[data-dpr="3"] .detail_Wrapper .fixedFooter ul li {
+  font-size: 54px;
+}
+[data-dpr="2"] .detail_Wrapper .fixedFooter ul li {
+  font-size: 36px;
+}
+[data-dpr="3"] .detail_Wrapper .fixedFooter ul li {
+  font-size: 54px;
+}
+.detail_Wrapper .fixedFooter ul .special {
+  color: #ff7d63;
+}
 .userinfo .userWrapper {
   width: 100%;
   height: 3.83333333rem;
@@ -712,7 +828,11 @@ nav .user {
 .userinfo .tab div {
   width: 50%;
   height: 1.11111111rem;
+  line-height: 1.11111111rem;
   float: left;
+}
+.userinfo .tab div a {
+  display: inline;
 }
 .userinfo .tab li {
   width: 100%;
@@ -720,7 +840,7 @@ nav .user {
   height: 0.64814815rem;
   float: inherit;
   margin-top: 0.23148148rem;
-  line-height: 0.87962963rem;
+  line-height: 0.64814815rem;
   text-align: center;
   font-size: 18px;
   color: #666666;
@@ -735,7 +855,7 @@ nav .user {
   border-right: 1px solid #666666;
 }
 .userinfo .detail_info {
-  box-shadow: 1px 1px 1px gray;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 .userinfo .detail_info li {
   width: 100%;

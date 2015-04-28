@@ -46,10 +46,15 @@
   }
   .tab{
     .clearfix();
+
     div{
       width:50%;
       height:120rem / @psdWidth;
+      line-height: 120rem / @psdWidth;
       float:left;
+      a{
+        display: inline;
+      }
     }
     li{
       width:100%;
@@ -57,7 +62,7 @@
       height:70rem / @psdWidth;
       float:inherit;
       margin-top: 25rem / @psdWidth;
-      line-height: 95rem / @psdWidth;
+      line-height: 70rem / @psdWidth;
       text-align: center;
       .rfz(18px);
       color:@lightColor;
@@ -67,9 +72,7 @@
     }
   }
   .detail_info{
-    -webkit-box-shadow: 1px 1px 1px gray;
-    -moz-box-shadow: 1px 1px 1px gray;
-    box-shadow: 1px 1px 1px gray;
+    .box-shadow(5px 5px 5px rgba(0, 0, 0, 0.5));
     li{
       width:100%;
       .box-sizing(border-box);

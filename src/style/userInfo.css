@@ -56,7 +56,11 @@
 .userinfo .tab div {
   width: 50%;
   height: 1.11111111rem;
+  line-height: 1.11111111rem;
   float: left;
+}
+.userinfo .tab div a {
+  display: inline;
 }
 .userinfo .tab li {
   width: 100%;
@@ -64,7 +68,7 @@
   height: 0.64814815rem;
   float: inherit;
   margin-top: 0.23148148rem;
-  line-height: 0.87962963rem;
+  line-height: 0.64814815rem;
   text-align: center;
   font-size: 18px;
   color: #666666;
@@ -79,7 +83,7 @@
   border-right: 1px solid #666666;
 }
 .userinfo .detail_info {
-  box-shadow: 1px 1px 1px gray;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 .userinfo .detail_info li {
   width: 100%;

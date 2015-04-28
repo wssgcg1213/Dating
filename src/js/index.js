@@ -52,7 +52,10 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
             text: "收藏"
         },{
             link: "#/detail",
-            text: "详情"
+            text: "约会详情"
+        },{
+            link:"#/userInfo",
+            text:"个人中心"
         }]
     });
 
@@ -116,7 +119,7 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
         url: '/userInfo',
         templateUrl: "tpl/userInfoCtrl.html",
         onEnter: function(){
-            avalon.vmodels['nav']['title'] = "个人中心";
+            //avalon.vmodels['nav']['title'] = "个人中心";
             avalon.define({
                 $id : "userInfo",
                 //data :{
@@ -135,7 +138,7 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
         url: '/detail',
         templateUrl: "tpl/detailCtrl.html",
         onEnter: function() {
-            avalon.vmodels['nav']['title'] = "详情";
+            //avalon.vmodels['nav']['title'] = "详情";
             //todo
             if(!avalon.vmodels['userInfo']){
                 avalon.define({
