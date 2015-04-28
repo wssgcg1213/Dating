@@ -32,6 +32,21 @@ require(['eventproxy', 'slider', 'DateTimePicker', 'domReady!', 'mmState'], func
                 height: height,
                 during: 3000
             });
+            var ratio = width/height;
+            $('.slider img').each(function(n, img){
+                var _ratio = img.width / img.height;
+                if(_ratio > ratio){ //超宽
+                    $(img).css({
+                        height: "100%",
+                        left: (img.width * height / img.height - width) / 2
+                    });
+                }else{ //超高
+                    $(img).css({
+                        width: "100%",
+                        top: - (img.height * width / img.width - height) / 2
+                    });
+                }
+            });
         }
     });
 
