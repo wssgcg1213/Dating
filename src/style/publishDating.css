@@ -6,6 +6,8 @@
   margin: 0.46296296rem 0;
 }
 .pbl-dating .row {
+  position: relative;
+  overflow: hidden;
   height: 1.33333333rem;
   line-height: 1.33333333rem;
   font-size: 16px;
@@ -18,6 +20,51 @@
 }
 [data-dpr="3"] .pbl-dating .row {
   font-size: 48px;
+}
+.pbl-dating .row.active {
+  background-color: #f7f7f7;
+}
+.pbl-dating .row input {
+  background-color: #f7f7f7;
+  border: none;
+  outline: none;
+  color: #757575;
+}
+.pbl-dating .row .w50 {
+  width: 50%;
+}
+.pbl-dating .row #yTitle,
+.pbl-dating .row #yLocation,
+.pbl-dating .row #yPeople,
+.pbl-dating .row #ySpend {
+  width: 50%;
+  float: right;
+  text-align: right;
+  line-height: 100%;
+  height: 100%;
+}
+.pbl-dating .row .choose {
+  float: right;
+  text-align: right;
+  line-height: 100%;
+  height: 100%;
+  right: 0;
+  z-index: 1;
+  position: absolute;
+  opacity: 0;
+}
+.pbl-dating .row #yTime {
+  /* width: 1px; */
+  float: right;
+  text-align: right;
+  line-height: 100%;
+  height: 100%;
+  right: 0;
+  z-index: -1;
+  position: absolute;
+}
+.pbl-dating .row .right {
+  text-align: right;
 }
 .pbl-dating .dating-type {
   color: #49a7ef;

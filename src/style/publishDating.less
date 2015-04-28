@@ -11,13 +11,59 @@
 
   .row{
 //    width: 100%;
+    position: relative;
+    overflow: hidden;
     height: 144rem/@psdWidth;
     line-height: 144rem/@psdWidth;
     .rfz(16px);
     border-top: 1px solid #ddd;
     background-color: #fff;
     padding: 0 48rem/@psdWidth;
+    &.active{
+      background-color: rgb(247, 247, 247);
+    }
 
+    input{
+      background-color: rgb(247, 247, 247);
+      border: none;
+//      border-bottom: 1px solid #666;
+      outline: none;
+      color:#757575;
+    }
+
+    .w50{
+      width: 50%;
+    }
+    #yTitle, #yLocation, #yPeople, #ySpend{
+      width: 50%;
+      float: right;
+      text-align: right;
+      line-height: 100%;
+      height: 100%;
+    }
+    .choose{
+      float: right;
+      text-align: right;
+      line-height: 100%;
+      height: 100%;
+      right: 0;
+      z-index: 1;
+      position: absolute;
+      opacity: 0;
+    }
+    #yTime{
+      /* width: 1px; */
+      float: right;
+      text-align: right;
+      line-height: 100%;
+      height: 100%;
+      right: 0;
+      z-index: -1;
+      position: absolute;
+    }
+    .right{
+      text-align: right;
+    }
   }
 
   .dating-type{
@@ -54,4 +100,17 @@
   .dollar{
     color: #ff7660;
   }
+
+
+//  .widget{
+//    display: none;
+//    width: 700rem/@psdWidth;
+//    height: 700rem/@psdWidth;
+//    background-color: #fff;
+//    z-index: 10;
+//    position: absolute;
+//    top:0;left:0;right:0;bottom:0;
+//    margin: auto;
+//    box-shadow: 0 0 0 1px #404040;
+//  }
 }
