@@ -147,19 +147,30 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
         }
     });
 
-    avalon.state('typeSelect', {
-        url: "/typeSelect",
-        templateUrl: "tpl/typeSelectCtrl.html",
-        onEnter: function() {
-            avalon.vmodels['nav']['title'] = "请选择";
-        }
-    });
+    //avalon.state('typeSelect', {
+    //    url: "/typeSelect",
+    //    templateUrl: "tpl/typeSelectCtrl.html",
+    //    onEnter: function() {
+    //        avalon.vmodels['nav']['title'] = "请选择";
+    //    }
+    //});
 
     avalon.state('center', {
         url: "/center",
         templateUrl: "tpl/centerCtrl.html",
         onEnter: function() {
             avalon.vmodels['nav']['title'] = "个人中心";
+
+            avalon.scan();
+        }
+    });
+
+    avalon.state('publishDating', {
+        url: "/publishDating",
+        templateUrl: "tpl/publishDatingCtrl.html",
+        onEnter: function() {
+            avalon.vmodels['nav']['title'] = "发布约会";
+            avalon.scan();
         }
     });
 

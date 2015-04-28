@@ -1,0 +1,58 @@
+.pbl-dating {
+  background-color: #efefef;
+  overflow: hidden;
+}
+.pbl-dating .row-group {
+  margin: 0.46296296rem 0;
+}
+.pbl-dating .row {
+  height: 1.33333333rem;
+  line-height: 1.33333333rem;
+  font-size: 16px;
+  border-top: 1px solid #ddd;
+  background-color: #fff;
+  padding: 0 0.44444444rem;
+}
+[data-dpr="2"] .pbl-dating .row {
+  font-size: 32px;
+}
+[data-dpr="3"] .pbl-dating .row {
+  font-size: 48px;
+}
+.pbl-dating .dating-type {
+  color: #49a7ef;
+  font-weight: bold;
+}
+.pbl-dating i {
+  font-size: 18px;
+  margin-right: 0.0462963rem;
+}
+[data-dpr="2"] .pbl-dating i {
+  font-size: 36px;
+}
+[data-dpr="3"] .pbl-dating i {
+  font-size: 54px;
+}
+.pbl-dating span {
+  color: #212121;
+}
+.pbl-dating a.right,
+.pbl-dating a.right:active,
+.pbl-dating a.right:hover,
+.pbl-dating a.right:visited {
+  float: right;
+  color: #757575;
+  text-decoration: none;
+}
+.pbl-dating .time {
+  color: #44d48b;
+}
+.pbl-dating .location {
+  color: #4ea1ff;
+}
+.pbl-dating .people {
+  color: #ffc12b;
+}
+.pbl-dating .dollar {
+  color: #ff7660;
+}
