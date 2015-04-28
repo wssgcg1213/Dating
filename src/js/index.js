@@ -177,6 +177,16 @@ require(['eventproxy', 'slider', 'DateTimePicker', 'domReady!', 'mmState'], func
             avalon.scan();
         }
     });
+
+    avalon.state('history',{
+        url:'/history',
+        templateUrl:"tpl/historyCtrl.html",
+        onEnter: function() {
+            //todo
+            avalon.vmodels['nav']['title'] = "约会记录";
+            avalon.scan();
+        }
+    })
     //avalon.state('typeSelect', {
     //    url: "/typeSelect",
     //    templateUrl: "tpl/typeSelectCtrl.html",

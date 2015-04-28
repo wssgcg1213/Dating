@@ -40,6 +40,7 @@
       .motto{
         color:@lightColor;
         .rfz(14px);
+        margin-top: 25rem / @psdWidth;
       }
     }
 
@@ -59,10 +60,7 @@
     .letter-content{
       width:100%;
       height:auto;
-      //    .box-sizing(border-box);
       background-color:#ffffff;
-//      display: table-cell;
-//      vertical-align:middle;
       span{
         display:inline-block;
         .rfz(14px);
@@ -74,7 +72,6 @@
     }
   }
 
-
   .fixed-footer{
     position: fixed;
     bottom:0;
@@ -84,17 +81,26 @@
     border-bottom: @border;
     ul{
       padding:0;
+      margin:0;
       a{
         color:#000000;
+        //        .inline-block();
+        width:50%;
       }
       li {
+        .box-sizing(border-box);
         color: #404040;
         .rfz(18px);
         width: 50%;
         height: 145rem / @psdWidth;
+        line-height:145rem / @psdWidth ;
         float: left;
         text-align: center;
         .rfz(18px);
+      }
+      .special{
+        color:#ff7d63;
+        border-left:1px solid #dddddd;
       }
     }
   }

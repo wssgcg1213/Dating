@@ -54,6 +54,7 @@
 .letter-wrapper .person .center-wrapper .motto {
   color: #666666;
   font-size: 14px;
+  margin-top: 0.23148148rem;
 }
 [data-dpr="2"] .letter-wrapper .person .center-wrapper .motto {
   font-size: 28px;
@@ -105,14 +106,18 @@
 }
 .letter-wrapper .fixed-footer ul {
   padding: 0;
+  margin: 0;
 }
 .letter-wrapper .fixed-footer ul a {
   color: #000000;
+  width: 50%;
 }
 .letter-wrapper .fixed-footer ul li {
+  box-sizing: border-box;
   color: #404040;
   width: 50%;
   height: 1.34259259rem;
+  line-height: 1.34259259rem;
   float: left;
   text-align: center;
   font-size: 18px;
@@ -128,4 +133,8 @@
 }
 [data-dpr="3"] .letter-wrapper .fixed-footer ul li {
   font-size: 54px;
+}
+.letter-wrapper .fixed-footer ul .special {
+  color: #ff7d63;
+  border-left: 1px solid #dddddd;
 }
