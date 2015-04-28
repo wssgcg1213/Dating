@@ -1134,3 +1134,56 @@ nav .user {
 [data-dpr="3"] .letter-wrapper .fixed-footer ul li {
   font-size: 54px;
 }
+.litterLetter {
+  overflow: hidden;
+  background-color: #fff;
+}
+.litterLetter .a-wrapper {
+  width: 100%;
+  position: relative;
+  height: 1.99074074rem;
+  display: table-cell;
+  vertical-align: middle;
+}
+.litterLetter .a-wrapper .username {
+  color: #49a3f6;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  margin-left: 2.12962963rem;
+}
+.litterLetter .a-wrapper .list {
+  width: 100%;
+  height: 1.99074074rem;
+  background-color: #fff;
+}
+.litterLetter .a-wrapper .list .content {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 9.39814815rem;
+  text-overflow: ellipsis;
+  color: #666666;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 18px;
+  line-height: 215 rem / 108;
+}
+[data-dpr="2"] .litterLetter .a-wrapper .list .content {
+  font-size: 36px;
+}
+[data-dpr="3"] .litterLetter .a-wrapper .list .content {
+  font-size: 54px;
+}
+.litterLetter .a-wrapper .logo-wrapper {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  width: 1.57407407rem;
+  height: 1.57407407rem;
+  border-radius: 100%;
+  margin-left: 0.46296296rem;
+  overflow: hidden;
+}

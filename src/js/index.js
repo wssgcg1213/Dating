@@ -189,6 +189,15 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
         }
     });
 
+    avalon.state("litterLetter",{
+        url:"/litterLetter",
+        templateUrl:"tpl/litterLetterCtrl.html",
+        onEnter:function() {
+            avalon.vmodels['nav']['title'] = "私信";
+            avalon.scan();
+        }
+    })
+
     avalon.history.start({
         basepath: "/"
     });
