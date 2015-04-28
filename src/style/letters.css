@@ -1,0 +1,131 @@
+.letter-wrapper p {
+  margin: 0;
+  padding: 0;
+}
+.letter-wrapper .person-wrapper {
+  width: 100%;
+  height: 2.40740741rem;
+  background-color: #fff;
+  border-bottom: 1px solid #dddddd;
+}
+.letter-wrapper .person {
+  width: 100%;
+  height: 2.40740741rem;
+  background-color: #fff;
+  border-bottom: 1px solid #dddddd;
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+}
+.letter-wrapper .person .center-wrapper {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  margin-left: 2.22222222rem;
+}
+.letter-wrapper .person .center-wrapper i {
+  font-size: 18px;
+  color: white;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  border-radius: 100%;
+  width: 0.46296296rem;
+  height: 0.46296296rem;
+  background-color: #5aa4ff;
+  overflow: hidden;
+  margin-left: 10px;
+}
+[data-dpr="2"] .letter-wrapper .person .center-wrapper i {
+  font-size: 36px;
+}
+[data-dpr="3"] .letter-wrapper .person .center-wrapper i {
+  font-size: 54px;
+}
+.letter-wrapper .person .center-wrapper p {
+  font-size: 18px;
+}
+[data-dpr="2"] .letter-wrapper .person .center-wrapper p {
+  font-size: 36px;
+}
+[data-dpr="3"] .letter-wrapper .person .center-wrapper p {
+  font-size: 54px;
+}
+.letter-wrapper .person .center-wrapper .motto {
+  color: #666666;
+  font-size: 14px;
+}
+[data-dpr="2"] .letter-wrapper .person .center-wrapper .motto {
+  font-size: 28px;
+}
+[data-dpr="3"] .letter-wrapper .person .center-wrapper .motto {
+  font-size: 42px;
+}
+.letter-wrapper .person .logo-wrapper {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  width: 1.57407407rem;
+  height: 1.57407407rem;
+  border-radius: 100%;
+  margin-left: 0.46296296rem;
+  overflow: hidden;
+}
+.letter-wrapper .letter-wrapper {
+  width: 100%;
+}
+.letter-wrapper .letter-wrapper .letter-content {
+  width: 100%;
+  height: auto;
+  background-color: #ffffff;
+}
+.letter-wrapper .letter-wrapper .letter-content span {
+  display: inline-block;
+  font-size: 14px;
+  margin: 20px;
+}
+[data-dpr="2"] .letter-wrapper .letter-wrapper .letter-content span {
+  font-size: 28px;
+}
+[data-dpr="3"] .letter-wrapper .letter-wrapper .letter-content span {
+  font-size: 42px;
+}
+.letter-wrapper .letter-wrapper .letter-content span a {
+  color: #5a99e2;
+}
+.letter-wrapper .fixed-footer {
+  position: fixed;
+  bottom: 0;
+  height: 1.34259259rem;
+  background-color: #fff;
+  width: 100%;
+  border-bottom: 1px solid #dddddd;
+}
+.letter-wrapper .fixed-footer ul {
+  padding: 0;
+}
+.letter-wrapper .fixed-footer ul a {
+  color: #000000;
+}
+.letter-wrapper .fixed-footer ul li {
+  color: #404040;
+  width: 50%;
+  height: 1.34259259rem;
+  float: left;
+  text-align: center;
+  font-size: 18px;
+}
+[data-dpr="2"] .letter-wrapper .fixed-footer ul li {
+  font-size: 36px;
+}
+[data-dpr="3"] .letter-wrapper .fixed-footer ul li {
+  font-size: 54px;
+}
+[data-dpr="2"] .letter-wrapper .fixed-footer ul li {
+  font-size: 36px;
+}
+[data-dpr="3"] .letter-wrapper .fixed-footer ul li {
+  font-size: 54px;
+}

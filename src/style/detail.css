@@ -53,9 +53,13 @@
 }
 .detail-wrapper .person .motto {
   color: #666666;
+  font-size: 12px;
 }
-.detail-wrapper .person div {
-  float: left;
+[data-dpr="2"] .detail-wrapper .person .motto {
+  font-size: 24px;
+}
+[data-dpr="3"] .detail-wrapper .person .motto {
+  font-size: 36px;
 }
 .detail-wrapper .person .logo-wrapper {
   position: absolute;
@@ -110,6 +114,13 @@
   line-height: 42px;
   height: 0.69444444rem;
   width: 100%;
+  font-size: 12px;
+}
+[data-dpr="2"] .detail-wrapper ul li {
+  font-size: 24px;
+}
+[data-dpr="3"] .detail-wrapper ul li {
+  font-size: 36px;
 }
 .detail-wrapper .title {
   font-size: 22px;

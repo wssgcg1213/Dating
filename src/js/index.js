@@ -56,6 +56,9 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
         },{
             link:"#/userInfo",
             text:"个人中心"
+        },{
+            link:"#/letter",
+            text:"私信"
         }]
     });
 
@@ -150,6 +153,15 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
         }
     });
 
+    avalon.state('letters',{
+        url:'/letters',
+        templateUrl:"tpl/lettersCtrl.html",
+        onEnter: function() {
+            //todo
+            avalon.vmodels['nav']['title'] = "私信";
+            avalon.scan();
+        }
+    });
     //avalon.state('typeSelect', {
     //    url: "/typeSelect",
     //    templateUrl: "tpl/typeSelectCtrl.html",
