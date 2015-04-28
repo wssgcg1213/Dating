@@ -19,7 +19,7 @@ var urls = {
     "scrollBox": "http://106.184.7.12:8002/index.php/home/index/showBox",
     "category": "http://106.184.7.12:8002/index.php/home/index/category"
 };
-require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
+require(['eventproxy', 'slider', 'DateTimePicker', 'domReady!', 'mmState'], function(EventProxy) {
     //debugger;
     var ep; //用来装载EventProxy的实例对象
     avalon.define({
@@ -194,7 +194,167 @@ require(['eventproxy', 'slider', 'domReady!', 'mmState'], function(EventProxy) {
         url: "/publishDating",
         templateUrl: "tpl/publishDatingCtrl.html",
         onEnter: function() {
+            var lunar = ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+                weeks = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
+                datePickerFlag = false;
+
             avalon.vmodels['nav']['title'] = "发布约会";
+            if(!avalon.vmodels['publishDating'])
+                avalon.define({
+                    $id: "publishDating",
+                    yType: "约什么",
+                    yTypeStatus: false,
+
+                    yTitle: "",
+                    yTitleStatus: false,//标明激活状态
+                    yTitleValid: false,//标明数据有效状态
+                    yTitleBlur: function(ev) {
+                        ev.stopPropagation();
+                        var _vm = avalon.vmodels['publishDating'],
+                            str = check();
+                        _vm['yTitleStatus'] = false;
+
+                        if(str){
+                            _vm['yTitle'] = str;
+                            _vm['yTitleValid'] = true;
+                        }
+
+                        function check() {
+                            var $input = $("#yTitle"),
+                                _str = $input.val().trim();
+                            return (_str && _str.length) > 0 ? _str : false;
+                        }
+                    },
+
+                    yTime: "",
+                    yTimeStatus: false,
+                    yTimeValid: false,//标明数据有效状态
+                    yTimeBlur: function(ev) {
+                        var _vm = avalon.vmodels['publishDating'];
+                        _vm['yTimeStatus'] = false;
+                        var str;
+                        if(str = check()){
+                            _vm['yTime'] = str;
+                            _vm['yTimeValid'] = true;
+                        }
+
+                        function check() {
+                            var $input = $("#yTime"),
+                                _str = $input.val().trim();
+                            return (_str && _str.length) > 0 ? _str : false;
+                        }
+                    },
+                    //chooseTime: function(ev){
+                    //   ev.stopPropagation();
+                    //
+                    //},
+
+                    yLocation: "",
+                    yLocationStatus: false,//标明激活状态
+                    yLocationValid: false,//标明数据有效状态
+                    yLocationBlur: function(ev) {
+                        ev.stopPropagation();
+                        var _vm = avalon.vmodels['publishDating'],
+                            str = _vm['yLocation'];
+
+                        _vm['yLocationStatus'] = false;
+                        _vm['yLocation'] = str;
+                        _vm['yLocationValid'] = true;
+                    },
+
+                    yPeople: 0,
+                    yPeopleStatus: false,//标明激活状态
+                    yPeopleValid: false,//标明数据有效状态
+                    yPeopleBlur: function(ev) {
+                        ev.stopPropagation();
+                        var _vm = avalon.vmodels['publishDating'],
+                            str = check();
+                        _vm['yPeopleStatus'] = false;
+
+                        if(str){
+                            _vm['yPeople'] = str;
+                            _vm['yPeopleValid'] = true;
+                        }
+
+                        function check() {
+                            var $input = $("#yPeople"),
+                                _str = $input.val().trim();
+                            return parseInt(_str) || 0;
+                        }
+                    },
+
+                    ySpend: "",
+                    ySpendStatus: false,//标明激活状态
+                    ySpendValid: false,//标明数据有效状态
+                    ySpendBlur: function(ev) {
+                        ev.stopPropagation();
+                        var _vm = avalon.vmodels['publishDating'],
+                            v = _vm['ySpend'];
+
+                        _vm['ySpendStatus'] = false;
+                        _vm['ySpend'] = v;
+                        _vm['ySpendValid'] = true;
+
+                    },
+
+                    ySex: "",
+                    yGrade: "",
+                    yCollege: "",
+
+                    active: function(type, $ev){
+                        var _vm = avalon.vmodels['publishDating'];
+                        switch(type){
+                            case 'yTitle':
+                                _vm[type + 'Status'] = true;
+                                $('#' + type).focus();
+                                break;
+
+                            case 'yTime':
+                                if(!datePickerFlag){
+                                    datePickerFlag = true;
+                                    $('.widget').DateTimePicker({
+                                        titleContentDateTime: "请选择准备约会的时间",
+                                        setButtonContent: "就你了",
+                                        clearButtonContent: "算了吧",
+                                        dateTimeFormat: "yyyy-MM-dd HH:mm:ss",
+                                        shortDayNames: weeks,
+                                        fullDayNames: weeks,
+                                        shortMonthNames: lunar,
+                                        fullMonthNames:	lunar
+                                    });
+                                }
+                                _vm[type + 'Status'] = true;
+                                $('#yTime').focus();
+                                $ev.stopPropagation();
+                                break;
+
+                            case 'yLocation':
+                                _vm[type + 'Status'] = true;
+                                $('#' + type).focus();
+                                break;
+
+                            case 'yPeople':
+                                _vm[type + 'Status'] = true;
+                                $('#' + type).focus();
+                                break;
+
+                            case 'ySpend':
+                                _vm[type + 'Status'] = true;
+                                $('#' + type).focus();
+                                break;
+                        }
+                    }
+
+                });
+            avalon.vmodels['publishDating'].$watch('yTitle', function(newStr, oldStr){
+                avalon.vmodels['publishDating']['yTitle'] = newStr.trim();
+            });
+            avalon.vmodels['publishDating'].$watch('yLocation', function(newStr, oldStr){
+                avalon.vmodels['publishDating']['yLocation'] = newStr.trim();
+            });
+            avalon.vmodels['publishDating'].$watch('yPeople', function(newStr, oldStr){
+                avalon.vmodels['publishDating']['yPeople'] = parseInt(newStr) || 0;
+            });
             avalon.scan();
         }
     });

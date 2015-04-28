@@ -1,53 +1,84 @@
 <!--发布约会-->
 <nav ms-include-src="'tpl/navBar.html'"></nav>
-<section class="pbl-dating">
+<section class="pbl-dating" ms-controller="publishDating">
     <div class="row-group">
         <div class="row">
-            <span class="dating-type">约运动</span>
-            <a class="right" href="#/typeSelect">点击更改</a>
+            <span class="dating-type">{{yType}}</span>
+            <a class="right" href="#!/typeSelect">点击更改</a>
         </div>
     </div>
 
     <div class="row-group">
-        <div class="row">
+        <div class="row" ms-on-click="active('yTitle')" ms-class="active:yTitleStatus">
             <span class="title">标题</span>
-            <a class="right" href="#/typeSelect">请输入</a>
+            <input type="text" ms-visible="yTitleStatus" id="yTitle" class="w50" ms-duplex="yTitle" ms-on-blur="yTitleBlur"/>
+            <a class="right w50" ms-if="!yTitleStatus">{{yTitle ? yTitle : "请输入"}}</a>
         </div>
-        <div class="row">
+        <div class="row" ms-click="active('yTime', $event)" ms-class="active:yTimeStatus">
             <i class="iconfont time">&#xe611;</i>
             <span class="subtitle">约会时间</span>
-            <a class="right" href="#/typeSelect">请选择</a>
+            <input type="text" id="yTime" data-view="Popup" ms-duplex="yTime" data-field="datetime" readonly ms-on-blur="yTimeBlur"/>
+            <a class="right">{{yTime ? yTime : "请选择"}}</a>
         </div>
-        <div class="row">
+        <div class="row" ms-on-click="active('yLocation')" ms-class="active:yLocationStatus">
             <i class="iconfont location">&#xe612;</i>
             <span class="subtitle">约会地点</span>
-            <a class="right" href="#/typeSelect">请输入</a>
+            <input type="text" ms-visible="yLocationStatus" id="yLocation" class="w50" ms-duplex="yLocation" ms-on-blur="yLocationBlur"/>
+            <a class="right" ms-if="!yLocationStatus">{{yLocation ? yLocation : "请输入"}}</a>
         </div>
-        <div class="row">
+        <div class="row" ms-on-click="active('yPeople')" ms-class="active:yPeopleStatus">
             <i class="iconfont people">&#xe610;</i>
             <span class="subtitle">约会人数</span>
-            <a class="right" href="#/typeSelect">请选择</a>
+            <input type="tel" ms-visible="yPeopleStatus" id="yPeople" class="w50" ms-duplex="yPeople" ms-on-blur="yPeopleBlur"/>
+            <a class="right" ms-if="!yPeopleStatus">{{yPeople ? yPeople : "请选择"}}</a>
         </div>
-        <div class="row">
+        <div class="row" ms-on-click="active('ySpend')" ms-class="active:ySpendStatus">
             <i class="iconfont dollar">&#xe60f;</i>
             <span class="subtitle">花费</span>
-            <a class="right" href="#/typeSelect">请选择</a>
+            <select id="ySpend" class="choose" ms-duplex="ySpend" ms-on-blur="ySpendBlur">
+                <option value=""></option>
+                <option value="我请客">我请客</option>
+                <option value="AA制">AA制</option>
+                <option value="求请客">求请客</option>
+            </select>
+            <a class="right">{{ySpend ? ySpend : "请选择"}}</a>
         </div>
     </div>
 
     <div class="row-group">
-        <div class="row">
-            <span class="title">性别要求</span>
-            <a class="right" href="#/typeSelect">请选择</a>
+        <div class="row" ms-on-click="active('ySex')" ms-class="active:ySexStatus">
+            <span class="subtitle">性别要求</span>
+            <select id="ySex" class="choose" ms-duplex="ySex" ms-on-blur="ySexBlur">
+                <option value=""></option>
+                <option value="男">男</option>
+                <option value="女">女</option>
+            </select>
+            <a class="right">{{ySex ? ySex : "请选择"}}</a>
         </div>
-        <div class="row">
-            <span class="title">年级要求</span>
-            <a class="right" href="#/typeSelect">请选择</a>
+        <div class="row" ms-on-click="active('yGrade')" ms-class="active:yGradeStatus">
+            <span class="subtitle">年级要求</span>
+            <select id="yGrade" class="choose" ms-duplex="yGrade" ms-on-blur="yGradeBlur">
+                <option value=""></option>
+                <option value="大一">大一</option>
+                <option value="大二">大二</option>
+                <option value="大三">大三</option>
+                <option value="大四">大四</option>
+            </select>
+            <a class="right">{{yGrade ? yGrade : "请选择"}}</a>
         </div>
-        <div class="row">
-            <span class="title">学院要求</span>
-            <a class="right" href="#/typeSelect">请选择</a>
+        <div class="row" ms-on-click="active('yCollege')" ms-class="active:yCollegeStatus">
+            <span class="subtitle">学院要求</span>
+            <select id="yCollege" class="choose" ms-duplex="yCollege" ms-on-blur="yCollegeBlur">
+                <option value=""></option>
+                <option value="尼玛">尼玛</option>
+                <option value="尼玛2">尼玛2</option>
+                <option value="尼玛34">尼玛34</option>
+            </select>
+            <a class="right">{{yCollege ? yCollege : "请选择"}}</a>
         </div>
     </div>
 
+    <div class="widget yTitle">
+
+    </div>
 </section>
