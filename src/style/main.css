@@ -732,6 +732,31 @@ nav .user {
   padding-left: 0.46296296rem;
   border-bottom: 1px solid #dddddd;
 }
+.detail-wrapper .content i,
+.detail-wrapper .requirement i {
+  font-size: 18px;
+  margin-right: 10px;
+}
+[data-dpr="2"] .detail-wrapper .content i,
+[data-dpr="2"] .detail-wrapper .requirement i {
+  font-size: 36px;
+}
+[data-dpr="3"] .detail-wrapper .content i,
+[data-dpr="3"] .detail-wrapper .requirement i {
+  font-size: 54px;
+}
+.detail-wrapper .content .location i,
+.detail-wrapper .requirement .location i {
+  color: #4ea1ff;
+}
+.detail-wrapper .content .time i,
+.detail-wrapper .requirement .time i {
+  color: #44d48b;
+}
+.detail-wrapper .content .cost i,
+.detail-wrapper .requirement .cost i {
+  color: #ff7660;
+}
 .detail-wrapper ul {
   padding: 0;
   width: 100%;
