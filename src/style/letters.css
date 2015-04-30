@@ -80,24 +80,20 @@
 }
 .letter-wrapper .letter-wrapper {
   width: 100%;
-}
-.letter-wrapper .letter-wrapper .letter-content {
-  width: 100%;
-  height: auto;
   background-color: #ffffff;
+  overflow: hidden;
 }
-.letter-wrapper .letter-wrapper .letter-content span {
-  display: inline-block;
-  font-size: 14px;
-  margin: 20px;
+.letter-wrapper .letter-wrapper p {
+  font-size: 16px;
+  margin: 60px;
 }
-[data-dpr="2"] .letter-wrapper .letter-wrapper .letter-content span {
-  font-size: 28px;
+[data-dpr="2"] .letter-wrapper .letter-wrapper p {
+  font-size: 32px;
 }
-[data-dpr="3"] .letter-wrapper .letter-wrapper .letter-content span {
-  font-size: 42px;
+[data-dpr="3"] .letter-wrapper .letter-wrapper p {
+  font-size: 48px;
 }
-.letter-wrapper .letter-wrapper .letter-content span a {
+.letter-wrapper .letter-wrapper p a {
   color: #5a99e2;
 }
 .letter-wrapper .fixed-footer {
