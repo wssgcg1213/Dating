@@ -22,13 +22,26 @@
     }
     .userName{
       color:@filterBtnColor;
+      i{
+        .rfz(18px);
+        color:white;
+        .inline-block();
+        .border-radius(100%);
+        width:50rem / @psdWidth;
+        height: 50rem /@psdWidth;
+        background-color: #5aa4ff;
+        overflow: hidden;
+        margin-left: 10px;
+      }
     }
     .motto{
       color:@lightColor;
+      .rfz(16px);
     }
     p{
       color:@lightColor;
-      .rfz(18px);
+      letter-spacing: 2px;
+      .rfz(16px);
       text-align: center;
       margin:20rem/@psdWidth;
     }
@@ -46,28 +59,40 @@
   }
   .tab{
     .clearfix();
+    height:145rem / @psdWidth;
 
-    div{
-      width:50%;
-      height:120rem / @psdWidth;
-      line-height: 120rem / @psdWidth;
-      float:left;
-      a{
-        display: inline;
-      }
+    i{
+      .rfz(18px);
+      margin-right:10px;
+
     }
     li{
-      width:100%;
+      width:50%;
       .box-sizing(border-box);
-      height:70rem / @psdWidth;
-      float:inherit;
-      margin-top: 25rem / @psdWidth;
-      line-height: 70rem / @psdWidth;
+      height:145rem / @psdWidth;
+      float:left;
+      .inline-block();
+      position:relative;
+
       text-align: center;
-      .rfz(18px);
+      .rfz(16px);
+
       color:@lightColor;
     }
-    li:first-child{
+    div{
+      width:100%;
+      height:75rem / @psdWidth;
+      line-height: 75rem / @psdWidth;
+      position: absolute;
+      top:50%;
+      transform: translate(0,-50%);
+      a{
+        display: inline;
+        color:@lightColor;
+      }
+    }
+
+    div:first-child{
       border-right:1px solid @lightColor;
     }
   }
@@ -76,11 +101,11 @@
     li{
       width:100%;
       .box-sizing(border-box);
-      height:150rem / @psdWidth;
-      line-height: 150rem / @psdWidth;
+      height:140rem / @psdWidth;
+      line-height: 140rem / @psdWidth;
       background-color: #fff;
       border-bottom:1px solid #DDDDDD;
-      .rfz(18px);
+      .rfz(14px);
       color:@lightColor;
       padding-left:45rem / @psdWidth;
       font-family: "微软雅黑", "Arial Black", Gadget, sans-serif;

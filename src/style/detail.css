@@ -22,10 +22,10 @@
   width: 100%;
   height: 2.40740741rem;
   background-color: #fff;
-  border-bottom: 1px solid #dddddd;
   position: relative;
   display: table-cell;
   vertical-align: middle;
+  border-bottom: 1px solid #dddddd;
 }
 .detail-wrapper .person .center-wrapper {
   display: inline-block;
@@ -76,6 +76,10 @@
   margin-left: 0.46296296rem;
   overflow: hidden;
 }
+.detail-wrapper .person .logo-wrapper img {
+  width: 100%;
+  height: 100%;
+}
 .detail-wrapper .content,
 .detail-wrapper .requirement {
   padding-top: 0.32407407rem;
@@ -116,7 +120,7 @@
 }
 .detail-wrapper ul li {
   color: #666666;
-  line-height: 42px;
+  line-height: 0.69444444rem;
   height: 0.69444444rem;
   width: 100%;
   font-size: 14px;
