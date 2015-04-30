@@ -12,7 +12,7 @@
         <div class="row" ms-on-click="active('yTitle')" ms-class="active:yTitleStatus">
             <span class="title">标题</span>
             <input type="text" ms-visible="yTitleStatus" id="yTitle" class="w50" ms-duplex="yTitle" ms-on-blur="yTitleBlur"/>
-            <a class="right w50" ms-if="!yTitleStatus">{{yTitle ? yTitle : "请输入"}}</a>
+            <a class="right" ms-if="!yTitleStatus">{{yTitle ? yTitle : "请输入"}}</a>
         </div>
         <div class="row" ms-click="active('yTime', $event)" ms-class="active:yTimeStatus">
             <i class="iconfont time">&#xe611;</i>

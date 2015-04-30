@@ -80,6 +80,16 @@ define(['jQuery', 'hammer'], function($, Hammer){
                     clearInterval(intervalTimer);
                     //console.log('panstart', e);
                 });
+                hammer.on('pan', function(e) {
+                    _ul.find('img').each(function(i, img){
+                        var $img = $(img);
+                        $img.css({
+                            transform: 'translate3d(' + e.deltaX + 'px, 0, 0)',
+                            "-webkit-transform": 'translate3d(' + e.deltaX + 'px, 0, 0)'
+                        });//todo
+                    });
+                   console.log(e.deltaX);
+                });
                 hammer.on('panleft', function(e){
                     direction = 'left';
                 });
