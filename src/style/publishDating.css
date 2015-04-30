@@ -30,9 +30,6 @@
   outline: none;
   color: #757575;
 }
-.pbl-dating .row .w50 {
-  width: 50%;
-}
 .pbl-dating .row #yTitle,
 .pbl-dating .row #yLocation,
 .pbl-dating .row #yPeople,
@@ -42,6 +39,11 @@
   text-align: right;
   line-height: 100%;
   height: 100%;
+}
+.pbl-dating .row #yTitle,
+.pbl-dating .row #yLocation,
+.pbl-dating .row #yPeople {
+  width: 50%;
 }
 .pbl-dating .row .choose {
   float: right;
