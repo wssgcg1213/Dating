@@ -6,26 +6,25 @@
     padding: 0;
     .reset-list-style();
   }
+  p{
+    margin:0;
+    padding:0;
+  }
   .content{
     margin-top: 26rem / @psdWidth;
-//    border-top: 1px solid #DDD;
-//    border-bottom: 1px solid #DDD;
-//    height: 364rem / @psdWidth;
     background-color: #fff;
   }
   .clearfix();
   .content{
     .person-wrapper{
       width:100%;
-      height:220rem / @psdWidth;
       background-color: #fff;
-//      border-bottom:@border;
+//      border-bottom: 1px solid gray;
     }
     .person{
       width:100%;
-      height:260rem / @psdWidth;
+      height:200rem / @psdWidth;
       background-color: #fff;
-//      border-bottom:@border;
       position: relative;
       display:table-cell;
       vertical-align:middle;
@@ -33,10 +32,8 @@
       .center-wrapper{
         .inline-block();
         margin-left:240rem / @psdWidth;
-        p{
+        .username{
           .rfz(18px);
-          margin:0;
-          padding: 0;
         }
         i{
           .rfz(18px);
@@ -52,8 +49,8 @@
       }
       .motto{
         color:@lightColor;
-        .rfz(12px);
-        margin-top: 25rem / @psdWidth;
+        .rfz(14px);
+//        margin-top: 25rem / @psdWidth;
       }
       .logo-wrapper{
         position: absolute;
@@ -65,11 +62,14 @@
         .border-radius(100%);
         margin-left: 50rem / @psdWidth;
         overflow: hidden;
+        img{
+          width:100%;
+          height:100%;
+        }
       }
     }
 
     .content{
-      height:320rem / @psdWidth;
       p{
         margin:0;
         padding:0;
@@ -98,7 +98,6 @@
         span{
           float:right;
           margin-right:50rem / @psdWidth;
-
           .rfz(18px);
           color:@lightColor;
         }
@@ -110,16 +109,15 @@
       margin-top:25rem / @psdWidth;
       li{
         color:@lightColor;
-        line-height:42px;
+        line-height:75rem / @psdWidth;
         height:75rem / @psdWidth;
         width:100%;
         .rfz(14px);
       }
     }
     .title{
-      .rfz(22px);
+      .rfz(16px);
       color:@bolderColor;
-
     }
   }
 }

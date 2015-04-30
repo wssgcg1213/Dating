@@ -8,6 +8,10 @@
   padding: 0;
   list-style: none;
 }
+.scroll-container p {
+  margin: 0;
+  padding: 0;
+}
 .scroll-container .content {
   margin-top: 0.24074074rem;
   background-color: #fff;
@@ -22,12 +26,11 @@
 }
 .scroll-container .content .person-wrapper {
   width: 100%;
-  height: 2.03703704rem;
   background-color: #fff;
 }
 .scroll-container .content .person {
   width: 100%;
-  height: 2.40740741rem;
+  height: 1.85185185rem;
   background-color: #fff;
   position: relative;
   display: table-cell;
@@ -39,15 +42,13 @@
   *zoom: 1;
   margin-left: 2.22222222rem;
 }
-.scroll-container .content .person .center-wrapper p {
+.scroll-container .content .person .center-wrapper .username {
   font-size: 18px;
-  margin: 0;
-  padding: 0;
 }
-[data-dpr="2"] .scroll-container .content .person .center-wrapper p {
+[data-dpr="2"] .scroll-container .content .person .center-wrapper .username {
   font-size: 36px;
 }
-[data-dpr="3"] .scroll-container .content .person .center-wrapper p {
+[data-dpr="3"] .scroll-container .content .person .center-wrapper .username {
   font-size: 54px;
 }
 .scroll-container .content .person .center-wrapper i {
@@ -71,14 +72,13 @@
 }
 .scroll-container .content .person .motto {
   color: #666666;
-  font-size: 12px;
-  margin-top: 0.23148148rem;
+  font-size: 14px;
 }
 [data-dpr="2"] .scroll-container .content .person .motto {
-  font-size: 24px;
+  font-size: 28px;
 }
 [data-dpr="3"] .scroll-container .content .person .motto {
-  font-size: 36px;
+  font-size: 42px;
 }
 .scroll-container .content .person .logo-wrapper {
   position: absolute;
@@ -93,8 +93,11 @@
   margin-left: 0.46296296rem;
   overflow: hidden;
 }
+.scroll-container .content .person .logo-wrapper img {
+  width: 100%;
+  height: 100%;
+}
 .scroll-container .content .content {
-  height: 2.96296296rem;
   height: auto;
   background-color: #fff;
   padding-left: 0.46296296rem;
@@ -141,7 +144,7 @@
 }
 .scroll-container .content .info_content li {
   color: #666666;
-  line-height: 42px;
+  line-height: 0.69444444rem;
   height: 0.69444444rem;
   width: 100%;
   font-size: 14px;
@@ -153,12 +156,12 @@
   font-size: 42px;
 }
 .scroll-container .content .title {
-  font-size: 22px;
+  font-size: 16px;
   color: #333333;
 }
 [data-dpr="2"] .scroll-container .content .title {
-  font-size: 44px;
+  font-size: 32px;
 }
 [data-dpr="3"] .scroll-container .content .title {
-  font-size: 66px;
+  font-size: 48px;
 }
