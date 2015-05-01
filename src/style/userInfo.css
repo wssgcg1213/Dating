@@ -1,3 +1,12 @@
+.userinfo a {
+  color: #666666;
+}
+.userinfo .selected {
+  border-bottom: 10px solid #ff6833;
+}
+.userinfo .selected a {
+  color: #ff6833;
+}
 .userinfo .userWrapper {
   width: 100%;
   height: 3.83333333rem;
@@ -122,7 +131,6 @@
 }
 .userinfo .tab div a {
   display: inline;
-  color: #666666;
 }
 .userinfo .tab div:first-child {
   border-right: 1px solid #666666;
@@ -137,14 +145,14 @@
   line-height: 1.2962963rem;
   background-color: #fff;
   border-bottom: 1px solid #DDDDDD;
-  font-size: 14px;
+  font-size: 16px;
   color: #666666;
   padding-left: 0.41666667rem;
   font-family: "微软雅黑", "Arial Black", Gadget, sans-serif;
 }
 [data-dpr="2"] .userinfo .detail_info li {
-  font-size: 28px;
+  font-size: 32px;
 }
 [data-dpr="3"] .userinfo .detail_info li {
-  font-size: 42px;
+  font-size: 48px;
 }

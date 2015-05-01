@@ -1,7 +1,16 @@
 @import "var";
 
 .userinfo{    //namespace
+  a{
+    color:@lightColor;
+  }
+  .selected{
 
+    border-bottom: 10px solid #ff6833;
+    a{
+      color:#ff6833;
+    }
+  }
   .userWrapper{
     width:100%;
     height: 414rem / @psdWidth;
@@ -73,10 +82,8 @@
       float:left;
       .inline-block();
       position:relative;
-
       text-align: center;
       .rfz(16px);
-
       color:@lightColor;
     }
     div{
@@ -88,7 +95,7 @@
       transform: translate(0,-50%);
       a{
         display: inline;
-        color:@lightColor;
+//        color:@lightColor;
       }
     }
 
@@ -105,7 +112,7 @@
       line-height: 140rem / @psdWidth;
       background-color: #fff;
       border-bottom:1px solid #DDDDDD;
-      .rfz(14px);
+      .rfz(16px);
       color:@lightColor;
       padding-left:45rem / @psdWidth;
       font-family: "微软雅黑", "Arial Black", Gadget, sans-serif;
