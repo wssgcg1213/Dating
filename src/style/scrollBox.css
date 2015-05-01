@@ -60,6 +60,8 @@
   border-radius: 100%;
   width: 0.46296296rem;
   height: 0.46296296rem;
+  line-height: 0.46296296rem;
+  text-align: center;
   background-color: #758fff;
   overflow: hidden;
   margin-left: 10px;
@@ -73,6 +75,7 @@
 .scroll-container .content .person .motto {
   color: #666666;
   font-size: 14px;
+  margin-top: 0.11574074rem;
 }
 [data-dpr="2"] .scroll-container .content .person .motto {
   font-size: 28px;
@@ -87,8 +90,8 @@
   -webkit-transform: translate(0, -50%);
       -ms-transform: translate(0, -50%);
           transform: translate(0, -50%);
-  width: 1.57407407rem;
-  height: 1.57407407rem;
+  width: 1.34259259rem;
+  height: 1.34259259rem;
   border-radius: 100%;
   margin-left: 0.46296296rem;
   overflow: hidden;
@@ -128,14 +131,14 @@
 .scroll-container .content .content .cost span {
   float: right;
   margin-right: 0.46296296rem;
-  font-size: 18px;
+  font-size: 14px;
   color: #666666;
 }
 [data-dpr="2"] .scroll-container .content .content .cost span {
-  font-size: 36px;
+  font-size: 28px;
 }
 [data-dpr="3"] .scroll-container .content .content .cost span {
-  font-size: 54px;
+  font-size: 42px;
 }
 .scroll-container .content .info_content {
   padding: 0;

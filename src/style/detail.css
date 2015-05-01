@@ -55,7 +55,7 @@
 .detail-wrapper .person .motto {
   color: #666666;
   font-size: 14px;
-  margin-top: 0.23148148rem;
+  margin-top: 0.11574074rem;
 }
 [data-dpr="2"] .detail-wrapper .person .motto {
   font-size: 28px;
@@ -116,12 +116,12 @@
 .detail-wrapper ul {
   padding: 0;
   width: 100%;
-  margin-top: 0.23148148rem;
+  margin-top: 0.11574074rem;
 }
 .detail-wrapper ul li {
   color: #666666;
-  line-height: 0.69444444rem;
-  height: 0.69444444rem;
+  line-height: 0.60185185rem;
+  height: 0.60185185rem;
   width: 100%;
   font-size: 14px;
 }
@@ -132,14 +132,14 @@
   font-size: 42px;
 }
 .detail-wrapper .title {
-  font-size: 22px;
+  font-size: 20px;
   color: #333333;
 }
 [data-dpr="2"] .detail-wrapper .title {
-  font-size: 44px;
+  font-size: 40px;
 }
 [data-dpr="3"] .detail-wrapper .title {
-  font-size: 66px;
+  font-size: 60px;
 }
 .detail-wrapper .fixed-footer {
   position: fixed;

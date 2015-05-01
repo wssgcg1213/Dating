@@ -55,14 +55,14 @@
 }
 .history .person .motto {
   color: #666666;
-  font-size: 12px;
+  font-size: 14px;
   margin-top: 0.23148148rem;
 }
 [data-dpr="2"] .history .person .motto {
-  font-size: 24px;
+  font-size: 28px;
 }
 [data-dpr="3"] .history .person .motto {
-  font-size: 36px;
+  font-size: 42px;
 }
 .history .person .logo-wrapper {
   position: absolute;
@@ -76,6 +76,10 @@
   border-radius: 100%;
   margin-left: 0.46296296rem;
   overflow: hidden;
+}
+.history .person .logo-wrapper img {
+  width: 100%;
+  height: 100%;
 }
 .history .content {
   padding-top: 0.32407407rem;
