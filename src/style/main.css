@@ -1118,16 +1118,33 @@ nav .user {
 .userinfo .tab div a {
   display: inline;
 }
-.userinfo .tab div:first-child {
+.userinfo .tab .border {
   border-right: 1px solid #666666;
 }
-.userinfo .detail_info {
+.userinfo #tab-container {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.userinfo #tab-container .tab-wrapper {
+  width: 200%;
+  height: auto;
+  box-sizing: border-box;
+}
+.userinfo #tab-container .tab-wrapper .tab-li {
+  float: left;
+  width: 50%;
+}
+.userinfo #tab-container .tab-wrapper .tab-li .detail_info {
+  height: 6.71296296rem;
+  margin: 0;
+  padding: 0;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
-.userinfo .detail_info li {
+.userinfo #tab-container .tab-wrapper .tab-li .detail_info li {
   width: 100%;
   box-sizing: border-box;
-  height: 1.2962963rem;
+  height: 1.34259259rem;
   line-height: 1.2962963rem;
   background-color: #fff;
   border-bottom: 1px solid #DDDDDD;
@@ -1135,11 +1152,80 @@ nav .user {
   color: #666666;
   padding-left: 0.41666667rem;
 }
-[data-dpr="2"] .userinfo .detail_info li {
+[data-dpr="2"] .userinfo #tab-container .tab-wrapper .tab-li .detail_info li {
   font-size: 32px;
 }
-[data-dpr="3"] .userinfo .detail_info li {
+[data-dpr="3"] .userinfo #tab-container .tab-wrapper .tab-li .detail_info li {
   font-size: 48px;
+}
+.userinfo #tab-container .tab-wrapper .tab-li .content {
+  height: 3.7037037rem;
+  padding-top: 0.32407407rem;
+  background-color: #fff;
+  padding-left: 0.46296296rem;
+  border-bottom: 1px solid #dddddd;
+}
+.userinfo #tab-container .tab-wrapper .tab-li .content p {
+  margin: 0;
+  padding: 0;
+}
+.userinfo #tab-container .tab-wrapper .tab-li .content ul {
+  padding: 0;
+  width: 100%;
+}
+.userinfo #tab-container .tab-wrapper .tab-li .content ul li {
+  color: #666666;
+  line-height: 42px;
+  height: 0.69444444rem;
+  width: 100%;
+  font-size: 14px;
+}
+[data-dpr="2"] .userinfo #tab-container .tab-wrapper .tab-li .content ul li {
+  font-size: 28px;
+}
+[data-dpr="3"] .userinfo #tab-container .tab-wrapper .tab-li .content ul li {
+  font-size: 42px;
+}
+.userinfo #tab-container .tab-wrapper .tab-li .content .title {
+  font-size: 22px;
+  color: #333333;
+}
+[data-dpr="2"] .userinfo #tab-container .tab-wrapper .tab-li .content .title {
+  font-size: 44px;
+}
+[data-dpr="3"] .userinfo #tab-container .tab-wrapper .tab-li .content .title {
+  font-size: 66px;
+}
+.userinfo #tab-container .tab-wrapper .tab-li .content i {
+  font-size: 18px;
+  margin-right: 10px;
+}
+[data-dpr="2"] .userinfo #tab-container .tab-wrapper .tab-li .content i {
+  font-size: 36px;
+}
+[data-dpr="3"] .userinfo #tab-container .tab-wrapper .tab-li .content i {
+  font-size: 54px;
+}
+.userinfo #tab-container .tab-wrapper .tab-li .content .location i {
+  color: #4ea1ff;
+}
+.userinfo #tab-container .tab-wrapper .tab-li .content .time i {
+  color: #44d48b;
+}
+.userinfo #tab-container .tab-wrapper .tab-li .content .cost i {
+  color: #ff7660;
+}
+.userinfo #tab-container .tab-wrapper .tab-li .content .cost span {
+  float: right;
+  margin-right: 0.46296296rem;
+  font-size: 18px;
+  color: #666666;
+}
+[data-dpr="2"] .userinfo #tab-container .tab-wrapper .tab-li .content .cost span {
+  font-size: 36px;
+}
+[data-dpr="3"] .userinfo #tab-container .tab-wrapper .tab-li .content .cost span {
+  font-size: 54px;
 }
 .publishBtn {
   position: fixed;
@@ -1542,7 +1628,7 @@ nav .user {
 }
 .letter-wrapper .letter-wrapper p {
   font-size: 16px;
-  margin: 60px;
+  margin: 0.55555556rem;
 }
 [data-dpr="2"] .letter-wrapper .letter-wrapper p {
   font-size: 32px;

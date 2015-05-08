@@ -54,9 +54,6 @@
       text-align: center;
       margin:20rem/@psdWidth;
     }
-
-
-
   }
 
   ul{
@@ -95,26 +92,95 @@
       transform: translate(0,-50%);
       a{
         display: inline;
-//        color:@lightColor;
       }
     }
 
-    div:first-child{
+    .border{
       border-right:1px solid @lightColor;
     }
   }
-  .detail_info{
-    .box-shadow(5px 5px 5px rgba(0, 0, 0, 0.5));
-    li{
-      width:100%;
+
+  #tab-container{
+    width:100%;
+    height:auto;
+    overflow: hidden;
+    .tab-wrapper{
+      width:200%;
+      height:auto;
       .box-sizing(border-box);
-      height:140rem / @psdWidth;
-      line-height: 140rem / @psdWidth;
-      background-color: #fff;
-      border-bottom:1px solid #DDDDDD;
-      .rfz(16px);
-      color:@lightColor;
-      padding-left:45rem / @psdWidth;
+      .tab-li{
+        float:left;
+        width:50%;
+        .detail_info{
+          height:725rem / @psdWidth;
+          margin:0;
+          padding:0;
+          .box-shadow(5px 5px 5px rgba(0, 0, 0, 0.5));
+          li{
+            width:100%;
+            .box-sizing(border-box);
+            height:145rem / @psdWidth;
+            line-height: 140rem / @psdWidth;
+            background-color: #fff;
+            border-bottom:1px solid #DDDDDD;
+            .rfz(16px);
+            color:@lightColor;
+            padding-left:45rem / @psdWidth;
+          }
+        }
+        .content{
+          height:400rem / @psdWidth;
+          p{
+            margin:0;
+            padding:0;
+          }
+          ul{
+            padding:0;
+            width:100%;
+            li{
+              color:@lightColor;
+              line-height:42px;
+              height:75rem / @psdWidth;
+              width:100%;
+              .rfz(14px);
+            }
+          }
+          .title{
+            .rfz(22px);
+            color:@bolderColor;
+          }
+          padding-top:35rem /@psdWidth;
+          background-color: #fff;
+          padding-left: 50rem / @psdWidth;
+          border-bottom: @border ;
+          i{
+            .rfz(18px);
+            margin-right: 10px;
+          }
+          .location{
+            i{
+              color:#4ea1ff;
+            }
+          }
+          .time{
+            i{
+              color:#44d48b;
+            }
+          }
+          .cost{
+            i{
+              color:#ff7660;
+            }
+            span{
+              float:right;
+              margin-right:50rem / @psdWidth;
+
+              .rfz(18px);
+              color:@lightColor;
+            }
+          }
+        }
+      }
     }
   }
 }

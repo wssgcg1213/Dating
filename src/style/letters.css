@@ -85,7 +85,7 @@
 }
 .letter-wrapper .letter-wrapper p {
   font-size: 16px;
-  margin: 60px;
+  margin: 0.55555556rem;
 }
 [data-dpr="2"] .letter-wrapper .letter-wrapper p {
   font-size: 32px;

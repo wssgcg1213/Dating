@@ -19,7 +19,7 @@ var urls = {
     "scrollBox": "http://106.184.7.12:8002/index.php/home/index/showBox",
     "category": "http://106.184.7.12:8002/index.php/home/index/category"
 };
-require(['eventproxy', 'slider', 'DateTimePicker', 'domReady!', 'mmState'], function(EventProxy) {
+require(['eventproxy', 'slider','slideBox', 'DateTimePicker', 'domReady!', 'mmState'], function(EventProxy) {
     //debugger;
     var ep; //用来装载EventProxy的实例对象
     avalon.define({
