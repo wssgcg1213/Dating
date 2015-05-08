@@ -1,6 +1,8 @@
-<div class="slider" ms-controller="slider">
-    <ul>
-        <li ms-repeat="items"><a ms-attr-href="el.href"><img ms-src="el.img"></a></li>
-    </ul>
-    <div class="focus"></div>
+<div class="swiper-container" ms-controller="slider">
+    <div class="swiper-wrapper" >
+        <div class="swiper-slide" ms-repeat="items">
+            <a ms-attr-href="el.href"><img ms-src="el.img"></a>
+        </div>
+    </div>
+    <div class="pagination"></div>
 </div>

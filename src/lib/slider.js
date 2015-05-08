@@ -71,40 +71,54 @@ define(['jQuery', 'hammer'], function($, Hammer){
                     doScroll(++pos);
                 }, s.during);
             }
-            autoScroll(); //自动滚
+            //autoScroll(); //自动滚 //todo 做好之后恢复自动滚
 
             function bindTouchEvent(){
                 var hammer = new Hammer(_ul.get(0));
                 var direction = null;
-                hammer.on('panstart', function(e){
-                    clearInterval(intervalTimer);
-                    //console.log('panstart', e);
+                var $imgs = _ul.find('img');
+
+                hammer.on('panstart', function(e) {
+
                 });
+
                 hammer.on('pan', function(e) {
-                    _ul.find('img').each(function(i, img){
-                        var $img = $(img);
-                        $img.css({
-                            transform: 'translate3d(' + e.deltaX + 'px, 0, 0)',
-                            "-webkit-transform": 'translate3d(' + e.deltaX + 'px, 0, 0)'
-                        });//todo
+                    $imgs.css({
+                        transform: 'translate3d(' + e.deltaX + 'px, 0, 0)',
+                        "-webkit-transform": 'translate3d(' + e.deltaX + 'px, 0, 0)'
                     });
-                   console.log(e.deltaX);
-                });
-                hammer.on('panleft', function(e){
-                    direction = 'left';
-                });
-                hammer.on('panright', function(e){
-                    direction = 'right';
-                });
-                hammer.on('panend', function(e){
-                    autoScroll();
-                    var _pos = direction === 'right' ?
-                        (pos > 0 ? pos - 1 : pos) :
-                        (pos < num - 1 ? pos + 1 : pos);
-                    if(_pos !== pos) doScroll(_pos);
-                    direction = null;
-                    //console.log('panend', e);
-                });
+                })
+
+
+                //hammer.on('panstart', function(e){
+                //    //clearInterval(intervalTimer); //todo 完成后去掉这个注释
+                //    //console.log('panstart', e);
+                //});
+                //hammer.on('pan', function(e) {
+                //    _ul.find('img').each(function(i, img){
+                //        var $img = $(img);
+                //        $img.css({
+                //            transform: 'translate3d(' + e.deltaX + 'px, 0, 0)',
+                //            "-webkit-transform": 'translate3d(' + e.deltaX + 'px, 0, 0)'
+                //        });//todo
+                //    });
+                //   console.log(e.deltaX);
+                //});
+                //hammer.on('panleft', function(e){
+                //    direction = 'left';
+                //});
+                //hammer.on('panright', function(e){
+                //    direction = 'right';
+                //});
+                //hammer.on('panend', function(e){
+                //    //autoScroll();//todo 完成后去掉这个注释
+                //    var _pos = direction === 'right' ?
+                //        (pos > 0 ? pos - 1 : pos) :
+                //        (pos < num - 1 ? pos + 1 : pos);
+                //    if(_pos !== pos) doScroll(_pos);
+                //    direction = null;
+                //    //console.log('panend', e);
+                //});
 
             }
             bindTouchEvent();

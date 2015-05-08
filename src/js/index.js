@@ -19,33 +19,17 @@ var urls = {
     "scrollBox": "http://106.184.7.12:8002/index.php/home/index/showBox",
     "category": "http://106.184.7.12:8002/index.php/home/index/category"
 };
-require(['eventproxy', 'slider', 'DateTimePicker', 'domReady!', 'mmState'], function(EventProxy) {
+require(['eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], function(EventProxy) {
     //debugger;
     var ep; //用来装载EventProxy的实例对象
     avalon.define({
         $id: "main", //主vm
         sliderCb: function() { //初始化slider
-            var width = $(window).width(),
-                height = width * 0.46;
-            $('.slider').slider({
-                width: width,
-                height: height,
-                during: 3000
-            });
-            var ratio = width/height;
-            $('.slider img').each(function(n, img){
-                var _ratio = img.width / img.height;
-                if(_ratio > ratio){ //超宽
-                    $(img).css({
-                        height: "100%",
-                        left: (img.width * height / img.height - width) / 2
-                    });
-                }else{ //超高
-                    $(img).css({
-                        width: "100%",
-                        top: - (img.height * width / img.width - height) / 2
-                    });
-                }
+            var _slider = new Swiper('.swiper-container',{
+                pagination: '.pagination',
+                loop: true,
+                grabCursor: true,
+                paginationClickable: true
             });
         }
     });
