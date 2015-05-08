@@ -143,12 +143,7 @@ require(['eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], func
             //avalon.vmodels['nav']['title'] = "个人中心";
             avalon.define({
                 $id : "userInfo",
-                slideTab : function() {
-                    var tabSwiper = new Swipe(".tab-wrapper");
-                    onSlideChangeStart : function() {
 
-                    }
-                }
                 //data :{
                 //    userLogo : 'imgs/1.jpg',
                 //    userName : '村里没有巧克力',
@@ -184,7 +179,7 @@ require(['eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], func
         url:'/letters',
         templateUrl:"tpl/lettersCtrl.html",
         onEnter: function() {
-            //todo
+            //todo 
             avalon.vmodels['nav']['title'] = "私信";
             avalon.scan();
         }
