@@ -6,15 +6,16 @@
   .list-wrapper{
     width:100%;
     height:215rem /@psdWidth;
+    border-bottom:@border;
   }
   .list{
     width:100%;
     position:relative;
     height:215rem /@psdWidth;
-    display:table-cell;
+    line-height: 215rem / @psdWidth;
     vertical-align: middle;
     background-color: #fff;
-    border-bottom:@border;
+
     .username{
       color:#49a3f6;
       .inline-block();
@@ -22,7 +23,7 @@
     }
     .content{
         .inline-block();
-        width:1015rem /@psdWidth;
+         width:100%;
         text-overflow:ellipsis;
         color:@lightColor;
         overflow: hidden;

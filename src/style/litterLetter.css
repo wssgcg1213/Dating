@@ -5,15 +5,15 @@
 .litterLetter .list-wrapper {
   width: 100%;
   height: 1.99074074rem;
+  border-bottom: 1px solid #dddddd;
 }
 .litterLetter .list {
   width: 100%;
   position: relative;
   height: 1.99074074rem;
-  display: table-cell;
+  line-height: 1.99074074rem;
   vertical-align: middle;
   background-color: #fff;
-  border-bottom: 1px solid #dddddd;
 }
 .litterLetter .list .username {
   color: #49a3f6;
@@ -26,7 +26,7 @@
   display: inline-block;
   *display: inline;
   *zoom: 1;
-  width: 9.39814815rem;
+  width: 100%;
   text-overflow: ellipsis;
   color: #666666;
   overflow: hidden;
