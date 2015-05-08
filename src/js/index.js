@@ -15,14 +15,18 @@ require.config({
 });
 
 var urls = {
-    "slider": "../mock.php",
-    "scrollBox": "http://106.184.7.12:8002/index.php/home/index/showBox",
-    "category": "http://106.184.7.12:8002/index.php/home/index/category"
+    "slider": "http://106.184.7.12:8002/index.php/api/public/banner",
+    "showBox": "http://106.184.7.12:8002/index.php/api/date/datelist",
+    "category": "http://106.184.7.12:8002/index.php/api/date/datetype"
 };
 
 require(['eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], function(EventProxy) {
     //debugger;
     var ep; //用来装载EventProxy的实例对象
+    avalon.filters.createdTime = function(ts){
+            //todo 时间过滤器 
+        return "3分钟前";
+    };
     avalon.define({
         $id: "main", //主vm
         sliderCb: function() { //初始化slider
@@ -101,8 +105,7 @@ require(['eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], func
                 });
 
                 $.post(urls.slider, {}).success(function(res) {
-                    console.log('slider', res);
-                    var sliderData = res.map(function(val){
+                    var sliderData = res.data.map(function(val){
                         return {
                             href: val.url,
                             img: val.src
@@ -123,6 +126,20 @@ require(['eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], func
                     $id: "fliterBtns"
                 });
             }
+
+            if(!avalon.vmodels['showBox']){
+                avalon.define({
+                    $id: "showBox",
+                    dateList: [{}]
+                });
+            }
+            $.post(urls.showBox).success(function(res){
+                if(res.status == 200){
+                    avalon.vmodels['showBox'].dateList = res.data;
+                }else{
+                    console.log(res, "err");
+                }
+            });
 
         }
     });
@@ -179,7 +196,7 @@ require(['eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], func
         url:'/letters',
         templateUrl:"tpl/lettersCtrl.html",
         onEnter: function() {
-            //todo 
+            //todo
             avalon.vmodels['nav']['title'] = "私信";
             avalon.scan();
         }
