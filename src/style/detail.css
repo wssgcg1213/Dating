@@ -18,7 +18,7 @@
   background-color: #fff;
   border-bottom: 1px solid #dddddd;
 }
-.detail-wrapper .person {
+.detail-wrapper .person-wrapper .person {
   width: 100%;
   height: 2.40740741rem;
   background-color: #fff;
@@ -27,13 +27,13 @@
   vertical-align: middle;
   border-bottom: 1px solid #dddddd;
 }
-.detail-wrapper .person .center-wrapper {
+.detail-wrapper .person-wrapper .person .center-wrapper {
   display: inline-block;
   *display: inline;
   *zoom: 1;
   margin-left: 2.22222222rem;
 }
-.detail-wrapper .person .center-wrapper i {
+.detail-wrapper .person-wrapper .person .center-wrapper i {
   font-size: 18px;
   color: white;
   display: inline-block;
@@ -46,24 +46,24 @@
   overflow: hidden;
   margin-left: 10px;
 }
-[data-dpr="2"] .detail-wrapper .person .center-wrapper i {
+[data-dpr="2"] .detail-wrapper .person-wrapper .person .center-wrapper i {
   font-size: 36px;
 }
-[data-dpr="3"] .detail-wrapper .person .center-wrapper i {
+[data-dpr="3"] .detail-wrapper .person-wrapper .person .center-wrapper i {
   font-size: 54px;
 }
-.detail-wrapper .person .motto {
+.detail-wrapper .person-wrapper .person .motto {
   color: #666666;
   font-size: 14px;
   margin-top: 0.11574074rem;
 }
-[data-dpr="2"] .detail-wrapper .person .motto {
+[data-dpr="2"] .detail-wrapper .person-wrapper .person .motto {
   font-size: 28px;
 }
-[data-dpr="3"] .detail-wrapper .person .motto {
+[data-dpr="3"] .detail-wrapper .person-wrapper .person .motto {
   font-size: 42px;
 }
-.detail-wrapper .person .logo-wrapper {
+.detail-wrapper .person-wrapper .person .logo-wrapper {
   position: absolute;
   top: 50%;
   border: 1px solid #dddddd;
@@ -76,41 +76,90 @@
   margin-left: 0.46296296rem;
   overflow: hidden;
 }
-.detail-wrapper .person .logo-wrapper img {
+.detail-wrapper .person-wrapper .person .logo-wrapper img {
   width: 100%;
   height: 100%;
 }
 .detail-wrapper .content,
-.detail-wrapper .requirement {
+.detail-wrapper .requirement,
+.detail-wrapper .ul-wrapper {
   padding-top: 0.32407407rem;
   height: auto;
-  background-color: #fff;
   padding-left: 0.46296296rem;
   border-bottom: 1px solid #dddddd;
 }
-.detail-wrapper .content i,
-.detail-wrapper .requirement i {
+.detail-wrapper .content .detail,
+.detail-wrapper .requirement .detail,
+.detail-wrapper .ul-wrapper .detail {
+  color: #9a9a9a;
+  margin: 15px 0;
+  font-size: 14px;
+}
+[data-dpr="2"] .detail-wrapper .content .detail,
+[data-dpr="2"] .detail-wrapper .requirement .detail,
+[data-dpr="2"] .detail-wrapper .ul-wrapper .detail {
+  font-size: 28px;
+}
+[data-dpr="3"] .detail-wrapper .content .detail,
+[data-dpr="3"] .detail-wrapper .requirement .detail,
+[data-dpr="3"] .detail-wrapper .ul-wrapper .detail {
+  font-size: 42px;
+}
+.detail-wrapper .user-wrapper {
+  width: 100%;
+  margin-top: 20px;
+  height: auto;
+  background-color: #fff;
+  border-bottom: 1px solid #dddddd;
+}
+.detail-wrapper .user-wrapper .apply {
+  font-size: 18px;
+  margin-top: 20px;
+  margin-left: 0.46296296rem;
+  color: #333333;
+}
+[data-dpr="2"] .detail-wrapper .user-wrapper .apply {
+  font-size: 36px;
+}
+[data-dpr="3"] .detail-wrapper .user-wrapper .apply {
+  font-size: 54px;
+}
+.detail-wrapper .user-wrapper .logo-wrapper {
+  top: 50%;
+  border: 1px solid #dddddd;
+  width: 1.57407407rem;
+  height: 1.57407407rem;
+  border-radius: 100%;
+  margin-left: 0.46296296rem;
+  overflow: hidden;
+}
+.detail-wrapper .user-wrapper .logo-wrapper img {
+  width: 100%;
+  height: 100%;
+}
+.detail-wrapper .divWrapper {
+  background-color: #fff;
+  width: 100%;
+  height: auto;
+  padding: 35 rem / 108;
+}
+.detail-wrapper .divWrapper .ul-wrapper i {
   font-size: 18px;
   margin-right: 10px;
 }
-[data-dpr="2"] .detail-wrapper .content i,
-[data-dpr="2"] .detail-wrapper .requirement i {
+[data-dpr="2"] .detail-wrapper .divWrapper .ul-wrapper i {
   font-size: 36px;
 }
-[data-dpr="3"] .detail-wrapper .content i,
-[data-dpr="3"] .detail-wrapper .requirement i {
+[data-dpr="3"] .detail-wrapper .divWrapper .ul-wrapper i {
   font-size: 54px;
 }
-.detail-wrapper .content .location i,
-.detail-wrapper .requirement .location i {
+.detail-wrapper .divWrapper .ul-wrapper .location i {
   color: #4ea1ff;
 }
-.detail-wrapper .content .time i,
-.detail-wrapper .requirement .time i {
+.detail-wrapper .divWrapper .ul-wrapper .time i {
   color: #44d48b;
 }
-.detail-wrapper .content .cost i,
-.detail-wrapper .requirement .cost i {
+.detail-wrapper .divWrapper .ul-wrapper .cost i {
   color: #ff7660;
 }
 .detail-wrapper ul {
