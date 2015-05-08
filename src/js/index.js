@@ -32,6 +32,24 @@ require(['eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], func
                 grabCursor: true,
                 paginationClickable: true
             });
+        },
+        userInfoSlider: function(){
+            var tabsSwiper = new Swiper('#tab-container',{
+                speed:500,
+                onSlideChangeStart: function(){
+                    $(".tab .selected").removeClass('selected');
+                    $(".tab li").eq(tabsSwiper.activeIndex).addClass('selected');
+                }
+            });
+            $(".tab li").on('touchstart mousedown',function(e){
+                e.preventDefault()
+                $(".tab .selected").removeClass('selected');
+                $(this).addClass('selected');
+                tabsSwiper.swipeTo( $(this).index() );
+            });
+            $(".tab li").click(function(e){
+                e.preventDefault();
+            });
         }
     });
 
@@ -137,8 +155,11 @@ require(['eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], func
                 //    motto : '日日code',
                 //    college : '传媒学院',
                 //
-                //}
+                //},
+
             });
+
+
             avalon.scan();
         }
     });
