@@ -16,14 +16,13 @@
   background-color: #999999;
   position: relative;
   top: 0.44444444rem;
-  left: -0.18518519rem;
 }
 .fliter-btns a {
   font-size: 18px;
   color: #333333;
   float: left;
   box-sizing: border-box;
-  width: 33.33333333%;
+  width: 50%;
   text-align: center;
 }
 [data-dpr="2"] .fliter-btns a {

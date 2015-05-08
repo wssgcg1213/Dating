@@ -24,8 +24,18 @@ require(['eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], func
     //debugger;
     var ep; //用来装载EventProxy的实例对象
     avalon.filters.createdTime = function(ts){
-            //todo 时间过滤器 
-        return "3分钟前";
+        var _now = parseInt(new Date / 1000),
+            interval = _now - ts;
+        if(interval < 60){
+            return '刚刚';
+        }else if(interval < 60 * 60){
+            return parseInt(interval / 60) + "分钟前";
+        }else if(interval < 24 * 60 * 60){
+            return parseInt(interval / (60 * 60)) + "小时前";
+        }else if(interval < 48 * 60 * 60){
+            return "昨天";
+        }
+        return parseInt(interval / (24 * 60 * 60)) + "天前";
     };
     avalon.define({
         $id: "main", //主vm
@@ -35,7 +45,7 @@ require(['eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], func
                 loop: true,
                 grabCursor: true,
                 paginationClickable: true
-            });
+            });''
         },
         userInfoSlider: function(){
             var tabsSwiper = new Swiper('#tab-container',{
@@ -61,7 +71,7 @@ require(['eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], func
         $id: "nav",
         title: "约",
         gotoCenter: function() {
-            avalon.router.navigate('center');
+            avalon.router.navigate('userInfo');
         },
         menus: [{
             link: "#!/",
