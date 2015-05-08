@@ -42,9 +42,11 @@
   border-radius: 100%;
   width: 0.46296296rem;
   height: 0.46296296rem;
-  background-color: #5aa4ff;
+  line-height: 0.46296296rem;
+  text-align: center;
+  background-color: #758fff;
   overflow: hidden;
-  margin-left: 10px;
+  margin-left: 0.09259259rem;
 }
 [data-dpr="2"] .detail-wrapper .person-wrapper .person .center-wrapper i {
   font-size: 36px;
@@ -92,7 +94,7 @@
 .detail-wrapper .requirement .detail,
 .detail-wrapper .ul-wrapper .detail {
   color: #9a9a9a;
-  margin: 15px 0;
+  margin: 0.13888889rem 0;
   font-size: 14px;
 }
 [data-dpr="2"] .detail-wrapper .content .detail,
@@ -107,14 +109,15 @@
 }
 .detail-wrapper .user-wrapper {
   width: 100%;
-  margin-top: 20px;
+  margin-top: 0.18518519rem;
+  border: 1px solid #666666;
   height: auto;
   background-color: #fff;
   border-bottom: 1px solid #dddddd;
 }
 .detail-wrapper .user-wrapper .apply {
   font-size: 18px;
-  margin-top: 20px;
+  margin-top: 0.18518519rem;
   margin-left: 0.46296296rem;
   color: #333333;
 }
@@ -125,10 +128,10 @@
   font-size: 54px;
 }
 .detail-wrapper .user-wrapper .logo-wrapper {
-  top: 50%;
   border: 1px solid #dddddd;
   width: 1.57407407rem;
   height: 1.57407407rem;
+  margin-top: 0.27777778rem;
   border-radius: 100%;
   margin-left: 0.46296296rem;
   overflow: hidden;
@@ -145,7 +148,7 @@
 }
 .detail-wrapper .divWrapper .ul-wrapper i {
   font-size: 18px;
-  margin-right: 10px;
+  margin-right: 0.09259259rem;
 }
 [data-dpr="2"] .detail-wrapper .divWrapper .ul-wrapper i {
   font-size: 36px;

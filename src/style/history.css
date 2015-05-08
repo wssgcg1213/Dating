@@ -43,9 +43,11 @@
   border-radius: 100%;
   width: 0.46296296rem;
   height: 0.46296296rem;
+  line-height: 0.46296296rem;
+  text-align: center;
   background-color: #758fff;
   overflow: hidden;
-  margin-left: 10px;
+  margin-left: 0.09259259rem;
 }
 [data-dpr="2"] .history .person .center-wrapper i {
   font-size: 36px;
@@ -94,7 +96,7 @@
 }
 .history .content i {
   font-size: 18px;
-  margin-right: 10px;
+  margin-right: 0.09259259rem;
 }
 [data-dpr="2"] .history .content i {
   font-size: 36px;
@@ -130,7 +132,7 @@
 }
 .history ul li {
   color: #666666;
-  line-height: 42px;
+  line-height: 0.38888889rem;
   height: 0.69444444rem;
   width: 100%;
   font-size: 14px;

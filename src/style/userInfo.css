@@ -5,7 +5,7 @@
   width: 100%;
 }
 .userinfo .selected {
-  border-bottom: 10px solid #ff6833;
+  border-bottom: 0.09259259rem solid #ff6833;
 }
 .userinfo .selected a {
   color: #ff6833;
@@ -136,7 +136,7 @@
   display: inline;
 }
 .userinfo .tab .border {
-  border-right: 1px solid #666666;
+  border-right: 0.00925926rem solid #666666;
 }
 .userinfo #tab-container {
   width: 100%;
@@ -163,7 +163,7 @@
   height: 1.34259259rem;
   line-height: 1.2962963rem;
   background-color: #fff;
-  border-bottom: 1px solid #DDDDDD;
+  border-bottom: 0.00925926rem solid #dddddd;
   font-size: 16px;
   color: #666666;
   padding-left: 0.41666667rem;
@@ -190,7 +190,7 @@
 }
 .userinfo #tab-container .content ul li {
   color: #666666;
-  line-height: 42px;
+  line-height: 0.38888889rem;
   height: 0.69444444rem;
   width: 100%;
   font-size: 14px;
@@ -213,7 +213,7 @@
 }
 .userinfo #tab-container .content i {
   font-size: 18px;
-  margin-right: 10px;
+  margin-right: 0.09259259rem;
 }
 [data-dpr="2"] .userinfo #tab-container .content i {
   font-size: 36px;

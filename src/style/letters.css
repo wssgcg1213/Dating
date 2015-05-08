@@ -32,9 +32,11 @@
   border-radius: 100%;
   width: 0.46296296rem;
   height: 0.46296296rem;
-  background-color: #5aa4ff;
+  line-height: 0.46296296rem;
+  text-align: center;
+  background-color: #758fff;
   overflow: hidden;
-  margin-left: 10px;
+  margin-left: 0.09259259rem;
 }
 [data-dpr="2"] .letter-wrapper .person .center-wrapper i {
   font-size: 36px;
@@ -136,5 +138,5 @@
 }
 .letter-wrapper .fixed-footer ul .special {
   color: #ff7d63;
-  border-left: 1px solid #dddddd;
+  border-left: 0.00925926rem solid #dddddd;
 }
