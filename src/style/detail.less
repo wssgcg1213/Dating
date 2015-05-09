@@ -4,6 +4,7 @@
   width:100%;
   .rfz(18px);
 //  word-spacing: 4px;
+
   p{
     margin:0;
     padding:0;
@@ -17,11 +18,9 @@
       width:100%;
       height:260rem / @psdWidth;
       background-color: #fff;
-      border-bottom:@border;
       position: relative;
       display:table-cell;
       vertical-align:middle;
-      border-bottom:@border;
       .center-wrapper{
         .inline-block();
         margin-left:240rem / @psdWidth;
@@ -63,24 +62,27 @@
   }
 
   .content,.requirement,.ul-wrapper{
-    padding-top:35rem /@psdWidth;
+    padding-top:20rem /@psdWidth;
     height:auto;
-    padding-left: 50rem / @psdWidth;
-    border-bottom: @border ;
+    border-bottom: @border;
+    margin:40rem/@psdWidth;
     .detail{
       color:#9a9a9a;
       margin:15rem/@psdWidth 0;
       .rfz(14px);
+      margin-bottom: 50rem/@psdWidth;
     }
   }
 
   .user-wrapper{
     width:100%;
     margin-top:20rem/@psdWidth;
-    border:1px solid @lightColor;
+    border:@border;
     height:auto;
-    background-color: #fff;
-    border-bottom:@border;
+    background-color:#fff;
+    margin-bottom:200rem / @psdWidth;
+    .box-sizing(border-box);
+
     .apply{
       .rfz(18px);
       margin-top:20rem/@psdWidth;
@@ -100,6 +102,8 @@
         height:100%;
       }
     }
+
+
   }
 
   .divWrapper{
@@ -107,7 +111,10 @@
     width:100%;
     height:auto;
     padding:35 rem / @psdWidth;
-
+    .ul-wrapper li,.requirement li{
+      height:80rem /@psdWidth;
+      //      line-height: 80rem/@psdWidth;
+    }
     .ul-wrapper{
       i{
         .rfz(18px);
@@ -145,7 +152,7 @@
   .title{
     .rfz(20px);
     color:@bolderColor;
-
+    margin-bottom:30rem/@psdWidth;
   }
   .fixed-footer{
     position: fixed;
@@ -153,7 +160,7 @@
     height:145rem /@psdWidth;
     background-color: #fff;
     width:100%;
-    border-bottom: @border;
+    border-top: @border;
     ul{
       padding:0;
       margin:0;

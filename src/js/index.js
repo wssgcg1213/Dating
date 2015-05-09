@@ -303,7 +303,7 @@ require(['eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], func
                     yLocationValid: false,//标明数据有效状态
                     yLocationBlur: function(ev) {
                         ev.stopPropagation();
-                        var _vm = avalon.vmodels['publishDating'],
+                        var _vm = avalon.vmodels['publishDating'],d
                             str = _vm['yLocation'];
 
                         _vm['yLocationStatus'] = false;

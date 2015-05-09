@@ -25,7 +25,6 @@
   position: relative;
   display: table-cell;
   vertical-align: middle;
-  border-bottom: 1px solid #dddddd;
 }
 .detail-wrapper .person-wrapper .person .center-wrapper {
   display: inline-block;
@@ -85,10 +84,10 @@
 .detail-wrapper .content,
 .detail-wrapper .requirement,
 .detail-wrapper .ul-wrapper {
-  padding-top: 0.32407407rem;
+  padding-top: 0.18518519rem;
   height: auto;
-  padding-left: 0.46296296rem;
   border-bottom: 1px solid #dddddd;
+  margin: 0.37037037rem;
 }
 .detail-wrapper .content .detail,
 .detail-wrapper .requirement .detail,
@@ -96,6 +95,7 @@
   color: #9a9a9a;
   margin: 0.13888889rem 0;
   font-size: 14px;
+  margin-bottom: 0.46296296rem;
 }
 [data-dpr="2"] .detail-wrapper .content .detail,
 [data-dpr="2"] .detail-wrapper .requirement .detail,
@@ -110,10 +110,11 @@
 .detail-wrapper .user-wrapper {
   width: 100%;
   margin-top: 0.18518519rem;
-  border: 1px solid #666666;
+  border: 1px solid #dddddd;
   height: auto;
   background-color: #fff;
-  border-bottom: 1px solid #dddddd;
+  margin-bottom: 1.85185185rem;
+  box-sizing: border-box;
 }
 .detail-wrapper .user-wrapper .apply {
   font-size: 18px;
@@ -145,6 +146,10 @@
   width: 100%;
   height: auto;
   padding: 35 rem / 108;
+}
+.detail-wrapper .divWrapper .ul-wrapper li,
+.detail-wrapper .divWrapper .requirement li {
+  height: 0.74074074rem;
 }
 .detail-wrapper .divWrapper .ul-wrapper i {
   font-size: 18px;
@@ -186,6 +191,7 @@
 .detail-wrapper .title {
   font-size: 20px;
   color: #333333;
+  margin-bottom: 0.27777778rem;
 }
 [data-dpr="2"] .detail-wrapper .title {
   font-size: 40px;
@@ -199,7 +205,7 @@
   height: 1.34259259rem;
   background-color: #fff;
   width: 100%;
-  border-bottom: 1px solid #dddddd;
+  border-top: 1px solid #dddddd;
 }
 .detail-wrapper .fixed-footer ul {
   padding: 0;
