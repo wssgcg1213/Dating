@@ -98,6 +98,7 @@
   height: 100%;
 }
 .scroll-container .prefix-content .content {
+  overflow: hidden;
   height: auto;
   background-color: #fff;
   padding-left: 0.46296296rem;
@@ -122,9 +123,6 @@
 .scroll-container .prefix-content .content .time i {
   color: #44d48b;
 }
-.scroll-container .prefix-content .content .cost {
-  padding-bottom: 0.50925926rem;
-}
 .scroll-container .prefix-content .content .cost i {
   color: #ff7660;
 }
@@ -143,7 +141,7 @@
 .scroll-container .prefix-content .info_content {
   padding: 0;
   width: 100%;
-  margin-top: 0.23148148rem;
+  margin: 0.23148148rem 0;
 }
 .scroll-container .prefix-content .info_content li {
   color: #666666;

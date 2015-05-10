@@ -20,6 +20,8 @@
   }
   a{
     .rfz(18px);
+    height: 100%;
+    line-height: 144rem / @psdWidth;
     color: @filterBtnColor;
     float: left;
     box-sizing: border-box;
@@ -30,8 +32,9 @@
       text-decoration: none;
     }
     .iconfont{
-      position: relative;
-      top: 10rem / @psdWidth;
+      .rfz(15px);
+//      position: relative;
+//      top: 0;
     }
   }
 }
