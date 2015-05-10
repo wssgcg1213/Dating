@@ -35,9 +35,6 @@
 .detail-wrapper .person-wrapper .person .center-wrapper i {
   font-size: 18px;
   color: white;
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
   border-radius: 100%;
   width: 0.46296296rem;
   height: 0.46296296rem;
@@ -95,6 +92,7 @@
   color: #9a9a9a;
   margin: 0.13888889rem 0;
   font-size: 14px;
+  text-indent: 2em;
   margin-bottom: 0.46296296rem;
 }
 [data-dpr="2"] .detail-wrapper .content .detail,
@@ -136,6 +134,7 @@
   border-radius: 100%;
   margin-left: 0.46296296rem;
   overflow: hidden;
+  margin-bottom: 0.41666667rem;
 }
 .detail-wrapper .user-wrapper .logo-wrapper img {
   width: 100%;
@@ -192,6 +191,7 @@
   font-size: 20px;
   color: #333333;
   margin-bottom: 0.27777778rem;
+  margin-top: 0.46296296rem;
 }
 [data-dpr="2"] .detail-wrapper .title {
   font-size: 40px;

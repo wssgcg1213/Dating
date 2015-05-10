@@ -673,6 +673,24 @@ nav .user {
 .scroll-container:after {
   clear: both;
 }
+.scroll-container .prefix-content .username i {
+  font-size: 18px;
+  color: white;
+  border-radius: 100%;
+  width: 0.46296296rem;
+  height: 0.46296296rem;
+  line-height: 0.46296296rem;
+  text-align: center;
+  background-color: #758fff;
+  overflow: hidden;
+  margin-left: 0.09259259rem;
+}
+[data-dpr="2"] .scroll-container .prefix-content .username i {
+  font-size: 36px;
+}
+[data-dpr="3"] .scroll-container .prefix-content .username i {
+  font-size: 54px;
+}
 .scroll-container .prefix-content .person-wrapper {
   width: 100%;
   background-color: #fff;
@@ -698,27 +716,6 @@ nav .user {
   font-size: 36px;
 }
 [data-dpr="3"] .scroll-container .prefix-content .person .center-wrapper .username {
-  font-size: 54px;
-}
-.scroll-container .prefix-content .person .center-wrapper i {
-  font-size: 18px;
-  color: white;
-  /* display: inline-block; */
-  *display: inline;
-  *zoom: 1;
-  border-radius: 100%;
-  width: 0.46296296rem;
-  height: 0.46296296rem;
-  line-height: 0.46296296rem;
-  text-align: center;
-  background-color: #758fff;
-  overflow: hidden;
-  margin-left: 0.09259259rem;
-}
-[data-dpr="2"] .scroll-container .prefix-content .person .center-wrapper i {
-  font-size: 36px;
-}
-[data-dpr="3"] .scroll-container .prefix-content .person .center-wrapper i {
   font-size: 54px;
 }
 .scroll-container .prefix-content .person .motto {
@@ -857,9 +854,6 @@ nav .user {
 .detail-wrapper .person-wrapper .person .center-wrapper i {
   font-size: 18px;
   color: white;
-  /* display: inline-block; */
-  *display: inline;
-  *zoom: 1;
   border-radius: 100%;
   width: 0.46296296rem;
   height: 0.46296296rem;
@@ -917,6 +911,7 @@ nav .user {
   color: #9a9a9a;
   margin: 0.13888889rem 0;
   font-size: 14px;
+  text-indent: 2em;
   margin-bottom: 0.46296296rem;
 }
 [data-dpr="2"] .detail-wrapper .content .detail,
@@ -958,6 +953,7 @@ nav .user {
   border-radius: 100%;
   margin-left: 0.46296296rem;
   overflow: hidden;
+  margin-bottom: 0.41666667rem;
 }
 .detail-wrapper .user-wrapper .logo-wrapper img {
   width: 100%;
@@ -1014,6 +1010,7 @@ nav .user {
   font-size: 20px;
   color: #333333;
   margin-bottom: 0.27777778rem;
+  margin-top: 0.46296296rem;
 }
 [data-dpr="2"] .detail-wrapper .title {
   font-size: 40px;
@@ -1100,9 +1097,6 @@ nav .user {
 .userinfo .userWrapper .userName i {
   font-size: 18px;
   color: white;
-  /* display: inline-block; */
-  *display: inline;
-  *zoom: 1;
   border-radius: 100%;
   width: 0.46296296rem;
   height: 0.46296296rem;
@@ -1173,9 +1167,7 @@ nav .user {
   box-sizing: border-box;
   height: 1.34259259rem;
   float: left;
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
+  border-bottom: 0.09259259rem solid white;
   position: relative;
   text-align: center;
   font-size: 16px;
@@ -1199,6 +1191,9 @@ nav .user {
 }
 .userinfo .tab div a {
   display: inline;
+}
+.userinfo .tab div a:active {
+  text-decoration: none;
 }
 .userinfo .tab .border {
   border-right: 0.00925926rem solid #666666;
