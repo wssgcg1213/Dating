@@ -37,15 +37,26 @@ require(['eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], func
         }
         return parseInt(interval / (24 * 60 * 60)) + "天前";
     };
+
+    function initSlider(){
+        var _slider = new Swiper('.swiper-container',{
+            pagination: '.pagination',
+            loop: true,
+            grabCursor: true,
+            paginationClickable: true
+        });
+    }
+
     avalon.define({
         $id: "main", //主vm
         sliderCb: function() { //初始化slider
-            var _slider = new Swiper('.swiper-container',{
-                pagination: '.pagination',
-                loop: true,
-                grabCursor: true,
-                paginationClickable: true
-            });''
+            if(avalon.vmodels['slider'] && avalon.vmodels['slider']['items'].length > 1){
+                initSlider();
+            }else{
+                ep.once('slider', function(){
+                    initSlider();
+                });
+            }
         },
         userInfoSlider: function(){
             var tabsSwiper = new Swiper('#tab-container',{
@@ -114,7 +125,7 @@ require(['eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], func
                     items: [{}]
                 });
 
-                $.post(urls.slider, {}).success(function(res) {
+                $.post(urls.slider).success(function(res) {
                     var sliderData = res.data.map(function(val){
                         return {
                             href: val.url,
