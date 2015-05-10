@@ -7,7 +7,12 @@
   .swiper-slide{
     width: 100%;
   }
-
+  .selected{
+    border-bottom: 10rem/@psdWidth solid #ff6833;
+    i,span{
+      color:#ff6833;
+    }
+  }
   .userWrapper{
     width:100%;
     height: 414rem / @psdWidth;
@@ -69,21 +74,15 @@
 
     }
     li{
-      width:50%;
+      width:100%;
       .box-sizing(border-box);
       height:145rem / @psdWidth;
       float:left;
-      border-bottom: 10rem/@psdWidth solid white;
+    //      border-bottom: 10rem/@psdWidth solid white;
       position:relative;
       text-align: center;
       .rfz(16px);
       color:@lightColor;
-      &.selected{
-        border-bottom: 10rem/@psdWidth solid #ff6833;
-        i,span{
-          color:#ff6833;
-        }
-      }
     }
     div{
       width:100%;
@@ -94,9 +93,9 @@
       transform: translate(0,-50%);
     }
 
-    .border{
-      border-right:1px solid @lightColor;
-    }
+//    .border{
+//      border-right:1rem/@psdWidth solid @lightColor;
+//    }
   }
 
   #tab-container{
@@ -123,7 +122,7 @@
         height:145rem / @psdWidth;
         line-height: 140rem / @psdWidth;
         background-color: #fff;
-        border-bottom:1px solid #DDDDDD;
+        border-bottom:1rem/@psdWidth solid #DDDDDD;
         .rfz(16px);
         color:@lightColor;
         padding-left:45rem / @psdWidth;

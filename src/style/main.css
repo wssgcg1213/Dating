@@ -1212,12 +1212,12 @@ nav .user {
   float: left;
   width: 50%;
 }
-.userinfo #tab-container .detail_info {
+.userinfo #tab-container .detail-info {
   height: 6.71296296rem;
   margin: 0;
   padding: 0;
 }
-.userinfo #tab-container .detail_info li {
+.userinfo #tab-container .detail-info li {
   width: 100%;
   box-sizing: border-box;
   height: 1.34259259rem;
@@ -1228,11 +1228,17 @@ nav .user {
   color: #666666;
   padding-left: 0.41666667rem;
 }
-[data-dpr="2"] .userinfo #tab-container .detail_info li {
+[data-dpr="2"] .userinfo #tab-container .detail-info li {
   font-size: 32px;
 }
-[data-dpr="3"] .userinfo #tab-container .detail_info li {
+[data-dpr="3"] .userinfo #tab-container .detail-info li {
   font-size: 48px;
+}
+.userinfo #tab-container .detail-info li span {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 0.92592593rem;
 }
 .userinfo #tab-container .content {
   height: 3.7037037rem;
@@ -1635,7 +1641,6 @@ nav .user {
   width: 100%;
   height: 2.40740741rem;
   background-color: #fff;
-  border-bottom: 1px solid #dddddd;
   position: relative;
   display: table-cell;
   vertical-align: middle;
