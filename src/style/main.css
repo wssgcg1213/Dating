@@ -184,7 +184,7 @@ dl,
 menu,
 ol,
 ul {
-  margin: 1em 0;
+  /* margin: 1em 0; */
 }
 dd {
   margin: 0 0 0 40px;
@@ -900,19 +900,20 @@ nav .user {
 .detail-wrapper .content,
 .detail-wrapper .requirement,
 .detail-wrapper .ul-wrapper {
-  height: auto;
+  /* height: auto; */
   border-bottom: 1px solid #dddddd;
-  margin: 0.37037037rem;
-  overflow: hidden;
+  margin: 0 0.37037037rem;
+  padding: 0.37037037rem 0 0.4rem 0;
+  /* overflow: hidden; */
 }
 .detail-wrapper .content .detail,
 .detail-wrapper .requirement .detail,
 .detail-wrapper .ul-wrapper .detail {
   color: #9a9a9a;
-  margin: 0.13888889rem;
+  /* margin: 0.13888889rem; */
   font-size: 14px;
   text-indent: 2em;
-  margin-bottom: 0.46296296rem;
+  /* margin-bottom: 0.46296296rem; */
 }
 [data-dpr="2"] .detail-wrapper .content .detail,
 [data-dpr="2"] .detail-wrapper .requirement .detail,
@@ -991,7 +992,7 @@ nav .user {
 .detail-wrapper ul {
   padding: 0;
   width: 100%;
-  margin-top: 0.11574074rem;
+  /* margin-top: 0.11574074rem; */
 }
 .detail-wrapper ul li {
   color: #666666;
@@ -1010,7 +1011,7 @@ nav .user {
   font-size: 20px;
   color: #333333;
   margin-bottom: 0.27777778rem;
-  margin-top: 0.37037037rem;
+  /* margin-top: 0.37037037rem; */
 }
 [data-dpr="2"] .detail-wrapper .title {
   font-size: 40px;
