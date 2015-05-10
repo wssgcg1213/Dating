@@ -2,6 +2,10 @@
   width: 100%;
   font-size: 18px;
 }
+.detail-wrapper ul {
+  margin: 0;
+  padding: 0;
+}
 [data-dpr="2"] .detail-wrapper {
   font-size: 36px;
 }
@@ -27,9 +31,6 @@
   vertical-align: middle;
 }
 .detail-wrapper .person-wrapper .person .center-wrapper {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
   margin-left: 2.22222222rem;
 }
 .detail-wrapper .person-wrapper .person .center-wrapper i {
@@ -49,6 +50,12 @@
 }
 [data-dpr="3"] .detail-wrapper .person-wrapper .person .center-wrapper i {
   font-size: 54px;
+}
+.detail-wrapper .person-wrapper .person .center-wrapper i.male {
+  background-color: #758fff;
+}
+.detail-wrapper .person-wrapper .person .center-wrapper i.female {
+  background-color: #ff29c2;
 }
 .detail-wrapper .person-wrapper .person .motto {
   color: #666666;
@@ -81,19 +88,16 @@
 .detail-wrapper .content,
 .detail-wrapper .requirement,
 .detail-wrapper .ul-wrapper {
-  height: auto;
   border-bottom: 1px solid #dddddd;
-  margin: 0.37037037rem;
-  overflow: hidden;
+  margin: 0 0.37037037rem;
+  padding: 0.37037037rem 0;
 }
 .detail-wrapper .content .detail,
 .detail-wrapper .requirement .detail,
 .detail-wrapper .ul-wrapper .detail {
   color: #9a9a9a;
-  margin: 0.13888889rem;
   font-size: 14px;
   text-indent: 2em;
-  margin-bottom: 0.46296296rem;
 }
 [data-dpr="2"] .detail-wrapper .content .detail,
 [data-dpr="2"] .detail-wrapper .requirement .detail,
@@ -106,18 +110,14 @@
   font-size: 42px;
 }
 .detail-wrapper .user-wrapper {
-  width: 100%;
-  margin-top: 0.18518519rem;
+  overflow: hidden;
+  margin: 0.18518519rem 0 1.85185185rem 0;
   border: 1px solid #dddddd;
-  height: auto;
   background-color: #fff;
-  margin-bottom: 1.85185185rem;
-  box-sizing: border-box;
 }
 .detail-wrapper .user-wrapper .apply {
   font-size: 18px;
-  margin-top: 0.18518519rem;
-  margin-left: 0.46296296rem;
+  margin: 0.18518519rem 0.46296296rem;
   color: #333333;
 }
 [data-dpr="2"] .detail-wrapper .user-wrapper .apply {
@@ -126,72 +126,74 @@
 [data-dpr="3"] .detail-wrapper .user-wrapper .apply {
   font-size: 54px;
 }
+.detail-wrapper .user-wrapper .user-face-group {
+  overflow: hidden;
+  margin: 0.18518519rem 0.46296296rem;
+}
+.detail-wrapper .user-wrapper .user-face {
+  float: left;
+  width: 20%;
+  text-align: center;
+  margin-bottom: 0.18518519rem;
+}
 .detail-wrapper .user-wrapper .logo-wrapper {
   border: 1px solid #dddddd;
   width: 1.57407407rem;
   height: 1.57407407rem;
-  margin-top: 0.27777778rem;
-  border-radius: 100%;
-  margin-left: 0.46296296rem;
+  border-radius: 50%;
   overflow: hidden;
-  margin-bottom: 0.41666667rem;
-}
-.detail-wrapper .user-wrapper .logo-wrapper img {
-  width: 100%;
-  height: 100%;
 }
 .detail-wrapper .divWrapper {
   background-color: #fff;
   width: 100%;
   height: auto;
   padding: 35 rem / 108;
+  overflow: hidden;
 }
 .detail-wrapper .divWrapper .ul-wrapper li,
 .detail-wrapper .divWrapper .requirement li {
+  color: #666666;
+  line-height: 0.74074074rem;
   height: 0.74074074rem;
+  font-size: 14px;
 }
-.detail-wrapper .divWrapper .ul-wrapper i {
+[data-dpr="2"] .detail-wrapper .divWrapper .ul-wrapper li,
+[data-dpr="2"] .detail-wrapper .divWrapper .requirement li {
+  font-size: 28px;
+}
+[data-dpr="3"] .detail-wrapper .divWrapper .ul-wrapper li,
+[data-dpr="3"] .detail-wrapper .divWrapper .requirement li {
+  font-size: 42px;
+}
+.detail-wrapper .divWrapper .ul-wrapper i,
+.detail-wrapper .divWrapper .requirement i {
   font-size: 18px;
   margin-right: 0.09259259rem;
 }
-[data-dpr="2"] .detail-wrapper .divWrapper .ul-wrapper i {
+[data-dpr="2"] .detail-wrapper .divWrapper .ul-wrapper i,
+[data-dpr="2"] .detail-wrapper .divWrapper .requirement i {
   font-size: 36px;
 }
-[data-dpr="3"] .detail-wrapper .divWrapper .ul-wrapper i {
+[data-dpr="3"] .detail-wrapper .divWrapper .ul-wrapper i,
+[data-dpr="3"] .detail-wrapper .divWrapper .requirement i {
   font-size: 54px;
 }
-.detail-wrapper .divWrapper .ul-wrapper .location i {
+.detail-wrapper .divWrapper .ul-wrapper .location i,
+.detail-wrapper .divWrapper .requirement .location i {
   color: #4ea1ff;
 }
-.detail-wrapper .divWrapper .ul-wrapper .time i {
+.detail-wrapper .divWrapper .ul-wrapper .time i,
+.detail-wrapper .divWrapper .requirement .time i {
   color: #44d48b;
 }
-.detail-wrapper .divWrapper .ul-wrapper .cost i {
+.detail-wrapper .divWrapper .ul-wrapper .cost i,
+.detail-wrapper .divWrapper .requirement .cost i {
   color: #ff7660;
-}
-.detail-wrapper ul {
-  padding: 0;
-  width: 100%;
-  margin-top: 0.11574074rem;
-}
-.detail-wrapper ul li {
-  color: #666666;
-  line-height: 0.60185185rem;
-  height: 0.60185185rem;
-  width: 100%;
-  font-size: 14px;
-}
-[data-dpr="2"] .detail-wrapper ul li {
-  font-size: 28px;
-}
-[data-dpr="3"] .detail-wrapper ul li {
-  font-size: 42px;
 }
 .detail-wrapper .title {
   font-size: 20px;
   color: #333333;
-  margin-bottom: 0.27777778rem;
-  margin-top: 0.37037037rem;
+  margin-bottom: 0.22222222rem;
 }
 [data-dpr="2"] .detail-wrapper .title {
   font-size: 40px;
@@ -207,16 +209,15 @@
   width: 100%;
   border-top: 1px solid #dddddd;
 }
-.detail-wrapper .fixed-footer ul {
-  padding: 0;
-  margin: 0;
-}
-.detail-wrapper .fixed-footer ul a {
+.detail-wrapper .fixed-footer a {
   color: #000000;
   width: 50%;
 }
-.detail-wrapper .fixed-footer ul li {
+.detail-wrapper .fixed-footer button {
+  border: none;
+  outline: none;
   box-sizing: border-box;
+  background-color: #fff;
   color: #404040;
   width: 50%;
   height: 1.34259259rem;
@@ -225,19 +226,19 @@
   text-align: center;
   font-size: 18px;
 }
-[data-dpr="2"] .detail-wrapper .fixed-footer ul li {
+[data-dpr="2"] .detail-wrapper .fixed-footer button {
   font-size: 36px;
 }
-[data-dpr="3"] .detail-wrapper .fixed-footer ul li {
+[data-dpr="3"] .detail-wrapper .fixed-footer button {
   font-size: 54px;
 }
-[data-dpr="2"] .detail-wrapper .fixed-footer ul li {
+[data-dpr="2"] .detail-wrapper .fixed-footer button {
   font-size: 36px;
 }
-[data-dpr="3"] .detail-wrapper .fixed-footer ul li {
+[data-dpr="3"] .detail-wrapper .fixed-footer button {
   font-size: 54px;
 }
-.detail-wrapper .fixed-footer ul .special {
+.detail-wrapper .fixed-footer .special {
   color: #ff7d63;
-  border-left: 1px solid #dddddd;
+  border-left: 1px solid #ddd;
 }
