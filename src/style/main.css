@@ -1070,7 +1070,8 @@ nav .user {
 .userinfo .selected {
   border-bottom: 0.09259259rem solid #ff6833;
 }
-.userinfo .selected a {
+.userinfo .selected i,
+.userinfo .selected span {
   color: #ff6833;
 }
 .userinfo .userWrapper {
