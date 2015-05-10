@@ -37,7 +37,6 @@
       i{
         .rfz(18px);
         color:white;
-        .inline-block();
         .border-radius(100%);
         width:50rem / @psdWidth;
         height: 50rem /@psdWidth;
@@ -80,7 +79,7 @@
       .box-sizing(border-box);
       height:145rem / @psdWidth;
       float:left;
-      .inline-block();
+      border-bottom: 10rem/@psdWidth solid white;
       position:relative;
       text-align: center;
       .rfz(16px);
@@ -95,6 +94,9 @@
       transform: translate(0,-50%);
       a{
         display: inline;
+      }
+      a:active{
+        text-decoration: none;
       }
     }
 
