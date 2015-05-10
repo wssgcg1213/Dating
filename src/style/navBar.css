@@ -20,17 +20,17 @@ nav .nav-container:after {
   clear: both;
 }
 nav .title {
-  font-size: 26px;
+  font-size: 24px;
   float: left;
   color: #FFF;
   text-decoration: none;
   outline: none;
 }
 [data-dpr="2"] nav .title {
-  font-size: 52px;
+  font-size: 48px;
 }
 [data-dpr="3"] nav .title {
-  font-size: 78px;
+  font-size: 72px;
 }
 nav .user {
   float: right;

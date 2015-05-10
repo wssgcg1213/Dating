@@ -507,17 +507,17 @@ nav .nav-container:after {
   clear: both;
 }
 nav .title {
-  font-size: 26px;
+  font-size: 24px;
   float: left;
   color: #FFF;
   text-decoration: none;
   outline: none;
 }
 [data-dpr="2"] nav .title {
-  font-size: 52px;
+  font-size: 48px;
 }
 [data-dpr="3"] nav .title {
-  font-size: 78px;
+  font-size: 72px;
 }
 nav .user {
   float: right;
@@ -1196,7 +1196,7 @@ nav .user {
           transform: translate(0, -50%);
 }
 .userinfo .tab .border {
-  border-right: 0.00925926rem solid #666666;
+  border-right: 1px solid #666666;
 }
 .userinfo #tab-container {
   width: 100%;
@@ -1223,7 +1223,7 @@ nav .user {
   height: 1.34259259rem;
   line-height: 1.2962963rem;
   background-color: #fff;
-  border-bottom: 0.00925926rem solid #dddddd;
+  border-bottom: 1px solid #DDDDDD;
   font-size: 16px;
   color: #666666;
   padding-left: 0.41666667rem;
@@ -1344,7 +1344,8 @@ nav .user {
 .pbl-dating .row.active {
   background-color: #f7f7f7;
 }
-.pbl-dating .row input {
+.pbl-dating .row input,
+.pbl-dating .row select {
   background-color: #f7f7f7;
   border: none;
   outline: none;
@@ -1353,8 +1354,12 @@ nav .user {
 .pbl-dating .row #yTitle,
 .pbl-dating .row #yLocation,
 .pbl-dating .row #yPeople,
-.pbl-dating .row #ySpend {
-  width: 50%;
+.pbl-dating .row #ySpend,
+.pbl-dating .row #yType,
+.pbl-dating .row #ySex,
+.pbl-dating .row #yGrade,
+.pbl-dating .row #yCollege {
+  width: 70%;
   float: right;
   text-align: right;
   line-height: 100%;

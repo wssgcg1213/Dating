@@ -23,7 +23,7 @@ var urls = {
 require(['eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], function(EventProxy) {
     //debugger;
     var ep; //用来装载EventProxy的实例对象
-    avalon.filters.createdTime = function(ts){
+    avalon.filters.createdTime = function(ts){ //创建时间的fliter
         var _now = parseInt(new Date / 1000),
             interval = _now - ts;
         if(interval < 60){
@@ -58,7 +58,7 @@ require(['eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], func
                 });
             }
         },
-        userInfoSlider: function(){
+        userInfoSlider: function(){ //初始化userInfo模板里面的左右Slider
             var tabsSwiper = new Swiper('#tab-container',{
                 speed:500,
                 onSlideChangeStart: function(){
@@ -83,26 +83,7 @@ require(['eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], func
         title: "约",
         gotoCenter: function() {
             avalon.router.navigate('userInfo');
-        },
-        menus: [{
-            link: "#!/",
-            text: "首页"
-        },{
-            link: "#!/login",
-            text: "登陆todo"
-        },{
-            link: "#!/collect",
-            text: "收藏"
-        },{
-            link: "#/detail",
-            text: "约会详情"
-        },{
-            link:"#/userInfo",
-            text:"个人中心"
-        },{
-            link:"#/letter",
-            text:"私信"
-        }]
+        }
     });
 
     avalon.state('home', {
@@ -178,7 +159,7 @@ require(['eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], func
         url: '/userInfo',
         templateUrl: "tpl/userInfoCtrl.html",
         onEnter: function(){
-            //avalon.vmodels['nav']['title'] = "个人中心";
+            avalon.vmodels['nav']['title'] = "个人中心";
             avalon.define({
                 $id : "userInfo",
 
@@ -232,20 +213,12 @@ require(['eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], func
             avalon.scan();
         }
     })
-    //avalon.state('typeSelect', {
-    //    url: "/typeSelect",
-    //    templateUrl: "tpl/typeSelectCtrl.html",
-    //    onEnter: function() {
-    //        avalon.vmodels['nav']['title'] = "请选择";
-    //    }
-    //});
 
     avalon.state('center', {
         url: "/center",
         templateUrl: "tpl/centerCtrl.html",
         onEnter: function() {
             avalon.vmodels['nav']['title'] = "个人中心";
-
             avalon.scan();
         }
     });
@@ -262,8 +235,17 @@ require(['eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], func
             if(!avalon.vmodels['publishDating'])
                 avalon.define({
                     $id: "publishDating",
-                    yType: "约什么",
+                    yType: "",
                     yTypeStatus: false,
+                    yTypeValid: false,//标明数据有效状态
+                    yTypeBlur: function(ev) {
+                        ev.stopPropagation();
+                        var _vm = avalon.vmodels['publishDating'],
+                            v = _vm['yType'];
+                        _vm['yTypeStatus'] = false;
+                        _vm['yType'] = v;
+                        _vm['yTypeValid'] = true;
+                    },
 
                     yTitle: "",
                     yTitleStatus: false,//标明激活状态
@@ -304,10 +286,6 @@ require(['eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], func
                             return (_str && _str.length) > 0 ? _str : false;
                         }
                     },
-                    //chooseTime: function(ev){
-                    //   ev.stopPropagation();
-                    //
-                    //},
 
                     yLocation: "",
                     yLocationStatus: false,//标明激活状态
@@ -350,7 +328,6 @@ require(['eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], func
                         ev.stopPropagation();
                         var _vm = avalon.vmodels['publishDating'],
                             v = _vm['ySpend'];
-
                         _vm['ySpendStatus'] = false;
                         _vm['ySpend'] = v;
                         _vm['ySpendValid'] = true;
@@ -358,8 +335,41 @@ require(['eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], func
                     },
 
                     ySex: "",
+                    ySexStatus: false,//标明激活状态
+                    ySexValid: false,//标明数据有效状态
+                    ySexBlur: function(ev) {
+                        ev.stopPropagation();
+                        var _vm = avalon.vmodels['publishDating'],
+                            v = _vm['ySex'];
+                        _vm['ySexStatus'] = false;
+                        _vm['ySex'] = v;
+                        _vm['ySexValid'] = true;
+
+                    },
+
                     yGrade: "",
+                    yGradeStatus: false,//标明激活状态
+                    yGradeValid: false,//标明数据有效状态
+                    yGradeBlur: function(ev) {
+                        ev.stopPropagation();
+                        var _vm = avalon.vmodels['publishDating'],
+                            v = _vm['yGrade'];
+                        _vm['yGradeStatus'] = false;
+                        _vm['yGrade'] = v;
+                        _vm['yGradeValid'] = true;
+                    },
+
                     yCollege: "",
+                    yCollegeStatus: false,//标明激活状态
+                    yCollegeValid: false,//标明数据有效状态
+                    yCollegeBlur: function(ev) {
+                        ev.stopPropagation();
+                        var _vm = avalon.vmodels['publishDating'],
+                            v = _vm['yCollege'];
+                        _vm['yCollegeStatus'] = false;
+                        _vm['yCollege'] = v;
+                        _vm['yCollegeValid'] = true;
+                    },
 
                     active: function(type, $ev){
                         var _vm = avalon.vmodels['publishDating'];
@@ -388,20 +398,13 @@ require(['eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], func
                                 $ev.stopPropagation();
                                 break;
 
-                            case 'yLocation':
+                            case 'yLocation':case 'yPeople':case 'ySpend':
+                            case 'ySex': case 'yGrade':case 'yCollege':case 'yType':
                                 _vm[type + 'Status'] = true;
                                 $('#' + type).focus();
                                 break;
 
-                            case 'yPeople':
-                                _vm[type + 'Status'] = true;
-                                $('#' + type).focus();
-                                break;
 
-                            case 'ySpend':
-                                _vm[type + 'Status'] = true;
-                                $('#' + type).focus();
-                                break;
                         }
                     }
 
