@@ -144,12 +144,12 @@
   float: left;
   width: 50%;
 }
-.userinfo #tab-container .detail_info {
+.userinfo #tab-container .detail-info {
   height: 6.71296296rem;
   margin: 0;
   padding: 0;
 }
-.userinfo #tab-container .detail_info li {
+.userinfo #tab-container .detail-info li {
   width: 100%;
   box-sizing: border-box;
   height: 1.34259259rem;
@@ -160,11 +160,17 @@
   color: #666666;
   padding-left: 0.41666667rem;
 }
-[data-dpr="2"] .userinfo #tab-container .detail_info li {
+[data-dpr="2"] .userinfo #tab-container .detail-info li {
   font-size: 32px;
 }
-[data-dpr="3"] .userinfo #tab-container .detail_info li {
+[data-dpr="3"] .userinfo #tab-container .detail-info li {
   font-size: 48px;
+}
+.userinfo #tab-container .detail-info li span {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 0.92592593rem;
 }
 .userinfo #tab-container .content {
   height: 3.7037037rem;

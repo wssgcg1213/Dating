@@ -174,6 +174,15 @@ require(['eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], func
         }
     });
 
+    avalon.state('userInfoPublic', {
+        url: "/userInfoPublic",
+        templateUrl: "tpl/userInfoPublicCtrl.html",
+        onEnter: function(state) {
+            avalon.vmodels['nav']['title'] = "收藏";
+            avalon.scan();
+        }
+    });
+
     avalon.state('userInfo', {
         url: '/userInfo',
         templateUrl: "tpl/userInfoCtrl.html",
