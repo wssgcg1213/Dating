@@ -4,7 +4,9 @@
   width:100%;
   .rfz(18px);
 //  word-spacing: 4px;
-
+  ul{
+    margin:0;
+  }
   p{
     margin:0;
     padding:0;
@@ -59,20 +61,15 @@
       }
     }
   }
-
-
   .content,.requirement,.ul-wrapper{
-//    padding-top:20rem /@psdWidth;
-    height:auto;
     border-bottom: @border;
-    margin:40rem/@psdWidth;
-    overflow: hidden;
+    margin-left:40rem/@psdWidth;
+    margin-right:40rem/@psdWidth;
     .detail{
       color:#9a9a9a;
-      margin:15rem/@psdWidth;
+      padding-bottom:50rem /@psdWidth;
       .rfz(14px);
       text-indent: 2em;
-      margin-bottom: 50rem/@psdWidth;
     }
   }
 
@@ -114,9 +111,10 @@
     width:100%;
     height:auto;
     padding:35 rem / @psdWidth;
+    overflow: hidden;
     .ul-wrapper li,.requirement li{
-      height:80rem /@psdWidth;
-      //      line-height: 80rem/@psdWidth;
+      height:100rem /@psdWidth;
+      line-height: 100rem/@psdWidth;
     }
     .ul-wrapper{
       i{
@@ -155,8 +153,8 @@
   .title{
     .rfz(20px);
     color:@bolderColor;
-    margin-bottom:30rem/@psdWidth;
-    margin-top:40rem / @psdWidth;
+    padding-top:35rem /@psdWidth;
+    padding-bottom:35rem /@psdWidth;
   }
   .fixed-footer{
     position: fixed;

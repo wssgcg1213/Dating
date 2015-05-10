@@ -827,6 +827,9 @@ nav .user {
 [data-dpr="3"] .detail-wrapper {
   font-size: 54px;
 }
+.detail-wrapper ul {
+  margin: 0;
+}
 .detail-wrapper p {
   margin: 0;
   padding: 0;
@@ -900,19 +903,17 @@ nav .user {
 .detail-wrapper .content,
 .detail-wrapper .requirement,
 .detail-wrapper .ul-wrapper {
-  height: auto;
   border-bottom: 1px solid #dddddd;
-  margin: 0.37037037rem;
-  overflow: hidden;
+  margin-left: 0.37037037rem;
+  margin-right: 0.37037037rem;
 }
 .detail-wrapper .content .detail,
 .detail-wrapper .requirement .detail,
 .detail-wrapper .ul-wrapper .detail {
   color: #9a9a9a;
-  margin: 0.13888889rem;
+  padding-bottom: 0.46296296rem;
   font-size: 14px;
   text-indent: 2em;
-  margin-bottom: 0.46296296rem;
 }
 [data-dpr="2"] .detail-wrapper .content .detail,
 [data-dpr="2"] .detail-wrapper .requirement .detail,
@@ -964,10 +965,12 @@ nav .user {
   width: 100%;
   height: auto;
   padding: 35 rem / 108;
+  overflow: hidden;
 }
 .detail-wrapper .divWrapper .ul-wrapper li,
 .detail-wrapper .divWrapper .requirement li {
-  height: 0.74074074rem;
+  height: 0.92592593rem;
+  line-height: 0.92592593rem;
 }
 .detail-wrapper .divWrapper .ul-wrapper i {
   font-size: 18px;
@@ -1009,8 +1012,8 @@ nav .user {
 .detail-wrapper .title {
   font-size: 20px;
   color: #333333;
-  margin-bottom: 0.27777778rem;
-  margin-top: 0.37037037rem;
+  padding-top: 0.32407407rem;
+  padding-bottom: 0.32407407rem;
 }
 [data-dpr="2"] .detail-wrapper .title {
   font-size: 40px;
