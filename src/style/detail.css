@@ -97,7 +97,6 @@
 .detail-wrapper .ul-wrapper .detail {
   color: #9a9a9a;
   font-size: 14px;
-  text-indent: 2em;
 }
 [data-dpr="2"] .detail-wrapper .content .detail,
 [data-dpr="2"] .detail-wrapper .requirement .detail,
@@ -133,7 +132,6 @@
 .detail-wrapper .user-wrapper .user-face {
   float: left;
   width: 20%;
-  text-align: center;
   margin-bottom: 0.18518519rem;
 }
 .detail-wrapper .user-wrapper .logo-wrapper {

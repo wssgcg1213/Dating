@@ -19,6 +19,8 @@
 }
 .fliter-btns a {
   font-size: 18px;
+  height: 100%;
+  line-height: 1.33333333rem;
   color: #333333;
   float: left;
   box-sizing: border-box;
@@ -38,6 +40,11 @@
   text-decoration: none;
 }
 .fliter-btns a .iconfont {
-  position: relative;
-  top: 0.09259259rem;
+  font-size: 15px;
+}
+[data-dpr="2"] .fliter-btns a .iconfont {
+  font-size: 30px;
+}
+[data-dpr="3"] .fliter-btns a .iconfont {
+  font-size: 45px;
 }

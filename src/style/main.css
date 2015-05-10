@@ -625,6 +625,8 @@ nav .user {
 }
 .fliter-btns a {
   font-size: 18px;
+  height: 100%;
+  line-height: 1.33333333rem;
   color: #333333;
   float: left;
   box-sizing: border-box;
@@ -644,8 +646,13 @@ nav .user {
   text-decoration: none;
 }
 .fliter-btns a .iconfont {
-  position: relative;
-  top: 0.09259259rem;
+  font-size: 15px;
+}
+[data-dpr="2"] .fliter-btns a .iconfont {
+  font-size: 30px;
+}
+[data-dpr="3"] .fliter-btns a .iconfont {
+  font-size: 45px;
 }
 .scroll-container {
   background-color: #EFEFEF;
@@ -747,6 +754,7 @@ nav .user {
   height: 100%;
 }
 .scroll-container .prefix-content .content {
+  overflow: hidden;
   height: auto;
   background-color: #fff;
   padding-left: 0.46296296rem;
@@ -771,9 +779,6 @@ nav .user {
 .scroll-container .prefix-content .content .time i {
   color: #44d48b;
 }
-.scroll-container .prefix-content .content .cost {
-  padding-bottom: 0.50925926rem;
-}
 .scroll-container .prefix-content .content .cost i {
   color: #ff7660;
 }
@@ -792,7 +797,7 @@ nav .user {
 .scroll-container .prefix-content .info_content {
   padding: 0;
   width: 100%;
-  margin-top: 0.23148148rem;
+  margin: 0.23148148rem 0;
 }
 .scroll-container .prefix-content .info_content li {
   color: #666666;
@@ -916,7 +921,6 @@ nav .user {
 .detail-wrapper .ul-wrapper .detail {
   color: #9a9a9a;
   font-size: 14px;
-  text-indent: 2em;
 }
 [data-dpr="2"] .detail-wrapper .content .detail,
 [data-dpr="2"] .detail-wrapper .requirement .detail,
@@ -952,7 +956,6 @@ nav .user {
 .detail-wrapper .user-wrapper .user-face {
   float: left;
   width: 20%;
-  text-align: center;
   margin-bottom: 0.18518519rem;
 }
 .detail-wrapper .user-wrapper .logo-wrapper {
