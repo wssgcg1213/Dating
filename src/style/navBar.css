@@ -2,8 +2,8 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  height: 1.55555556rem;
-  line-height: 1.55555556rem;
+  height: 1.2962963rem;
+  line-height: 1.2962963rem;
   background-color: #333333;
   color: #ffffff;
 }
@@ -20,17 +20,17 @@ nav .nav-container:after {
   clear: both;
 }
 nav .title {
-  font-size: 22px;
+  font-size: 26px;
   float: left;
   color: #FFF;
   text-decoration: none;
   outline: none;
 }
 [data-dpr="2"] nav .title {
-  font-size: 44px;
+  font-size: 52px;
 }
 [data-dpr="3"] nav .title {
-  font-size: 66px;
+  font-size: 78px;
 }
 nav .user {
   float: right;

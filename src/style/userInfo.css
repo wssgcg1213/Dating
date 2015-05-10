@@ -4,13 +4,6 @@
 .userinfo .swiper-slide {
   width: 100%;
 }
-.userinfo .selected {
-  border-bottom: 0.09259259rem solid #ff6833;
-}
-.userinfo .selected i,
-.userinfo .selected span {
-  color: #ff6833;
-}
 .userinfo .userWrapper {
   width: 100%;
   height: 3.83333333rem;
@@ -106,6 +99,7 @@
   box-sizing: border-box;
   height: 1.34259259rem;
   float: left;
+  border-bottom: 0.09259259rem solid white;
   position: relative;
   text-align: center;
   font-size: 16px;
@@ -116,6 +110,13 @@
 }
 [data-dpr="3"] .userinfo .tab li {
   font-size: 48px;
+}
+.userinfo .tab li.selected {
+  border-bottom: 0.09259259rem solid #ff6833;
+}
+.userinfo .tab li.selected i,
+.userinfo .tab li.selected span {
+  color: #ff6833;
 }
 .userinfo .tab div {
   width: 100%;

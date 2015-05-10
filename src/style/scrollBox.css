@@ -15,6 +15,7 @@
 .scroll-container .prefix-content {
   margin-top: 0.24074074rem;
   background-color: #fff;
+  box-shadow: 0 0 3px #DDD;
 }
 .scroll-container:before,
 .scroll-container:after {
@@ -157,12 +158,12 @@
   font-size: 42px;
 }
 .scroll-container .prefix-content .title {
-  font-size: 16px;
+  font-size: 18px;
   color: #333333;
 }
 [data-dpr="2"] .scroll-container .prefix-content .title {
-  font-size: 32px;
+  font-size: 36px;
 }
 [data-dpr="3"] .scroll-container .prefix-content .title {
-  font-size: 48px;
+  font-size: 54px;
 }

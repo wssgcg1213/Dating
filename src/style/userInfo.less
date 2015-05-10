@@ -7,12 +7,7 @@
   .swiper-slide{
     width: 100%;
   }
-  .selected{
-    border-bottom: 10rem/@psdWidth solid #ff6833;
-    i,span{
-      color:#ff6833;
-    }
-  }
+
   .userWrapper{
     width:100%;
     height: 414rem / @psdWidth;
@@ -78,11 +73,17 @@
       .box-sizing(border-box);
       height:145rem / @psdWidth;
       float:left;
-//      border-bottom: 10rem/@psdWidth solid white;
+      border-bottom: 10rem/@psdWidth solid white;
       position:relative;
       text-align: center;
       .rfz(16px);
       color:@lightColor;
+      &.selected{
+        border-bottom: 10rem/@psdWidth solid #ff6833;
+        i,span{
+          color:#ff6833;
+        }
+      }
     }
     div{
       width:100%;
