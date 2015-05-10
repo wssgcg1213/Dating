@@ -4,6 +4,7 @@
 }
 .pbl-dating .row-group {
   margin: 0.46296296rem 0;
+  border-bottom: 1px solid #DDD;
 }
 .pbl-dating .row {
   position: relative;

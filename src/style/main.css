@@ -703,7 +703,7 @@ nav .user {
 .scroll-container .prefix-content .person .center-wrapper i {
   font-size: 18px;
   color: white;
-  display: inline-block;
+  /* display: inline-block; */
   *display: inline;
   *zoom: 1;
   border-radius: 100%;
@@ -857,7 +857,7 @@ nav .user {
 .detail-wrapper .person-wrapper .person .center-wrapper i {
   font-size: 18px;
   color: white;
-  display: inline-block;
+  /* display: inline-block; */
   *display: inline;
   *zoom: 1;
   border-radius: 100%;
@@ -1100,7 +1100,7 @@ nav .user {
 .userinfo .userWrapper .userName i {
   font-size: 18px;
   color: white;
-  display: inline-block;
+  /* display: inline-block; */
   *display: inline;
   *zoom: 1;
   border-radius: 100%;
@@ -1328,6 +1328,7 @@ nav .user {
 }
 .pbl-dating .row-group {
   margin: 0.46296296rem 0;
+  border-bottom: 1px solid #DDD;
 }
 .pbl-dating .row {
   position: relative;
