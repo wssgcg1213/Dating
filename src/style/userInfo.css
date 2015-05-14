@@ -128,7 +128,7 @@
           transform: translate(0, -50%);
 }
 .userinfo .tab .border {
-  border-right: 0.00925926rem solid #666666;
+  border-right: 1px solid #666666;
 }
 .userinfo #tab-container {
   width: 100%;
@@ -155,7 +155,7 @@
   height: 1.34259259rem;
   line-height: 1.2962963rem;
   background-color: #fff;
-  border-bottom: 0.00925926rem solid #dddddd;
+  border-bottom: 1px solid #DDDDDD;
   font-size: 16px;
   color: #666666;
   padding-left: 0.41666667rem;
