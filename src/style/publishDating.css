@@ -25,7 +25,8 @@
 .pbl-dating .row.active {
   background-color: #f7f7f7;
 }
-.pbl-dating .row input {
+.pbl-dating .row input,
+.pbl-dating .row select {
   background-color: #f7f7f7;
   border: none;
   outline: none;
@@ -34,8 +35,12 @@
 .pbl-dating .row #yTitle,
 .pbl-dating .row #yLocation,
 .pbl-dating .row #yPeople,
-.pbl-dating .row #ySpend {
-  width: 50%;
+.pbl-dating .row #ySpend,
+.pbl-dating .row #yType,
+.pbl-dating .row #ySex,
+.pbl-dating .row #yGrade,
+.pbl-dating .row #yCollege {
+  width: 70%;
   float: right;
   text-align: right;
   line-height: 100%;
@@ -70,8 +75,7 @@
   text-align: right;
 }
 .pbl-dating .dating-type {
-  color: #49a7ef;
-  font-weight: bold;
+  color: #ff863d;
 }
 .pbl-dating i {
   font-size: 18px;
