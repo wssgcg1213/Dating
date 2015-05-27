@@ -164,13 +164,22 @@ require(['eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], func
         }
     });
 
+
+    avalon.state('login',{
+        url:"/login",
+        templateUrl : "tpl/loginCtrl.html",
+        onEnter: function(){
+            avalon.scan();
+        }
+    });
+
     avalon.state('userInfo', {
         url: '/userInfo',
         templateUrl: "tpl/userInfoCtrl.html",
         onEnter: function(){
             avalon.vmodels['nav']['title'] = "个人中心";
             avalon.define({
-                $id : "userInfo",
+                $id : "userInfo"
 
                 //data :{
                 //    userLogo : 'imgs/1.jpg',

@@ -1980,3 +1980,72 @@ nav .user {
 [data-dpr="3"] .history .title {
   font-size: 66px;
 }
+.form_wrapper {
+  text-align: center;
+}
+.form_wrapper .logo {
+  margin-top: 1.99074074rem;
+}
+.form_wrapper ::-moz-placeholder {
+  color: #9a9a9a;
+}
+.form_wrapper ::-webkit-input-placeholder {
+  color: #9a9a9a;
+}
+.form_wrapper :-ms-input-placeholder {
+  color: #9a9a9a;
+}
+.form_wrapper form {
+  width: 90.74074074%;
+  margin: 0.92592593rem auto 0;
+}
+.form_wrapper form button {
+  width: 100%;
+  border-radius: 5px;
+  height: 1.38888889rem;
+  background-color: #ff3d3d;
+  outline: none;
+  border: none;
+  color: #ffffff;
+  font-size: 22px;
+  margin-top: 0.44444444rem;
+}
+[data-dpr="2"] .form_wrapper form button {
+  font-size: 44px;
+}
+[data-dpr="3"] .form_wrapper form button {
+  font-size: 66px;
+}
+.form_wrapper form input {
+  width: 94%;
+  height: 1.2962963rem;
+  outline: none;
+  border: #cccccc 1px solid;
+  border-radius: 5px;
+  padding-left: 0.46296296rem;
+  font-size: 18px;
+  display: block;
+  margin: 0 auto;
+}
+[data-dpr="2"] .form_wrapper form input {
+  font-size: 36px;
+}
+[data-dpr="3"] .form_wrapper form input {
+  font-size: 54px;
+}
+.form_wrapper form .pw {
+  border-color: #f9f8f8 #cccccc #cccccc #cccccc ;
+}
+.form_wrapper .trouble {
+  color: #9a9a9a;
+  float: right;
+  font-size: 18px;
+  margin-top: 0.25925926rem;
+  letter-spacing: 2px;
+}
+[data-dpr="2"] .form_wrapper .trouble {
+  font-size: 36px;
+}
+[data-dpr="3"] .form_wrapper .trouble {
+  font-size: 54px;
+}
