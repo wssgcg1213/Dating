@@ -2021,7 +2021,6 @@ nav .user {
   height: 1.2962963rem;
   outline: none;
   border: #cccccc 1px solid;
-  border-radius: 5px;
   padding-left: 0.46296296rem;
   font-size: 18px;
   display: block;
@@ -2033,8 +2032,14 @@ nav .user {
 [data-dpr="3"] .form_wrapper form input {
   font-size: 54px;
 }
+.form_wrapper form #stu_id {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
 .form_wrapper form .pw {
   border-color: #f9f8f8 #cccccc #cccccc #cccccc ;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px ;
 }
 .form_wrapper .trouble {
   color: #9a9a9a;
