@@ -15,13 +15,14 @@ require.config({
 });
 
 var urls = {
-    "slider": "http://106.184.7.12:8002/index.php/api/public/banner",
+    "slider": "../mock.php",
     "showBox": "http://106.184.7.12:8002/index.php/api/date/datelist",
     "category": "http://106.184.7.12:8002/index.php/api/date/datetype"
 };
 
-require(['eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], function(EventProxy) {
+require(['userCenter', 'eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], function(userCenter, EventProxy) {
     //debugger;
+    console.log(userCenter);
     var ep; //用来装载EventProxy的实例对象
     avalon.filters.createdTime = function(ts){ //创建时间的fliter
         var _now = parseInt(new Date / 1000),
@@ -135,7 +136,14 @@ require(['eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], func
                     dateList: [{}]
                 });
             }
-            $.post(urls.showBox).success(function(res){
+            $.post(urls.showBox, {
+                uid: 1,
+                token: 'nasdfnldssdaf',
+                date_type: 0,
+                page: 0,
+                size: 10,
+                order: 1
+            }).success(function(res){
                 if(res.status == 200){
                     avalon.vmodels['showBox'].dateList = res.data;
                 }else{
