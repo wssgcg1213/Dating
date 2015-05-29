@@ -450,8 +450,9 @@ input[type="search"]::-webkit-search-decoration {
 @font-face {
   font-family: "iconfont";
   src: url('iconfont.eot');
-  /* IE9*/
   src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('iconfont.woff') format('woff'), /* chrome、firefox */ url('iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('iconfont.svg#iconfont') format('svg');
+  
+  /* IE9*/
   /* iOS 4.1- */
 }
 .iconfont {
@@ -1898,17 +1899,17 @@ nav .user {
   width: 100%;
   margin-top: 0.23148148rem;
 }
-.history ul li {
+.history ul .prefix {
   color: #666666;
   line-height: 0.38888889rem;
   height: 0.69444444rem;
   width: 100%;
   font-size: 14px;
 }
-[data-dpr="2"] .history ul li {
+[data-dpr="2"] .history ul .prefix {
   font-size: 28px;
 }
-[data-dpr="3"] .history ul li {
+[data-dpr="3"] .history ul .prefix {
   font-size: 42px;
 }
 .history .title {

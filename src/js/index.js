@@ -20,8 +20,8 @@ var urls = {
     "category": "http://106.184.7.12:8002/index.php/api/date/datetype",
     "detail": "http://106.184.7.12:8002/index.php/api/date/detaildate",
     "userInfo": "http://106.184.7.12:8002/index.php/api/person/userinfo",
-    "history_create": " http://106.184.7.12:8002/index.php/api/person/create",
-    "history_join": "http://106.184.7.12:8002/index.php/api/person/join"
+    "historyCreate": "http://106.184.7.12:8002/index.php/api/person/create",
+    "historyJoin": "http://106.184.7.12:8002/index.php/api/person/join"
 };
 
 require(['userCenter', 'eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], function(userCenter, EventProxy) {
@@ -90,6 +90,20 @@ require(['userCenter', 'eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'm
             case 2: return "大二";
             case 3: return "大三";
             case 4: return "大四";
+        }
+        return "未知";
+    }
+    /**
+     * 状态限制过滤器
+     * @param n
+     * @returns {string}
+     */
+    avalon.filters.status = function(n){
+        n = parseInt(n);
+        switch (n){
+            case 0: return "已结束";
+            case 1: return "成功";
+            case 2: return "受理中";
         }
         return "未知";
     }
@@ -210,6 +224,7 @@ require(['userCenter', 'eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'm
             }).success(function(res){
                 if(res.status == 200){
                     avalon.vmodels['showBox'].dateList = res.data;
+
                 }else{
                     console.log(res, "err");
                 }
@@ -276,10 +291,12 @@ require(['userCenter', 'eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'm
                 setTimeout(avalon.router.navigate.bind(avalon.router, "login"), 0);
                 return;
             }
-            if(!avalon.vmodels['userInfo'])avalon.define({$id : "userInfo", data: {}});
+            if(!avalon.vmodels['userInfo'])
+                avalon.define({$id : "userInfo", data: {}});
             $.post(urls.userInfo, {uid: user.uid, get_uid: user.uid, token: user.token}).success(function(res){
                 if(res.status == 200){
                     avalon.vmodels['userInfo'].data = res.data;
+                    console.log(res.data);
                 }else{
                     console.log("Err", res);
                 }
@@ -338,19 +355,23 @@ require(['userCenter', 'eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'm
                 setTimeout(avalon.router.navigate.bind(avalon.router, "login"), 0);
                 return;
             }
-
             if(!avalon.vmodels["history"]){
                 avalon.define({
                     $id: "history",
                     users: [],
-                    data: {}
+                    dataList: [{}],
+                    data:{},
+                    dataObj: [{}]
                 });
             }
-
-
-            $.post(urls.history_create,{uid: user.uid,token: user.token}).success(function(res) {
-                console.log(res);
-                avalon.vmodels["history"].data = res;
+            $.post(urls.historyCreate,{uid: user.uid,token: user.token}).success(function(res) {
+                avalon.vmodels["history"].dataList = res.data;
+                avalon.vmodels["history"].data = res.data[0];
+                console.log(res.data);
+                avalon.scan();
+            })
+            $.post(urls.historyJoin,{uid:user.uid,token:user.token}).success(function(res) {
+                avalon.vmodels["history"].dataObj = res.data;
                 avalon.scan();
             })
         }
