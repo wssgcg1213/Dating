@@ -27,22 +27,20 @@
                 <li><span>年级</span>：{{data.grade | gradeFilter}}</li>
                 <li><span>电话</span>：{{data.telephone}}</li>
                 <li><span>QQ</span>：{{data.qq}}</li>
-                <li><span>微信</span>：{{data.we}}</li>
+                <li><span>微信</span>：{{data.weixin}}</li>
             </ul>
         </div>
-        <div class="tab2 swiper-slide">
-            <div class="content">
-                <p class="title">下午吃饭有人约吗</p>
-                <ul>
-                    <li class="location"><i class="iconfont">&#xe612</i>地点：老校门</li>
-                    <li class="time"><i class="iconfont">&#xe611</i>时间：6:00</li>
-                    <li class="cost">
-                        <i class="iconfont">&#xe60f</i>费用：我请客
-                        <span>状态：已结束</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <ul class="tab2 swiper-slide">
+            <li class="content" ms-repeat="data.mydate" ms-click="goDetail(el.date_id)">
+                <p class="title">{{el.title}}</p>
+                <div class="location"><i class="iconfont">&#xe612</i>地点：{{el.place}}</div>
+                <div class="time"><i class="iconfont">&#xe611</i>时间：{{el.date_time | date("MM.dd HH:mm:ss")}}</div>
+                <div class="cost">
+                    <i class="iconfont">&#xe60f</i>费用：{{el.cost_model | costModel}}
+                    <span>状态：{{el.status | statusFilter}}</span>
+                </div>
+            </li>
+        </ul>
     </div>
 
 </div>

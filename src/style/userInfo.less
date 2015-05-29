@@ -126,19 +126,15 @@
 
     .content{
       height:400rem / @psdWidth;
-      p{
-        margin:0;
+      .title{
+        margin: 0 0 40rem / @psdWidth;
       }
-      ul{
-        padding:0;
+      div{
+        color:@lightColor;
+        line-height:42rem /@psdWidth;
+        height:75rem / @psdWidth;
         width:100%;
-        li{
-          color:@lightColor;
-          line-height:42rem /@psdWidth;
-          height:75rem / @psdWidth;
-          width:100%;
-          .rfz(14px);
-        }
+        .rfz(14px);
       }
       .title{
         .rfz(22px);
@@ -175,5 +171,12 @@
         }
       }
     }
+  }
+
+  .tab2{
+    margin: 0;
+//    height: 1000px!important;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch
   }
 }

@@ -1188,24 +1188,20 @@ nav .user {
   padding-left: 0.46296296rem;
   border-bottom: 1px solid #dddddd;
 }
-.userinfo #tab-container .content p {
-  margin: 0;
+.userinfo #tab-container .content .title {
+  margin: 0 0 0.37037037rem;
 }
-.userinfo #tab-container .content ul {
-  padding: 0;
-  width: 100%;
-}
-.userinfo #tab-container .content ul li {
+.userinfo #tab-container .content div {
   color: #666666;
   line-height: 0.38888889rem;
   height: 0.69444444rem;
   width: 100%;
   font-size: 14px;
 }
-[data-dpr="2"] .userinfo #tab-container .content ul li {
+[data-dpr="2"] .userinfo #tab-container .content div {
   font-size: 28px;
 }
-[data-dpr="3"] .userinfo #tab-container .content ul li {
+[data-dpr="3"] .userinfo #tab-container .content div {
   font-size: 42px;
 }
 .userinfo #tab-container .content .title {
@@ -1248,6 +1244,11 @@ nav .user {
 }
 [data-dpr="3"] .userinfo #tab-container .content .cost span {
   font-size: 54px;
+}
+.userinfo .tab2 {
+  margin: 0;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .publishBtn {
   position: fixed;

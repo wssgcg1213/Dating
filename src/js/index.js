@@ -75,7 +75,7 @@ require(['userCenter', 'eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'm
         return "未知";
     }
 
-    
+
     avalon.filters.peopleLimit = function(n){
         n = parseInt(n);
         return !n ? "无限制" : "少于" + n + '人';
@@ -88,6 +88,21 @@ require(['userCenter', 'eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'm
             case 2: return "大二";
             case 3: return "大三";
             case 4: return "大四";
+        }
+        return "未知";
+    }
+
+    /**
+     * 约会记录状态
+     * @param n
+     * @returns {string}
+     */
+    avalon.filters.statusFilter = function(n){
+        n = parseInt(n);
+        switch(n){
+            case 0: return "已结束";
+            case 1: return "成功";
+            case 2: return "受理中";
         }
         return "未知";
     }
@@ -274,7 +289,9 @@ require(['userCenter', 'eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'm
                 setTimeout(avalon.router.navigate.bind(avalon.router, "login"), 0);
                 return;
             }
-            if(!avalon.vmodels['userInfo'])avalon.define({$id : "userInfo", data: {}});
+            if(!avalon.vmodels['userInfo'])avalon.define({$id : "userInfo", data: {},
+                goDetail: function(id){avalon.router.navigate('detail/' + id);}
+            });
             $.post(urls.userInfo, {uid: user.uid, get_uid: user.uid, token: user.token}).success(function(res){
                 if(res.status == 200){
                     avalon.vmodels['userInfo'].data = res.data;
@@ -311,7 +328,7 @@ require(['userCenter', 'eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'm
             }, 2000);
 
             $.post(urls.detail, {date_id: id, uid: user.uid, token: user.token}).success(function(res){
-                avalon.vmodels['detail'].data = res;
+                avalon.vmodels['detail'].data = res.data;
                 clearTimeout(timer);
                 avalon.scan();
             });
