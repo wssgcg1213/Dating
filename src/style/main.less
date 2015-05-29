@@ -11,7 +11,7 @@
   font-family:"iconfont" !important;
   font-family: 'Microsoft YaHei', "WenQuanYi MicroHei", sans-serif;
   .rfz(30px);
-  font-style:normal;
+  font-style: normal;
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
@@ -46,3 +46,41 @@ html, body{
 @import "litterLetter";
 @import "history";
 @import "login";
+
+.icon-qian:before { content: "\e60f"; }
+.icon-tongji:before { content: "\e60e"; }
+.icon-icsanjiaoxia:before { content: "\e600"; }
+.icon-shunfengche:before { content: "\e601"; }
+.icon-mihu:before { content: "\e602"; }
+.icon-gengduo:before { content: "\e603"; }
+.icon-feiji:before { content: "\e604"; }
+.icon-yule:before { content: "\e605"; }
+.icon-female:before { content: "\e613"; }
+.icon-male{
+  .rfz(18px);
+  background-color: #fff;
+  .border-radius(100%);
+  width:50rem / @psdWidth;
+  height: 50rem /@psdWidth;
+  line-height: 50rem / @psdWidth;
+  text-align: center;
+  color: @sexBgMale;
+  overflow: hidden;
+  margin-left: 10rem /@psdWidth;
+}
+.icon-female{
+  .icon-male();
+  color: @sexBgFemale;
+}
+.icon-male:before {
+  content: "\e614";
+}
+.icon-ren:before { content: "\e610"; }
+.icon-icongerenjishiben:before { content: "\e606"; }
+.icon-xiaoshou:before { content: "\e607"; }
+.icon-shijian:before { content: "\e611"; }
+.icon-icon50:before { content: "\e608"; }
+.icon-yonghu:before { content: "\e609"; }
+.icon-fanpai:before { content: "\e60a"; }
+.icon-baozifan:before { content: "\e60b"; }
+.icon-jikediancanicon28:before { content: "\e612"; }

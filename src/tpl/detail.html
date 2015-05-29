@@ -1,36 +1,35 @@
-<div class="detail-wrapper">
+<div class="detail-wrapper" ms-controller="detail">
     <div class="person-wrapper">
         <div class="person">
-            <img class="logo-wrapper" src="imgs/1.jpg"/>
+            <img class="logo-wrapper" ms-src="data.head"/>
             <div class="center-wrapper">
-                <p>村里没有巧克力<i class="iconfont">&#xe60d</i></p>
-                <p class="motto">他没有个性签名</p>
+                <p>{{data.nickname}}<i class="iconfont" ms-class-icon-male="data.gender==1" ms-class-icon-female="data.gender==2"></i></p>
+                <p class="motto">{{data.signature ? data.signature : "TA没有个性签名"}}</p>
             </div>
         </div>
     </div>
 
     <div class="divWrapper">
         <div class="content">
-            <p class="title">下午吃饭有人约吗</p>
-            <p class="detail">
-                今天下午，绝非难事尽快发货呢数据库和顾客介绍顾客就是人。
-            </p>
+            <p class="title">{{data.title}}</p>
+            <p class="detail">{{data.content}}</p>
+            <!--todo content-->
         </div>
 
         <div class="ul-wrapper">
             <ul>
-                <li class="location"><i class="iconfont">&#xe612</i>地点：老校门</li>
-                <li class="time"><i class="iconfont">&#xe611</i>时间：6:00</li>
-                <li class="cost"><i class="iconfont">&#xe60f</i>费用：我请客</li>
+                <li class="location"><i class="iconfont">&#xe612</i>地点：{{data.place}}</li>
+                <li class="time"><i class="iconfont">&#xe611</i>时间：{{data.date_at | date("MM dd:HH:mm:ss")}}</li>
+                <li class="cost"><i class="iconfont">&#xe60f</i>费用：{{data.cost_model | costModel}}</li>
             </ul>
         </div>
 
         <div class="requirement">
             <p class="title">要求</p>
             <ul>
-                <li>年级：大二大三</li>
-                <li>性别：男女皆宜</li>
-                <li>学院：计算机学院</li>
+                <li>年级：{{}}</li><!-- todo -->
+                <li>性别：{{data.gender_limit | genderLimit}}</li>
+                <li>人数限制: {{data.people_limit | peopleLimit}}</li>
             </ul>
         </div>
         

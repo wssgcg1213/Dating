@@ -1,11 +1,10 @@
-<div class="userWrapper" ms-controller="userInfo">
-    <img class="userLogo" src="imgs/1.jpg" alt=""/>
-    <p class="userName">村里没有巧克力<i class="iconfont">&#xe60d</i></p>
-    <p class="motto">奋斗不息,生命不止</p>
+<div class="userWrapper">
+    <img class="userLogo" ms-src="data.head" alt=""/>
+    <p class="userName">{{data.nickname}}<i class="iconfont" ms-class-icon-male="data.gender==1" ms-class-icon-female="data.gender==2"></i></p>
+    <p class="motto">{{data.signature ? data.signature : "TA没有个性签名!"}}</p>
 </div>
 
 <ul class="tab">
-
     <li class="selected">
         <div class="border">
             <i class="iconfont">&#xe610</i><span>基本资料</span>
@@ -24,11 +23,11 @@
     <div class="swiper-wrapper">
         <div class="tab1 swiper-slide">
             <ul class="detail-info">
-                <li><span>学院</span>：传媒与艺术学院</li>
-                <li><span>年级</span>：大一</li>
-                <li><span>电话</span>：188-8387-8110(已保密)</li>
-                <li><span>QQ</span>：123456789</li>
-                <li><span>微信</span>：succeed-陈</li>
+                <li><span>学院</span>：{{data.academy}}</li>
+                <li><span>年级</span>：{{data.grade | gradeFilter}}</li>
+                <li><span>电话</span>：{{data.telephone}}</li>
+                <li><span>QQ</span>：{{data.qq}}</li>
+                <li><span>微信</span>：{{data.we}}</li>
             </ul>
         </div>
         <div class="tab2 swiper-slide">

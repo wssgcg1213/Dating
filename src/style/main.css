@@ -680,24 +680,6 @@ nav .user {
 .scroll-container:after {
   clear: both;
 }
-.scroll-container .prefix-content .username i {
-  font-size: 18px;
-  color: white;
-  border-radius: 100%;
-  width: 0.46296296rem;
-  height: 0.46296296rem;
-  line-height: 0.46296296rem;
-  text-align: center;
-  background-color: #758fff;
-  overflow: hidden;
-  margin-left: 0.09259259rem;
-}
-[data-dpr="2"] .scroll-container .prefix-content .username i {
-  font-size: 36px;
-}
-[data-dpr="3"] .scroll-container .prefix-content .username i {
-  font-size: 54px;
-}
 .scroll-container .prefix-content .person-wrapper {
   width: 100%;
   background-color: #fff;
@@ -856,30 +838,6 @@ nav .user {
 }
 .detail-wrapper .person-wrapper .person .center-wrapper {
   margin-left: 2.22222222rem;
-}
-.detail-wrapper .person-wrapper .person .center-wrapper i {
-  font-size: 18px;
-  color: white;
-  border-radius: 100%;
-  width: 0.46296296rem;
-  height: 0.46296296rem;
-  line-height: 0.46296296rem;
-  text-align: center;
-  background-color: #758fff;
-  overflow: hidden;
-  margin-left: 0.09259259rem;
-}
-[data-dpr="2"] .detail-wrapper .person-wrapper .person .center-wrapper i {
-  font-size: 36px;
-}
-[data-dpr="3"] .detail-wrapper .person-wrapper .person .center-wrapper i {
-  font-size: 54px;
-}
-.detail-wrapper .person-wrapper .person .center-wrapper i.male {
-  background-color: #758fff;
-}
-.detail-wrapper .person-wrapper .person .center-wrapper i.female {
-  background-color: #ff29c2;
 }
 .detail-wrapper .person-wrapper .person .motto {
   color: #666666;
@@ -1091,22 +1049,6 @@ nav .user {
 }
 .userinfo .userWrapper .userName {
   color: #333333;
-}
-.userinfo .userWrapper .userName i {
-  font-size: 18px;
-  color: white;
-  border-radius: 100%;
-  width: 0.46296296rem;
-  height: 0.46296296rem;
-  background-color: #5aa4ff;
-  overflow: hidden;
-  margin-left: 10px;
-}
-[data-dpr="2"] .userinfo .userWrapper .userName i {
-  font-size: 36px;
-}
-[data-dpr="3"] .userinfo .userWrapper .userName i {
-  font-size: 54px;
 }
 .userinfo .userWrapper .motto {
   color: #666666;
@@ -1979,26 +1921,26 @@ nav .user {
 [data-dpr="3"] .history .title {
   font-size: 66px;
 }
-.form_wrapper {
+.login-wrapper {
   text-align: center;
 }
-.form_wrapper .logo {
+.login-wrapper .logo {
   margin-top: 1.99074074rem;
 }
-.form_wrapper ::-moz-placeholder {
+.login-wrapper ::-moz-placeholder {
   color: #9a9a9a;
 }
-.form_wrapper ::-webkit-input-placeholder {
+.login-wrapper ::-webkit-input-placeholder {
   color: #9a9a9a;
 }
-.form_wrapper :-ms-input-placeholder {
+.login-wrapper :-ms-input-placeholder {
   color: #9a9a9a;
 }
-.form_wrapper form {
+.login-wrapper form {
   width: 90.74074074%;
   margin: 0.92592593rem auto 0;
 }
-.form_wrapper form button {
+.login-wrapper form button {
   width: 100%;
   border-radius: 5px;
   height: 1.38888889rem;
@@ -2009,13 +1951,13 @@ nav .user {
   font-size: 22px;
   margin-top: 0.44444444rem;
 }
-[data-dpr="2"] .form_wrapper form button {
+[data-dpr="2"] .login-wrapper form button {
   font-size: 44px;
 }
-[data-dpr="3"] .form_wrapper form button {
+[data-dpr="3"] .login-wrapper form button {
   font-size: 66px;
 }
-.form_wrapper form input {
+.login-wrapper form input {
   width: 94%;
   height: 1.2962963rem;
   outline: none;
@@ -2025,31 +1967,125 @@ nav .user {
   display: block;
   margin: 0 auto;
 }
-[data-dpr="2"] .form_wrapper form input {
+[data-dpr="2"] .login-wrapper form input {
   font-size: 36px;
 }
-[data-dpr="3"] .form_wrapper form input {
+[data-dpr="3"] .login-wrapper form input {
   font-size: 54px;
 }
-.form_wrapper form #stu_id {
+.login-wrapper form .stuId {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-.form_wrapper form .pw {
+.login-wrapper form .password {
   border-color: #f9f8f8 #cccccc #cccccc #cccccc ;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px ;
 }
-.form_wrapper .trouble {
+.login-wrapper .trouble {
   color: #9a9a9a;
   float: right;
   font-size: 18px;
   margin-top: 0.25925926rem;
   letter-spacing: 2px;
 }
-[data-dpr="2"] .form_wrapper .trouble {
+[data-dpr="2"] .login-wrapper .trouble {
   font-size: 36px;
 }
-[data-dpr="3"] .form_wrapper .trouble {
+[data-dpr="3"] .login-wrapper .trouble {
   font-size: 54px;
+}
+.icon-qian:before {
+  content: "\e60f";
+}
+.icon-tongji:before {
+  content: "\e60e";
+}
+.icon-icsanjiaoxia:before {
+  content: "\e600";
+}
+.icon-shunfengche:before {
+  content: "\e601";
+}
+.icon-mihu:before {
+  content: "\e602";
+}
+.icon-gengduo:before {
+  content: "\e603";
+}
+.icon-feiji:before {
+  content: "\e604";
+}
+.icon-yule:before {
+  content: "\e605";
+}
+.icon-female:before {
+  content: "\e613";
+}
+.icon-male {
+  font-size: 18px;
+  background-color: #fff;
+  border-radius: 100%;
+  width: 0.46296296rem;
+  height: 0.46296296rem;
+  line-height: 0.46296296rem;
+  text-align: center;
+  color: #758fff;
+  overflow: hidden;
+  margin-left: 0.09259259rem;
+}
+[data-dpr="2"] .icon-male {
+  font-size: 36px;
+}
+[data-dpr="3"] .icon-male {
+  font-size: 54px;
+}
+.icon-female {
+  font-size: 18px;
+  background-color: #fff;
+  border-radius: 100%;
+  width: 0.46296296rem;
+  height: 0.46296296rem;
+  line-height: 0.46296296rem;
+  text-align: center;
+  color: #758fff;
+  overflow: hidden;
+  margin-left: 0.09259259rem;
+  color: #ff29c2;
+}
+[data-dpr="2"] .icon-female {
+  font-size: 36px;
+}
+[data-dpr="3"] .icon-female {
+  font-size: 54px;
+}
+.icon-male:before {
+  content: "\e614";
+}
+.icon-ren:before {
+  content: "\e610";
+}
+.icon-icongerenjishiben:before {
+  content: "\e606";
+}
+.icon-xiaoshou:before {
+  content: "\e607";
+}
+.icon-shijian:before {
+  content: "\e611";
+}
+.icon-icon50:before {
+  content: "\e608";
+}
+.icon-yonghu:before {
+  content: "\e609";
+}
+.icon-fanpai:before {
+  content: "\e60a";
+}
+.icon-baozifan:before {
+  content: "\e60b";
+}
+.icon-jikediancanicon28:before {
+  content: "\e612";
 }

@@ -25,24 +25,6 @@
 .scroll-container:after {
   clear: both;
 }
-.scroll-container .prefix-content .username i {
-  font-size: 18px;
-  color: white;
-  border-radius: 100%;
-  width: 0.46296296rem;
-  height: 0.46296296rem;
-  line-height: 0.46296296rem;
-  text-align: center;
-  background-color: #758fff;
-  overflow: hidden;
-  margin-left: 0.09259259rem;
-}
-[data-dpr="2"] .scroll-container .prefix-content .username i {
-  font-size: 36px;
-}
-[data-dpr="3"] .scroll-container .prefix-content .username i {
-  font-size: 54px;
-}
 .scroll-container .prefix-content .person-wrapper {
   width: 100%;
   background-color: #fff;

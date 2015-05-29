@@ -15,16 +15,22 @@ require.config({
 });
 
 var urls = {
-    "slider": "../mock.php",
+    "slider": "../mock.php?type=pics",
     "showBox": "http://106.184.7.12:8002/index.php/api/date/datelist",
-    "category": "http://106.184.7.12:8002/index.php/api/date/datetype"
+    "category": "http://106.184.7.12:8002/index.php/api/date/datetype",
+    "detail": "http://106.184.7.12:8002/index.php/api/date/detaildate",
+    "userInfo": "http://106.184.7.12:8002/index.php/api/person/userinfo"
 };
 
 require(['userCenter', 'eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], function(userCenter, EventProxy) {
-    //debugger;
-    console.log(userCenter);
     var ep; //用来装载EventProxy的实例对象
-    avalon.filters.createdTime = function(ts){ //创建时间的fliter
+
+    /**
+     * 创建时间的fliter
+     * @param ts
+     * @returns {string}
+     */
+    avalon.filters.createdTime = function(ts){
         var _now = parseInt(new Date / 1000),
             interval = _now - ts;
         if(interval < 60){
@@ -38,6 +44,53 @@ require(['userCenter', 'eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'm
         }
         return parseInt(interval / (24 * 60 * 60)) + "天前";
     };
+
+    /**
+     * 花费模式过滤器
+     * @param model
+     * @returns {string}
+     */
+    avalon.filters.costModel = function(model) {
+        var model = parseInt(model);
+        switch(model){
+            case 1: return "AA制";
+            case 2: return "我请客";
+            case 3: return "求请客";
+        }
+        return "未知";
+    }
+
+    /**
+     * 性别限制过滤器
+     * @param g
+     * @returns {string}
+     */
+    avalon.filters.genderLimit = function(g){
+        var g = parseInt(g);
+        switch(g){
+            case 0: return "不限";
+            case 1: return "仅限男";
+            case 2: return "仅限女";
+        }
+        return "未知";
+    }
+
+    
+    avalon.filters.peopleLimit = function(n){
+        n = parseInt(n);
+        return !n ? "无限制" : "少于" + n + '人';
+    }
+
+    avalon.filters.gradeFilter = function(n){
+        n = parseInt(n);
+        switch(n){
+            case 1: return "大一";
+            case 2: return "大二";
+            case 3: return "大三";
+            case 4: return "大四";
+        }
+        return "未知";
+    }
 
     function initSlider(){
         var _slider = new Swiper('.swiper-container',{
@@ -92,6 +145,11 @@ require(['userCenter', 'eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'm
         url: "/",
         templateUrl: "tpl/indexCtrl.html",
         onEnter: function(){
+            var user = userCenter.info();
+            if(!user.state){
+                setTimeout(function(){avalon.router.navigate('login')}, 0);
+                return;
+            }
             setTimeout(avalon.scan, 1000); //timeout
             //异步处理, getdata
             ep = EventProxy.create('user', 'slider', 'fliter', function(user, slider, fliter) {
@@ -133,12 +191,16 @@ require(['userCenter', 'eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'm
             if(!avalon.vmodels['showBox']){
                 avalon.define({
                     $id: "showBox",
-                    dateList: [{}]
+                    dateList: [{}],
+                    goDetail: function(did){
+                        avalon.router.navigate('detail/'+did);
+                    }
                 });
             }
+            var user = userCenter.info();
             $.post(urls.showBox, {
-                uid: 1,
-                token: 'nasdfnldssdaf',
+                uid: user.uid,
+                token: user.token,
                 date_type: 0,
                 page: 0,
                 size: 10,
@@ -177,6 +239,27 @@ require(['userCenter', 'eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'm
         url:"/login",
         templateUrl : "tpl/loginCtrl.html",
         onEnter: function(){
+            if(!avalon.vmodels['login']){
+                avalon.define({
+                    $id: "login",
+                    username: "",
+                    password: "",
+                    btn: function(e){ //点击登陆
+                        e.preventDefault();
+                        userCenter.login(this.username, this.password, function(err, user){
+                            if(err) {
+                                alert("登陆失败! 请检查用户名和密码.");
+                                return;
+                            } //todo 修改成软提示
+                            return setTimeout(function(){
+                                avalon.router.navigate('');
+                            }, 0);
+                        });
+                    }
+                });
+            }
+            var _loginVm = avalon.vmodels['login'];
+            _loginVm.password = "";
             avalon.scan();
         }
     });
@@ -186,37 +269,52 @@ require(['userCenter', 'eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'm
         templateUrl: "tpl/userInfoCtrl.html",
         onEnter: function(){
             avalon.vmodels['nav']['title'] = "个人中心";
-            avalon.define({
-                $id : "userInfo"
-
-                //data :{
-                //    userLogo : 'imgs/1.jpg',
-                //    userName : '村里没有巧克力',
-                //    motto : '日日code',
-                //    college : '传媒学院',
-                //
-                //},
-
+            var user = userCenter.info();
+            if(!user.state){
+                setTimeout(avalon.router.navigate.bind(avalon.router, "login"), 0);
+                return;
+            }
+            if(!avalon.vmodels['userInfo'])avalon.define({$id : "userInfo", data: {}});
+            $.post(urls.userInfo, {uid: user.uid, get_uid: user.uid, token: user.token}).success(function(res){
+                if(res.status == 200){
+                    avalon.vmodels['userInfo'].data = res.data;
+                }else{
+                    console.log("Err", res);
+                }
             });
-
 
             avalon.scan();
         }
     });
 
     avalon.state('detail', {
-        url: '/detail',
+        url: '/detail/:id',
         templateUrl: "tpl/detailCtrl.html",
         onEnter: function() {
-            //avalon.vmodels['nav']['title'] = "详情";
-            //todo
-            if(!avalon.vmodels['userInfo']){
+            var id = this.params.id,
+                user = userCenter.info();
+            if(!user.state){
+                setTimeout(avalon.router.navigate.bind(avalon.router, "login"), 0);
+                return;
+            }
+            if(!avalon.vmodels['detail']){
                 avalon.define({
-                    $id: "userInfo",
-                    users: [{}]
+                    $id: "detail",
+                    users: [],
+                    data: {}
                 });
             }
-            avalon.scan();
+
+            var timer = setTimeout(function(){
+                alert("network slow");
+                location.reload();
+            }, 2000);
+
+            $.post(urls.detail, {date_id: id, uid: user.uid, token: user.token}).success(function(res){
+                avalon.vmodels['detail'].data = res;
+                clearTimeout(timer);
+                avalon.scan();
+            });
         }
     });
 

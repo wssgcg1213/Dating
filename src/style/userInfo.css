@@ -26,22 +26,6 @@
 .userinfo .userWrapper .userName {
   color: #333333;
 }
-.userinfo .userWrapper .userName i {
-  font-size: 18px;
-  color: white;
-  border-radius: 100%;
-  width: 0.46296296rem;
-  height: 0.46296296rem;
-  background-color: #5aa4ff;
-  overflow: hidden;
-  margin-left: 10px;
-}
-[data-dpr="2"] .userinfo .userWrapper .userName i {
-  font-size: 36px;
-}
-[data-dpr="3"] .userinfo .userWrapper .userName i {
-  font-size: 54px;
-}
 .userinfo .userWrapper .motto {
   color: #666666;
   font-size: 16px;

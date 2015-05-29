@@ -33,30 +33,6 @@
 .detail-wrapper .person-wrapper .person .center-wrapper {
   margin-left: 2.22222222rem;
 }
-.detail-wrapper .person-wrapper .person .center-wrapper i {
-  font-size: 18px;
-  color: white;
-  border-radius: 100%;
-  width: 0.46296296rem;
-  height: 0.46296296rem;
-  line-height: 0.46296296rem;
-  text-align: center;
-  background-color: #758fff;
-  overflow: hidden;
-  margin-left: 0.09259259rem;
-}
-[data-dpr="2"] .detail-wrapper .person-wrapper .person .center-wrapper i {
-  font-size: 36px;
-}
-[data-dpr="3"] .detail-wrapper .person-wrapper .person .center-wrapper i {
-  font-size: 54px;
-}
-.detail-wrapper .person-wrapper .person .center-wrapper i.male {
-  background-color: #758fff;
-}
-.detail-wrapper .person-wrapper .person .center-wrapper i.female {
-  background-color: #ff29c2;
-}
 .detail-wrapper .person-wrapper .person .motto {
   color: #666666;
   font-size: 14px;
