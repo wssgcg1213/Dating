@@ -19,7 +19,9 @@ var urls = {
     "showBox": "http://106.184.7.12:8002/index.php/api/date/datelist",
     "category": "http://106.184.7.12:8002/index.php/api/date/datetype",
     "detail": "http://106.184.7.12:8002/index.php/api/date/detaildate",
-    "userInfo": "http://106.184.7.12:8002/index.php/api/person/userinfo"
+    "userInfo": "http://106.184.7.12:8002/index.php/api/person/userinfo",
+    "history_create": " http://106.184.7.12:8002/index.php/api/person/create",
+    "history_join": "http://106.184.7.12:8002/index.php/api/person/join"
 };
 
 require(['userCenter', 'eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'mmState'], function(userCenter, EventProxy) {
@@ -339,8 +341,7 @@ require(['userCenter', 'eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'm
         url:'/letters',
         templateUrl:"tpl/lettersCtrl.html",
         onEnter: function() {
-            //todo
-            avalon.vmodels['nav']['title'] = "私信";
+            var user =
             avalon.scan();
         }
     });
@@ -349,9 +350,26 @@ require(['userCenter', 'eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'm
         url:'/history',
         templateUrl:"tpl/historyCtrl.html",
         onEnter: function() {
-            //todo
-            avalon.vmodels['nav']['title'] = "约会记录";
-            avalon.scan();
+            var user = userCenter.info();
+            if(!user.state){
+                setTimeout(avalon.router.navigate.bind(avalon.router, "login"), 0);
+                return;
+            }
+
+            if(!avalon.vmodels["history"]){
+                avalon.define({
+                    $id: "history",
+                    users: [],
+                    data: {}
+                });
+            }
+
+
+            $.post(urls.history_create,{uid: user.uid,token: user.token}).success(function(res) {
+                console.log(res);
+                avalon.vmodels["history"].data = res;
+                avalon.scan();
+            })
         }
     })
 
