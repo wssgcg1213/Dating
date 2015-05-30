@@ -1,5 +1,8 @@
 /**
- * Created by Liuchenling on 4/18/15.
+ * 红岩网校 约.
+ * @Author Ling.
+ * @Contact 363130901
+ * @email i@zeroling.com
  */
 require.config({
     baseUrl: "lib",
@@ -35,7 +38,9 @@ var deps = ['userCenter', 'eventproxy', 'noop', 'urls', //注入依赖
     'vms/publishDating',
     'vms/history',
     'vms/dateList',
-    'vms/detaildate'
+    'vms/detaildate',
+    'vms/detail'
+
 ];
 
 require(deps, function(userCenter, EventProxy, noop, urls) {
@@ -44,13 +49,29 @@ require(deps, function(userCenter, EventProxy, noop, urls) {
      */
     avalon.define({
         $id: "main",
+        state: "",
         sliderCb: function(){
-            new Swiper('.swiper-container',{
-                pagination: '.pagination',
-                loop: true,
-                grabCursor: true,
-                paginationClickable: true
-            });
+            /**
+             * 这个函数是slider的template载入之后的回调, 生成首页banner-slider
+             *
+             * 这里这样处理是因为
+             * 如果从别的页面进入主页
+             * 虽然slider的模板已经载入了, 但是数据还在ajax传输中
+             * 所以要等slider的VM里面有了数据才能生成slider
+             * @author Ling.
+             */
+            (function(){
+                if(avalon.vmodels['showBox'] && avalon.vmodels['showBox']['dateList'].length > 0){
+                    avalon.vmodels['main']['state'] = 'ok';
+                    return new Swiper('.swiper-container',{
+                        pagination: '.pagination',
+                        loop: true,
+                        grabCursor: true,
+                        paginationClickable: true
+                    });
+                }
+                setTimeout(arguments.callee, 50);
+            })();
         },
         userInfoSlider: function(){ //初始化userInfo模板里面的左右Slider
             var tabsSwiper = new Swiper('#tab-container',{
@@ -71,6 +92,9 @@ require(deps, function(userCenter, EventProxy, noop, urls) {
             });
         }
     });
+    avalon.vmodels['main'].$watch('state', function(s){
+        s == 'loading' ? $.Dialog.loading() : $.Dialog.close();
+    });
 
     /**
      * 顶部navBar的VM
@@ -84,7 +108,7 @@ require(deps, function(userCenter, EventProxy, noop, urls) {
     });
 
     /**
-     * 收藏页面 //todo ??
+     * 收藏页面 //todo 这个页面怎么处理
      */
     avalon.state('collect', {
         url: "/collect",

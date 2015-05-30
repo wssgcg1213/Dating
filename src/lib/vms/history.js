@@ -2,20 +2,27 @@
  * Created by Liuchenling on 5/30/15.
  */
 define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters'], function(urls, userCenter, EventProxy){
+    var av = avalon.vmodels;
+
     avalon.state('history',{
         url:'/history',
         templateUrl:"tpl/historyCtrl.html",
         onEnter: function() {
+            av['nav']['title'] = "历史记录";
+            av['main']['state'] = 'loading';
             var user = userCenter.info();
             if(!user.state){
                 setTimeout(avalon.router.navigate.bind(avalon.router, "login"), 0);
                 return;
             }
-            if(!avalon.vmodels["history"]){
+            if(!av["history"]){
                 avalon.define({
                     $id: "history",
                     userInfo: {},
-                    data: []
+                    data: [],
+                    goDetail: function(id){
+                        avalon.router.navigate('detail/' + id);
+                    }
                 });
             }
             var _ep = EventProxy.create('historyCreate', 'historyJoin', function(createRes, joinRes){
@@ -26,8 +33,8 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters'], 
                     return v1.created_at > v2.created_at;
                 });//todo 是否在view显示created/joined
 
-                avalon.vmodels["history"].data = data;
-                avalon.vmodels["history"].userInfo = {
+                av["history"].data = data;
+                av["history"].userInfo = {
                     head: data[0].head,
                     signature: data[0].signature,
                     user_gender: data[0].user_gender,
