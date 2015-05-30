@@ -13,3 +13,8 @@
   line-height: 1.35185185rem;
   -webkit-font-smoothing: subpixel-antialiased !important;
 }
+.publishBtn:active,
+.publishBtn:hover,
+.publishBtn:visited {
+  color: #FFF;
+}

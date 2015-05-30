@@ -9,6 +9,7 @@ switch($type){
             "token" => "nasdfnldssdaf",
             "name" => "Ling."
         ];
+        sleep(1);
         break;
 
     case "pics":
@@ -24,7 +25,7 @@ switch($type){
                     "src" => "http://redrock.u.qiniudn.com/pics/css-style.png"
                 ],
                 [
-                    "url" => "#!/",
+                    "url" => "#!/history`",
                     "src" => "http://redrock.u.qiniudn.com/pics/git_wallpaper_clean_by_black_pixel-d5wmjnw.jpg"
                 ]]
         ];

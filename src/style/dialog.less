@@ -1,0 +1,74 @@
+/* dialog*/
+
+@import "var";
+
+.box-overlay {
+  background-color: RGBA(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.trans-overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+
+.dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  color: #fff;
+}
+
+.dialog-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  .rfz(18px);
+  background: #333;
+  border-radius: 10*2.5rem / @psdWidth;
+  padding: 0.3rem;
+}
+
+.common-dialog {
+  border-radius: 10*2.5rem / @psdWidth;
+  background-color: #fff;
+  padding: 10*2.5rem / @psdWidth;
+  color: #666;
+}
+
+.common-dialog h6 {
+  text-align: center;
+  font-size: 18*2.5rem / @psdWidth;
+  font-weight: bold
+}
+
+.dialog-loading {
+  margin: 0 auto;
+  border-radius: 10*2.5rem / @psdWidth;
+  background: url(../imgs/loading.gif) center center no-repeat;
+  background-size: contain;
+  padding: 0.2rem 0.3rem 0.2rem 1.93rem;
+}
+
+.dialog-success {
+  margin: 0 auto;
+  background:  url(../imgs/success.png) 20*2.5rem / @psdWidth center no-repeat;
+  background-size: 40*2.5rem / @psdWidth 40*2.5rem / @psdWidth;
+  padding: 0.2rem 0.3rem 0.2rem 1.93rem;
+}
+
+.dialog-fail {
+  .dialog-success();
+  background: #333 url(../imgs/fail.png) 20*2.5rem / @psdWidth center no-repeat;
+}
