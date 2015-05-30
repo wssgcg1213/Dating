@@ -19,13 +19,12 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters'], 
                 });
             }
             var _ep = EventProxy.create('historyCreate', 'historyJoin', function(createRes, joinRes){
-                var data = []; //all
+                var data = []; //all in one
                 if(Array.isArray(createRes.data)){data = data.concat(createRes.data);}
                 if(Array.isArray(joinRes.data)){data = data.concat(joinRes.data);}
                 data.sort(function(v1, v2){
                     return v1.created_at > v2.created_at;
-                });
-                console.log(data);
+                });//todo 是否在view显示created/joined
 
                 avalon.vmodels["history"].data = data;
                 avalon.vmodels["history"].userInfo = {

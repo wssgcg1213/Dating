@@ -9,7 +9,7 @@
 */
 
 
-define(['jQuery'], function($) {
+define(['jquery'], function($) {
 	;(function ( $, window, document, undefined ) {
 
 		var pluginName = "DateTimePicker";
