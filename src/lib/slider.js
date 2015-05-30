@@ -1,9 +1,7 @@
 /**
  * Created by Liuchenling on 4/18/15.
  */
-define(['jQuery', 'hammer'], function($, Hammer){
-    $ = jQuery;
-
+define(['jquery', 'hammer'], function($, Hammer){
     jQuery.fn.lingSlider = jQuery.fn.slider = function(settings){
         var defaultSettings = {
             width: 600,

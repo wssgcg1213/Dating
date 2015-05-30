@@ -44,12 +44,6 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters'], 
                     return {href: val.url, img: val.src};
                 });
                 avalon.vmodels['slider']['items'] = sliderData;
-                new Swiper('.swiper-container',{
-                    pagination: '.pagination',
-                    loop: true,
-                    grabCursor: true,
-                    paginationClickable: true
-                });
 
                 //category == datetype约会类型表
                 //todo 跟首页过滤按钮有关
@@ -62,6 +56,7 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters'], 
                 }
 
                 avalon.scan();
+                //以下是scan完了之后才能操作的
                 $.Dialog.close();
             });
 

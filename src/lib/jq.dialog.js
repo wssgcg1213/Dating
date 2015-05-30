@@ -1,7 +1,7 @@
 /**
  * Created by Liuchenling on 5/30/15.
  */
-define(['jQuery'], function () {
+define(['jquery'], function ($) {
     var elemDialog, elemOverlay, elemContent, elemTitle,
         inited = false,
         body = document.compatMode && document.compatMode !== 'BackCompat' ?

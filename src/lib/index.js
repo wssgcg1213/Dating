@@ -5,11 +5,11 @@ require.config({
     baseUrl: "lib",
     paths: {
         avalon: "avalon.shim",
-        jQuery: "jquery-2.1.3",
+        jquery: "jquery-2.1.3",
         dialog: "jq.dialog"
     },
     shims: {
-        jQuery: {
+        jquery: {
             exports: "$"
         }
     }
@@ -19,9 +19,13 @@ var deps = ['userCenter', 'eventproxy', 'noop', 'urls', //注入依赖
     'swiper',
     'domReady!',
 
+    'avalon',
     'mmState', //三柱臣 avalon在这里
-    'dialog',
+    'mmRouter',
+    'mmHistory',
+    'mmPromise',
 
+    'dialog',
     'avaFilters', //这个是filter
 
     //下面是vm对象
@@ -38,7 +42,14 @@ require(deps, function(userCenter, EventProxy, noop, urls) {
      */
     avalon.define({
         $id: "main",
-        sliderCb: noop,
+        sliderCb: function(){
+            new Swiper('.swiper-container',{
+                pagination: '.pagination',
+                loop: true,
+                grabCursor: true,
+                paginationClickable: true
+            });
+        },
         userInfoSlider: function(){ //初始化userInfo模板里面的左右Slider
             var tabsSwiper = new Swiper('#tab-container',{
                 speed:500,
