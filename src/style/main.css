@@ -1382,6 +1382,31 @@ nav .user {
 .pbl-dating .dollar {
   color: #ff7660;
 }
+.pbl-dating .light-grey .subtitle {
+  color: #444;
+}
+.pbl-dating .mb0 {
+  margin-bottom: 0;
+}
+.pbl-dating .publish {
+  text-align: right;
+}
+.pbl-dating .publish button {
+  width: 2.77777778rem;
+  height: 0.92592593rem;
+  background-color: #FF9933;
+  border: none;
+  border-radius: 0.05555556rem;
+  margin: 0.44444444rem;
+  color: #FFF;
+  font-size: 18px;
+}
+[data-dpr="2"] .pbl-dating .publish button {
+  font-size: 36px;
+}
+[data-dpr="3"] .pbl-dating .publish button {
+  font-size: 54px;
+}
 /*
 	-------------------------	jQuery DateTimePicker v0.1.1	----------------------------
 

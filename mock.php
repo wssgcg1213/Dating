@@ -31,7 +31,9 @@ switch($type){
         ];
         break;
 }
-
+if(empty($data)){
+ $data = [];
+}
 sleep(1);
   header("Content-Type: application/json");
   echo json_encode($data);

@@ -8,6 +8,11 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'DateTimePicker
         templateUrl: "tpl/publishDatingCtrl.html",
         onEnter: function() {
             avalon.vmodels['main']['state'] = 'loading';
+            var user = userCenter.info();
+            if(!user.state){
+                setTimeout(avalon.router.navigate.bind(avalon.router, "login"), 0);
+                return;
+            }
 
             var lunar = ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
                 weeks = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
@@ -17,6 +22,19 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'DateTimePicker
             if(!avalon.vmodels['publishDating'])
                 avalon.define({
                     $id: "publishDating",
+
+                    /**
+                     * 发布约会
+                     */
+                    publish: function(){
+                        avalon.vmodels['main']['state'] = 'loading';
+                        $.ajax(urls.publish, {}).success(function(res){
+                           //todo 发布约
+                            $.Dialog.success("发布成功!", 1500);
+                            setTimeout(avalon.router.navigate.bind(avalon.router, 'detail/1'), 1500);
+                        });
+                    },
+
                     yType: "",
                     yTypeStatus: false,
                     yTypeValid: false,//标明数据有效状态

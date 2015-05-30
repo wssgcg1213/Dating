@@ -20,7 +20,7 @@
         </div>
     </div>
 
-    <div class="row-group">
+    <div class="row-group light-grey">
         <div class="row" ms-on-click="active('yTitle')" ms-class="active:yTitleStatus">
             <span class="title">标题</span>
             <input type="text" ms-visible="yTitleStatus" id="yTitle" class="w50" ms-duplex="yTitle" ms-on-blur="yTitleBlur"/>
@@ -57,7 +57,7 @@
         </div>
     </div>
 
-    <div class="row-group">
+    <div class="row-group light-grey mb0">
         <div class="row" ms-on-click="active('ySex')" ms-class="active:ySexStatus">
             <span class="subtitle">性别要求</span>
             <select id="ySex" class="choose" ms-duplex="ySex" ms-on-blur="ySexBlur">
@@ -94,7 +94,7 @@
         </div>
     </div>
 
-    <div class="widget yTitle">
-
+    <div class="publish">
+        <button ms-click="publish">发布</button>
     </div>
 </section>
