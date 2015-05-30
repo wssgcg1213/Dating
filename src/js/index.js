@@ -363,9 +363,9 @@ require(['userCenter', 'eventproxy', 'swiper', 'DateTimePicker', 'domReady!', 'm
                     data: {}
                 });
             }
-
-
-            $.post(urls.history_create,{uid: user.uid,token: user.token}).success(function(res) {
+            $.ajax(urls.history_create, {
+                type: "POST",
+                uid: user.uid, token: user.token}).success(function(res) {
                 console.log(res);
                 avalon.vmodels["history"].data = res;
                 avalon.scan();
