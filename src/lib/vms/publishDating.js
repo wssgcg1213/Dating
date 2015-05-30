@@ -7,6 +7,8 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'DateTimePicker
         url: "/publishDating",
         templateUrl: "tpl/publishDatingCtrl.html",
         onEnter: function() {
+            avalon.vmodels['main']['state'] = 'loading';
+
             var lunar = ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
                 weeks = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
                 datePickerFlag = false;
@@ -199,6 +201,7 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'DateTimePicker
                 avalon.vmodels['publishDating']['yPeople'] = parseInt(newStr) || 0;
             });
             avalon.scan();
+            avalon.vmodels['main']['state'] = 'ok';
         }
     });
 });

@@ -19,17 +19,18 @@ require.config({
 });
 
 var deps = ['userCenter', 'eventproxy', 'noop', 'urls', //注入依赖
-    'swiper',
-    'domReady!',
 
     'avalon',
-    'mmState', //三柱臣 avalon在这里
+    'mmState',
     'mmRouter',
     'mmHistory',
     'mmPromise',
 
+    'jquery',
+    'swiper',
     'dialog',
     'avaFilters', //这个是filter
+    'DateTimePicker',
 
     //下面是vm对象
     'vms/home',
@@ -41,6 +42,7 @@ var deps = ['userCenter', 'eventproxy', 'noop', 'urls', //注入依赖
 ];
 
 require(deps, function(userCenter, EventProxy, noop, urls) {
+    var av = avalon.vmodels;
     /**
      * 主VM
      */
@@ -89,10 +91,10 @@ require(deps, function(userCenter, EventProxy, noop, urls) {
             });
         }
     });
-    avalon.vmodels['main'].$watch('state', function(s){
+    av['main'].$watch('state', function(s){
         s == 'loading' ? $.Dialog.loading() : $.Dialog.close();
     });
-
+    av['main']['state'] = 'loading';
     /**
      * 顶部navBar的VM
      */

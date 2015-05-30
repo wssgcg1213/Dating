@@ -19,7 +19,6 @@ define(['urls', 'userCenter', 'mmState', 'dialog'], function(urls, userCenter){
                     password: "",
                     btn: function(e){ //点击登陆
                         e.preventDefault();
-                        av['main']['state'] = 'ok';
                         userCenter.login(this.username, this.password, function(err, user){
                             if(err) {
                                 $.Dialog.fail("登陆失败! 请检查用户名和密码.", 1400);
@@ -36,6 +35,7 @@ define(['urls', 'userCenter', 'mmState', 'dialog'], function(urls, userCenter){
             var _loginVm = av['login'];
             _loginVm.password = "";
             avalon.scan();
+            av['main']['state'] = 'ok';
         }
     });
 });

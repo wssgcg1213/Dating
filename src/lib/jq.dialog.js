@@ -9,31 +9,29 @@ define(['jquery'], function ($) {
         cssFixed;
 
     function init() {
-        if (!inited) {
+        if ($('.box-overlay').length == 0) {
             createOverlay();
             createDialog();
-            inited = true;
         }
     }
 
     function createOverlay() {
         if (!elemOverlay) {
             elemOverlay = $('<div class="box-overlay"></div>');
-            $('body').append(elemOverlay);
         }
+        $('.dialog-cont').append(elemOverlay);
     }
 
     function createDialog() {
         if (!elemDialog) {
-            if (!elemDialog) {
-                elemDialog = $('<div class="dialog">' +
-                '<div class="dialog-content"></div>' +
-                '</div>');
-                elemContent = $('.dialog-content', elemDialog);
-                $('body').append(elemDialog);
-                elemDialog.fadeIn(300)
-            }
+            elemDialog = $('<div class="dialog">' +
+            '<div class="dialog-content"></div>' +
+            '</div>');
         }
+
+        elemContent = $('.dialog-content', elemDialog);
+        $('.dialog-cont').append(elemDialog);
+        elemDialog.fadeIn(300)
     }
 
     function open() {
@@ -59,7 +57,6 @@ define(['jquery'], function ($) {
     var Dialog = {
         loading: function () {
             this.open("<p class='dialog-loading'></p>");
-            if(arguments[0]) setTimeout($.Dialog.close.bind($.Dialog), parseInt(arguments[0]) || 2000);
         },
         success: function () {
             var successTips = "操作成功!";

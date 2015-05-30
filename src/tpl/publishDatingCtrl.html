@@ -3,7 +3,7 @@
 <section class="pbl-dating" ms-controller="publishDating">
     <div class="row-group">
         <div class="row" ms-on-click="active('yType')" ms-class="active:yTypeStatus">
-            <span class="dating-type">{{yType ? yType : "约什么"}}</span>
+            <span class="dating-type">约什么</span>
             <select id="yType" class="choose" ms-duplex="yType" ms-on-blur="yTypeBlur">
                 <option value=""></option>
                 <option value="吃饭">吃饭</option>
@@ -16,7 +16,7 @@
                 <option value="旅游">旅游</option>
                 <option value="其他">其他</option>
             </select>
-            <a class="right">点击更改</a>
+            <a class="right">{{yType ? yType : "点击更改"}}</a>
         </div>
     </div>
 
@@ -49,8 +49,8 @@
             <span class="subtitle">花费</span>
             <select id="ySpend" class="choose" ms-duplex="ySpend" ms-on-blur="ySpendBlur">
                 <option value=""></option>
-                <option value="我请客">我请客</option>
                 <option value="AA制">AA制</option>
+                <option value="我请客">我请客</option>
                 <option value="求请客">求请客</option>
             </select>
             <a class="right">{{ySpend ? ySpend : "请选择"}}</a>
@@ -62,6 +62,7 @@
             <span class="subtitle">性别要求</span>
             <select id="ySex" class="choose" ms-duplex="ySex" ms-on-blur="ySexBlur">
                 <option value=""></option>
+                <option value="不限">不限</option>
                 <option value="男">男</option>
                 <option value="女">女</option>
             </select>
@@ -71,11 +72,12 @@
             <span class="subtitle">年级要求</span>
             <select id="yGrade" class="choose" ms-duplex="yGrade" ms-on-blur="yGradeBlur">
                 <option value=""></option>
+                <option value="不限">不限</option>
                 <option value="大一">大一</option>
                 <option value="大二">大二</option>
                 <option value="大三">大三</option>
                 <option value="大四">大四</option>
-                <option value="研究生">研究生</option>
+                <option value="其它">其它</option>
             </select>
             <a class="right">{{yGrade ? yGrade : "请选择"}}</a>
         </div>
@@ -83,6 +85,7 @@
             <span class="subtitle">学院要求</span>
             <select id="yCollege" class="choose" ms-duplex="yCollege" ms-on-blur="yCollegeBlur">
                 <option value=""></option>
+                <!-- todo 学院要求 遍历出来 -->
                 <option value="尼玛">尼玛</option>
                 <option value="尼玛2">尼玛2</option>
                 <option value="尼玛34">尼玛34</option>
