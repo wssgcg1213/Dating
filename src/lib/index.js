@@ -46,6 +46,7 @@ require(deps, function(userCenter, EventProxy, noop, urls) {
      */
     avalon.define({
         $id: "main",
+        state: "",
         sliderCb: function(){
             /**
              * 这个函数是slider的template载入之后的回调, 生成首页banner-slider
@@ -58,7 +59,7 @@ require(deps, function(userCenter, EventProxy, noop, urls) {
              */
             (function(){
                 if(avalon.vmodels['showBox'] && avalon.vmodels['showBox']['dateList'].length > 0){
-                    $.Dialog.close();
+                    avalon.vmodels['main']['state'] = 'ok';
                     return new Swiper('.swiper-container',{
                         pagination: '.pagination',
                         loop: true,
@@ -87,6 +88,9 @@ require(deps, function(userCenter, EventProxy, noop, urls) {
                 e.preventDefault();
             });
         }
+    });
+    avalon.vmodels['main'].$watch('state', function(s){
+        s == 'loading' ? $.Dialog.loading() : $.Dialog.close();
     });
 
     /**

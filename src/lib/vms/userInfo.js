@@ -3,12 +3,14 @@
  * 用户中心
  */
 define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters'], function(urls, userCenter, EventProxy){
+    var av = avalon.vmodels;
+
     avalon.state('userInfo', {
         url: '/userInfo',
         templateUrl: "tpl/userInfoCtrl.html",
         onEnter: function(){
-            avalon.vmodels['nav']['title'] = "个人中心";
-            $.Dialog.loading();
+            av['nav']['title'] = "个人中心";
+            av['main']['state'] = 'loading';
 
             var user = userCenter.info();
             if(!user.state){
@@ -30,7 +32,7 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters'], 
                 }
 
                 avalon.scan();
-                $.Dialog.close();
+                av['main']['state'] = 'ok';
             });
         }
     });

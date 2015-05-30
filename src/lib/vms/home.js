@@ -3,13 +3,15 @@
  * 主页vm
  */
 define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters'], function(urls, userCenter, EventProxy){
+    var av = avalon.vmodels;
+
     avalon.state('home', {
         controller: "main",
         url: "/",
         templateUrl: "tpl/indexCtrl.html",
         onEnter: function(){
-            avalon.vmodels['nav']['title'] = '约';
-            $.Dialog.loading();
+            av['nav']['title'] = '约';
+            av['main']['state'] = 'loading';
 
             var user = userCenter.info();
             if(!user.state){
@@ -42,21 +44,21 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters'], 
                 var sliderData = slider.data.map(function(val){
                     return {href: val.url, img: val.src};
                 });
-                avalon.vmodels['slider']['items'] = sliderData;
+                av['slider']['items'] = sliderData;
 
                 //category == datetype约会类型表
                 //todo 跟首页过滤按钮有关
 
                 //showBox 主显示区域
                 if(showBox.status == 200){
-                    avalon.vmodels['showBox'].dateList = showBox.data;
+                    av['showBox'].dateList = showBox.data;
                 }else{
                     console.log("err", showBox);
                 }
 
                 avalon.scan();
                 //以下是scan完了之后才能操作的
-                $.Dialog.close();
+                av['main']['state'] = 'ok';
             });
 
             $.post(urls.slider).success(function(res) {ep.emit('slider', res)});
