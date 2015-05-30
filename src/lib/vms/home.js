@@ -9,14 +9,13 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters'], 
         templateUrl: "tpl/indexCtrl.html",
         onEnter: function(){
             avalon.vmodels['nav']['title'] = '约';
+            $.Dialog.loading();
 
             var user = userCenter.info();
             if(!user.state){
                 setTimeout(function(){avalon.router.navigate('login')}, 0);
                 return;
             }//认证处理
-
-            $.Dialog.loading();
 
             if(!avalon.vmodels['slider']){
                 avalon.define({$id: "slider", items: [{}]});
@@ -31,7 +30,7 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters'], 
             if(!avalon.vmodels['showBox']){
                 avalon.define({
                     $id: "showBox",
-                    dateList: [{}],
+                    dateList: [],
                     goDetail: function(did){
                         avalon.router.navigate('detail/'+did);
                     }

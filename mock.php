@@ -9,7 +9,7 @@ switch($type){
             "token" => "nasdfnldssdaf",
             "name" => "Ling."
         ];
-        sleep(1);
+
         break;
 
     case "pics":
@@ -32,6 +32,6 @@ switch($type){
         break;
 }
 
-
+sleep(1);
   header("Content-Type: application/json");
   echo json_encode($data);

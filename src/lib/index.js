@@ -1,5 +1,8 @@
 /**
- * Created by Liuchenling on 4/18/15.
+ * 红岩网校 约.
+ * @Author Ling.
+ * @Contact 363130901
+ * @email i@zeroling.com
  */
 require.config({
     baseUrl: "lib",
@@ -33,7 +36,8 @@ var deps = ['userCenter', 'eventproxy', 'noop', 'urls', //注入依赖
     'vms/userInfo',
     'vms/login',
     'vms/publishDating',
-    'vms/history'
+    'vms/history',
+    'vms/detail'
 ];
 
 require(deps, function(userCenter, EventProxy, noop, urls) {
@@ -43,12 +47,27 @@ require(deps, function(userCenter, EventProxy, noop, urls) {
     avalon.define({
         $id: "main",
         sliderCb: function(){
-            new Swiper('.swiper-container',{
-                pagination: '.pagination',
-                loop: true,
-                grabCursor: true,
-                paginationClickable: true
-            });
+            /**
+             * 这个函数是slider的template载入之后的回调, 生成首页banner-slider
+             *
+             * 这里这样处理是因为
+             * 如果从别的页面进入主页
+             * 虽然slider的模板已经载入了, 但是数据还在ajax传输中
+             * 所以要等slider的VM里面有了数据才能生成slider
+             * @author Ling.
+             */
+            (function(){
+                if(avalon.vmodels['showBox'] && avalon.vmodels['showBox']['dateList'].length > 0){
+                    $.Dialog.close();
+                    return new Swiper('.swiper-container',{
+                        pagination: '.pagination',
+                        loop: true,
+                        grabCursor: true,
+                        paginationClickable: true
+                    });
+                }
+                setTimeout(arguments.callee, 50);
+            })();
         },
         userInfoSlider: function(){ //初始化userInfo模板里面的左右Slider
             var tabsSwiper = new Swiper('#tab-container',{
@@ -82,7 +101,7 @@ require(deps, function(userCenter, EventProxy, noop, urls) {
     });
 
     /**
-     * 收藏页面 //todo ??
+     * 收藏页面 //todo 这个页面怎么处理
      */
     avalon.state('collect', {
         url: "/collect",
@@ -99,37 +118,6 @@ require(deps, function(userCenter, EventProxy, noop, urls) {
         onEnter: function(state) {
             avalon.vmodels['nav']['title'] = "收藏";
             avalon.scan();
-        }
-    });
-
-    avalon.state('detail', {
-        url: '/detail/:id',
-        templateUrl: "tpl/detailCtrl.html",
-        onEnter: function() {
-            var id = this.params.id,
-                user = userCenter.info();
-            if(!user.state){
-                setTimeout(avalon.router.navigate.bind(avalon.router, "login"), 0);
-                return;
-            }
-            if(!avalon.vmodels['detail']){
-                avalon.define({
-                    $id: "detail",
-                    users: [],
-                    data: {}
-                });
-            }
-
-            var timer = setTimeout(function(){
-                alert("network slow");
-                location.reload();
-            }, 2000);
-
-            $.post(urls.detail, {date_id: id, uid: user.uid, token: user.token}).success(function(res){
-                avalon.vmodels['detail'].data = res.data;
-                clearTimeout(timer);
-                avalon.scan();
-            });
         }
     });
 
