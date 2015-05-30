@@ -29,7 +29,8 @@ var deps = ['userCenter', 'eventproxy', 'noop', 'urls', //注入依赖
     'vms/userInfo',
     'vms/login',
     'vms/publishDating',
-    'vms/history'
+    'vms/history',
+    'vms/dateList'
 ];
 
 require(deps, function(userCenter, EventProxy, noop, urls) {
@@ -140,14 +141,7 @@ require(deps, function(userCenter, EventProxy, noop, urls) {
         }
     });
 
-    avalon.state("litterLetter",{
-        url:"/litterLetter",
-        templateUrl:"tpl/litterLetterCtrl.html",
-        onEnter:function() {
-            avalon.vmodels['nav']['title'] = "私信";
-            avalon.scan();
-        }
-    })
+
 
     avalon.history.start({
         basepath: "/"
