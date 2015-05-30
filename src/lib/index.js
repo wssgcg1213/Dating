@@ -34,7 +34,8 @@ var deps = ['userCenter', 'eventproxy', 'noop', 'urls', //注入依赖
     'vms/login',
     'vms/publishDating',
     'vms/history',
-    'vms/dateList'
+    'vms/dateList',
+    'vms/detaildate'
 ];
 
 require(deps, function(userCenter, EventProxy, noop, urls) {
@@ -134,14 +135,7 @@ require(deps, function(userCenter, EventProxy, noop, urls) {
         }
     });
 
-    avalon.state('letters',{
-        url:'/letters',
-        templateUrl:"tpl/lettersCtrl.html",
-        onEnter: function() {
-            var user =
-            avalon.scan();
-        }
-    });
+
 
     avalon.state('center', {
         url: "/center",

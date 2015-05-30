@@ -22,27 +22,6 @@
   *zoom: 1;
   margin-left: 2.22222222rem;
 }
-.letter-wrapper .person .center-wrapper i {
-  font-size: 18px;
-  color: white;
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
-  border-radius: 100%;
-  width: 0.46296296rem;
-  height: 0.46296296rem;
-  line-height: 0.46296296rem;
-  text-align: center;
-  background-color: #758fff;
-  overflow: hidden;
-  margin-left: 0.09259259rem;
-}
-[data-dpr="2"] .letter-wrapper .person .center-wrapper i {
-  font-size: 36px;
-}
-[data-dpr="3"] .letter-wrapper .person .center-wrapper i {
-  font-size: 54px;
-}
 .letter-wrapper .person .center-wrapper p {
   font-size: 18px;
 }
