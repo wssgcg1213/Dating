@@ -450,8 +450,9 @@ input[type="search"]::-webkit-search-decoration {
 @font-face {
   font-family: "iconfont";
   src: url('iconfont.eot');
-  /* IE9*/
   src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('iconfont.woff') format('woff'), /* chrome、firefox */ url('iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('iconfont.svg#iconfont') format('svg');
+  
+  /* IE9*/
   /* iOS 4.1- */
 }
 .iconfont {
@@ -1622,27 +1623,6 @@ nav .user {
   *display: inline;
   *zoom: 1;
   margin-left: 2.22222222rem;
-}
-.letter-wrapper .person .center-wrapper i {
-  font-size: 18px;
-  color: white;
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
-  border-radius: 100%;
-  width: 0.46296296rem;
-  height: 0.46296296rem;
-  line-height: 0.46296296rem;
-  text-align: center;
-  background-color: #758fff;
-  overflow: hidden;
-  margin-left: 0.09259259rem;
-}
-[data-dpr="2"] .letter-wrapper .person .center-wrapper i {
-  font-size: 36px;
-}
-[data-dpr="3"] .letter-wrapper .person .center-wrapper i {
-  font-size: 54px;
 }
 .letter-wrapper .person .center-wrapper p {
   font-size: 18px;

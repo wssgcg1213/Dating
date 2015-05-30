@@ -38,7 +38,10 @@ var deps = ['userCenter', 'eventproxy', 'noop', 'urls', //注入依赖
     'vms/login',
     'vms/publishDating',
     'vms/history',
+    'vms/dateList',
+    'vms/detaildate',
     'vms/detail'
+
 ];
 
 require(deps, function(userCenter, EventProxy, noop, urls) {
@@ -127,14 +130,38 @@ require(deps, function(userCenter, EventProxy, noop, urls) {
         }
     });
 
-    avalon.state('letters',{
-        url:'/letters',
-        templateUrl:"tpl/lettersCtrl.html",
+    avalon.state('detail', {
+        url: '/detail/:id',
+        templateUrl: "tpl/detailCtrl.html",
         onEnter: function() {
-            var user =
-            avalon.scan();
+            var id = this.params.id,
+                user = userCenter.info();
+            if(!user.state){
+                setTimeout(avalon.router.navigate.bind(avalon.router, "login"), 0);
+                return;
+            }
+            if(!avalon.vmodels['detail']){
+                avalon.define({
+                    $id: "detail",
+                    users: [],
+                    data: {}
+                });
+            }
+
+            var timer = setTimeout(function(){
+                alert("network slow");
+                location.reload();
+            }, 2000);
+
+            $.post(urls.detail, {date_id: id, uid: user.uid, token: user.token}).success(function(res){
+                avalon.vmodels['detail'].data = res.data;
+                clearTimeout(timer);
+                avalon.scan();
+            });
         }
     });
+
+
 
     avalon.state('center', {
         url: "/center",
@@ -145,14 +172,7 @@ require(deps, function(userCenter, EventProxy, noop, urls) {
         }
     });
 
-    avalon.state("litterLetter",{
-        url:"/litterLetter",
-        templateUrl:"tpl/litterLetterCtrl.html",
-        onEnter:function() {
-            avalon.vmodels['nav']['title'] = "私信";
-            avalon.scan();
-        }
-    })
+
 
     avalon.history.start({
         basepath: "/"
