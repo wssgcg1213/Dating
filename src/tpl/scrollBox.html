@@ -15,9 +15,9 @@
                 <p class="title">{{el.title}}</p>
                 <ul class="info_content">
                     <li class="location"><i class="iconfont">&#xe612</i>地点：{{el.place}}</li>
-                    <li class="time"><i class="iconfont">&#xe611</i>时间： {{el.date_at | date("MM.dd HH:mm:ss")}}</li>
+                    <li class="time"><i class="iconfont">&#xe611</i>时间：{{el.date_at | date("MM.dd HH:mm:ss")}}</li>
                     <li class="cost">
-                        <i class="iconfont">&#xe60f</i>费用： 我请客
+                        <i class="iconfont">&#xe60f</i>费用：{{el.cost_model | costModel}}
                         <span>{{el.created_at | createdTime}}</span>
                     </li>
                 </ul>

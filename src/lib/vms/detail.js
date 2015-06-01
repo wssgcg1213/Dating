@@ -21,7 +21,11 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'mmHistory', 'dialog', 'a
                 avalon.define({
                     $id: "detail",
                     users: [],
-                    data: {}
+                    data: {},
+                    goUser: function(id){
+                        log("叔叔 我们来看看这个人:", id);
+                        avalon.router.navigate('userInfoPublic/' + id);
+                    }
                 });
             }
             av['detail'].data = {};

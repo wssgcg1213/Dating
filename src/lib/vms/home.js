@@ -18,19 +18,6 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters', '
     });
 
     /**
-     * //todo 公共的用户中心页面
-     */
-    avalon.state('userInfoPublic', {
-        url: "/userInfoPublic",
-        templateUrl: "tpl/userInfoPublicCtrl.html",
-        onEnter: function() {
-            avalon.vmodels['nav']['title'] = "收藏";
-            avalon.scan();
-            av['main']['state'] = 'ok';
-        }
-    });
-
-    /**
      * 主页 VM定义
      */
     avalon.state('home', {

@@ -40,23 +40,8 @@
     <div class="user-wrapper">
         <p class="apply">已报名</p>
         <div class="user-face-group">
-            <div class="user-face">
-                <img class="logo-wrapper" src="imgs/1.jpg"/>
-            </div>
-            <div class="user-face">
-                <img class="logo-wrapper" src="imgs/1.jpg"/>
-            </div>
-            <div class="user-face">
-                <img class="logo-wrapper" src="imgs/1.jpg"/>
-            </div>
-            <div class="user-face">
-                <img class="logo-wrapper" src="imgs/1.jpg"/>
-            </div>
-            <div class="user-face">
-                <img class="logo-wrapper" src="imgs/1.jpg"/>
-            </div>
-            <div class="user-face">
-                <img class="logo-wrapper" src="imgs/1.jpg"/>
+            <div class="user-face" ms-repeat-j="data.joined">
+                <img class="logo-wrapper" ms-src="j.head" ms-attr-title="j.nickname" ms-on-tap="goUser(j.user_id)"/>
             </div>
         </div>
     </div>

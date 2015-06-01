@@ -1,8 +1,5 @@
 /**
  * Created by Liuchenling on 5/30/15.
- */
-
-/**
  * 登陆的VM
  */
 define(['urls', 'userCenter', 'mmState', 'dialog', 'mmHistory', 'mmState'], function(urls, userCenter){
