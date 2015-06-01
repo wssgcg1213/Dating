@@ -58,17 +58,15 @@ define(['jquery'], function ($) {
         loading: function () {
             this.open("<p class='dialog-loading'></p>");
         },
-        success: function () {
-            var successTips = "操作成功!";
-            if (arguments[0] != null)successTips = arguments[0];
+        success: function (tip) {
+            var successTips = tip || "操作成功!";
             this.open("<p class='dialog-success'>" + successTips + "</p>");
             setTimeout(function () {
                 $.Dialog.close();
             }, parseInt(arguments[1]) || 2000)
         },
-        fail: function () {
-            var failTips = "操作失败!";
-            if (arguments[0] != null)failTips = arguments[0];
+        fail: function (tip) {
+            var failTips = tip || "操作失败!";
             this.open("<p class='dialog-fail'>" + failTips + "</p>");
             setTimeout(function () {
                 $.Dialog.close();

@@ -5,7 +5,7 @@
 /**
  * 登陆的VM
  */
-define(['urls', 'userCenter', 'mmState', 'dialog'], function(urls, userCenter){
+define(['urls', 'userCenter', 'mmState', 'dialog', 'mmHistory', 'mmState'], function(urls, userCenter){
     var av = avalon.vmodels;
 
     avalon.state('login',{
