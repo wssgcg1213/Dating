@@ -19,7 +19,7 @@ define(['urls', 'userCenter', 'mmState', 'dialog', 'avaFilters'], function(urls,
                 });
                 $.post(urls.detaildate,{date_id: 1,uid: user.uid, token: user.token}).success(function(res) {
                     if(res.status == 200){
-                        console.log(res.data);
+                        log(res.data);
                         avalon.vmodels['letters'].data = res.data;
                     }
                 })

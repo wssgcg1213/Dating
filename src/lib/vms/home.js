@@ -2,8 +2,40 @@
  * Created by Liuchenling on 5/30/15.
  * 主页vm
  */
-define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters'], function(urls, userCenter, EventProxy){
+define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters', 'vms/main', 'mmHistory'], function(urls, userCenter, EventProxy){
     var av = avalon.vmodels;
+    /**
+     * 收藏页面 //todo 这个页面怎么处理
+     */
+    avalon.state('collect', {
+        url: "/collect",
+        templateUrl: "tpl/collectCtrl.html",
+        onEnter: function(state) {
+            avalon.vmodels['nav']['title'] = "收藏";
+            avalon.scan();
+        }
+    });
+
+    /**
+     * 公共的用户中心页面 //todo
+     */
+    avalon.state('userInfoPublic', {
+        url: "/userInfoPublic",
+        templateUrl: "tpl/userInfoPublicCtrl.html",
+        onEnter: function(state) {
+            avalon.vmodels['nav']['title'] = "收藏";
+            avalon.scan();
+        }
+    });
+
+    avalon.state('center', {
+        url: "/center",
+        templateUrl: "tpl/centerCtrl.html",
+        onEnter: function() {
+            avalon.vmodels['nav']['title'] = "个人中心";
+            avalon.scan();
+        }
+    });
 
     avalon.state('home', {
         controller: "main",
@@ -20,12 +52,13 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters'], 
             }//认证处理
 
             if(!avalon.vmodels['slider']){
-                avalon.define({$id: "slider", items: [{}]});
+                avalon.define({$id: "slider", items: []});
             }
 
-            if(!avalon.vmodels['fliterBtns']){
+            if(!avalon.vmodels['category']){
                 avalon.define({
-                    $id: "fliterBtns"
+                    $id: "category",
+                    items: []
                 });
             }
 
@@ -33,27 +66,46 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters'], 
                 avalon.define({
                     $id: "showBox",
                     dateList: [],
-                    goDetail: function(did){
-                        avalon.router.navigate('detail/'+did);
+                    goDetail: function(id){
+                        log("we are ready to go detail no.", id);
+                        avalon.router.navigate('detail/' + id);
                     }
                 });
             }
 
             var ep = EventProxy.create('slider', 'category', 'showBox', function(slider, category, showBox) {
+                /**
+                 * 检测response对象是否合法的工具 私有
+                 * @param resObj
+                 * @returns {*|boolean}
+                 * @private
+                 */
+                function _check(resObj){
+                    return resObj && resObj.status == 200 && resObj.data && Array.isArray(resObj.data);
+                }
+
                 //slider 轮播图
-                var sliderData = slider.data.map(function(val){
-                    return {href: val.url, img: val.src};
-                });
-                av['slider']['items'] = sliderData;
+                if(_check(slider)){
+                    var sliderData = slider.data.map(function(val){
+                        return {href: val.url, img: val.src};
+                    });
+                    av['slider']['items'] = sliderData;
+                }else{
+                    log('err slider:', slider);
+                }
 
                 //category == datetype约会类型表
-                //todo 跟首页过滤按钮有关
+                if(_check(category)){
+                    av['category']['items'] = category.data;
+                }else{
+                    log('err category:', category);
+                }
 
                 //showBox 主显示区域
-                if(showBox.status == 200){
+                if(_check(showBox)){
                     av['showBox'].dateList = showBox.data;
                 }else{
-                    console.log("err", showBox);
+                    log("err", showBox);
                 }
 
                 avalon.scan();
@@ -61,8 +113,27 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters'], 
                 av['main']['state'] = 'ok';
             });
 
-            $.post(urls.slider).success(function(res) {ep.emit('slider', res)});
-            $.post(urls.category).success(function(res) {ep.emit('category', res);});
+            //加载过了就不再请求了
+            if(av['slider']['items'].length
+                && av['category']['items'].length
+                && av['showBox']['dateList'].length){
+                avalon.scan();
+                av['main']['state'] = 'ok';
+                return;
+            }
+
+            /**
+             * AJAX错误处理函数
+             * @param res
+             * @private
+             */
+            function _failHandler(res){
+                log("请求失败:", res);
+                $.Dialog.fail("服务器提了一个问题T.T 请稍后再试!", 999999);
+            }
+            //请求
+            $.post(urls.slider).success(function(res) {ep.emit('slider', res)}).fail(_failHandler);
+            $.post(urls.category).success(function(res) {ep.emit('category', res);}).fail(_failHandler);
             $.post(urls.showBox, {//todo 这些参数能默认么 @隆胸
                 uid: user.uid,
                 token: user.token,
@@ -70,7 +141,7 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters'], 
                 page: 0,
                 size: 10,
                 order: 1
-            }).success(function(res){ep.emit('showBox', res);});
+            }).success(function(res){ep.emit('showBox', res);}).fail(_failHandler);
 
         }
     });

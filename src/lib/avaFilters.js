@@ -52,7 +52,6 @@ define(['avalon'], function(){
         return "未知";
     }
 
-
     avalon.filters.peopleLimit = function(n){
         n = parseInt(n);
         return !n ? "无限制" : "少于" + n + '人';

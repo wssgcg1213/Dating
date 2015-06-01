@@ -7,14 +7,36 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'DateTimePicker
         url: "/publishDating",
         templateUrl: "tpl/publishDatingCtrl.html",
         onEnter: function() {
+            avalon.vmodels['main']['state'] = 'loading';
+
+            var user = userCenter.info();
+            if(!user.state){
+                setTimeout(avalon.router.navigate.bind(avalon.router, "login"), 0);
+                return;
+            }
+
             var lunar = ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
                 weeks = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
                 datePickerFlag = false;
 
             avalon.vmodels['nav']['title'] = "发布约会";
+
             if(!avalon.vmodels['publishDating'])
                 avalon.define({
                     $id: "publishDating",
+
+                    /**
+                     * 发布约会
+                     */
+                    publish: function(){
+                        avalon.vmodels['main']['state'] = 'loading';
+                        $.ajax(urls.publish, {}).success(function(res){
+                           //todo 发布约
+                            $.Dialog.success("发布成功!", 1500);
+                            setTimeout(avalon.router.navigate.bind(avalon.router, 'detail/1'), 1500);
+                        });
+                    },
+
                     yType: "",
                     yTypeStatus: false,
                     yTypeValid: false,//标明数据有效状态
@@ -74,7 +96,6 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'DateTimePicker
                         ev.stopPropagation();
                         var _vm = avalon.vmodels['publishDating'],
                         str = _vm['yLocation'];
-
                         _vm['yLocationStatus'] = false;
                         _vm['yLocation'] = str;
                         _vm['yLocationValid'] = true;
@@ -180,15 +201,15 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'DateTimePicker
 
                             case 'yLocation':case 'yPeople':case 'ySpend':
                             case 'ySex': case 'yGrade':case 'yCollege':case 'yType':
-                            _vm[type + 'Status'] = true;
-                            $('#' + type).focus();
-                            break;
+                                _vm[type + 'Status'] = true;
+                                $('#' + type).focus();
+                                break;
 
 
                         }
                     }
-
                 });
+
             avalon.vmodels['publishDating'].$watch('yTitle', function(newStr, oldStr){
                 avalon.vmodels['publishDating']['yTitle'] = newStr.trim();
             });
@@ -199,6 +220,7 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'DateTimePicker
                 avalon.vmodels['publishDating']['yPeople'] = parseInt(newStr) || 0;
             });
             avalon.scan();
+            avalon.vmodels['main']['state'] = 'ok';
         }
     });
 });

@@ -9,31 +9,29 @@ define(['jquery'], function ($) {
         cssFixed;
 
     function init() {
-        if (!inited) {
+        if ($('.box-overlay').length == 0) {
             createOverlay();
             createDialog();
-            inited = true;
         }
     }
 
     function createOverlay() {
         if (!elemOverlay) {
             elemOverlay = $('<div class="box-overlay"></div>');
-            $('body').append(elemOverlay);
         }
+        $('.dialog-cont').append(elemOverlay);
     }
 
     function createDialog() {
         if (!elemDialog) {
-            if (!elemDialog) {
-                elemDialog = $('<div class="dialog">' +
-                '<div class="dialog-content"></div>' +
-                '</div>');
-                elemContent = $('.dialog-content', elemDialog);
-                $('body').append(elemDialog);
-                elemDialog.fadeIn(300)
-            }
+            elemDialog = $('<div class="dialog">' +
+            '<div class="dialog-content"></div>' +
+            '</div>');
         }
+
+        elemContent = $('.dialog-content', elemDialog);
+        $('.dialog-cont').append(elemDialog);
+        elemDialog.fadeIn(300)
     }
 
     function open() {
@@ -59,19 +57,16 @@ define(['jquery'], function ($) {
     var Dialog = {
         loading: function () {
             this.open("<p class='dialog-loading'></p>");
-            if(arguments[0]) setTimeout($.Dialog.close.bind($.Dialog), parseInt(arguments[0]) || 2000);
         },
-        success: function () {
-            var successTips = "操作成功!";
-            if (arguments[0] != null)successTips = arguments[0];
+        success: function (tip) {
+            var successTips = tip || "操作成功!";
             this.open("<p class='dialog-success'>" + successTips + "</p>");
             setTimeout(function () {
                 $.Dialog.close();
             }, parseInt(arguments[1]) || 2000)
         },
-        fail: function () {
-            var failTips = "操作失败!";
-            if (arguments[0] != null)failTips = arguments[0];
+        fail: function (tip) {
+            var failTips = tip || "操作失败!";
             this.open("<p class='dialog-fail'>" + failTips + "</p>");
             setTimeout(function () {
                 $.Dialog.close();

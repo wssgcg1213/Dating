@@ -1280,6 +1280,7 @@ nav .user {
 .publishBtn:hover,
 .publishBtn:visited {
   color: #FFF;
+  text-decoration: none;
 }
 .pbl-dating {
   background-color: #efefef;
@@ -1323,11 +1324,12 @@ nav .user {
 .pbl-dating .row #ySex,
 .pbl-dating .row #yGrade,
 .pbl-dating .row #yCollege {
-  width: 70%;
+  width: 100%;
   float: right;
   text-align: right;
   line-height: 100%;
   height: 100%;
+  top: 0;
 }
 .pbl-dating .row #yTitle,
 .pbl-dating .row #yLocation,
@@ -1392,6 +1394,31 @@ nav .user {
 }
 .pbl-dating .dollar {
   color: #ff7660;
+}
+.pbl-dating .light-grey .subtitle {
+  color: #444;
+}
+.pbl-dating .mb0 {
+  margin-bottom: 0;
+}
+.pbl-dating .publish {
+  text-align: right;
+}
+.pbl-dating .publish button {
+  width: 2.77777778rem;
+  height: 0.92592593rem;
+  background-color: #FF9933;
+  border: none;
+  border-radius: 0.05555556rem;
+  margin: 0.44444444rem;
+  color: #FFF;
+  font-size: 18px;
+}
+[data-dpr="2"] .pbl-dating .publish button {
+  font-size: 36px;
+}
+[data-dpr="3"] .pbl-dating .publish button {
+  font-size: 54px;
 }
 /*
 	-------------------------	jQuery DateTimePicker v0.1.1	----------------------------
@@ -1912,11 +1939,11 @@ nav .user {
 .login-wrapper :-ms-input-placeholder {
   color: #9a9a9a;
 }
-.login-wrapper form {
+.login-wrapper .form {
   width: 90.74074074%;
   margin: 0.92592593rem auto 0;
 }
-.login-wrapper form button {
+.login-wrapper .form button {
   width: 100%;
   border-radius: 5px;
   height: 1.38888889rem;
@@ -1927,13 +1954,13 @@ nav .user {
   font-size: 22px;
   margin-top: 0.44444444rem;
 }
-[data-dpr="2"] .login-wrapper form button {
+[data-dpr="2"] .login-wrapper .form button {
   font-size: 44px;
 }
-[data-dpr="3"] .login-wrapper form button {
+[data-dpr="3"] .login-wrapper .form button {
   font-size: 66px;
 }
-.login-wrapper form input {
+.login-wrapper .form input {
   width: 94%;
   height: 1.2962963rem;
   outline: none;
@@ -1943,17 +1970,17 @@ nav .user {
   display: block;
   margin: 0 auto;
 }
-[data-dpr="2"] .login-wrapper form input {
+[data-dpr="2"] .login-wrapper .form input {
   font-size: 36px;
 }
-[data-dpr="3"] .login-wrapper form input {
+[data-dpr="3"] .login-wrapper .form input {
   font-size: 54px;
 }
-.login-wrapper form .stuId {
+.login-wrapper .form .stuId {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-.login-wrapper form .password {
+.login-wrapper .form .password {
   border-color: #f9f8f8 #cccccc #cccccc #cccccc ;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px ;
@@ -1981,6 +2008,7 @@ nav .user {
   right: 0;
   left: 0;
   bottom: 0;
+  z-index: 100;
 }
 .trans-overlay {
   width: 100%;
@@ -2138,4 +2166,7 @@ nav .user {
 }
 .icon-jikediancanicon28:before {
   content: "\e612";
+}
+a {
+  text-decoration: none;
 }
