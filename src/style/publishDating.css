@@ -40,11 +40,12 @@
 .pbl-dating .row #ySex,
 .pbl-dating .row #yGrade,
 .pbl-dating .row #yCollege {
-  width: 70%;
+  width: 100%;
   float: right;
   text-align: right;
   line-height: 100%;
   height: 100%;
+  top: 0;
 }
 .pbl-dating .row #yTitle,
 .pbl-dating .row #yLocation,

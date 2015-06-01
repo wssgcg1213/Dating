@@ -17,4 +17,5 @@
 .publishBtn:hover,
 .publishBtn:visited {
   color: #FFF;
+  text-decoration: none;
 }

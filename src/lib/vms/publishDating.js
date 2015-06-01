@@ -8,6 +8,7 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'DateTimePicker
         templateUrl: "tpl/publishDatingCtrl.html",
         onEnter: function() {
             avalon.vmodels['main']['state'] = 'loading';
+
             var user = userCenter.info();
             if(!user.state){
                 setTimeout(avalon.router.navigate.bind(avalon.router, "login"), 0);
@@ -19,6 +20,7 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'DateTimePicker
                 datePickerFlag = false;
 
             avalon.vmodels['nav']['title'] = "发布约会";
+
             if(!avalon.vmodels['publishDating'])
                 avalon.define({
                     $id: "publishDating",
@@ -92,8 +94,8 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'DateTimePicker
                     yLocationValid: false,//标明数据有效状态
                     yLocationBlur: function(ev) {
                         ev.stopPropagation();
-                        var _vm = avalon.vmodels['publishDating'],d
-                        str = _vm['yLocation'];
+                        var _vm = avalon.vmodels['publishDating'],
+                            str = _vm['yLocation'];
 
                         _vm['yLocationStatus'] = false;
                         _vm['yLocation'] = str;
@@ -200,15 +202,15 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'DateTimePicker
 
                             case 'yLocation':case 'yPeople':case 'ySpend':
                             case 'ySex': case 'yGrade':case 'yCollege':case 'yType':
-                            _vm[type + 'Status'] = true;
-                            $('#' + type).focus();
-                            break;
+                                _vm[type + 'Status'] = true;
+                                $('#' + type).focus();
+                                break;
 
 
                         }
                     }
-
                 });
+
             avalon.vmodels['publishDating'].$watch('yTitle', function(newStr, oldStr){
                 avalon.vmodels['publishDating']['yTitle'] = newStr.trim();
             });
