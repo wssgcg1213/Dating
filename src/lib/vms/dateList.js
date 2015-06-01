@@ -10,7 +10,7 @@ define(['urls', 'mmState', 'dialog', 'avaFilters'], function(urls){
             //var page=0,size=3;
             $.post(urls.dateList,{date_type:0,page:1,size:3,order:1}).success(function(res) {
                 if(res.status == 200){
-                    console.log(res.data);
+                    log(res.data);
                 }
             });
             avalon.scan();

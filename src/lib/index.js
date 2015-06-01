@@ -7,7 +7,7 @@
 require.config({
     baseUrl: "lib",
     paths: {
-        avalon: "avalon.shim",
+        avalon: "avalon.mobile.shim",
         jquery: "jquery-2.1.3",
         dialog: "jq.dialog"
     },
@@ -17,6 +17,9 @@ require.config({
         }
     }
 });
+
+//Logger
+var log = window.console ? console.log.bind(console, "%c DEBUG! Ling: ", "background:#404040;color:#fff;border-radius:5px") : function(){};
 
 var deps = ['userCenter', 'eventproxy', 'noop', 'urls', //注入依赖
 

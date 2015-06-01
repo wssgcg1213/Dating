@@ -33,8 +33,9 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters'], 
                 avalon.define({
                     $id: "showBox",
                     dateList: [],
-                    goDetail: function(did){
-                        avalon.router.navigate('detail/'+did);
+                    goDetail: function(id){
+                        log("we are ready to go detail no.", id);
+                        avalon.router.navigate('detail/' + id);
                     }
                 });
             }
@@ -53,7 +54,7 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters'], 
                 if(showBox.status == 200){
                     av['showBox'].dateList = showBox.data;
                 }else{
-                    console.log("err", showBox);
+                    log("err", showBox);
                 }
 
                 avalon.scan();

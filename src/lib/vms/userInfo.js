@@ -28,7 +28,7 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters'], 
                 if(res.status == 200){
                     avalon.vmodels['userInfo'].data = res.data;
                 }else{
-                    console.log("Err", res);
+                    log("Err", res);
                 }
 
                 avalon.scan();

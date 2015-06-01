@@ -237,6 +237,7 @@ define(['urls', 'jquery'], function(urls, $){
     return {
         login: login,
         logout: logout,
-        info: info
+        info: info,
+        clear: logout
     };
 });
