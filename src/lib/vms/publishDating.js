@@ -95,8 +95,7 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'DateTimePicker
                     yLocationBlur: function(ev) {
                         ev.stopPropagation();
                         var _vm = avalon.vmodels['publishDating'],
-                            str = _vm['yLocation'];
-
+                        str = _vm['yLocation'];
                         _vm['yLocationStatus'] = false;
                         _vm['yLocation'] = str;
                         _vm['yLocationValid'] = true;

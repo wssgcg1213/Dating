@@ -64,7 +64,6 @@
 .detail-wrapper .content,
 .detail-wrapper .requirement,
 .detail-wrapper .ul-wrapper {
-  border-bottom: 1px solid #dddddd;
   margin: 0 0.37037037rem;
   padding: 0.37037037rem 0;
 }
@@ -83,6 +82,10 @@
 [data-dpr="3"] .detail-wrapper .requirement .detail,
 [data-dpr="3"] .detail-wrapper .ul-wrapper .detail {
   font-size: 42px;
+}
+.detail-wrapper .content,
+.detail-wrapper .ul-wrapper {
+  border-bottom: 1px solid #dddddd;
 }
 .detail-wrapper .user-wrapper {
   overflow: hidden;
