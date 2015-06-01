@@ -75,6 +75,7 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters', '
                     av['slider']['items'] = sliderData;
                 }else{
                     log('err slider:', slider);
+                    return $.Dialog.fail('服务器开小差呢!', 999999);
                 }
 
                 //category == datetype约会类型表
@@ -82,6 +83,7 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters', '
                     av['category']['items'] = category.data;
                 }else{
                     log('err category:', category);
+                    return $.Dialog.fail('服务器开小差呢!', 999999);
                 }
 
                 //showBox 主显示区域
@@ -89,6 +91,7 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters', '
                     av['showBox'].dateList = showBox.data;
                 }else{
                     log("err", showBox);
+                    return $.Dialog.fail('服务器开小差呢!', 999999);
                 }
 
                 avalon.scan();

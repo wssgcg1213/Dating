@@ -27,7 +27,7 @@
         <div class="requirement">
             <p class="title">要求</p>
             <ul>
-                <li>年级：{{}}</li><!-- todo -->
+                <li>年级：{{data.grade_limit | gradeFilter}}</li>
                 <li>性别：{{data.gender_limit | genderLimit}}</li>
                 <li>人数限制: {{data.people_limit | peopleLimit}}</li>
             </ul>

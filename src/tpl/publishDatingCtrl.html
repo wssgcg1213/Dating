@@ -5,16 +5,8 @@
         <div class="row" ms-on-tap="active('yType')" ms-class="active:yTypeStatus">
             <span class="dating-type">约什么</span>
             <select id="yType" class="choose" ms-duplex="yType" ms-on-blur="yTypeBlur">
-                <option value=""></option>
-                <option value="吃饭">吃饭</option>
-                <option value="活动">活动</option>
-                <option value="拼车">拼车</option>
-                <option value="自习">自习</option>
-                <option value="娱乐">娱乐</option>
-                <option value="棋牌">棋牌</option>
-                <option value="运动">运动</option>
-                <option value="旅游">旅游</option>
-                <option value="其他">其他</option>
+                <option value=""></option><!-- todo-->
+                <option ms-repeat="datetype" ms-attr-value="el.type">{{el.type}}</option>
             </select>
             <a class="right">{{yType ? yType : "点击更改"}}</a>
         </div>

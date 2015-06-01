@@ -54,18 +54,24 @@ define(['avalon'], function(){
 
     avalon.filters.peopleLimit = function(n){
         n = parseInt(n);
-        return !n ? "无限制" : "少于" + n + '人';
+        return !n ? "无限制" : "不多于" + n + '人';
     }
 
     avalon.filters.gradeFilter = function(n){
-        n = parseInt(n);
-        switch(n){
-            case 1: return "大一";
-            case 2: return "大二";
-            case 3: return "大三";
-            case 4: return "大四";
+        if(typeof n == 'number' || typeof n == 'string'){
+            n = parseInt(n);
+            switch(n){
+                case 1: return "大一";
+                case 2: return "大二";
+                case 3: return "大三";
+                case 4: return "大四";
+            }
+            return "未知";
+        } else if (Array.isArray(n)) {
+            if(n.length === 0)return "无限制";
+            n = n.sort();
+            return n.join("级, ") + "级";
         }
-        return "未知";
     }
     /**
      * 状态限制过滤器

@@ -3,7 +3,7 @@
  * 主VM
  * Nav vm
  */
-define(['jquery', 'swiper', 'mmHistory', 'mmState'], function($){
+define(['jquery', 'dialog', 'swiper', 'mmHistory', 'mmState'], function($){
     var av = avalon.vmodels;
     avalon.define({
         $id: "main",
@@ -28,7 +28,7 @@ define(['jquery', 'swiper', 'mmHistory', 'mmState'], function($){
                         paginationClickable: true
                     });
                 }
-                setTimeout(arguments.callee, 50);
+                setTimeout(arguments.callee, 50); //扫描 50ms
             })();
         },
         userInfoSlider: function(){ //初始化userInfo模板里面的左右Slider

@@ -19,19 +19,39 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'DateTimePicker
                 weeks = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
                 datePickerFlag = false;
 
+            var typeHash;//category Hash
+
             avalon.vmodels['nav']['title'] = "发布约会";
 
-            if(!avalon.vmodels['publishDating'])
+            if(!avalon.vmodels['publishDating']) {
                 avalon.define({
                     $id: "publishDating",
+
+                    datetype: [],
+                    selectedDateTyep: {},
 
                     /**
                      * 发布约会
                      */
-                    publish: function(){
+                    publish: function () {
                         avalon.vmodels['main']['state'] = 'loading';
-                        $.ajax(urls.publish, {}).success(function(res){
-                           //todo 发布约
+                        var _vm = avalon.vmodels['publishDating'];
+                        var info = {
+                            date_type: "约会类型id",
+                            title: _vm.content,//todo 图里没有content...
+                            content: "xxxxxxx",
+                            date_time: 0,
+                            date_place: "约会地点",
+                            date_people: "限制人数",
+                            gender_limit: "",  //0不限, 1男, 2女
+                            grade_limit: "", //年级限制
+                            grade_select_model: "", //1正选(默认), 2反选,
+                            cost_model: "", //AA, 我请客, 求请客
+                            uid: "",
+                            token: ""
+                        }
+                        $.ajax(urls.publish, {}).success(function (res) {
+
                             $.Dialog.success("发布成功!", 1500);
                             setTimeout(avalon.router.navigate.bind(avalon.router, 'detail/1'), 1500);
                         });
@@ -40,7 +60,7 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'DateTimePicker
                     yType: "",
                     yTypeStatus: false,
                     yTypeValid: false,//标明数据有效状态
-                    yTypeBlur: function(ev) {
+                    yTypeBlur: function (ev) {
                         ev.stopPropagation();
                         var _vm = avalon.vmodels['publishDating'],
                             v = _vm['yType'];
@@ -52,13 +72,13 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'DateTimePicker
                     yTitle: "",
                     yTitleStatus: false,//标明激活状态
                     yTitleValid: false,//标明数据有效状态
-                    yTitleBlur: function(ev) {
+                    yTitleBlur: function (ev) {
                         ev.stopPropagation();
                         var _vm = avalon.vmodels['publishDating'],
                             str = check();
                         _vm['yTitleStatus'] = false;
 
-                        if(str){
+                        if (str) {
                             _vm['yTitle'] = str;
                             _vm['yTitleValid'] = true;
                         }
@@ -73,11 +93,11 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'DateTimePicker
                     yTime: "",
                     yTimeStatus: false,
                     yTimeValid: false,//标明数据有效状态
-                    yTimeBlur: function(ev) {
+                    yTimeBlur: function (ev) {
                         var _vm = avalon.vmodels['publishDating'];
                         _vm['yTimeStatus'] = false;
                         var str;
-                        if(str = check()){
+                        if (str = check()) {
                             _vm['yTime'] = str;
                             _vm['yTimeValid'] = true;
                         }
@@ -92,10 +112,10 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'DateTimePicker
                     yLocation: "",
                     yLocationStatus: false,//标明激活状态
                     yLocationValid: false,//标明数据有效状态
-                    yLocationBlur: function(ev) {
+                    yLocationBlur: function (ev) {
                         ev.stopPropagation();
                         var _vm = avalon.vmodels['publishDating'],
-                        str = _vm['yLocation'];
+                            str = _vm['yLocation'];
                         _vm['yLocationStatus'] = false;
                         _vm['yLocation'] = str;
                         _vm['yLocationValid'] = true;
@@ -104,13 +124,13 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'DateTimePicker
                     yPeople: 0,
                     yPeopleStatus: false,//标明激活状态
                     yPeopleValid: false,//标明数据有效状态
-                    yPeopleBlur: function(ev) {
+                    yPeopleBlur: function (ev) {
                         ev.stopPropagation();
                         var _vm = avalon.vmodels['publishDating'],
                             str = check();
                         _vm['yPeopleStatus'] = false;
 
-                        if(str){
+                        if (str) {
                             _vm['yPeople'] = str;
                             _vm['yPeopleValid'] = true;
                         }
@@ -125,7 +145,7 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'DateTimePicker
                     ySpend: "",
                     ySpendStatus: false,//标明激活状态
                     ySpendValid: false,//标明数据有效状态
-                    ySpendBlur: function(ev) {
+                    ySpendBlur: function (ev) {
                         ev.stopPropagation();
                         var _vm = avalon.vmodels['publishDating'],
                             v = _vm['ySpend'];
@@ -138,7 +158,7 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'DateTimePicker
                     ySex: "",
                     ySexStatus: false,//标明激活状态
                     ySexValid: false,//标明数据有效状态
-                    ySexBlur: function(ev) {
+                    ySexBlur: function (ev) {
                         ev.stopPropagation();
                         var _vm = avalon.vmodels['publishDating'],
                             v = _vm['ySex'];
@@ -151,7 +171,7 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'DateTimePicker
                     yGrade: "",
                     yGradeStatus: false,//标明激活状态
                     yGradeValid: false,//标明数据有效状态
-                    yGradeBlur: function(ev) {
+                    yGradeBlur: function (ev) {
                         ev.stopPropagation();
                         var _vm = avalon.vmodels['publishDating'],
                             v = _vm['yGrade'];
@@ -163,7 +183,7 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'DateTimePicker
                     yCollege: "",
                     yCollegeStatus: false,//标明激活状态
                     yCollegeValid: false,//标明数据有效状态
-                    yCollegeBlur: function(ev) {
+                    yCollegeBlur: function (ev) {
                         ev.stopPropagation();
                         var _vm = avalon.vmodels['publishDating'],
                             v = _vm['yCollege'];
@@ -172,16 +192,16 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'DateTimePicker
                         _vm['yCollegeValid'] = true;
                     },
 
-                    active: function(type, $ev){
+                    active: function (type, $ev) {
                         var _vm = avalon.vmodels['publishDating'];
-                        switch(type){
+                        switch (type) {
                             case 'yTitle':
                                 _vm[type + 'Status'] = true;
                                 $('#' + type).focus();
                                 break;
 
                             case 'yTime':
-                                if(!datePickerFlag){
+                                if (!datePickerFlag) {
                                     datePickerFlag = true;
                                     $('.widget').DateTimePicker({
                                         titleContentDateTime: "请选择准备约会的时间",
@@ -191,7 +211,7 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'DateTimePicker
                                         shortDayNames: weeks,
                                         fullDayNames: weeks,
                                         shortMonthNames: lunar,
-                                        fullMonthNames:	lunar
+                                        fullMonthNames: lunar
                                     });
                                 }
                                 _vm[type + 'Status'] = true;
@@ -199,8 +219,13 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'DateTimePicker
                                 $ev.stopPropagation();
                                 break;
 
-                            case 'yLocation':case 'yPeople':case 'ySpend':
-                            case 'ySex': case 'yGrade':case 'yCollege':case 'yType':
+                            case 'yLocation':
+                            case 'yPeople':
+                            case 'ySpend':
+                            case 'ySex':
+                            case 'yGrade':
+                            case 'yCollege':
+                            case 'yType':
                                 _vm[type + 'Status'] = true;
                                 $('#' + type).focus();
                                 break;
@@ -210,15 +235,31 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'DateTimePicker
                     }
                 });
 
-            avalon.vmodels['publishDating'].$watch('yTitle', function(newStr, oldStr){
-                avalon.vmodels['publishDating']['yTitle'] = newStr.trim();
-            });
-            avalon.vmodels['publishDating'].$watch('yLocation', function(newStr, oldStr){
-                avalon.vmodels['publishDating']['yLocation'] = newStr.trim();
-            });
-            avalon.vmodels['publishDating'].$watch('yPeople', function(newStr, oldStr){
-                avalon.vmodels['publishDating']['yPeople'] = parseInt(newStr) || 0;
-            });
+                avalon.vmodels['publishDating'].$watch('yTitle', function (newStr, oldStr) {
+                    avalon.vmodels['publishDating']['yTitle'] = newStr.trim();
+                });
+                avalon.vmodels['publishDating'].$watch('yLocation', function (newStr, oldStr) {
+                    avalon.vmodels['publishDating']['yLocation'] = newStr.trim();
+                });
+                avalon.vmodels['publishDating'].$watch('yPeople', function (newStr, oldStr) {
+                    avalon.vmodels['publishDating']['yPeople'] = parseInt(newStr) || 0;
+                });
+            }
+
+            if(!typeHash){
+                function _fail(res){
+                    log('Category Fetch err', res);
+                    avalon.scan();
+                    $.Dialog.fail("服务器提了一个问题!", 999999);
+                }
+                $.post(urls.category).success(function(res){
+                    if(res && res.status == 200 && res.data && Array.isArray(res.data)){
+                        avalon.vmodels['publishDating'].datetype = res.data;
+                        return;
+                    }
+                    _fail(res);
+                }).fail(_fail);
+            }
             avalon.scan();
             avalon.vmodels['main']['state'] = 'ok';
         }

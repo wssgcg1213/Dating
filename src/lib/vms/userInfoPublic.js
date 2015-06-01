@@ -11,7 +11,7 @@ define(['jquery', 'mmState', 'mmHistory', 'vms/main'], function($){
             avalon.vmodels['nav']['title'] = "用户中心";
             var id = this.params.id;
 
-log(id);
+            log(id);
 
 
 
