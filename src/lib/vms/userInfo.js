@@ -24,9 +24,12 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters'], 
                 }
             });
 
+            if(av['userInfo'].data){
+                return;
+            }
             $.post(urls.userInfo, {uid: user.uid, get_uid: user.uid, token: user.token}).success(function(res){
-                if(res.status == 200){
-                    avalon.vmodels['userInfo'].data = res.data;
+                if(res && res.status == 200 && res.data){
+                    av['userInfo'].data = res.data;
                 }else{
                     log("Err", res);
                 }

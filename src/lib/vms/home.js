@@ -1,42 +1,38 @@
 /**
  * Created by Liuchenling on 5/30/15.
- * 主页vm
+ * 主页vm //todo 移除一些页面的vm出去
  */
-define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters', 'vms/main', 'mmHistory'], function(urls, userCenter, EventProxy){
+define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters', 'vms/main', 'mmState', 'mmHistory'], function(urls, userCenter, EventProxy){
     var av = avalon.vmodels;
     /**
-     * 收藏页面 //todo 这个页面怎么处理
+     * //todo  收藏页这个页面怎么处理
      */
     avalon.state('collect', {
         url: "/collect",
         templateUrl: "tpl/collectCtrl.html",
-        onEnter: function(state) {
+        onEnter: function() {
             avalon.vmodels['nav']['title'] = "收藏";
             avalon.scan();
+            av['main']['state'] = 'ok';
         }
     });
 
     /**
-     * 公共的用户中心页面 //todo
+     * //todo 公共的用户中心页面
      */
     avalon.state('userInfoPublic', {
         url: "/userInfoPublic",
         templateUrl: "tpl/userInfoPublicCtrl.html",
-        onEnter: function(state) {
+        onEnter: function() {
             avalon.vmodels['nav']['title'] = "收藏";
             avalon.scan();
+            av['main']['state'] = 'ok';
         }
     });
 
-    avalon.state('center', {
-        url: "/center",
-        templateUrl: "tpl/centerCtrl.html",
-        onEnter: function() {
-            avalon.vmodels['nav']['title'] = "个人中心";
-            avalon.scan();
-        }
-    });
-
+    /**
+     * 主页 VM定义
+     */
     avalon.state('home', {
         controller: "main",
         url: "/",
@@ -142,7 +138,6 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters', '
                 size: 10,
                 order: 1
             }).success(function(res){ep.emit('showBox', res);}).fail(_failHandler);
-
         }
     });
 });
