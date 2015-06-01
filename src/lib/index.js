@@ -171,7 +171,6 @@ require(deps, function(userCenter, EventProxy, noop, urls) {
     });
 
 
-
     avalon.history.start({
         basepath: "/"
     });

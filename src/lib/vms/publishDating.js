@@ -72,7 +72,7 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'DateTimePicker
                     yLocationValid: false,//标明数据有效状态
                     yLocationBlur: function(ev) {
                         ev.stopPropagation();
-                        var _vm = avalon.vmodels['publishDating'],d
+                        var _vm = avalon.vmodels['publishDating'],
                         str = _vm['yLocation'];
 
                         _vm['yLocationStatus'] = false;
