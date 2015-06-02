@@ -2,7 +2,7 @@
  * Created by Liuchenling on 5/30/15.
  * 用户中心
  */
-define(['urls', 'userCenter', 'eventproxy', 'mmState', 'mmHistory', 'dialog', 'avaFilters'], function(urls, userCenter, EventProxy){
+define('vms/userInfo', ['urls', 'userCenter', 'eventproxy', 'mmState', 'mmHistory', 'dialog', 'avaFilters'], function(urls, userCenter, EventProxy){
     var av = avalon.vmodels;
 
     avalon.state('userInfo', {

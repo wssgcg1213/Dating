@@ -2,7 +2,7 @@
  * Created by Liuchenling on 5/30/15.
  * 发布约的界面
  */
-define(['urls', 'userCenter', 'moment', 'mmState', 'dialog', 'avaFilters', 'vms/main'], function(urls, userCenter, moment){
+define("vms/publishDating", ['urls', 'userCenter', 'moment', 'mmState', 'dialog', 'avaFilters', 'vms/main'], function(urls, userCenter, moment){
     avalon.state('publishDating', {
         url: "/publishDating",
         templateUrl: "tpl/publishDatingCtrl.html",

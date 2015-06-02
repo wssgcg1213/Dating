@@ -1,7 +1,7 @@
 /**
  * Created by Liuchenling on 5/30/15.
  */
-define(function(){
+define('urls', function(){
     var urls = {
         "login": "../mock.php?type=login",
         "slider": "../mock.php?type=pics",

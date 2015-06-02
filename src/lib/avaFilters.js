@@ -1,7 +1,7 @@
 /**
  * Created by Liuchenling on 5/30/15.
  */
-define(['avalon'], function(){
+define('avaFilters', ['avalon'], function(){
     /**
      * 创建时间的fliter
      * @param ts

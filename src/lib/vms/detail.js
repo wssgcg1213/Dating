@@ -2,7 +2,7 @@
  * Created by Liuchenling on 5/30/15.
  */
 
-define(['urls', 'userCenter', 'eventproxy', 'mmState', 'mmHistory', 'dialog', 'avaFilters', 'vms/main'], function(urls, userCenter, EventProxy){
+define('vms/detail', ['urls', 'userCenter', 'eventproxy', 'mmState', 'mmHistory', 'dialog', 'avaFilters', 'vms/main'], function(urls, userCenter, EventProxy){
     var av = avalon.vmodels;
 
     avalon.state('detail', {

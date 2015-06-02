@@ -6,7 +6,7 @@
 //检测是否登录
 //获取个人信息
 
-define(['urls', 'jquery'], function(urls, $){
+define('userCenter', ['urls', 'jquery'], function(urls, $){
     /*!
      * jQuery Cookie Plugin v1.4.1
      * https://github.com/carhartl/jquery-cookie

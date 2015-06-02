@@ -19,5 +19,12 @@
   "bugs": {
     "url": "https://github.com/wssgcg1213/Dating/issues"
   },
-  "homepage": "https://github.com/wssgcg1213/Dating"
+  "homepage": "https://github.com/wssgcg1213/Dating",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-copy": "^0.8.0",
+    "grunt-contrib-cssmin": "^0.12.3",
+    "grunt-contrib-imagemin": "^0.9.4",
+    "grunt-contrib-requirejs": "^0.4.4"
+  }
 }

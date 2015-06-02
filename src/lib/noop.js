@@ -4,7 +4,7 @@
 /**
  * 空函数 什么都不执行
  */
-define(function(){
+define('noop', function(){
     function noop(){};
     return noop;
 });

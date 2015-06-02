@@ -1,7 +1,7 @@
 /**
  * Created by liuhzz on 2015/5/30.
  */
-define(['urls', 'userCenter', 'mmState', 'dialog', 'avaFilters', 'vms/main'], function(urls, userCenter){
+define("vms/letters", ['urls', 'userCenter', 'mmState', 'dialog', 'avaFilters', 'vms/main'], function(urls, userCenter){
     avalon.state('letters',{
         url:'/letters',
         templateUrl:"tpl/lettersCtrl.html",

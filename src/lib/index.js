@@ -16,7 +16,7 @@ require.config({
 //Logger
 var log = window.console ? console.log.bind(console, "%c DEBUG! Ling: ", "background:#404040;color:#fff;border-radius:5px") : function(){};
 
-var deps = ['userCenter', 'eventproxy', 'noop', 'urls', //注入依赖
+require(['userCenter', 'eventproxy', 'noop', 'urls', //注入依赖
 
     'avalon',
     'mmState',
@@ -41,9 +41,7 @@ var deps = ['userCenter', 'eventproxy', 'noop', 'urls', //注入依赖
     'vms/detail',
     'vms/userInfoPublic',
     'vms/main',
-];
-
-require(deps, function(userCenter, EventProxy, noop, urls) {
+], function(userCenter, EventProxy, noop, urls) {
 
     avalon.history.start({
         basepath: "/"

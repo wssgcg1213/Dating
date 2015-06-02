@@ -2,7 +2,7 @@
  * Created by Liuchenling on 5/30/15.
  * 主页vm //todo 移除一些页面的vm出去
  */
-define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters', 'vms/main', 'mmState', 'mmHistory'], function(urls, userCenter, EventProxy){
+define("vms/home", ['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters', 'vms/main', 'mmState', 'mmHistory'], function(urls, userCenter, EventProxy){
     var av = avalon.vmodels;
     /**
      * //todo  收藏页这个页面怎么处理
