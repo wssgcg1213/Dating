@@ -1,0 +1,23 @@
+{
+	"name": "Ling",
+	"html": {
+	  "src": ["src/index.html"],
+	  "dist": "dist/"
+	},
+	"tpl": {
+	  "src": ["src/tpl/*.html"],
+	  "dist": "dist/tpl"
+	},
+	"js": {
+	  "src": "src/lib/all.js",
+	  "dist": "dist/lib/"
+	},
+	"css": {
+	  "src": ["src/style/main.css"],
+	  "dist": "dist/style/"
+	},
+  	"img": {
+	  "src": "src/imgs/*.{jpg,png,gif}",
+	  "dist": "dist/imgs/"
+	}
+}

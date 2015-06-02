@@ -1,0 +1,31 @@
+<div class="history" ms-controller="history">
+    <div class="person-wrapper">
+        <div class="person">
+            <img class="logo-wrapper" ms-attr-src="userInfo.head"  alt=""/>
+            <span class="center-wrapper">
+                <p>{{userInfo.nickname}}<i class="iconfont" ms-class-icon-male="userInfo.user_grade==1" ms-class-icon-female="userInfo.user_gender==2"></i></p>
+                <p class="motto">{{userInfo.signature ? userInfo.signature : "TA没有个性签名"}}</p>
+            </span>
+        </div>
+    </div>
+
+
+    <ul>
+        <li ms-repeat="data" ms-on-tap="goDetail(el.date_id)">
+            <div class="content">
+                <p class="title">{{el.content}}</p>
+                <ul>
+                    <li class="location prefix"><i class="iconfont">&#xe612</i>地点:{{el.place}}</li>
+                    <li class="time prefix"><i class="iconfont">&#xe611</i>时间:{{el.data_time | date("MM.dd HH:mm:ss")}}</li>
+                    <li class="cost prefix">
+                        <i class="iconfont">&#xe60f</i>费用:{{el.cost_model |costModel}}
+                        <span>状态:{{el.status | status}}</span>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+
+
+
+</div>
