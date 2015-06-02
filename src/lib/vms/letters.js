@@ -1,7 +1,7 @@
 /**
  * Created by liuhzz on 2015/5/30.
  */
-define(['urls', 'userCenter', 'mmState', 'dialog', 'avaFilters'], function(urls, userCenter){
+define(['urls', 'userCenter', 'mmState', 'dialog', 'avaFilters', 'vms/main'], function(urls, userCenter){
     avalon.state('letters',{
         url:'/letters',
         templateUrl:"tpl/lettersCtrl.html",
@@ -25,6 +25,7 @@ define(['urls', 'userCenter', 'mmState', 'dialog', 'avaFilters'], function(urls,
                 })
             }
             avalon.scan();
+            avalon.vmodels['main']['state'] = 'ok';
         }
     });
 })

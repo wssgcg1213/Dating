@@ -10,11 +10,6 @@ require.config({
         avalon: "avalon.mobile.shim",
         jquery: "jquery-2.1.3",
         dialog: "jq.dialog"
-    },
-    shims: {
-        jquery: {
-            exports: "$"
-        }
     }
 });
 

@@ -18,7 +18,7 @@
             <input type="text" ms-visible="yTitleStatus" id="yTitle" class="w50" ms-duplex="yTitle" ms-on-blur="yTitleBlur"/>
             <a class="right" ms-if="!yTitleStatus">{{yTitle ? yTitle : "请输入"}}</a>
         </div>
-        <div class="row" ms-on-tap="active('yTime', $event)" ms-class="active:yTimeStatus">
+        <div class="row" ms-on-click="active('yTime', $event)" ms-class="active:yTimeStatus">
             <i class="iconfont time">&#xe611;</i>
             <span class="subtitle">约会时间</span>
             <input type="text" id="yTime" data-view="Popup" ms-duplex="yTime" data-field="datetime" readonly ms-on-blur="yTimeBlur"/>

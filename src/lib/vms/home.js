@@ -41,7 +41,17 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters', '
             if(!avalon.vmodels['category']){
                 avalon.define({
                     $id: "category",
-                    items: []
+                    items: [],
+                    func: function(){
+                        avalon.vmodels['main']['state'] = 'loading';
+                        var list = avalon.vmodels['showBox'].dateList;
+                        list = list.sort(function(v1, v2){
+                            return Math.random() - 0.5;
+                        });//todo 排序
+                        avalon.vmodels['showBox'].dateList = list;
+                        avalon.vmodels['main']['state'] = 'ok';
+                    }
+
                 });
             }
 

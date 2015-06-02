@@ -1,7 +1,7 @@
 /**
  * Created by Liuchenling on 5/30/15.
  */
-define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters'], function(urls, userCenter, EventProxy){
+define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters', 'vms/main'], function(urls, userCenter, EventProxy){
     var av = avalon.vmodels;
 
     avalon.state('history',{

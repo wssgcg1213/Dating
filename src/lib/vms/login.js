@@ -2,7 +2,7 @@
  * Created by Liuchenling on 5/30/15.
  * 登陆的VM
  */
-define(['urls', 'userCenter', 'mmState', 'dialog', 'mmHistory', 'mmState'], function(urls, userCenter){
+define(['urls', 'userCenter', 'mmState', 'dialog', 'mmHistory', 'mmState', 'vms/main'], function(urls, userCenter){
     var av = avalon.vmodels;
 
     avalon.state('login',{
