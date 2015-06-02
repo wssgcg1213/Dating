@@ -42,42 +42,57 @@ define("vms/home", ['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'av
                 avalon.define({
                     $id: "category",
                     items: [],
-                    func: function(){
-                        $("#select").show(300);
-                        $(".options-content").eq(0).show(300);
+                    kind: [],
+                    show: function(){
+                        $('.btn-overlay').show();
+                        setTimeout(function(){
+                            $('.btn-overlay').addClass('show');
+                        }, 0);
                     },
-                    hiden: function(e){
-                        $("#select").hide(300);
-                        $(".options-content").eq(0).hide(300);
-                        if(e.target == $(".option-content").eq[0]){
-                            Array.prototype.slice.call($(".gray")).forEach(function(i){
-                                if($(this).css("background") === "#dddddd"){
-                                    console.log(1);
-                                }
+                    hidden: function(e){
+                        $('.btn-overlay').removeClass('show');
+                        setTimeout(function(){
+                            $('.btn-overlay').hide();
+                        }, 400);
 
-                            })
-                            $(".left").innerText = ""//todo
-                        }
+
                     },
-                    order: function(n){
-                        $(this).css("background","#dddddd");
-                        switch (n){
-                            case 1:
-                                return;
-                            case 2:
-                                return;
-                            case 3:
-                                avalon.vmodels['main']['state'] = 'loading';
-                                var list = avalon.vmodels['showBox'].dateList;
-                                //console.log(list);
-                                list = list.sort(function(v1, v2){
-                                    return list.created_at < list.created_at;
-                                });//todo 排序
-                                avalon.vmodels['showBox'].dateList = list;
-                                avalon.vmodels['main']['state'] = 'ok';
+                    classifyShow: function(e){
+                        log(e);
+                        $('.classify').show();
+                        setTimeout(function(){
+                            $('.classify').addClass('show');
+                        }, 0);
+                    },
+                    classifyHide: function(){
+                        $('.classify').removeClass('show');
+                        setTimeout(function(){
+                            $('.classify').hide();
+                        }, 400);
 
-                        }
+                    },
+                    stopBubble: function(e){
+                        e.stopPropagation();
                     }
+                //    order: function(n){
+                //    $(this).css("background", "#dddddd");
+                //    switch (n){
+                //        case 1:
+                //            return;
+                //        case 2:
+                //            return;
+                //        case 3:
+                //            avalon.vmodels['main']['state'] = 'loading';
+                //            var list = avalon.vmodels['showBox'].dateList;
+                //            //console.log(list);
+                //            list = list.sort(function(v1, v2){
+                //                return list.created_at < list.created_at;
+                //            });//todo 排序
+                //            avalon.vmodels['showBox'].dateList = list;
+                //            avalon.vmodels['main']['state'] = 'ok';
+                //
+                //    }
+                //}
 
                 });
             }
@@ -118,6 +133,8 @@ define("vms/home", ['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'av
                 //category == datetype约会类型表
                 if(_check(category)){
                     av['category']['items'] = category.data;
+
+                    console.log(category.data)
                 }else{
                     log('err category:', category);
                     return $.Dialog.fail('服务器开小差呢!', 999999);

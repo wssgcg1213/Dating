@@ -450,8 +450,9 @@ input[type="search"]::-webkit-search-decoration {
 @font-face {
   font-family: "iconfont";
   src: url('iconfont.eot');
-  /* IE9*/
   src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('iconfont.woff') format('woff'), /* chrome、firefox */ url('iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('iconfont.svg#iconfont') format('svg');
+  
+  /* IE9*/
   /* iOS 4.1- */
 }
 .iconfont {
@@ -653,7 +654,8 @@ nav .user {
 [data-dpr="3"] .fliter-btns a .iconfont {
   font-size: 45px;
 }
-.fliter-btns #select {
+.fliter-btns .btn-overlay,
+.fliter-btns .classify {
   display: none;
   position: fixed;
   top: 0;
@@ -662,12 +664,17 @@ nav .user {
   right: 0;
   width: 100%;
   box-sizing: border-box;
-  z-index: 999;
-  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+  background: rgba(0, 0, 0, 0);
+  -webkit-transition: background ease-in-out 400ms;
+          transition: background ease-in-out 400ms;
+}
+.fliter-btns .btn-overlay.show,
+.fliter-btns .classify.show {
+  background: rgba(0, 0, 0, 0.3);
 }
 .fliter-btns .options-content {
-  display: none;
-  width: 70%;
+  width: 80%;
   line-height: 1.06481481rem;
   background-color: white;
   top: 50%;
@@ -677,13 +684,12 @@ nav .user {
           transform: translate(-50%, -50%);
   border-radius: 0.11111111rem;
   overflow: hidden;
-  position: fixed;
-  z-index: 1000;
+  position: absolute;
+  z-index: 2;
 }
 .fliter-btns .options-content .left {
   text-align: left;
   font-size: 18px;
-  margin-left: 0.18518519rem;
 }
 [data-dpr="2"] .fliter-btns .options-content .left {
   font-size: 36px;
@@ -706,7 +712,6 @@ nav .user {
 }
 .fliter-btns .options-content .gray {
   background-color: #ededed;
-  padding-left: 0.18518519rem;
   font-size: 16px;
 }
 [data-dpr="2"] .fliter-btns .options-content .gray {
@@ -718,7 +723,7 @@ nav .user {
 .fliter-btns .options {
   border-top: 1px solid #e0e0e0;
   color: #666;
-  padding: 0.18518519rem;
+  padding: 0 0 0 0.18518519rem;
 }
 .scroll-container {
   background-color: #EFEFEF;
