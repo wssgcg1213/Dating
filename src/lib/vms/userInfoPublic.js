@@ -20,16 +20,22 @@ define('vms/userInfoPublic', ['urls', 'userCenter', 'jquery', 'mmState', 'mmHist
                 })
             }
 
-            $.post(urls.userInfo,{uid:user.uid,get_uid:user_id,token:user.token}).success(function(res){
+            $.post(urls.userInfo, {
+                uid: user.uid,
+                token: user.token,
+                get_uid: id
+            }).success(function(res){
                 if(res && res.status == 200 && res.data){
                     av['userInfo'].data = res.data;
-                    console.log(res.data);
+
+                    avalon.scan();
+                    av['main']['state'] = 'ok';
                 }else{
                     log("Err", res);
+                    $.Dialog.fail("服务器提了一个问题");
                 }
-            })
-            avalon.scan();
-            av['main']['state'] = 'ok';
+            }).fail(log.bind("超时"));
+
         }
     });
 });
