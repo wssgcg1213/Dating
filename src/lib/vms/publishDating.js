@@ -2,7 +2,7 @@
  * Created by Liuchenling on 5/30/15.
  * 发布约的界面
  */
-define("vms/publishDating", ['urls', 'userCenter', 'moment', 'mmState', 'dialog', 'avaFilters', 'vms/main'], function(urls, userCenter, moment){
+define("vms/publishDating", ['urls', 'userCenter', 'eventproxy', 'moment', 'mmState', 'dialog', 'avaFilters', 'vms/main'], function(urls, userCenter, EP, moment){
     avalon.state('publishDating', {
         url: "/publishDating",
         templateUrl: "tpl/publishDatingCtrl.html",
@@ -19,7 +19,7 @@ define("vms/publishDating", ['urls', 'userCenter', 'moment', 'mmState', 'dialog'
             var lunar = ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
                 weeks = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"];
 
-            var typeHash;//category Hash
+            var typeHash, academyHash;//category Hash, academyHash
 
             avalon.vmodels['nav']['title'] = "发布约会";
 
@@ -193,6 +193,7 @@ define("vms/publishDating", ['urls', 'userCenter', 'moment', 'mmState', 'dialog'
                         _vm['yGradeValid'] = true;
                     },
 
+                    academy: [], //hash
                     yCollege: "",
                     yCollegeStatus: false,//标明激活状态
                     yCollegeValid: false,//标明数据有效状态
@@ -274,23 +275,47 @@ define("vms/publishDating", ['urls', 'userCenter', 'moment', 'mmState', 'dialog'
                     v.yLocation = v.yPeople = v.yTime = v.yTitle = '';
             }
 
-
-            if(!typeHash){
-                function _fail(res){
-                    log('Category Fetch Err', res);
-                    avalon.scan();
-                    $.Dialog.fail("服务器提了一个问题!", 999999);
+            function _fail(res){
+                log('Category Fetch Err', res);
+                avalon.scan();
+                if(res.status == 409){
+                    return $.Dialog.fail(res.info);
                 }
-                $.post(urls.category).success(function(res){
-                    if(res && res.status == 200 && res.data && Array.isArray(res.data)){
-                        typeHash = avalon.vmodels['publishDating'].datetype = res.data;
-                        return;
-                    }
-                    _fail(res);
-                }).fail(_fail);
+                $.Dialog.fail("服务器提了一个问题!");
             }
-            avalon.scan();
-            avalon.vmodels['main']['state'] = 'ok';
+
+            var ep = EP.create('category', 'academy', function(cRes, aRes){
+                if(cRes && cRes.status == 200 && cRes.data && Array.isArray(cRes.data)){
+                    typeHash = avalon.vmodels['publishDating'].datetype = cRes.data;
+                }else{
+                    return _fail(cRes);
+                }
+
+                if(aRes && aRes.status == 200 && aRes.data && Array.isArray(aRes.data)){
+                    academyHash = avalon.vmodels['publishDating'].academy = aRes.data;
+                }else{
+                    return _fail(aRes);
+                }
+
+                avalon.scan();
+                avalon.vmodels['main']['state'] = 'ok';
+            })
+            if(!typeHash){
+                $.post(urls.category).success(function(res){
+                    ep.emit('category', res);
+                }).fail(_fail);
+            }else{
+                ep.emit('category', {status: 200, data: typeHash});
+            }
+
+            if(!academyHash){
+                $.post(urls.academy).success(function(res){
+                    ep.emit('academy', res);
+                }).fail(_fail);
+            }else{
+                ep.emit('academy', {status: 200, data: academyHash});
+            }
+
         }
     });
 });

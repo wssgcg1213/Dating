@@ -57,10 +57,10 @@ define("vms/home", ['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'av
 
 
                     },
-                    classifyShow: function(e){
+                    classifyShow: function(e) {
                         log(e);
                         $('.classify').show();
-                        setTimeout(function(){
+                        setTimeout(function () {
                             $('.classify').addClass('show');
                         }, 0);
                     },
@@ -73,37 +73,6 @@ define("vms/home", ['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'av
                     },
                     stopBubble: function(e){
                         e.stopPropagation();
-                    }
-                //    order: function(n){
-                //    $(this).css("background", "#dddddd");
-                //    switch (n){
-                //        case 1:
-                //            return;
-                //        case 2:
-                //            return;
-                //        case 3:
-                //            avalon.vmodels['main']['state'] = 'loading';
-                //            var list = avalon.vmodels['showBox'].dateList;
-                //            //console.log(list);
-                //            list = list.sort(function(v1, v2){
-                //                return list.created_at < list.created_at;
-                //            });//todo 排序
-                //            avalon.vmodels['showBox'].dateList = list;
-                //            avalon.vmodels['main']['state'] = 'ok';
-                //
-                //    }
-                //}
-
-                });
-            }
-
-            if(!avalon.vmodels['showBox']){
-                avalon.define({
-                    $id: "showBox",
-                    dateList: [],
-                    goDetail: function(id){
-                        log("we are ready to go detail no.", id);
-                        avalon.router.navigate('detail/' + id);
                     }
                 });
             }

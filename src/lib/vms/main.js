@@ -3,7 +3,7 @@
  * 主VM
  * Nav vm
  */
-define("vms/main", ['jquery', 'dialog', 'swiper', 'avalon', 'mmState', 'mmHistory', 'mmState'], function($){
+define("vms/main", ['jquery', 'dialog', 'swiper', 'avalon', 'mmState', 'mmHistory', 'mmState', 'vms/showBox'], function($){
     var av = avalon.vmodels;
     avalon.define({
         $id: "main",

@@ -77,10 +77,7 @@
             <span class="subtitle">学院要求</span>
             <select id="yCollege" class="choose" ms-duplex="yCollege" ms-on-blur="yCollegeBlur">
                 <option value=""></option>
-                <!-- todo 学院要求 遍历出来 -->
-                <option value="尼玛">尼玛</option>
-                <option value="尼玛2">尼玛2</option>
-                <option value="尼玛34">尼玛34</option>
+                <option ms-repeat-aca="academy" ms-data-value="aca.name">{{aca.name}}</option>
             </select>
             <a class="right">{{yCollege ? yCollege : "请选择"}}</a>
         </div>

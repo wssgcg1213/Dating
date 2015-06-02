@@ -42,12 +42,13 @@ define('vms/userInfo', ['urls', 'userCenter', 'eventproxy', 'mmState', 'mmHistor
             $.post(urls.userInfo, {uid: user.uid, get_uid: user.uid, token: user.token}).success(function(res){
                 if(res && res.status == 200 && res.data){
                     av['userInfo'].data = res.data;
+                    avalon.scan();
+                    av['main']['state'] = 'ok';
                 }else{
                     log("Err", res);
+                    $.Dialog.fail("服务器出了点问题!", 999999);
                 }
 
-                avalon.scan();
-                av['main']['state'] = 'ok';
             });
         }
     });
