@@ -83,6 +83,8 @@ define('vms/detail', ['urls', 'userCenter', 'eventproxy', 'mmState', 'mmHistory'
             $.post(urls.detail, {date_id: id, uid: user.uid, token: user.token}).success(function(res){
                 if(res && res.status == 200){
                     av['detail'].data = res.data;
+                    av['detail']['isCollected'] = res.data.collection_status;
+                    av['detail']['isSignedUp'] = res.data.apply_status;
                     avalon.scan();
                     av['main']['state'] = 'ok';
                 }else{
