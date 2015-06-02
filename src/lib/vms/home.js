@@ -50,11 +50,10 @@ define("vms/home", ['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'av
                         $("#select").hide(300);
                         $(".options-content").eq(0).hide(300);
                         if(e.target == $(".option-content").eq[0]){
-                            Array.prototype.slice.call($(".gray")).forEach(function(i){
+                            $(".gray").each(function(){
                                 if($(this).css("background") === "#dddddd"){
                                     console.log(1);
                                 }
-
                             })
                             $(".left").innerText = ""//todo
                         }
@@ -79,17 +78,6 @@ define("vms/home", ['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'av
                         }
                     }
 
-                });
-            }
-
-            if(!avalon.vmodels['showBox']){
-                avalon.define({
-                    $id: "showBox",
-                    dateList: [],
-                    goDetail: function(id){
-                        log("we are ready to go detail no.", id);
-                        avalon.router.navigate('detail/' + id);
-                    }
                 });
             }
 

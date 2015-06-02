@@ -47,7 +47,7 @@
     </div>
 
     <div class="fixed-footer">
-        <button>收藏</button>
-        <button class="special">我要报名</button>
+        <button ms-on-tap="collect(data.date_id)">{{isCollected ? "已收藏" : "收藏"}}</button>
+        <button ms-on-tap="signUp(data.date_id)" class="special">{{isSignedUp ? "已经报名" : "我要报名"}}</button>
     </div>
 </div>

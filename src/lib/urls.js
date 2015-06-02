@@ -13,7 +13,10 @@ define('urls', function(){
         "historyCreate": "http://106.184.7.12:8002/index.php/api/person/create",
         "historyJoin": "http://106.184.7.12:8002/index.php/api/person/join",
         "dateList": "http://106.184.7.12:8002/index.php/api/date/datelist",
-        "detaildate": "http://106.184.7.12:8002/index.php/api/date/detaildate"
+        "detaildate": "http://106.184.7.12:8002/index.php/api/date/detaildate",
+        "collect": "http://106.184.7.12:8002/index.php/api/person/collect",
+        "report": "http://106.184.7.12:8002/index.php/api/date/report",
+        "academy": "http://106.184.7.12:8002/index.php/api/public/academy"
     };
 
     return urls;
