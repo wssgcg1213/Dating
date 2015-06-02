@@ -1,7 +1,7 @@
 /**
- * Created by Liuchenling on 5/30/15.
- * 主页vm //todo 移除一些页面的vm出去
- */
+* Created by Liuchenling on 5/30/15.
+* 主页vm //todo 移除一些页面的vm出去
+*/
 define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters', 'vms/main', 'mmState', 'mmHistory'], function(urls, userCenter, EventProxy){
     var av = avalon.vmodels;
     /**
@@ -43,13 +43,40 @@ define(['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters', '
                     $id: "category",
                     items: [],
                     func: function(){
-                        avalon.vmodels['main']['state'] = 'loading';
-                        var list = avalon.vmodels['showBox'].dateList;
-                        list = list.sort(function(v1, v2){
-                            return Math.random() - 0.5;
-                        });//todo 排序
-                        avalon.vmodels['showBox'].dateList = list;
-                        avalon.vmodels['main']['state'] = 'ok';
+                        $("#select").show(300);
+                        $(".options-content").eq(0).show(300);
+                    },
+                    hiden: function(e){
+                        $("#select").hide(300);
+                        $(".options-content").eq(0).hide(300);
+                        if(e.target == $(".option-content").eq[0]){
+                            Array.prototype.slice.call($(".gray")).forEach(function(i){
+                                if($(this).css("background") === "#dddddd"){
+                                    console.log(1);
+                                }
+
+                            })
+                            $(".left").innerText = ""//todo
+                        }
+                    },
+                    order: function(n){
+                        $(this).css("background","#dddddd");
+                        switch (n){
+                            case 1:
+                                return;
+                            case 2:
+                                return;
+                            case 3:
+                                avalon.vmodels['main']['state'] = 'loading';
+                                var list = avalon.vmodels['showBox'].dateList;
+                                //console.log(list);
+                                list = list.sort(function(v1, v2){
+                                    return list.created_at < list.created_at;
+                                });//todo 排序
+                                avalon.vmodels['showBox'].dateList = list;
+                                avalon.vmodels['main']['state'] = 'ok';
+
+                        }
                     }
 
                 });

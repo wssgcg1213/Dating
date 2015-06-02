@@ -450,8 +450,9 @@ input[type="search"]::-webkit-search-decoration {
 @font-face {
   font-family: "iconfont";
   src: url('iconfont.eot');
-  /* IE9*/
   src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('iconfont.woff') format('woff'), /* chrome、firefox */ url('iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('iconfont.svg#iconfont') format('svg');
+  
+  /* IE9*/
   /* iOS 4.1- */
 }
 .iconfont {
@@ -653,6 +654,73 @@ nav .user {
 [data-dpr="3"] .fliter-btns a .iconfont {
   font-size: 45px;
 }
+.fliter-btns #select {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.fliter-btns .options-content {
+  display: none;
+  width: 70%;
+  line-height: 1.06481481rem;
+  background-color: white;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 0.11111111rem;
+  overflow: hidden;
+  position: fixed;
+  z-index: 1000;
+}
+.fliter-btns .options-content .left {
+  text-align: left;
+  font-size: 18px;
+  margin-left: 0.18518519rem;
+}
+[data-dpr="2"] .fliter-btns .options-content .left {
+  font-size: 36px;
+}
+[data-dpr="3"] .fliter-btns .options-content .left {
+  font-size: 54px;
+}
+.fliter-btns .options-content .right {
+  text-align: right;
+  float: right;
+  margin-right: 0.18518519rem;
+  font-size: 18px;
+  color: #ce6e7a;
+}
+[data-dpr="2"] .fliter-btns .options-content .right {
+  font-size: 36px;
+}
+[data-dpr="3"] .fliter-btns .options-content .right {
+  font-size: 54px;
+}
+.fliter-btns .options-content .gray {
+  background-color: #ededed;
+  padding-left: 0.18518519rem;
+  font-size: 16px;
+}
+[data-dpr="2"] .fliter-btns .options-content .gray {
+  font-size: 32px;
+}
+[data-dpr="3"] .fliter-btns .options-content .gray {
+  font-size: 48px;
+}
+.fliter-btns .options {
+  border-top: 1px solid #e0e0e0;
+  color: #666;
+  padding: 0.18518519rem;
+}
 .scroll-container {
   background-color: #EFEFEF;
   *zoom: 1;
@@ -804,13 +872,6 @@ nav .user {
 [data-dpr="3"] .scroll-container .prefix-content .title {
   font-size: 54px;
 }
-.scroll-container .options {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: 999;
-  background-color: #2980B9;
-}
 .detail-wrapper {
   width: 100%;
   font-size: 18px;
@@ -866,7 +927,7 @@ nav .user {
           transform: translate(0, -50%);
   width: 1.57407407rem;
   height: 1.57407407rem;
-  border-radius: 100%;
+  border-radius: 50%;
   margin-left: 0.46296296rem;
   overflow: hidden;
 }
