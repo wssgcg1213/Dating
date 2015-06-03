@@ -5,8 +5,8 @@ switch($type){
         $data = [
             "status" => 200,
             "info" => "success",
-            "uid" => 1,
-            "token" => "nasdfnldssdaf",
+            "uid" => 2,
+            "token" => "cdsagrebvfra",
             "name" => "Ling."
         ];
 

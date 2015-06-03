@@ -1,46 +1,39 @@
 <nav ms-include-src="'tpl/navBar.html'"></nav>
-<section class="userinfoEdit" ms-controller="userInfoEdit" ms-include-src="'tpl/userInfoEdit.html'">
+<section class="userInfoEdit" ms-controller="userInfoEdit">
     <div class="inputs-wrapper">
         <div class="row">
             <span class="title">昵称</span>
-            <input type="text" placeholder="村里没有巧克力"/>
+            <input type="text" ms-duplex="data.nickname" ms-on-tap="active" ms-on-blur="blur">
         </div>
         <div class="row">
             <span class="title">签名</span>
-            <input type="text" placeholder="Ta没有个性签名"/>
+            <input type="text" ms-duplex="data.signature" ms-on-tap="active" ms-on-blur="blur">
         </div>
         <div class="row">
             <span class="title">学院</span>
-            <select name="academy" id="academy">
-                <option value=""></option>
-                <option value="">计算机</option>
-                <option value="">通信</option>
-                <option value="">自动化</option>
+            <select class="academy" ms-duplex="data.academy" ms-on-tap="active" ms-on-blur="blur">
+                <option ms-repeat="academyHash" ms-attr-value="el.name">{{el.name}}</option>
             </select>
-            <a href="#" class="modify">点击修改</a>
+            <a class="modify">{{data.academy ? data.academy : "点击修改"}}</a>
         </div>
         <div class="row">
             <span class="title">年级</span>
-            <select name="grade" id="grade">
-                <option value="">大一</option>
-                <option value="">大二</option>
+            <select class="grade" ms-duplex="data.grade" ms-on-tap="active" ms-on-blur="blur">
+                <option ms-repeat="gradeHash" ms-attr-value="el.name">{{el.name}}</option>
             </select>
-            <a href="#" class="modify">点击修改</a>
+            <a class="modify">{{data.grade ? data.grade : "点击修改"}}</a>
         </div>
         <div class="row">
             <span class="title">电话</span>
-            <input type="text" placeholder="123456"/>
+            <input type="text" ms-duplex="data.telephone" ms-on-tap="active" ms-on-blur="blur">
         </div>
         <div class="row">
             <span class="title">QQ</span>
-            <input type="text" placeholder="12345678" />
+            <input type="text" ms-duplex="data.qq" ms-on-tap="active" ms-on-blur="blur">
         </div>
         <div class="row">
             <span class="title">微信</span>
-            <input type="text" placeholder="12345678"/>
+            <input type="text" ms-duplex="data.weixin" ms-on-tap="active" ms-on-blur="blur">
         </div>
     </div>
-
-
-
 </section>

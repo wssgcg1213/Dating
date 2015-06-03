@@ -31,9 +31,9 @@ define("vms/publishDating", ['urls', 'userCenter', 'eventproxy', 'moment', 'mmSt
                      */
                     publish: function () {
                         function _getGrade(str){
-                            gradeHash && gradeHash.forEach(function(g){
-                                if(g && g.name == str) return g.id;
-                            });
+                            for(var i = 0, len = gradeHash.length; i < len; i++){
+                                if(gradeHash[i].name == str) return gradeHash[i].id;
+                            }
                             return 0;
                         }
                         avalon.vmodels['main']['state'] = 'loading';
@@ -48,7 +48,8 @@ define("vms/publishDating", ['urls', 'userCenter', 'eventproxy', 'moment', 'mmSt
                             date_people: _vm.yPeople,
                             gender_limit: _vm.ySex == '不限' ? 0 : (_vm.ySex == '男' ? 1 : 2),  //0不限, 1男, 2女
                             grade_limit: _getGrade(_vm.yGrade), //年级限制
-                            cost_model: _vm.ySpend == 'AA制' ? 0 : ( _vm.ySpend == '我请客' ? 1 : 2), //AA, 我请客, 求请客
+                            grade_select_model: 1, //正选
+                            cost_model: _vm.ySpend == 'AA制' ? 1 : ( _vm.ySpend == '我请客' ? 2 : 3), //AA, 我请客, 求请客
                             uid: user.uid,
                             token: user.token
                         };
@@ -66,8 +67,8 @@ define("vms/publishDating", ['urls', 'userCenter', 'eventproxy', 'moment', 'mmSt
                             return $.Dialog.fail("标题请少于10个字符");
                         }
 
-                        if(info.content.length > 250){
-                            return $.Dialog.fail("内容请少于250个字符");
+                        if(info.content.length > 150){
+                            return $.Dialog.fail("内容请少于150个字符");
                         }
 
                         if(!info.date_time){//invalid equal to NaN
@@ -86,7 +87,7 @@ define("vms/publishDating", ['urls', 'userCenter', 'eventproxy', 'moment', 'mmSt
                             if(res && res.status == 200){
                                 log('发布成功', res);
                                 $.Dialog.success("发布成功!", 1500);
-                                setTimeout(avalon.router.navigate.bind(avalon.router, 'detail/1'), 2000);//todo 等接口返回id 跳过去
+                                setTimeout(avalon.router.navigate.bind(avalon.router, 'detail/' + res.date_id), 2200);
                             }else if(res.status == 409){
                                 log('发布失败', res);
                                 $.Dialog.fail(res.info);
@@ -306,7 +307,7 @@ define("vms/publishDating", ['urls', 'userCenter', 'eventproxy', 'moment', 'mmSt
                 });
             }else{
                 var v = avalon.vmodels['publishDating'];
-                v.yType = v.yCollege = v.yGrade = v.ySex =
+                v.yType = v.yCollege = v.yGrade = v.ySex = v.yContent
                     v.yLocation = v.yPeople = v.yTime = v.yTitle = '';
             }
 

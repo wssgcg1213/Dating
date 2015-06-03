@@ -96,7 +96,7 @@ define('vms/detail', ['urls', 'userCenter', 'eventproxy', 'mmState', 'mmHistory'
             av['detail'].data = {};
             av['detail'].isSignedUp = av['detail'].isCollected = false;
 
-            var ep = EventProxy.create('', function(detailRes, gradeRes){
+            var ep = EventProxy.create('detail', 'gradeHash', function(detailRes, gradeRes){
                 if(detailRes && detailRes.status == 200){
                     av['detail'].data = detailRes.data;
                     av['detail']['isCollected'] = detailRes.data.collection_status;

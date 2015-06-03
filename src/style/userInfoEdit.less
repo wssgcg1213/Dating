@@ -8,7 +8,7 @@
     background-color: #ffffff;
     border-bottom: @border;
     position: relative;
-    padding-left:  20rem / @psdWidth ;
+    padding: 0 48rem / @psdWidth;
     .box-sizing(border-box);
     overflow: hidden;
   }
@@ -18,18 +18,22 @@
     z-index:2;
     position: absolute;
   }
-  input,select{
+  input, select{
     outline: none;
     border: none;
     width: 100%;
     height: 100%;
     line-height: 100%;
-    top: 0;
-    right:20rem/@psdWidth;
     text-align: right;
-    position: absolute;
-    z-index:1;
     padding: 0;
+    .rfz(16px);
+    background: none;
+  }
+  .row.active{
+    background: #ddd;
+  }
+  .modify{
+    .rfz(16px);
   }
   ::-moz-placeholder {
     color: @default-input-placeholder-color;
@@ -49,7 +53,10 @@
   .modify{
     text-align: right;
     float:right;
-    color:@default-input-placeholder-color;
-    margin-right: 20rem/@psdWidth;
+//    color:@default-input-placeholder-color;
+  }
+  .academy, .grade{
+    position: absolute;
+    top: 0;
   }
 }

@@ -5,7 +5,7 @@
   background-color: #ffffff;
   border-bottom: 1px solid #dddddd;
   position: relative;
-  padding-left: 0.18518519rem;
+  padding: 0 0.44444444rem;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -28,12 +28,30 @@
   width: 100%;
   height: 100%;
   line-height: 100%;
-  top: 0;
-  right: 0.18518519rem;
   text-align: right;
-  position: absolute;
-  z-index: 1;
   padding: 0;
+  font-size: 16px;
+  background: none;
+}
+[data-dpr="2"] .inputs-wrapper input,
+[data-dpr="2"] .inputs-wrapper select {
+  font-size: 32px;
+}
+[data-dpr="3"] .inputs-wrapper input,
+[data-dpr="3"] .inputs-wrapper select {
+  font-size: 48px;
+}
+.inputs-wrapper .row.active {
+  background: #ddd;
+}
+.inputs-wrapper .modify {
+  font-size: 16px;
+}
+[data-dpr="2"] .inputs-wrapper .modify {
+  font-size: 32px;
+}
+[data-dpr="3"] .inputs-wrapper .modify {
+  font-size: 48px;
 }
 .inputs-wrapper ::-moz-placeholder {
   color: #999999;
@@ -50,6 +68,9 @@
 .inputs-wrapper .modify {
   text-align: right;
   float: right;
-  color: #999999;
-  margin-right: 0.18518519rem;
+}
+.inputs-wrapper .academy,
+.inputs-wrapper .grade {
+  position: absolute;
+  top: 0;
 }
