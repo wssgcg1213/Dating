@@ -25,7 +25,8 @@ define("vms/main", ['jquery', 'dialog', 'swiper', 'avalon', 'mmState', 'mmHistor
                         pagination: '.pagination',
                         loop: true,
                         grabCursor: true,
-                        paginationClickable: true
+                        paginationClickable: true,
+                        autoplay: 4000
                     });
                 }
                 setTimeout(arguments.callee, 50); //扫描 50ms
@@ -33,7 +34,7 @@ define("vms/main", ['jquery', 'dialog', 'swiper', 'avalon', 'mmState', 'mmHistor
         },
         userInfoSlider: function(){ //初始化userInfo模板里面的左右Slider
             var tabsSwiper = new Swiper('#tab-container',{
-                speed:500,
+                speed: 500,
                 onSlideChangeStart: function(){
                     $(".tab .selected").removeClass('selected');
                     $(".tab li").eq(tabsSwiper.activeIndex).addClass('selected');
@@ -44,8 +45,7 @@ define("vms/main", ['jquery', 'dialog', 'swiper', 'avalon', 'mmState', 'mmHistor
                 $(".tab .selected").removeClass('selected');
                 $(this).addClass('selected');
                 tabsSwiper.swipeTo( $(this).index() );
-            });
-            $(".tab li").click(function(e){
+            }).click(function(e){
                 e.preventDefault();
             });
         }

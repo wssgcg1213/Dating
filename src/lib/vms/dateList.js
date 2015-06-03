@@ -7,13 +7,23 @@ define('vms/dateList', ['urls', 'mmState', 'dialog', 'avaFilters', 'vms/main'], 
         templateUrl:"tpl/litterLetterCtrl.html",
         onEnter:function() {
             avalon.vmodels['nav']['title'] = "私信";
-            //var page=0,size=3;
-            $.post(urls.dateList,{date_type:0,page:1,size:3,order:1}).success(function(res) {
+
+            $.post(urls.dateList, {
+                date_type: 0,
+                page: 1,
+                size: 3,
+                order: 1
+            }).success(function(res) {
                 if(res.status == 200){
                     log(res.data);
+                    avalon.scan();
+                    avalon.vmodels.main.state = 'ok';
+                }else{
+                    log("err", res);
+                    return $.Dialog.fail("服务器提了一个问题");
                 }
             });
-            avalon.scan();
+
         }
     })
 })

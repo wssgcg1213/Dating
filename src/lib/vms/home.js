@@ -102,8 +102,6 @@ define("vms/home", ['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'av
                 //category == datetype约会类型表
                 if(_check(category)){
                     av['category']['items'] = category.data;
-
-                    console.log(category.data)
                 }else{
                     log('err category:', category);
                     return $.Dialog.fail('服务器开小差呢!', 999999);
