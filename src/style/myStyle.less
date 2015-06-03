@@ -1,0 +1,55 @@
+@import "var";
+
+.inputs-wrapper{
+  .row{
+    width: 100%;
+    height: 144rem/@psdWidth;
+    line-height: 144rem/@psdWidth;
+    background-color: #ffffff;
+    border-bottom: @border;
+    position: relative;
+    padding-left:  20rem / @psdWidth ;
+    .box-sizing(border-box);
+    overflow: hidden;
+  }
+  .title{
+    .rfz(18px);
+    color: #212121;
+    z-index:2;
+    position: absolute;
+  }
+  input,select{
+    outline: none;
+    border: none;
+    width: 100%;
+    height: 100%;
+    line-height: 100%;
+    top: 0;
+    right:20rem/@psdWidth;
+    text-align: right;
+    position: absolute;
+    z-index:1;
+    padding: 0;
+  }
+  ::-moz-placeholder {
+    color: @default-input-placeholder-color;
+
+  }
+  ::-webkit-input-placeholder {
+    color:@default-input-placeholder-color;
+
+  }
+  :-ms-input-placeholder {
+    color:@default-input-placeholder-color;
+
+  }
+  select{
+    opacity: 0;
+  }
+  .modify{
+    text-align: right;
+    float:right;
+    color:@default-input-placeholder-color;
+    margin-right: 20rem/@psdWidth;
+  }
+}
