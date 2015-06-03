@@ -70,7 +70,7 @@ define('avaFilters', ['avalon'], function(){
         } else if (Array.isArray(n)) {
             if(n.length === 0)return "无限制";
             n = n.sort();
-            return n.join("级, ") + "级";
+            return n.join(", ");
         }
     }
     /**

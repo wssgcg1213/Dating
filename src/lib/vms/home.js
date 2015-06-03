@@ -5,19 +5,6 @@
 define("vms/home", ['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters', 'vms/main', 'mmState', 'mmHistory'], function(urls, userCenter, EventProxy){
     var av = avalon.vmodels;
     /**
-     * //todo  收藏页这个页面怎么处理
-     */
-    avalon.state('collect', {
-        url: "/collect",
-        templateUrl: "tpl/collectCtrl.html",
-        onEnter: function() {
-            avalon.vmodels['nav']['title'] = "收藏";
-            avalon.scan();
-            av['main']['state'] = 'ok';
-        }
-    });
-
-    /**
      * 主页 VM定义
      */
     avalon.state('home', {

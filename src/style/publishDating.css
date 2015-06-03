@@ -136,3 +136,16 @@
 [data-dpr="3"] .pbl-dating .publish button {
   font-size: 54px;
 }
+.pbl-dating #yContent {
+  resize: none;
+  height: 100%;
+  width: 100%;
+  border: none;
+  padding: 0.2962963rem 0;
+  box-sizing: border-box;
+  outline: none;
+  background: none;
+}
+.pbl-dating .row-content {
+  height: 2rem;
+}

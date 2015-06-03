@@ -18,6 +18,14 @@
             <input type="text" ms-visible="yTitleStatus" id="yTitle" class="w50" ms-duplex="yTitle" ms-on-blur="yTitleBlur"/>
             <a class="right" ms-if="!yTitleStatus">{{yTitle ? yTitle : "请输入"}}</a>
         </div>
+        <div class="row row-content" ms-on-tap="$('.row-content').addClass('active')" ms-class="active:yContentStatus">
+            <textarea id="yContent" ms-duplex="yContent" placeholder="内容" ms-on-blur="$('.row-content').removeClass('active')"></textarea>
+        </div>
+        
+    </div>
+    
+    <div class="row-group light-grey">
+        
         <div class="row" ms-on-click="active('yTime', $event)" ms-class="active:yTimeStatus">
             <i class="iconfont time">&#xe611;</i>
             <span class="subtitle">约会时间</span>
@@ -53,34 +61,27 @@
         <div class="row" ms-on-tap="active('ySex')" ms-class="active:ySexStatus">
             <span class="subtitle">性别要求</span>
             <select id="ySex" class="choose" ms-duplex="ySex" ms-on-blur="ySexBlur">
-                <option value=""></option>
                 <option value="不限">不限</option>
                 <option value="男">男</option>
                 <option value="女">女</option>
             </select>
-            <a class="right">{{ySex ? ySex : "请选择"}}</a>
+            <a class="right">{{ySex ? ySex : "不限"}}</a>
         </div>
         <div class="row" ms-on-tap="active('yGrade')" ms-class="active:yGradeStatus">
             <span class="subtitle">年级要求</span>
             <select id="yGrade" class="choose" ms-duplex="yGrade" ms-on-blur="yGradeBlur">
-                <option value=""></option>
                 <option value="不限">不限</option>
-                <option value="大一">大一</option>
-                <option value="大二">大二</option>
-                <option value="大三">大三</option>
-                <option value="大四">大四</option>
-                <option value="其它">其它</option>
+                <option ms-repeat="gradeHash" ms-attr-value="el.name">{{el.name}}</option>
             </select>
-            <a class="right">{{yGrade ? yGrade : "请选择"}}</a>
+            <a class="right">{{yGrade ? yGrade : "不限"}}</a>
         </div>
-        <div class="row" ms-on-tap="active('yCollege')" ms-class="active:yCollegeStatus">
-            <span class="subtitle">学院要求</span>
-            <select id="yCollege" class="choose" ms-duplex="yCollege" ms-on-blur="yCollegeBlur">
-                <option value=""></option>
-                <option ms-repeat-aca="academy" ms-data-value="aca.name">{{aca.name}}</option>
-            </select>
-            <a class="right">{{yCollege ? yCollege : "请选择"}}</a>
-        </div>
+        <!--<div class="row" ms-on-tap="active('yCollege')" ms-class="active:yCollegeStatus">-->
+            <!--<span class="subtitle">学院要求</span>-->
+            <!--<select id="yCollege" class="choose" ms-duplex="yCollege" ms-on-blur="yCollegeBlur">-->
+                <!--<option ms-repeat-aca="academy" ms-data-value="aca.name">{{aca.name}}</option>-->
+            <!--</select>-->
+            <!--<a class="right">{{yCollege ? yCollege : "不限"}}</a>-->
+        <!--</div>-->
     </div>
     <div class="widget"></div> <!-- 别删 -->
     <div class="publish">

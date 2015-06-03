@@ -34,7 +34,7 @@
             <li class="content" ms-repeat="data.mydate" ms-on-tap="goDetail(el.date_id)">
                 <p class="title">{{el.title}}</p>
                 <div class="location"><i class="iconfont">&#xe612</i>地点：{{el.place}}</div>
-                <div class="time"><i class="iconfont">&#xe611</i>时间：{{el.date_time | date("MM.dd HH:mm:ss")}}</div>
+                <div class="time"><i class="iconfont">&#xe611</i>时间：{{el.date_time | date("MM.dd HH:mm")}}</div>
                 <div class="cost">
                     <i class="iconfont">&#xe60f</i>费用：{{el.cost_model | costModel}}
                     <span>状态：{{el.date_status | statusFilter}}</span>

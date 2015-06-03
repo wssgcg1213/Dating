@@ -27,6 +27,10 @@ define('vms/userInfo', ['urls', 'userCenter', 'eventproxy', 'mmState', 'mmHistor
                 },
                 goUser: function(id){
                     log("叔叔 我们来看看这个人:", id);
+                    if(id == user.uid){
+                        avalon.router.navigate('userInfo');
+                        return;
+                    }
                     avalon.router.navigate('userInfoPublic/' + id);
                 }
             });

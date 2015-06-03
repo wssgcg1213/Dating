@@ -40,7 +40,9 @@ require(['userCenter', 'eventproxy', 'noop', 'urls', //注入依赖
     'vms/letters',
     'vms/detail',
     'vms/userInfoPublic',
+    'vms/collect',
     'vms/main',
+
 ], function(userCenter, EventProxy, noop, urls) {
 
     avalon.history.start({

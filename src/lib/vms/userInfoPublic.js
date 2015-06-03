@@ -27,7 +27,6 @@ define('vms/userInfoPublic', ['urls', 'userCenter', 'jquery', 'mmState', 'mmHist
             }).success(function(res){
                 if(res && res.status == 200 && res.data){
                     av['userInfoPublic'].data = res.data;
-                    console.log(res.data);
                     avalon.scan();
                     av['main']['state'] = 'ok';
                 }else{

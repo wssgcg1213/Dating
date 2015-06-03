@@ -6,6 +6,9 @@ define("vms/letters", ['urls', 'userCenter', 'mmState', 'dialog', 'avaFilters', 
         url:'/letters',
         templateUrl:"tpl/lettersCtrl.html",
         onEnter: function() {
+            avalon.vmodels['main']['state'] = 'loading';
+            avalon.vmodels['nav']['title'] = "私信";
+
             var user = userCenter.info();
             if(!user.state){
                 setTimeout(avalon.router.navigate.bind(avalon.router, "login"), 0);

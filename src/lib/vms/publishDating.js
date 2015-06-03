@@ -19,7 +19,7 @@ define("vms/publishDating", ['urls', 'userCenter', 'eventproxy', 'moment', 'mmSt
             var lunar = ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
                 weeks = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"];
 
-            var typeHash, academyHash;//category Hash, academyHash
+            var typeHash, academyHash, gradeHash;//category Hash, academyHash, gradeHash
 
             avalon.vmodels['nav']['title'] = "发布约会";
 
@@ -31,23 +31,20 @@ define("vms/publishDating", ['urls', 'userCenter', 'eventproxy', 'moment', 'mmSt
                      */
                     publish: function () {
                         function _getGrade(str){
-                            switch(str){
-                                case '不限': return 0;
-                                case '大一': return 1;
-                                case '大二': return 2;
-                                case '大三': return 3;
-                                case '大四': return 4;
-                            }
-                            return 5;
+                            gradeHash && gradeHash.forEach(function(g){
+                                if(g && g.name == str) return g.id;
+                            });
+                            return 0;
                         }
                         avalon.vmodels['main']['state'] = 'loading';
                         var _vm = avalon.vmodels['publishDating'];
+
                         var info = {
                             date_type: _vm.selectedDateTypeId,
-                            title: _vm.yTitle,
-                            content: "???????!!!!!todo?图里没有content...??",//todo 图里没有content...
+                            title: _vm.yTitle.trim(),
+                            content: _vm.yContent,
                             date_time: +moment(_vm.yTime.toString()) / 1000,
-                            date_place: _vm.yLocation,
+                            date_place: _vm.yLocation.trim(),
                             date_people: _vm.yPeople,
                             gender_limit: _vm.ySex == '不限' ? 0 : (_vm.ySex == '男' ? 1 : 2),  //0不限, 1男, 2女
                             grade_limit: _getGrade(_vm.yGrade), //年级限制
@@ -55,17 +52,53 @@ define("vms/publishDating", ['urls', 'userCenter', 'eventproxy', 'moment', 'mmSt
                             uid: user.uid,
                             token: user.token
                         };
+
+                        /**
+                         * 前端表单check
+                         */
+                        if(info.date_type === ''){
+                            return $.Dialog.fail("请选择类型");
+                        }
+
+                        if(info.title === ''){
+                            return $.Dialog.fail("请输入标题");
+                        }else if(info.title.length > 10){
+                            return $.Dialog.fail("标题请少于10个字符");
+                        }
+
+                        if(info.content.length > 250){
+                            return $.Dialog.fail("内容请少于250个字符");
+                        }
+
+                        if(!info.date_time){//invalid equal to NaN
+                            return $.Dialog.fail("请选择时间");
+                        }
+
+                        if(!info.date_place){
+                            return $.Dialog.fail("请输入地址");
+                        }
+
+                        if(!info.date_place){
+                            return $.Dialog.fail("请输入地址");
+                        }
+
                         $.post(urls.publish, info).success(function (res) {
                             if(res && res.status == 200){
                                 log('发布成功', res);
                                 $.Dialog.success("发布成功!", 1500);
                                 setTimeout(avalon.router.navigate.bind(avalon.router, 'detail/1'), 2000);//todo 等接口返回id 跳过去
+                            }else if(res.status == 409){
+                                log('发布失败', res);
+                                $.Dialog.fail(res.info);
                             }else{
                                 log('发布失败', res);
-                                $.Dialog.fail('发布失败, Pls Retry');
+                                $.Dialog.fail('发布失败请重试');
                             }
                         });
                     },
+
+
+                    gradeHash: [],
 
                     //类型
                     datetype: [],
@@ -102,6 +135,8 @@ define("vms/publishDating", ['urls', 'userCenter', 'eventproxy', 'moment', 'mmSt
                             return (_str && _str.length) > 0 ? _str : false;
                         }
                     },
+
+                    yContent: "",
 
                     yTime: "",
                     yTimeStatus: false,
@@ -284,7 +319,7 @@ define("vms/publishDating", ['urls', 'userCenter', 'eventproxy', 'moment', 'mmSt
                 $.Dialog.fail("服务器提了一个问题!");
             }
 
-            var ep = EP.create('category', 'academy', function(cRes, aRes){
+            var ep = EP.create('category', 'academy', 'grade', function(cRes, aRes, gRes){
                 if(cRes && cRes.status == 200 && cRes.data && Array.isArray(cRes.data)){
                     typeHash = avalon.vmodels['publishDating'].datetype = cRes.data;
                 }else{
@@ -297,9 +332,16 @@ define("vms/publishDating", ['urls', 'userCenter', 'eventproxy', 'moment', 'mmSt
                     return _fail(aRes);
                 }
 
+                if(gRes && gRes.status == 200 && gRes.data && Array.isArray(gRes.data)){
+                    gradeHash = avalon.vmodels['publishDating']['gradeHash'] = gRes.data;
+                }else{
+                    return _fail(gRes);
+                }
+
                 avalon.scan();
                 avalon.vmodels['main']['state'] = 'ok';
             })
+
             if(!typeHash){
                 $.post(urls.category).success(function(res){
                     ep.emit('category', res);
@@ -316,6 +358,13 @@ define("vms/publishDating", ['urls', 'userCenter', 'eventproxy', 'moment', 'mmSt
                 ep.emit('academy', {status: 200, data: academyHash});
             }
 
+            if(!gradeHash){
+                $.post(urls.gradeHash).success(function(res){
+                    ep.emit('grade', res);
+                }).fail(_fail);
+            }else{
+                ep.emit('grade', {status: 200, data: gradeHash});
+            }
         }
     });
 });
