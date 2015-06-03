@@ -2149,6 +2149,61 @@ nav .user {
   padding: 0.2rem 0.3rem 0.2rem 1.93rem;
   background: #333333 url(../imgs/fail.png) 0.46296296rem center no-repeat;
 }
+.inputs-wrapper .row {
+  width: 100%;
+  height: 1.33333333rem;
+  line-height: 1.33333333rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dddddd;
+  position: relative;
+  padding-left: 0.18518519rem;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.inputs-wrapper .title {
+  font-size: 18px;
+  color: #212121;
+  z-index: 2;
+  position: absolute;
+}
+[data-dpr="2"] .inputs-wrapper .title {
+  font-size: 36px;
+}
+[data-dpr="3"] .inputs-wrapper .title {
+  font-size: 54px;
+}
+.inputs-wrapper input,
+.inputs-wrapper select {
+  outline: none;
+  border: none;
+  width: 100%;
+  height: 100%;
+  line-height: 100%;
+  top: 0;
+  right: 0.18518519rem;
+  text-align: right;
+  position: absolute;
+  z-index: 1;
+  padding: 0;
+}
+.inputs-wrapper ::-moz-placeholder {
+  color: #999999;
+}
+.inputs-wrapper ::-webkit-input-placeholder {
+  color: #999999;
+}
+.inputs-wrapper :-ms-input-placeholder {
+  color: #999999;
+}
+.inputs-wrapper select {
+  opacity: 0;
+}
+.inputs-wrapper .modify {
+  text-align: right;
+  float: right;
+  color: #999999;
+  margin-right: 0.18518519rem;
+}
 .icon-qian:before {
   content: "\e60f";
 }
