@@ -2,7 +2,7 @@
  * Created by Liuchenling on 6/1/15.
  * //todo 公共的用户中心页面
  */
-define('vms/userInfoPublic', ['urls','userCenter','jquery', 'mmState', 'mmHistory', 'vms/main'], function($){
+define('vms/userInfoPublic', ['urls','userCenter','jquery', 'mmState', 'mmHistory', 'vms/main'], function(urls,userCenter,$){
     var av = avalon.vmodels;
     avalon.state('userInfoPublic', {
         url: "/userInfoPublic/:id",
@@ -20,16 +20,17 @@ define('vms/userInfoPublic', ['urls','userCenter','jquery', 'mmState', 'mmHistor
                 })
             }
 
-            $.post(urls.userInfo,{uid:user.uid,get_uid:user_id,token:user.token}).success(function(res){
+            $.post(urls.userInfo,{uid:user.uid,get_uid:user.uid,token:user.token}).success(function(res){
                 if(res && res.status == 200 && res.data){
-                    av['userInfo'].data = res.data;
+                    av['userInfoPublic'].data = res.data;
                     console.log(res.data);
+                    avalon.scan();
+                    av['main']['state'] = 'ok';
                 }else{
                     log("Err", res);
                 }
             })
-            avalon.scan();
-            av['main']['state'] = 'ok';
+
         }
     });
 });
