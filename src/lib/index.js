@@ -18,31 +18,7 @@ require.config({
         eventproxy: "tools/eventproxy",
         noop: "tools/noop",
         DateTimePicker: "tools/DateTimePicker",
-        moment: "tools/moment",
-
-        //collect: "states/collect",
-        //history: "states/history",
-        //home: "states/home",
-        //letters: "states/letters",
-        //litterLetter: "states/litterLetter",
-        //login: "states/login",
-        //publishDating: "states/publishDating",
-        //userInfo: "states/userInfo",
-        //userInfoEdit: "states/userInfoEdit",
-        //userInfoPublic: "states/userInfoPublic",
-        //
-        //category: "vms/category",
-        //detail: "vms/detail",
-        //letters: "vms/letters",
-        //login: "vms/login",
-        //main: "vms/main",
-        //nav: "vms/nav",
-        //publishDating: "vms/publishDating",
-        //showBox: "vms/showBox",
-        //slider: "vms/slider",
-        //userInfo: "vms/userInfo",
-        //userInfoEdit: "vms/userInfoEdit",
-        //userInfoPublic: "vms/userInfoPublic"
+        moment: "tools/moment"
     }
 });
 

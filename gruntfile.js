@@ -67,7 +67,16 @@ module.exports = function(grunt) {
                 paths: {
                     avalon: "avalon.mobile.shim",
                     jquery: "jquery-2.1.3",
-                    dialog: "jq.dialog"
+
+                    dialog: "tools/jq.dialog",
+                    avaFilters: "tools/avaFilters",
+                    userCenter: "tools/userCenter",
+                    urls: "tools/urls",
+                    swiper: "tools/swiper",
+                    eventproxy: "tools/eventproxy",
+                    noop: "tools/noop",
+                    DateTimePicker: "tools/DateTimePicker",
+                    moment: "tools/moment"
                 }
             }
         }
