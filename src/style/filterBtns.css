@@ -37,7 +37,6 @@
 .fliter-btns a:visited,
 .fliter-btns a:hover {
   color: #333333;
-  text-decoration: none;
 }
 .fliter-btns a .iconfont {
   font-size: 15px;
@@ -76,13 +75,12 @@
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  border-radius: 0.11111111rem;
+  border-radius: 0.0462963rem;
   overflow: hidden;
   position: absolute;
   z-index: 2;
 }
 .fliter-btns .options-content .left {
-  text-align: left;
   font-size: 18px;
 }
 [data-dpr="2"] .fliter-btns .options-content .left {
@@ -94,7 +92,7 @@
 .fliter-btns .options-content .right {
   text-align: right;
   float: right;
-  margin-right: 0.18518519rem;
+  margin-right: 0.44444444rem;
   font-size: 18px;
   color: #ce6e7a;
 }
@@ -117,5 +115,5 @@
 .fliter-btns .options {
   border-top: 1px solid #e0e0e0;
   color: #666;
-  padding: 0 0 0 0.18518519rem;
+  padding: 0 0 0 0.44444444rem;
 }
