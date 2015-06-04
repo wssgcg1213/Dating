@@ -58,6 +58,9 @@ define("vms/home", ['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'av
                         }, 400);
 
                     },
+                    active: function(){
+                        $(this).addClass('active');
+                    },
                     stopBubble: function(e){
                         e.stopPropagation();
                     }

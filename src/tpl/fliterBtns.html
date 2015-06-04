@@ -12,9 +12,9 @@
                 <span class="left">请选择排序类型</span>
                 <span  class="right" ms-on-tap="hidden">确定</span>
             </div>
-            <div class="options gray" ms-on-tap="order(1)">时间优先</div>
-            <div class="options gray" ms-on-tap="order(2)">信用优先</div>
-            <div class="options gray" ms-on-tap="order(3)">热门</div>
+            <div class="options gray" ms-on-tap="order(1)" ms-on-tap="active">时间优先</div>
+            <div class="options gray" ms-on-tap="order(2)" ms-on-tap="active">信用优先</div>
+            <div class="options gray" ms-on-tap="order(3)" ms-on-tap="active">热门</div>
         </div>
     </div>
 
@@ -25,13 +25,9 @@
                 <span class="left">请选择排序类型</span>
                 <span  class="right" ms-on-tap="classifyHide">确定</span>
             </div>
-            <div class="options gray" ms-repeat="items">{{el.type}}</div>
+            <div class="options gray" ms-on-tap="active" ms-repeat="items">{{el.type}}</div>
+            <!--todo ms-change-->
         </div>
     </div>
-
-
-
-
-    div
 
 </div>
