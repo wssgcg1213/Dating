@@ -1,33 +1,25 @@
 <div class="fliter-btns" ms-controller="category">
-    <a href="##" ms-on-tap="classifyShow">全部分类<span class="iconfont">&#xe600;</span></a>
-    <a href="##"  ms-on-tap="show">
-        <span class="line"></span>
-        默认排序<span class="iconfont">&#xe600;</span>
+    <a ms-on-tap="show('category')">全部分类<span class="iconfont">&#xe600;</span></a>
+    <a ms-on-tap="show('order')"><span class="line"></span>默认排序<span class="iconfont">&#xe600;</span></a>
 
-    </a>
-
-    <div class="btn-overlay" ms-on-tap="hidden">
+    <div id="order" class="btn-overlay" ms-on-tap="hide('order')">>
         <div class="options-content" ms-on-tap="stopBubble">
             <div class="options">
-                <span class="left">请选择排序类型</span>
-                <span  class="right" ms-on-tap="hidden">确定</span>
+                <span class="left">请选择排序方式</span>
+                <!--<span  class="right" ms-on-tap="hide('order')">确定</span>-->
             </div>
-            <div class="options gray" ms-on-tap="order(1)" ms-on-tap="active">时间优先</div>
-            <div class="options gray" ms-on-tap="order(2)" ms-on-tap="active">信用优先</div>
-            <div class="options gray" ms-on-tap="order(3)" ms-on-tap="active">热门</div>
+            <div class="options gray" ms-repeat="orderList" ms-on-tap="order(el.id)" ms-on-tap-1="hide('order')">{{el.type}}</div>
         </div>
     </div>
 
-
-    <div class="classify" ms-on-tap="classifyHide">
+    <div id="category" class="btn-overlay" ms-on-tap="hide('category')">
         <div class="options-content" ms-on-tap="stopBubble">
             <div class="options">
-                <span class="left">请选择排序类型</span>
-                <span  class="right" ms-on-tap="classifyHide">确定</span>
+                <span class="left">请选择分类</span>
+                <!--<span  class="right" ms-on-tap="hide('category')">确定</span>-->
             </div>
-            <div class="options gray" ms-on-tap="active" ms-repeat="items">{{el.type}}</div>
-            <!--todo ms-change-->
+            <div class="options gray" ms-on-tap="selectType(0)">全部分类</div>
+            <div class="options gray" ms-repeat="categories" ms-on-tap="selectType(el.id)">{{el.type}}</div>
         </div>
     </div>
-
 </div>

@@ -1,24 +1,24 @@
 @import "var";
-.fliter-btns{
+
+.fliter-btns {
   position: relative;
   height: 144rem / @psdWidth;
   line-height: 128rem / @psdWidth;
   background-color: #FFF;
   color: @filterBtnColor;
   border-bottom: 1px solid #DDD;
-  .iconfont{
+  .iconfont {
     color: @filterBtnTriColor;
   }
-  .line{
+  .line {
     width: 1px;
     height: 48rem / @psdWidth;
     float: left;
     background-color: @filterLineColor;
     position: relative;
     top: 48rem / @psdWidth;
-//    left: -20rem / @psdWidth;
   }
-  a{
+  a {
     .rfz(18px);
     height: 100%;
     line-height: 144rem / @psdWidth;
@@ -27,68 +27,69 @@
     box-sizing: border-box;
     width: 100/2%;
     text-align: center;
-    &:active, &:visited, &:hover{
+    &:active, &:visited, &:hover {
       color: @filterBtnColor;
-      text-decoration: none;
     }
-    .iconfont{
+    .iconfont {
       .rfz(15px);
     }
   }
 
-  .btn-overlay,.classify{
+  .btn-overlay, .classify {
     display: none;
     position: fixed;
-    top:0;
-    left:0;
-    bottom:0;
-    right:0;
-    width:100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
     box-sizing: border-box;
     z-index: 1;
-    background: rgba(0,0,0,0);
+    background: rgba(0, 0, 0, 0);
     transition: background ease-in-out 400ms;
-    &.show{
-      background: rgba(0,0,0,0.3);
+    &.show {
+      background: rgba(0, 0, 0, 0.3);
     }
   }
 
-  .options-content{
-
-    width:80%;
+  .options-content {
+    width: 80%;
     line-height: 115rem / @psdWidth;
     background-color: white;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    border-radius: 12rem/@psdWidth;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5rem / @psdWidth;
     overflow: hidden;
     position: absolute;
     z-index: 2;
 
-    .left{
-      text-align: left;
+    .left {
       .rfz(18px);
     }
-    .right{
+
+    .right {
       text-align: right;
-      float:right;
-      margin-right: 20rem/@psdWidth;
+      float: right;
+      margin-right: 48rem/@psdWidth;
       .rfz(18px);
-      color:#ce6e7a;
+      color: #ce6e7a;
     }
-    .gray{
+
+    .gray {
       background-color: #ededed;
       .rfz(16px);
       &.active{
         background-color: #dddddd;
       }
     }
+
   }
-  .options{
-    border-top:1px solid #e0e0e0;
-    color:#666;
-    padding:0 0 0 20rem / @psdWidth;
+
+  .options {
+    border-top: 1px solid #e0e0e0;
+    color: #666;
+    padding: 0 0 0 48rem / @psdWidth;
   }
 
 }

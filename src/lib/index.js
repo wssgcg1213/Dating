@@ -17,19 +17,6 @@ require.config({
 var log = window.console ? console.log.bind(console, "%c DEBUG! Ling: ", "background:#404040;color:#fff;border-radius:5px") : function(){};
 
 require(['userCenter', 'eventproxy', 'noop', 'urls', //注入依赖
-
-    'avalon',
-    'mmState',
-    'mmRouter',
-    'mmHistory',
-    'mmPromise',
-
-    'jquery',
-    'swiper',
-    'dialog',
-    'avaFilters', //这个是filter
-    'DateTimePicker',
-
     //下面是vm对象
     'vms/home',
     'vms/userInfo',
@@ -42,7 +29,21 @@ require(['userCenter', 'eventproxy', 'noop', 'urls', //注入依赖
     'vms/userInfoPublic',
     'vms/collect',
     'vms/main',
-    'vms/userInfoEdit'
+    'vms/category',
+    'vms/userInfoEdit',
+
+    'avalon',
+    'mmState',
+    'mmRouter',
+    'mmHistory',
+    'mmPromise',
+
+    'jquery',
+    'swiper',
+    'dialog',
+    'avaFilters', //这个是filter
+    'DateTimePicker'
+
 ], function(userCenter, EventProxy, noop, urls) {
 
     avalon.history.start({

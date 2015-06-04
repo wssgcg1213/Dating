@@ -2,7 +2,7 @@
  * Created by Liuchenling on 5/30/15.
  * 主页vm //todo 移除一些页面的vm出去
  */
-define("vms/home", ['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters', 'vms/main', 'mmState', 'mmHistory'], function(urls, userCenter, EventProxy){
+define("vms/home", ['urls', 'userCenter', 'eventproxy', 'avaFilters', 'mmState', 'vms/main', 'vms/showBox', 'vms/category'], function(urls, userCenter, EventProxy){
     var av = avalon.vmodels;
     /**
      * 主页 VM定义
@@ -24,49 +24,6 @@ define("vms/home", ['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'av
             if(!avalon.vmodels['slider']){
                 avalon.define({$id: "slider", items: []});
             }
-
-            if(!avalon.vmodels['category']){
-                avalon.define({
-                    $id: "category",
-                    items: [],
-                    kind: [],
-                    show: function(){
-                        $('.btn-overlay').show();
-                        setTimeout(function(){
-                            $('.btn-overlay').addClass('show');
-                        }, 0);
-                    },
-                    hidden: function(e){
-                        $('.btn-overlay').removeClass('show');
-                        setTimeout(function(){
-                            $('.btn-overlay').hide();
-                        }, 400);
-
-
-                    },
-                    classifyShow: function(e) {
-                        log(e);
-                        $('.classify').show();
-                        setTimeout(function () {
-                            $('.classify').addClass('show');
-                        }, 0);
-                    },
-                    classifyHide: function(){
-                        $('.classify').removeClass('show');
-                        setTimeout(function(){
-                            $('.classify').hide();
-                        }, 400);
-
-                    },
-                    active: function(){
-                        $(this).addClass('active');
-                    },
-                    stopBubble: function(e){
-                        e.stopPropagation();
-                    }
-                });
-            }
-
             var ep = EventProxy.create('slider', 'category', 'showBox', function(slider, category, showBox) {
                 /**
                  * 检测response对象是否合法的工具 私有
@@ -86,15 +43,15 @@ define("vms/home", ['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'av
                     av['slider']['items'] = sliderData;
                 }else{
                     log('err slider:', slider);
-                    return $.Dialog.fail('服务器开小差呢!', 999999);
+                    return $.Dialog.fail('服务器提了一个问题');
                 }
 
                 //category == datetype约会类型表
                 if(_check(category)){
-                    av['category']['items'] = category.data;
+                    av['category']['categories'] = category.data;
                 }else{
                     log('err category:', category);
-                    return $.Dialog.fail('服务器开小差呢!', 999999);
+                    return $.Dialog.fail('服务器提了一个问题');
                 }
 
                 //showBox 主显示区域
@@ -102,7 +59,7 @@ define("vms/home", ['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'av
                     av['showBox'].dateList = showBox.data;
                 }else{
                     log("err", showBox);
-                    return $.Dialog.fail('服务器开小差呢!', 999999);
+                    return $.Dialog.fail('服务器提了一个问题');
                 }
 
                 avalon.scan();
@@ -126,7 +83,7 @@ define("vms/home", ['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'av
              */
             function _failHandler(res){
                 log("请求失败:", res);
-                $.Dialog.fail("服务器提了一个问题T.T 请稍后再试!", 999999);
+                $.Dialog.fail("服务器提了一个问题");
             }
             //请求
             $.post(urls.slider).success(function(res) {ep.emit('slider', res)}).fail(_failHandler);
