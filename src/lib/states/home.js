@@ -24,7 +24,6 @@ define("states/home", ['urls', 'userCenter', 'eventproxy', 'vms/main', 'vms/nav'
                 return;
             }//认证处理
 
-
             var ep = EventProxy.create('slider', 'category', 'showBox', function(slider, category, showBox) {
                 /**
                  * 检测response对象是否合法的工具 私有

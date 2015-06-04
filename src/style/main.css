@@ -745,6 +745,9 @@ nav .user {
 [data-dpr="3"] .fliter-btns .options-content .gray {
   font-size: 48px;
 }
+.fliter-btns .options-content .gray.active {
+  background-color: #dddddd;
+}
 .fliter-btns .options {
   border-top: 1px solid #e0e0e0;
   color: #666;
