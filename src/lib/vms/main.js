@@ -3,9 +3,9 @@
  * 主VM
  * Nav vm
  */
-define("vms/main", ['jquery', 'dialog', 'swiper', 'avalon', 'mmState', 'mmHistory', 'mmState', 'vms/showBox'], function($){
+define("vms/main", ['jquery', 'dialog', 'swiper', 'avalon', '../mmState', '../mmHistory', '../mmState', 'vms/showBox', 'vms/nav'], function($){
     var av = avalon.vmodels;
-    avalon.define({
+    var vm = avalon.define({
         $id: "main",
         state: "",
         sliderCb: function(){
@@ -59,14 +59,5 @@ define("vms/main", ['jquery', 'dialog', 'swiper', 'avalon', 'mmState', 'mmHistor
     });
     av['main']['state'] = 'loading';
 
-    /**
-     * 顶部navBar的VM
-     */
-    avalon.define({
-        $id: "nav",
-        title: "约",
-        gotoCenter: function() {
-            avalon.router.navigate('userInfo');
-        }
-    });
+    return vm;
 });

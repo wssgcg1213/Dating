@@ -2,8 +2,8 @@
  * Created by Liuchenling on 6/2/15.
  * showBox 组件
  */
-define('vms/showBox', ['avalon', 'mmState', 'mmHistory'], function(avalon){
-    avalon.define({
+define('vms/showBox', ['avalon', '../mmState'], function(avalon){
+    return avalon.define({
         $id: "showBox",
         dateList: [],
         goDetail: function(id){

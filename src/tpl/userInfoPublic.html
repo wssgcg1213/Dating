@@ -10,12 +10,11 @@
             <ul class="detail-info">
                 <li><span>学院</span>：{{data.academy}}</li>
                 <li><span>年级</span>：{{data.grade | gradeFilter}}</li>
-                <li><span>电话</span>：{{data.telephone}}(已保密)</li>
-                <li><span>QQ</span>：{{data.qq}}</li>
-                <li><span>微信</span>：{{data.weixin}}</li>
+                <li><span>电话</span>：{{data.telephone ? data.telephone : "(已保密)"}}</li>
+                <li><span>QQ</span>：{{data.qq ? data.qq : "(已保密)"}}</li>
+                <li><span>微信</span>：{{data.weixin ? data.weixin : "(已保密)"}}</li>
             </ul>
         </div>
     </div>
-
 </div>
 

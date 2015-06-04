@@ -490,7 +490,7 @@ nav {
   width: 100%;
   height: 1.2962963rem;
   line-height: 1.2962963rem;
-  background-color: #333333;
+  background-color: #ff3f47;
   color: #ffffff;
 }
 nav .nav-container {
@@ -505,22 +505,50 @@ nav .nav-container:after {
 nav .nav-container:after {
   clear: both;
 }
-nav .title {
+nav .menu,
+nav .back {
+  float: left;
+  font-size: 24px;
+  padding-right: 0.32407407rem;
+}
+[data-dpr="2"] nav .menu,
+[data-dpr="2"] nav .back {
+  font-size: 48px;
+}
+[data-dpr="3"] nav .menu,
+[data-dpr="3"] nav .back {
+  font-size: 72px;
+}
+nav .title,
+nav .back {
   font-size: 24px;
   float: left;
   color: #FFF;
   text-decoration: none;
   outline: none;
 }
-[data-dpr="2"] nav .title {
+[data-dpr="2"] nav .title,
+[data-dpr="2"] nav .back {
   font-size: 48px;
 }
-[data-dpr="3"] nav .title {
+[data-dpr="3"] nav .title,
+[data-dpr="3"] nav .back {
   font-size: 72px;
 }
 nav .user {
   float: right;
   cursor: pointer;
+}
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: -4rem;
+  width: 4rem;
+  height: 100%;
+  background-color: #ff3f47;
+  z-index: 10;
+  -webkit-transition: left ease-in-out 400ms;
+          transition: left ease-in-out 400ms;
 }
 .swiper-container {
   margin: 0 auto;
@@ -2149,6 +2177,181 @@ nav .user {
   background: #333333 url(../imgs/fail.png) 0.23148148rem center no-repeat;
   background-size: 1rem;
 }
+.userInfoPublic a {
+  color: #666666;
+}
+.userInfoPublic .swiper-slide {
+  width: 100%;
+}
+.userInfoPublic .selected {
+  border-bottom: 0.09259259rem solid #ff6833;
+}
+.userInfoPublic .selected i,
+.userInfoPublic .selected span {
+  color: #ff6833;
+}
+.userInfoPublic .userWrapper {
+  width: 100%;
+  height: 4.21296296rem;
+  background-color: white;
+  margin: 0.32407407rem 0;
+  padding-top: 0.32407407rem;
+  text-align: center;
+}
+.userInfoPublic .userWrapper .userLogo {
+  width: 1.94444444rem;
+  height: 1.94444444rem;
+  border-radius: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.userInfoPublic .userWrapper .userLogo img {
+  width: 100%;
+  height: 100%;
+}
+.userInfoPublic .userWrapper .userName {
+  color: #333333;
+}
+.userInfoPublic .userWrapper .motto {
+  color: #666666;
+  font-size: 16px;
+}
+[data-dpr="2"] .userInfoPublic .userWrapper .motto {
+  font-size: 32px;
+}
+[data-dpr="3"] .userInfoPublic .userWrapper .motto {
+  font-size: 48px;
+}
+.userInfoPublic .userWrapper p {
+  color: #666666;
+  letter-spacing: 2px;
+  font-size: 16px;
+  text-align: center;
+  margin: 0.18518519rem;
+}
+[data-dpr="2"] .userInfoPublic .userWrapper p {
+  font-size: 32px;
+}
+[data-dpr="3"] .userInfoPublic .userWrapper p {
+  font-size: 48px;
+}
+.userInfoPublic ul {
+  padding: 0;
+  width: 100%;
+  list-style-type: none;
+  background-color: white;
+  height: 1.11111111rem;
+}
+.userInfoPublic #tab-container {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.userInfoPublic #tab-container .tab-wrapper {
+  width: 200%;
+  height: auto;
+  box-sizing: border-box;
+}
+.userInfoPublic #tab-container .tab-wrapper .tab-li {
+  float: left;
+  width: 50%;
+}
+.userInfoPublic #tab-container .detail-info {
+  height: 6.71296296rem;
+  margin: 0;
+  padding: 0;
+}
+.userInfoPublic #tab-container .detail-info li {
+  width: 100%;
+  box-sizing: border-box;
+  height: 1.34259259rem;
+  line-height: 1.2962963rem;
+  background-color: #fff;
+  border-bottom: 1px solid #DDDDDD;
+  font-size: 16px;
+  color: #666666;
+  padding-left: 0.41666667rem;
+}
+[data-dpr="2"] .userInfoPublic #tab-container .detail-info li {
+  font-size: 32px;
+}
+[data-dpr="3"] .userInfoPublic #tab-container .detail-info li {
+  font-size: 48px;
+}
+.userInfoPublic #tab-container .detail-info li span {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 0.92592593rem;
+}
+.userInfoPublic #tab-container .content {
+  height: 3.7037037rem;
+  padding-top: 0.32407407rem;
+  background-color: #fff;
+  padding-left: 0.46296296rem;
+  border-bottom: 1px solid #dddddd;
+}
+.userInfoPublic #tab-container .content p {
+  margin: 0;
+}
+.userInfoPublic #tab-container .content ul {
+  padding: 0;
+  width: 100%;
+}
+.userInfoPublic #tab-container .content ul li {
+  color: #666666;
+  line-height: 0.38888889rem;
+  height: 0.69444444rem;
+  width: 100%;
+  font-size: 14px;
+}
+[data-dpr="2"] .userInfoPublic #tab-container .content ul li {
+  font-size: 28px;
+}
+[data-dpr="3"] .userInfoPublic #tab-container .content ul li {
+  font-size: 42px;
+}
+.userInfoPublic #tab-container .content .title {
+  font-size: 22px;
+  color: #333333;
+}
+[data-dpr="2"] .userInfoPublic #tab-container .content .title {
+  font-size: 44px;
+}
+[data-dpr="3"] .userInfoPublic #tab-container .content .title {
+  font-size: 66px;
+}
+.userInfoPublic #tab-container .content i {
+  font-size: 18px;
+  margin-right: 0.09259259rem;
+}
+[data-dpr="2"] .userInfoPublic #tab-container .content i {
+  font-size: 36px;
+}
+[data-dpr="3"] .userInfoPublic #tab-container .content i {
+  font-size: 54px;
+}
+.userInfoPublic #tab-container .content .location i {
+  color: #4ea1ff;
+}
+.userInfoPublic #tab-container .content .time i {
+  color: #44d48b;
+}
+.userInfoPublic #tab-container .content .cost i {
+  color: #ff7660;
+}
+.userInfoPublic #tab-container .content .cost span {
+  float: right;
+  margin-right: 0.46296296rem;
+  font-size: 18px;
+  color: #666666;
+}
+[data-dpr="2"] .userInfoPublic #tab-container .content .cost span {
+  font-size: 36px;
+}
+[data-dpr="3"] .userInfoPublic #tab-container .content .cost span {
+  font-size: 54px;
+}
 .inputs-wrapper .row {
   width: 100%;
   height: 1.33333333rem;
@@ -2325,4 +2528,10 @@ a {
 ul,
 li {
   list-style: none;
+}
+.wrapper {
+  left: 0rem;
+  position: relative;
+  -webkit-transition: left ease-in-out 400ms;
+          transition: left ease-in-out 400ms;
 }

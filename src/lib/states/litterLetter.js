@@ -1,7 +1,7 @@
 /**
  * Created by liuhzz on 2015/5/30.
  */
-define('vms/dateList', ['urls', 'mmState', 'dialog', 'avaFilters', 'vms/main'], function(urls){
+define('states/litterLetter', ['urls', '../mmState', 'dialog', 'avaFilters', 'vms/main'], function(urls){
     avalon.state("litterLetter",{
         url:"/litterLetter",
         templateUrl:"tpl/litterLetterCtrl.html",

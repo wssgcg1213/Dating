@@ -3,9 +3,9 @@
  * @Author Ling.
  * @Email i@zeroling.com
  */
-define('vms/letters', ['avalon'], function (avalon) {
+define('vms/slider', ['avalon'], function(avalon){
     return avalon.define({
-        $id: "letters",
-        data: {}
+        $id: "slider",
+        items: []
     });
 });

@@ -1,59 +1,25 @@
 /**
- * Created by Liuchenling on 5/30/15.
- * 用户中心
+ * Created at 6/4/15.
+ * @Author Ling.
+ * @Email i@zeroling.com
  */
-define('vms/userInfo', ['urls', 'userCenter', 'eventproxy', 'mmState', 'mmHistory', 'dialog', 'avaFilters'], function(urls, userCenter, EventProxy){
-    var av = avalon.vmodels;
+define('vms/userInfo', ['avalon', 'userCenter', '../mmState'], function (avalon, userCenter) {
+    var user = userCenter.info();
 
-    avalon.state('userInfo', {
-        url: '/userInfo',
-        templateUrl: "tpl/userInfoCtrl.html",
-        onEnter: function(){
-            av['nav']['title'] = "个人中心";
-            av['main']['state'] = 'loading';
-
-            var user = userCenter.info();
-            if(!user.state){
-                setTimeout(avalon.router.navigate.bind(avalon.router, "login"), 0);
+    return avalon.define({
+        $id : "userInfo",
+        data: {},
+        goDetail: function(id){
+            log("We R going TO detail:", id);
+            avalon.router.navigate('detail/' + id);
+        },
+        goUser: function(id){
+            log("叔叔 我们来看看这个人:", id);
+            if(id == user.uid){
+                avalon.router.navigate('userInfo');
                 return;
             }
-
-            if(!avalon.vmodels['userInfo'])avalon.define({
-                $id : "userInfo",
-                data: {},
-                goDetail: function(id){
-                    log("We R going TO detail:", id);
-                    avalon.router.navigate('detail/' + id);
-                },
-                goUser: function(id){
-                    log("叔叔 我们来看看这个人:", id);
-                    if(id == user.uid){
-                        avalon.router.navigate('userInfo');
-                        return;
-                    }
-                    avalon.router.navigate('userInfoPublic/' + id);
-                }
-            });
-
-            //避免重复加载
-            if(av['userInfo'].data && av['userInfo'].data.nickname){
-                avalon.scan();
-                av['main']['state'] = 'ok';
-                return;
-            }
-
-            //AJAX
-            $.post(urls.userInfo, {uid: user.uid, get_uid: user.uid, token: user.token}).success(function(res){
-                if(res && res.status == 200 && res.data){
-                    av['userInfo'].data = res.data;
-                    avalon.scan();
-                    av['main']['state'] = 'ok';
-                }else{
-                    log("Err", res);
-                    $.Dialog.fail("服务器出了点问题!", 999999);
-                }
-
-            });
+            avalon.router.navigate('userInfoPublic/' + id);
         }
     });
 });

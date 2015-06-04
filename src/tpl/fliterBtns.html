@@ -18,8 +18,8 @@
                 <span class="left">请选择分类</span>
                 <!--<span  class="right" ms-on-tap="hide('category')">确定</span>-->
             </div>
-            <div class="options gray" ms-on-tap="selectType(0)">全部分类</div>
-            <div class="options gray" ms-repeat="categories" ms-on-tap="selectType(el.id)">{{el.type}}</div>
+            <div class="options gray" ms-on-tap="selectType(0)" ms-on-tap-1="hide('category')">全部分类</div>
+            <div class="options gray" ms-repeat="categories" ms-on-tap="selectType(el.id)" ms-on-tap-1="hide('category')">{{el.type}}</div>
         </div>
     </div>
 </div>

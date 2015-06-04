@@ -9,43 +9,83 @@ require.config({
     paths: {
         avalon: "avalon.mobile.shim",
         jquery: "jquery-2.1.3",
-        dialog: "jq.dialog"
+
+        dialog: "tools/jq.dialog",
+        avaFilters: "tools/avaFilters",
+        userCenter: "tools/userCenter",
+        urls: "tools/urls",
+        swiper: "tools/swiper",
+        eventproxy: "tools/eventproxy",
+        noop: "tools/noop",
+        DateTimePicker: "tools/DateTimePicker",
+        moment: "tools/moment",
+
+        //collect: "states/collect",
+        //history: "states/history",
+        //home: "states/home",
+        //letters: "states/letters",
+        //litterLetter: "states/litterLetter",
+        //login: "states/login",
+        //publishDating: "states/publishDating",
+        //userInfo: "states/userInfo",
+        //userInfoEdit: "states/userInfoEdit",
+        //userInfoPublic: "states/userInfoPublic",
+        //
+        //category: "vms/category",
+        //detail: "vms/detail",
+        //letters: "vms/letters",
+        //login: "vms/login",
+        //main: "vms/main",
+        //nav: "vms/nav",
+        //publishDating: "vms/publishDating",
+        //showBox: "vms/showBox",
+        //slider: "vms/slider",
+        //userInfo: "vms/userInfo",
+        //userInfoEdit: "vms/userInfoEdit",
+        //userInfoPublic: "vms/userInfoPublic"
     }
 });
 
 //Logger
 var log = window.console ? console.log.bind(console, "%c DEBUG! Ling: ", "background:#404040;color:#fff;border-radius:5px") : function(){};
+var $$ = {}; //share vars obj
 
-require(['userCenter', 'eventproxy', 'noop', 'urls', //注入依赖
-    //下面是vm对象
-    'vms/home',
-    'vms/userInfo',
-    'vms/login',
-    'vms/publishDating',
-    'vms/history',
-    'vms/dateList',
-    'vms/letters',
-    'vms/detail',
-    'vms/userInfoPublic',
-    'vms/collect',
-    'vms/main',
-    'vms/category',
-    'vms/userInfoEdit',
-
+require([
     'avalon',
     'mmState',
-    'mmRouter',
-    'mmHistory',
-    'mmPromise',
 
-    'jquery',
-    'swiper',
-    'dialog',
-    'avaFilters', //这个是filter
-    'DateTimePicker'
+    //'userCenter', 'eventproxy', 'noop', 'urls', //注入依赖
+    //状态页面
+    'states/home',//主页
+    'states/collect',//收藏
+    'states/history', //历史记录
+    'states/litterLetter', //私信列表
+    'states/letters',//私信详情
+    'states/userInfo', //用户中心
+    'states/userInfoPublic', //公共用户界面
+    'states/userInfoEdit', //个人中心修改
+    'states/login', //登陆
+    'states/publishDating', //发布界面
+    'states/detail', //详情
 
-], function(userCenter, EventProxy, noop, urls) {
+    //下面是vm对象
+    //'vms/detail',
+    //'vms/main',
+    //'vms/category',
 
+    //'avalon',
+
+    //'mmRouter',
+    //'mmHistory',
+    //'mmPromise',
+
+    //'jquery',
+    //'swiper',
+    //'dialog',
+    //'avaFilters', //这个是filter
+    //'DateTimePicker'
+
+], function(avalon) {
     avalon.history.start({
         basepath: "/"
     });

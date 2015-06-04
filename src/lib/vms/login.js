@@ -1,36 +1,24 @@
 /**
- * Created by Liuchenling on 5/30/15.
- * 登陆的VM
+ * Created at 6/4/15.
+ * @Author Ling.
+ * @Email i@zeroling.com
  */
-define("vms/login", ['urls', 'userCenter', 'mmState', 'dialog', 'mmHistory', 'mmState', 'vms/main'], function(urls, userCenter){
-    var av = avalon.vmodels;
-
-    avalon.state('login',{
-        url:"/login",
-        templateUrl : "tpl/loginCtrl.html",
-        onEnter: function(){
-            if(!av['login']){
-                avalon.define({
-                    $id: "login",
-                    username: "",
-                    password: "",
-                    login: function(e){ //点击登陆
-                        e.preventDefault();
-                        av['main']['state'] = 'loading';
-                        userCenter.clear();
-                        userCenter.login(this.username, this.password, function(err, user){
-                            if(err) {
-                                $.Dialog.fail("登陆失败! 请检查用户名和密码.", 1400);
-                                return;
-                            }
-                            return setTimeout(avalon.router.navigate.bind(avalon.router, ''), 0);
-                        });
-                    }
-                });
-            }
-            av['login']['password'] = "";
-            avalon.scan();
-            av['main']['state'] = 'ok';
+define('vms/login', ['avalon', 'userCenter', 'vms/main', 'jquery', 'dialog', '../mmState'], function (avalon, userCenter, vmMain, $) {
+    return avalon.define({
+        $id: "login",
+        username: "",
+        password: "",
+        login: function(e){ //点击登陆
+            e.preventDefault();
+            vmMain['state'] = 'loading';
+            userCenter.clear();
+            userCenter.login(this.username, this.password, function(err, user){
+                if(err) {
+                    $.Dialog.fail("登陆失败! 请检查用户名和密码.", 1400);
+                    return;
+                }
+                return setTimeout(avalon.router.navigate.bind(avalon.router, ''), 0);
+            });
         }
     });
 });

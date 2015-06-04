@@ -3,7 +3,7 @@
  * @Author Ling.
  * @Email i@zeroling.com
  */
-define('vms/collect', ['urls', 'userCenter', 'avalon', 'mmState', 'dialog', 'avaFilters', 'vms/main', 'vms/showBox'], function(urls, userCenter, avalon){
+define('states/collect', ['urls', 'userCenter', 'avalon', '../mmState', 'dialog', 'avaFilters', 'vms/main', 'vms/showBox'], function(urls, userCenter, avalon){
     var av = avalon.vmodels;
     avalon.state('collect', {
         url: "/collect",

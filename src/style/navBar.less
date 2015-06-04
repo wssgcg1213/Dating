@@ -12,7 +12,14 @@ nav{
     margin: 0 48rem / @psdWidth;
     .clearfix();
   }
-  .title{
+
+  .menu, .back{
+    float: left;
+    .rfz(24px);
+    padding-right: 35rem / @psdWidth;
+  }
+
+  .title, .back{
     .rfz(24px);
     float: left;
     color: #FFF;
@@ -24,4 +31,15 @@ nav{
     cursor: pointer;
   }
 
+}
+
+.menu-overlay{
+  position: fixed;
+  top: 0;
+  left: -4rem;
+  width: 4rem;
+  height: 100%;
+  background-color: rgb(255, 63, 71);
+  z-index: 10;
+  transition: left ease-in-out 400ms;
 }

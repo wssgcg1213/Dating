@@ -1,8 +1,8 @@
 /**
  * Created by Liuchenling on 5/30/15.
- * 主页vm //todo 移除一些页面的vm出去
+ * 主页state
  */
-define("vms/home", ['urls', 'userCenter', 'eventproxy', 'avaFilters', 'mmState', 'vms/main', 'vms/showBox', 'vms/category'], function(urls, userCenter, EventProxy){
+define("states/home", ['urls', 'userCenter', 'eventproxy', 'vms/main', 'vms/nav', 'vms/showBox', 'vms/category', 'vms/slider', 'mmState'], function(urls, userCenter, EventProxy, vmMain, vmNav, vmShowBox, vmCategory, vmSlider){
     var av = avalon.vmodels;
     /**
      * 主页 VM定义
@@ -11,20 +11,18 @@ define("vms/home", ['urls', 'userCenter', 'eventproxy', 'avaFilters', 'mmState',
         controller: "main",
         url: "/",
         templateUrl: "tpl/indexCtrl.html",
+        onExit: function(){
+            av['nav']['state'] = '';
+        },
         onEnter: function(){
-            av['nav']['title'] = '约';
-            av['main']['state'] = 'loading';
+            vmNav['state'] = 'home';
+            vmMain['state'] = 'loading';
 
             var user = userCenter.info();
             if(!user.state){
                 setTimeout(function(){avalon.router.navigate('login')}, 0);
                 return;
             }//认证处理
-
-            if(!avalon.vmodels['slider']){
-                avalon.define({$id: "slider", items: []});
-            }
-
 
 
             var ep = EventProxy.create('slider', 'category', 'showBox', function(slider, category, showBox) {
@@ -43,7 +41,7 @@ define("vms/home", ['urls', 'userCenter', 'eventproxy', 'avaFilters', 'mmState',
                     var sliderData = slider.data.map(function(val){
                         return {href: val.url, img: val.src};
                     });
-                    av['slider']['items'] = sliderData;
+                    vmSlider['items'] = sliderData;
                 }else{
                     log('err slider:', slider);
                     return $.Dialog.fail('服务器提了一个问题');
@@ -51,7 +49,7 @@ define("vms/home", ['urls', 'userCenter', 'eventproxy', 'avaFilters', 'mmState',
 
                 //category == datetype约会类型表
                 if(_check(category)){
-                    av['category']['categories'] = category.data;
+                    vmCategory['categories'] = category.data;
                 }else{
                     log('err category:', category);
                     return $.Dialog.fail('服务器提了一个问题');
@@ -59,7 +57,7 @@ define("vms/home", ['urls', 'userCenter', 'eventproxy', 'avaFilters', 'mmState',
 
                 //showBox 主显示区域
                 if(_check(showBox)){
-                    av['showBox'].dateList = showBox.data;
+                    vmShowBox.dateList = showBox.data;
                 }else{
                     log("err", showBox);
                     return $.Dialog.fail('服务器提了一个问题');
@@ -67,15 +65,13 @@ define("vms/home", ['urls', 'userCenter', 'eventproxy', 'avaFilters', 'mmState',
 
                 avalon.scan();
                 //以下是scan完了之后才能操作的
-                av['main']['state'] = 'ok';
+                vmMain['state'] = 'ok';
             });
 
             //加载过了就不再请求了
-            if(av['slider']['items'].length
-                && av['category']['items'].length
-                && av['showBox']['dateList'].length){
+            if(vmSlider['items'].length && vmCategory['categories'].length && vmShowBox['dateList'].length){
                 avalon.scan();
-                av['main']['state'] = 'ok';
+                vmMain['state'] = 'ok';
                 return;
             }
 
@@ -91,7 +87,7 @@ define("vms/home", ['urls', 'userCenter', 'eventproxy', 'avaFilters', 'mmState',
             //请求
             $.post(urls.slider).success(function(res) {ep.emit('slider', res)}).fail(_failHandler);
             $.post(urls.category).success(function(res) {ep.emit('category', res);}).fail(_failHandler);
-            $.post(urls.showBox, {//todo 这些参数能默认么 @隆胸
+            $.post(urls.showBox, {
                 uid: user.uid,
                 token: user.token,
                 date_type: 0,

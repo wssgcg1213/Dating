@@ -4,7 +4,7 @@ nav {
   width: 100%;
   height: 1.2962963rem;
   line-height: 1.2962963rem;
-  background-color: #333333;
+  background-color: #ff3f47;
   color: #ffffff;
 }
 nav .nav-container {
@@ -19,20 +19,48 @@ nav .nav-container:after {
 nav .nav-container:after {
   clear: both;
 }
-nav .title {
+nav .menu,
+nav .back {
+  float: left;
+  font-size: 24px;
+  padding-right: 0.32407407rem;
+}
+[data-dpr="2"] nav .menu,
+[data-dpr="2"] nav .back {
+  font-size: 48px;
+}
+[data-dpr="3"] nav .menu,
+[data-dpr="3"] nav .back {
+  font-size: 72px;
+}
+nav .title,
+nav .back {
   font-size: 24px;
   float: left;
   color: #FFF;
   text-decoration: none;
   outline: none;
 }
-[data-dpr="2"] nav .title {
+[data-dpr="2"] nav .title,
+[data-dpr="2"] nav .back {
   font-size: 48px;
 }
-[data-dpr="3"] nav .title {
+[data-dpr="3"] nav .title,
+[data-dpr="3"] nav .back {
   font-size: 72px;
 }
 nav .user {
   float: right;
   cursor: pointer;
+}
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: -4rem;
+  width: 4rem;
+  height: 100%;
+  background-color: #ff3f47;
+  z-index: 10;
+  -webkit-transition: left ease-in-out 400ms;
+          transition: left ease-in-out 400ms;
 }

@@ -5,7 +5,7 @@
  */
 define('vms/category', ['jquery', 'userCenter', 'urls', 'avalon', 'dialog'], function ($, userCenter, urls) {
     var user = userCenter.info();
-    avalon.define({
+    return avalon.define({
         $id: "category",
         orderList: [{
             id: 0,
@@ -42,6 +42,7 @@ define('vms/category', ['jquery', 'userCenter', 'urls', 'avalon', 'dialog'], fun
             $.post(urls.dateList, {date_type: typeId, uid: user.uid, token: user.token}).success(function(res){
                 if(res && res.status == 200){
                     avalon.vmodels['showBox']['dateList'] = res.data;
+                    avalon.vmodels['main']['state'] = 'ok';
                 }else if(res && res.status == 409){
                     $.Dialog.fail(res.info);
                 }else{

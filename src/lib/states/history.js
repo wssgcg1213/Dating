@@ -1,9 +1,8 @@
 /**
  * Created by Liuchenling on 5/30/15.
  */
-define('vms/history', ['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters', 'vms/main'], function(urls, userCenter, EventProxy){
+define('states/history', ['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog', 'avaFilters', 'vms/main'], function(urls, userCenter, EventProxy){
     var av = avalon.vmodels;
-
     avalon.state('history',{
         url:'/history',
         templateUrl:"tpl/historyCtrl.html",
