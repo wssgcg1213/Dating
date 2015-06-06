@@ -12,7 +12,7 @@ define("states/home", ['urls', 'userCenter', 'eventproxy', 'vms/main', 'vms/nav'
         url: "/",
         templateUrl: "tpl/indexCtrl.html",
         onExit: function(){
-            av['nav']['state'] = '';
+            vmNav['state'] = '';
         },
         onEnter: function(){
             vmNav['state'] = 'home';

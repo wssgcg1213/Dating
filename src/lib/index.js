@@ -30,7 +30,6 @@ require([
     'avalon',
     'mmState',
 
-    //'userCenter', 'eventproxy', 'noop', 'urls', //注入依赖
     //状态页面
     'states/home',//主页
     'states/collect',//收藏
@@ -43,23 +42,6 @@ require([
     'states/login', //登陆
     'states/publishDating', //发布界面
     'states/detail', //详情
-
-    //下面是vm对象
-    //'vms/detail',
-    //'vms/main',
-    //'vms/category',
-
-    //'avalon',
-
-    //'mmRouter',
-    //'mmHistory',
-    //'mmPromise',
-
-    //'jquery',
-    //'swiper',
-    //'dialog',
-    //'avaFilters', //这个是filter
-    //'DateTimePicker'
 
 ], function(avalon) {
     avalon.history.start({

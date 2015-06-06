@@ -493,9 +493,15 @@ nav {
   line-height: 1.2962963rem;
   background-color: #ff3f47;
   color: #ffffff;
+  position: relative;
 }
 nav .nav-container {
-  margin: 0 0.44444444rem;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  text-align: center;
+  box-sizing: border-box;
+  z-index: 11;
   *zoom: 1;
 }
 nav .nav-container:before,
@@ -508,9 +514,12 @@ nav .nav-container:after {
 }
 nav .menu,
 nav .back {
-  float: left;
+  position: absolute;
+  left: 0.44444444rem;
   font-size: 24px;
-  padding-right: 0.32407407rem;
+  color: #FFF;
+  text-decoration: none;
+  outline: none;
 }
 [data-dpr="2"] nav .menu,
 [data-dpr="2"] nav .back {
@@ -520,36 +529,61 @@ nav .back {
 [data-dpr="3"] nav .back {
   font-size: 72px;
 }
-nav .title,
-nav .back {
+nav .menu {
+  -webkit-transition: -webkit-transform ease-in-out 400ms;
+          transition: transform ease-in-out 400ms;
+}
+nav .menu.active {
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+nav .title {
   font-size: 24px;
-  float: left;
   color: #FFF;
   text-decoration: none;
   outline: none;
 }
-[data-dpr="2"] nav .title,
-[data-dpr="2"] nav .back {
+[data-dpr="2"] nav .title {
   font-size: 48px;
 }
-[data-dpr="3"] nav .title,
-[data-dpr="3"] nav .back {
+[data-dpr="3"] nav .title {
   font-size: 72px;
 }
-nav .user {
-  float: right;
-  cursor: pointer;
+nav .plus {
+  position: absolute;
+  right: 0.44444444rem;
+  font-size: 24px;
+  color: #FFF;
+  text-decoration: none;
+  outline: none;
+}
+[data-dpr="2"] nav .plus {
+  font-size: 48px;
+}
+[data-dpr="3"] nav .plus {
+  font-size: 72px;
+}
+nav .plus:hover {
+  color: #aa9b9c;
+}
+body {
+  position: relative;
 }
 .menu-overlay {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: -4rem;
   width: 4rem;
   height: 100%;
   background-color: #ff3f47;
   z-index: 10;
-  -webkit-transition: left ease-in-out 400ms;
-          transition: left ease-in-out 400ms;
+  -webkit-transition: -webkit-transform ease-in-out 400ms;
+          transition: transform ease-in-out 400ms;
+}
+.menu-overlay.active {
+  -webkit-transform: translate3d(4rem, 0, 0);
+          transform: translate3d(4rem, 0, 0);
 }
 .swiper-container {
   margin: 0 auto;

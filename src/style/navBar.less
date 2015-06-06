@@ -8,38 +8,67 @@ nav{
   line-height: 140rem / @psdWidth;
   background-color: @navBgc;
   color: @navColor;
+  position: relative;
+
   .nav-container{
-    margin: 0 48rem / @psdWidth;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+//    padding: 0 48rem / @psdWidth;
+    box-sizing: border-box;
+    z-index: 11;
     .clearfix();
   }
 
-  .menu, .back{
-    float: left;
+  .menu, .back{ //菜单和返回都是靠左的
+    position: absolute;
+    left: 48rem / @psdWidth;
     .rfz(24px);
-    padding-right: 35rem / @psdWidth;
-  }
-
-  .title, .back{
-    .rfz(24px);
-    float: left;
     color: #FFF;
     text-decoration: none;
     outline: none;
   }
-  .user{
-    float: right;
-    cursor: pointer;
+
+  .menu{
+    transition: transform ease-in-out 400ms;
+    &.active{
+      transform: rotate(90deg);
+    }
+  }
+
+  .title{//居中的标题
+    .rfz(24px);
+    color: #FFF;
+    text-decoration: none;
+    outline: none;
+  }
+
+  .plus{//只有这玩意儿是靠右的
+    position: absolute;
+    right: 48rem / @psdWidth;
+    .rfz(24px);
+    color: #FFF;
+    text-decoration: none;
+    outline: none;
+    &:hover{
+      color: #aa9b9c;
+    }
   }
 
 }
 
-.menu-overlay{
-  position: fixed;
+body{  position: relative;  }
+.menu-overlay{ //左侧抽屉
+  position: absolute;
   top: 0;
   left: -4rem;
   width: 4rem;
   height: 100%;
   background-color: rgb(255, 63, 71);
   z-index: 10;
-  transition: left ease-in-out 400ms;
+  transition: transform ease-in-out 400ms;
+  &.active{
+    transform: translate3d(4rem, 0, 0);
+  }
 }
