@@ -18,7 +18,10 @@ define('urls', function(){
         "report": "http://106.184.7.12:8002/index.php/api/date/report",
         "academy": "http://106.184.7.12:8002/index.php/api/public/academy",
         "collection": "http://106.184.7.12:8002/index.php/api/person/collection",
-        "gradeHash": "http://106.184.7.12:8002/index.php/api/public/grade"
+        "gradeHash": "http://106.184.7.12:8002/index.php/api/public/grade",
+        "getletter": "http://106.184.7.12:8002/index.php/api/letter/getletter",
+        "letters": "http://106.184.7.12:8002/index.php/api/letter/detailletter", //单条私信
+        "dateaction": "http://106.184.7.12:8002/index.php/api/letter/dateaction"
     };
 
     return urls;

@@ -11,9 +11,6 @@ define("states/home", ['urls', 'userCenter', 'eventproxy', 'vms/main', 'vms/nav'
         controller: "main",
         url: "/",
         templateUrl: "tpl/indexCtrl.html",
-        onExit: function(){
-            vmNav['state'] = '';
-        },
         onEnter: function(){
             vmNav['state'] = 'home';
             vmMain['state'] = 'loading';

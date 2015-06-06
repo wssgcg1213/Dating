@@ -3,13 +3,13 @@
  * @Author Ling.
  * @Email i@zeroling.com
  */
-define('states/collect', ['urls', 'userCenter', 'avalon', '../mmState', 'dialog', 'avaFilters', 'vms/main', 'vms/showBox'], function(urls, userCenter, avalon){
+define('states/collect', ['urls', 'userCenter', 'avalon', 'mmState', 'dialog', 'avaFilters', 'vms/main', 'vms/showBox', 'vms/nav'], function(urls, userCenter, avalon){
     var av = avalon.vmodels;
     avalon.state('collect', {
         url: "/collect",
         templateUrl: "tpl/collectCtrl.html",
         onEnter: function() {
-            avalon.vmodels['nav']['title'] = "收藏";
+            avalon.vmodels['nav']['state'] = "collect";
             av['main']['state'] = 'loading';
 
             var user = userCenter.info();

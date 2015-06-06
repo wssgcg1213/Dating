@@ -11,7 +11,7 @@ define("states/userInfoEdit", ['urls', 'userCenter', 'jquery', 'eventproxy', '..
         templateUrl: "tpl/userInfoEditCtrl.html",
         onEnter: function() {
             avalon.vmodels['main']['state'] = 'loading';
-            avalon.vmodels['nav']['title'] = '个人中心';
+            avalon.vmodels['nav']['state'] = 'userInfoEdit';
 
             //验证用户登录
             var user = userCenter.info();

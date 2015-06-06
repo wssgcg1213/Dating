@@ -7,7 +7,7 @@ define('states/history', ['urls', 'userCenter', 'eventproxy', 'mmState', 'dialog
         url:'/history',
         templateUrl:"tpl/historyCtrl.html",
         onEnter: function() {
-            av['nav']['title'] = "历史记录";
+            av['nav']['state'] = "history";
             av['main']['state'] = 'loading';
 
             var user = userCenter.info();

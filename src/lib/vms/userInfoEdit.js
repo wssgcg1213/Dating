@@ -14,6 +14,12 @@ define('vms/userInfoEdit', ['avalon', 'jquery'], function (avalon, $) {
         },
         blur: function(e){
             $(e.target).parents('.row').removeClass('active');
+        },
+
+        finish: function(){
+            //todo 判断输入内容 !important
+            var data = avalon.vmodels['userInfoEdit']['data'];
+
         }
     });
 });

@@ -19,7 +19,8 @@ require.config({
         noop: "tools/noop",
         DateTimePicker: "tools/DateTimePicker",
         moment: "tools/moment",
-        score: "tools/jq.score"
+        score: "tools/jq.score",
+        navState: "tools/navState"
     }
 });
 

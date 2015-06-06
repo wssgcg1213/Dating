@@ -80,3 +80,14 @@ nav .plus {
 nav .plus:hover {
   color: #aa9b9c;
 }
+nav .rightMenu {
+  position: absolute;
+  right: 0.39814815rem;
+  font-size: 18px;
+}
+[data-dpr="2"] nav .rightMenu {
+  font-size: 36px;
+}
+[data-dpr="3"] nav .rightMenu {
+  font-size: 54px;
+}

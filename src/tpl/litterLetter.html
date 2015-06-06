@@ -1,26 +1,11 @@
-<div class="litterLetter">
-    <div class="list-wrapper">
+<div class="litterLetter" ms-controller="litterLetter">
+    <div class="list-wrapper" ms-repeat="list" ms-on-tap="goLetters(el.letter_id)">
         <div class="list">
-            <img  class="logo-wrapper" src="imgs/1.jpg" alt=""/>
+            <img class="logo-wrapper" ms-src="el.user_avatar">
             <div class="content">
-                    <span class="username">
-                        村里没有巧克力
-                    </span>
-                约了你的"下午有约一起吃饭的嘛"
+                <span class="username">{{el.user_name}}</span> {{el.content}}
             </div>
         </div>
     </div>
-    <div class="list-wrapper">
-        <div class="list">
-            <img  class="logo-wrapper" src="imgs/1.jpg" alt=""/>
-            <div class="content">
-                    <span class="username">
-                        村里没有巧克力
-                    </span>
-                约了你的"下午有约一起吃饭的嘛"
-            </div>
-        </div>
-    </div>
-
 </div>
 

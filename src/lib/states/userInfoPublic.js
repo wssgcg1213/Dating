@@ -1,6 +1,6 @@
 /**
  * Created by Liuchenling on 6/1/15.
- * //todo 公共的用户中心页面
+ *
  */
 
 define('states/userInfoPublic', ['urls', 'userCenter', 'jquery', 'vms/userInfoPublic', '../mmState', '../mmHistory', 'vms/main'], function(urls, userCenter, $, vmUserInfoPublic){
@@ -10,7 +10,6 @@ define('states/userInfoPublic', ['urls', 'userCenter', 'jquery', 'vms/userInfoPu
         templateUrl: "tpl/userInfoPublicCtrl.html",
         onEnter: function() {
             avalon.vmodels['nav']['state'] = 'userInfoPublic';
-            avalon.vmodels['nav']['title'] = "用户中心";
             av['main']['state'] = 'loading';
 
             var id = this.params.id;

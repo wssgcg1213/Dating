@@ -2,26 +2,31 @@
     <div class="person-wrapper">
         <div class="person">
             <div class="logo-wrapper">
-                <img ms-attr-src={{data.head}} alt=""/>
+                <img ms-src="{{data.user_avatar}}">
             </div>
             <span class="center-wrapper">
-                <p>{{data.nickname}}<i class="iconfont" ms-class-icon-male="data.gender==1" ms-class-icon-female="data.gender ==2"></i></p>
-                <p class="motto">{{data.signature ? data.signature :"TA没有个性签名"}}</p>
+                <p>{{data.user_name}}<i class="iconfont" ms-class-icon-male="data.user_gender==1" ms-class-icon-female="data.user_gender ==2"></i></p>
+                <p class="motto">{{data.user_signature ? data.user_signature :"TA没有个性签名"}}</p>
             </span>
         </div>
     </div>
     <div class="letter-wrapper">
             <p>他报名参加你的
-                <a style="display: inline-block" href="javascript:void(0)">"{{data.content}}"</a>活动
+                "<span class="activity">{{data.content}}</span>"活动
             </p>
     </div>
-
-
-
-    <div class="fixed-footer">
+    <div class="fixed-footer" ms-if="data.user_date_status!=2">
         <ul>
-                <li>拒绝</li>
-                <li class="special">接受</li>
+            <li ms-on-tap="action('refuse',data.letter_id,data.date_id)">拒绝</li>
+            <li ms-on-tap="action('accept',data.letter_id,data.date_id)" class="special">接受</li>
         </ul>
+    </div>
+
+    <div class="fixed-footer" ms-if="data.user_date_status==1">
+        <ul><li class="special actioned">已接受</li></ul>
+    </div>
+
+    <div class="fixed-footer" ms-if="data.user_date_status==0">
+        <ul><li class="special actioned">已拒绝</li></ul>
     </div>
 </div>

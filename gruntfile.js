@@ -76,7 +76,9 @@ module.exports = function(grunt) {
                     eventproxy: "tools/eventproxy",
                     noop: "tools/noop",
                     DateTimePicker: "tools/DateTimePicker",
-                    moment: "tools/moment"
+                    moment: "tools/moment",
+                    score: "tools/jq.score",
+                    navState: "tools/navState"
                 }
             }
         }

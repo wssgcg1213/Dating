@@ -107,6 +107,9 @@
 [data-dpr="3"] .letter-wrapper .fixed-footer ul li {
   font-size: 54px;
 }
+.letter-wrapper .fixed-footer ul li.actioned {
+  width: 100%;
+}
 [data-dpr="2"] .letter-wrapper .fixed-footer ul li {
   font-size: 36px;
 }
@@ -116,4 +119,7 @@
 .letter-wrapper .fixed-footer ul .special {
   color: #ff7d63;
   border-left: 1px solid #dddddd;
+}
+.letter-wrapper .activity {
+  color: #49a3f6;
 }

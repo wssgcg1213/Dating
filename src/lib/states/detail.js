@@ -7,7 +7,7 @@ define('states/detail', ['urls', 'userCenter', 'eventproxy', 'vms/detail', 'vms/
         url: '/detail/:id',
         templateUrl: "tpl/detailCtrl.html",
         onEnter: function() {
-            vmNav['title'] = "约";
+            vmNav['state'] = "detail";
             vmMain['state'] = 'loading';
 
             var id = this.params.id,

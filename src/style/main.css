@@ -450,9 +450,8 @@ input[type="search"]::-webkit-search-decoration {
 @font-face {
   font-family: "iconfont";
   src: url('iconfont.eot');
-  src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('iconfont.woff') format('woff'), /* chrome、firefox */ url('iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('iconfont.svg#iconfont') format('svg');
-  
   /* IE9*/
+  src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('iconfont.woff') format('woff'), /* chrome、firefox */ url('iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('iconfont.svg#iconfont') format('svg');
   /* iOS 4.1- */
 }
 .iconfont {
@@ -566,6 +565,17 @@ nav .plus {
 }
 nav .plus:hover {
   color: #aa9b9c;
+}
+nav .rightMenu {
+  position: absolute;
+  right: 0.39814815rem;
+  font-size: 18px;
+}
+[data-dpr="2"] nav .rightMenu {
+  font-size: 36px;
+}
+[data-dpr="3"] nav .rightMenu {
+  font-size: 54px;
 }
 .swiper-container {
   margin: 0 auto;
@@ -1842,6 +1852,9 @@ nav .plus:hover {
 [data-dpr="3"] .letter-wrapper .fixed-footer ul li {
   font-size: 54px;
 }
+.letter-wrapper .fixed-footer ul li.actioned {
+  width: 100%;
+}
 [data-dpr="2"] .letter-wrapper .fixed-footer ul li {
   font-size: 36px;
 }
@@ -1851,6 +1864,9 @@ nav .plus:hover {
 .letter-wrapper .fixed-footer ul .special {
   color: #ff7d63;
   border-left: 1px solid #dddddd;
+}
+.letter-wrapper .activity {
+  color: #49a3f6;
 }
 .litterLetter {
   overflow: hidden;

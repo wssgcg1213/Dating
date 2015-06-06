@@ -8,7 +8,7 @@ define("states/publishDating", ['urls', 'userCenter', 'vms/publishDating', 'vms/
         templateUrl: "tpl/publishDatingCtrl.html",
         onEnter: function() {
             vmMain['state'] = 'loading';
-            vmNav['title'] = "发布约会";
+            vmNav['state'] = "publishDating";
 
             //检测登陆
             var user = userCenter.info();
@@ -21,7 +21,6 @@ define("states/publishDating", ['urls', 'userCenter', 'vms/publishDating', 'vms/
             var v = avalon.vmodels.publishDating;
             v.yType = v.yCollege = v.yGrade = v.ySex = v.yContent =
             v.yLocation = v.yPeople = v.yTime = v.yTitle = '';
-
 
             //失败统一出口
             function _fail(res){
@@ -80,8 +79,6 @@ define("states/publishDating", ['urls', 'userCenter', 'vms/publishDating', 'vms/
                 ep.emit('grade', {status: 200, data: $$.gradeHash});
             }
 
-
-            //vmMain.state = 'ok';
         }
     });
 });

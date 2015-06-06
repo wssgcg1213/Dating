@@ -9,7 +9,7 @@ define('states/userInfo', ['urls', 'userCenter', 'vms/nav', 'vms/main', 'vms/use
         url: '/userInfo',
         templateUrl: "tpl/userInfoCtrl.html",
         onEnter: function(){
-            vmNav['title'] = "个人中心";
+            vmNav['state'] = "userInfo";
             vmMain['state'] = 'loading';
 
             var user = userCenter.info();

@@ -3,13 +3,19 @@
  * @Author Ling.
  * @Email i@zeroling.com
  */
-define("vms/nav", ['jquery', 'mmState'], function($){
+define("vms/nav", ['jquery', 'navState', 'noop', 'mmState'], function($, navState, noop){
     /**
      * 顶部navBar的VM
      */
     var vm = avalon.define({
         $id: "nav",
         title: "约",
+        iconmenu: false,
+        iconback: false,
+        iconplus: false,
+        rightMenu: "",
+        rightMenuCallback: noop,
+
         state: "",
         menuState: false,//标识菜单的呼出状态
 
@@ -24,20 +30,24 @@ define("vms/nav", ['jquery', 'mmState'], function($){
         }
     });
 
-    vm.$watch('state', function(newStr, oldStr){
-        log(oldStr, newStr); //todo 状态
+    vm.$watch('state', function(state){
+        log('现在的状态是:', state);
+        var config = navState[state];
+        for(var conf in config){
+            if(conf !== 'rightMenuCallback')vm[conf] = config[conf];
+        }
+        var confRightMenuCallback = navState[state]['rightMenuCallback'];
+        if(avalon.isFunction(confRightMenuCallback)){
+            vm.rightMenuCallback = confRightMenuCallback;
+        }else if(typeof confRightMenuCallback === 'string'){
+            vm.rightMenuCallback = avalon.vmodels[state][confRightMenuCallback];
+        }
     });
 
     vm.$watch('menuState', function(newStr){
         if(newStr){
             $('.menu-overlay').addClass('active');
             $('.menu').addClass('active');
-
-            //$('.wrapper').on('touchend', function(e){
-            //    vm.menuState = false;
-            //    $('.wrapper').off('touchend', arguments.callee);
-            //});
-
         }else{
             $('.menu-overlay').removeClass('active');
             $('.menu').removeClass('active');
