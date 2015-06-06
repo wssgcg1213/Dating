@@ -2,7 +2,7 @@
  * Created by Liuchenling on 5/30/15.
  */
 
-define('states/detail', ['urls', 'userCenter', 'eventproxy', 'vms/detail', 'vms/nav', 'vms/main', 'mmState', 'dialog', 'avaFilters'], function(urls, userCenter, EventProxy, vmDetail, vmNav, vmMain){
+define('states/detail', ['urls', 'userCenter', 'eventproxy', 'vms/detail', 'vms/nav', 'vms/main', 'mmState', 'dialog', 'avaFilters', 'score'], function(urls, userCenter, EventProxy, vmDetail, vmNav, vmMain){
     avalon.state('detail', {
         url: '/detail/:id',
         templateUrl: "tpl/detailCtrl.html",

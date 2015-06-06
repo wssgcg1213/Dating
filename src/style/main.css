@@ -566,24 +566,6 @@ nav .plus {
 nav .plus:hover {
   color: #aa9b9c;
 }
-body {
-  position: relative;
-}
-.menu-overlay {
-  position: absolute;
-  top: 0;
-  left: -4rem;
-  width: 4rem;
-  height: 100%;
-  background-color: #ff3f47;
-  z-index: 10;
-  -webkit-transition: -webkit-transform ease-in-out 400ms;
-          transition: transform ease-in-out 400ms;
-}
-.menu-overlay.active {
-  -webkit-transform: translate3d(4rem, 0, 0);
-          transform: translate3d(4rem, 0, 0);
-}
 .swiper-container {
   margin: 0 auto;
   position: relative;
@@ -2465,6 +2447,46 @@ body {
   position: absolute;
   top: 0;
 }
+.star-full:before {
+  content: "\e618";
+}
+.star-half:before {
+  content: "\e617";
+}
+.star-empty:before {
+  content: "\e616";
+}
+.menu-overlay {
+  position: absolute;
+  top: 0;
+  left: -4rem;
+  width: 4rem;
+  height: 100%;
+  background-color: #ff3f47;
+  z-index: 10;
+  -webkit-transition: -webkit-transform ease-in-out 400ms;
+          transition: transform ease-in-out 400ms;
+  padding-top: 1.2962963rem;
+}
+.menu-overlay.active {
+  -webkit-transform: translate3d(4rem, 0, 0);
+          transform: translate3d(4rem, 0, 0);
+}
+.menu-overlay .line {
+  height: 1.11111111rem;
+  text-align: center;
+  line-height: 1.11111111rem;
+}
+.menu-overlay .line a {
+  color: #FFF;
+  font-size: 17px;
+}
+[data-dpr="2"] .menu-overlay .line a {
+  font-size: 34px;
+}
+[data-dpr="3"] .menu-overlay .line a {
+  font-size: 51px;
+}
 .icon-qian:before {
   content: "\e60f";
 }
@@ -2565,6 +2587,9 @@ a {
 ul,
 li {
   list-style: none;
+}
+body {
+  position: relative;
 }
 .wrapper {
   left: 0rem;

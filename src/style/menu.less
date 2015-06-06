@@ -1,0 +1,29 @@
+@import "var";
+
+//左侧抽屉
+.menu-overlay{
+  position: absolute;
+  top: 0;
+  left: -4rem;
+  width: 4rem;
+  height: 100%;
+  background-color: rgb(255, 63, 71);
+  z-index: 10;
+  transition: transform ease-in-out 400ms;
+  &.active{
+    transform: translate3d(4rem, 0, 0);
+  }
+  
+  padding-top: 140rem / @psdWidth;
+
+  .line{
+    height: 120rem / @psdWidth;
+    text-align: center;
+    line-height: 120rem / @psdWidth;
+
+    a{
+      color: #FFF;
+      .rfz(17px);
+    }
+  }
+}

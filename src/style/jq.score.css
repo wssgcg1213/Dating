@@ -1,0 +1,9 @@
+.star-full:before {
+  content: "\e618";
+}
+.star-half:before {
+  content: "\e617";
+}
+.star-empty:before {
+  content: "\e616";
+}

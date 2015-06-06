@@ -80,21 +80,3 @@ nav .plus {
 nav .plus:hover {
   color: #aa9b9c;
 }
-body {
-  position: relative;
-}
-.menu-overlay {
-  position: absolute;
-  top: 0;
-  left: -4rem;
-  width: 4rem;
-  height: 100%;
-  background-color: #ff3f47;
-  z-index: 10;
-  -webkit-transition: -webkit-transform ease-in-out 400ms;
-          transition: transform ease-in-out 400ms;
-}
-.menu-overlay.active {
-  -webkit-transform: translate3d(4rem, 0, 0);
-          transform: translate3d(4rem, 0, 0);
-}

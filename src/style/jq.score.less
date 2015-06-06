@@ -1,0 +1,25 @@
+
+.star-basic{
+
+}
+
+.star-full{
+  .star-basic;
+  &:before{
+    content: "\e618";
+  }
+}
+
+.star-half{
+  .star-basic;
+    &:before{
+      content: "\e617";
+    }
+}
+
+.star-empty{
+  .star-basic;
+  &:before{
+    content: "\e616";
+  }
+}
