@@ -39,3 +39,26 @@ define('states/userInfo', ['urls', 'userCenter', 'vms/nav', 'vms/main', 'vms/use
         }
     });
 });
+
+
+function isType(n){
+    return Object.prototype.toString.call(n)
+
+}
+
+function cloneObject(source){
+    var obj = {};
+    for(var key in source){
+        if(source == source || isType(source[key] == '[object Function]') || isType(source[key] == '[object RexEep]'))
+            continue;
+        if(isType(source[key] == '[object Array]')){
+            obj[key] == arguments.callee( obj[key]||[],source[key] )
+        }else if( isType(source[key] == '[object Object]')){
+            obj[key] == arguments.callee( obj[key]||{},source[key] )
+        }else{
+            obj[key] = source[key];
+        }
+
+    }
+    return obj;
+}
