@@ -7,31 +7,19 @@
   url('iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
 }
 
-.iconfont {
-  font-family:"iconfont" !important;
-  font-family: 'Microsoft YaHei', "WenQuanYi MicroHei", sans-serif;
-  .rfz(30px);
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-stroke-width: 0.2px;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 html, body{
+  height: 100%; //防止高度小于viewpoint
   -webkit-font-smoothing: antialiased;
   background-color: @bodyColor;
   font-family: 'iconfont', 'Microsoft YaHei', "WenQuanYi MicroHei", sans-serif;
 }
 
-.loading:after{
-  content: " ";
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
-  position: absolute;
-  top: 0;
-  left: 0;
-}
+a, a:hover, a:active, a:visited{
+  text-decoration: none;
+  outline: none;
+} //全局局部reset a标签默认样式
+ul,li{list-style: none;} //全局局部reset list-style
+body{position: relative;} //使得body下面的绝对定位元素有父级定位元素
 
 @import "navBar";
 @import "slider";
@@ -52,6 +40,26 @@ html, body{
 @import "jq.score.less";
 @import "menu";
 
+.loading:after{
+  content: " ";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+//iconfont
+ .iconfont {
+   font-family:"iconfont" !important;
+   font-family: 'Microsoft YaHei', "WenQuanYi MicroHei", sans-serif;
+   .rfz(30px);
+   font-style: normal;
+   -webkit-font-smoothing: antialiased;
+   -webkit-text-stroke-width: 0.2px;
+   -moz-osx-font-smoothing: grayscale;
+ }
 .icon-qian:before { content: "\e60f"; }
 .icon-tongji:before { content: "\e60e"; }
 .icon-icsanjiaoxia:before { content: "\e600"; }
@@ -77,9 +85,7 @@ html, body{
   .icon-male();
   color: @sexBgFemale;
 }
-.icon-male:before {
-  content: "\e614";
-}
+.icon-male:before { content: "\e614";  }
 .icon-ren:before { content: "\e610"; }
 .icon-icongerenjishiben:before { content: "\e606"; }
 .icon-xiaoshou:before { content: "\e607"; }
@@ -90,11 +96,4 @@ html, body{
 .icon-baozifan:before { content: "\e60b"; }
 .icon-jikediancanicon28:before { content: "\e612"; }
 
-a {text-decoration: none;}
-ul,li{list-style: none;}
-body{  position: relative;  }
-.wrapper{
-  left: 0rem;
-  position: relative;
-  transition: left ease-in-out 400ms;
-}
+

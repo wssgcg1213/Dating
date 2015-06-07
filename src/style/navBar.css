@@ -28,7 +28,8 @@ nav .nav-container:after {
 nav .menu,
 nav .back {
   position: absolute;
-  left: 0.44444444rem;
+  left: 0;
+  padding: 0 0.44444444rem;
   font-size: 24px;
   color: #FFF;
   text-decoration: none;
@@ -65,7 +66,8 @@ nav .title {
 }
 nav .plus {
   position: absolute;
-  right: 0.44444444rem;
+  right: 0;
+  padding: 0 0.44444444rem;
   font-size: 24px;
   color: #FFF;
   text-decoration: none;
@@ -82,7 +84,8 @@ nav .plus:hover {
 }
 nav .rightMenu {
   position: absolute;
-  right: 0.39814815rem;
+  right: 0;
+  padding: 0 0.39814815rem;
   font-size: 18px;
 }
 [data-dpr="2"] nav .rightMenu {

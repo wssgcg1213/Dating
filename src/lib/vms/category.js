@@ -5,16 +5,23 @@
  */
 define('vms/category', ['jquery', 'userCenter', 'urls', 'avalon', 'dialog'], function ($, userCenter, urls) {
     var user = userCenter.info();
+    var orderList = [{
+        id: 1,
+        type: "时间排序"
+    }];
     return avalon.define({
         $id: "category",
-        orderList: [{
-            id: 0,
-            type: "时间排序"
-        }], //排序方式
+        orderList: orderList, //排序方式
         categories: [], //分类列表
+        active: {
+            order: '',
+            category: ''
+        },
 
         order: function(id){
             id = parseInt(id);
+            var type = orderList.filter(function(o){return o.id == id ? o : false})[0];
+            avalon.vmodels.category.active.order = type ? type.type : ""; //对默认的处理
             switch(id){
                 case 0:
                     //todo 排序
@@ -36,9 +43,12 @@ define('vms/category', ['jquery', 'userCenter', 'urls', 'avalon', 'dialog'], fun
             e.stopPropagation();
         },
 
+        //选择类型
         selectType: function(typeId){
             typeId = parseInt(typeId);
             avalon.vmodels['main']['state'] = 'loading';
+            var type = $$.typeHash.filter(function(o){return o.id == typeId ? o : false})[0];
+            avalon.vmodels['category']['active']['category'] = type ? type.type : ""; //对所有分类的处理
             $.post(urls.dateList, {date_type: typeId, uid: user.uid, token: user.token}).success(function(res){
                 if(res && res.status == 200){
                     avalon.vmodels['showBox']['dateList'] = res.data;

@@ -46,6 +46,7 @@ define("states/home", ['urls', 'userCenter', 'eventproxy', 'vms/main', 'vms/nav'
                 //category == datetype约会类型表
                 if(_check(category)){
                     vmCategory['categories'] = category.data;
+                    if(!$$.typeHash) $$.typeHash = category.data;
                 }else{
                     log('err category:', category);
                     return $.Dialog.fail('服务器提了一个问题');
@@ -91,6 +92,7 @@ define("states/home", ['urls', 'userCenter', 'eventproxy', 'vms/main', 'vms/nav'
                 size: 10,
                 order: 1
             }).success(function(res){ep.emit('showBox', res);}).fail(_failHandler);
+
         }
     });
 });

@@ -1,8 +1,11 @@
 <div class="scroll-container" ms-controller="showBox">
+    <div class="no-one" ms-if="!dateList.length">
+        <img src="imgs/noop.png">
+    </div>
     <ul>
         <li class="prefix-content" ms-repeat="dateList" ms-on-tap="goDetail(el.date_id)">
             <div class="person-wrapper">
-                <div class="person"><!-- todo goPerson -->
+                <div class="person">
                     <img class="logo-wrapper" ms-attr-src="el.head"/>
                     <span class="center-wrapper">
                         <p class="username">{{el.nickname}}<i class="iconfont" ms-class-icon-male="el.gender==1" ms-class-icon-female="el.gender==2"></i></p>
@@ -24,7 +27,4 @@
             </div>
         </li>
     </ul>
-
-
-
 </div>

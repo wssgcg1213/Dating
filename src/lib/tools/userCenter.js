@@ -137,6 +137,7 @@ define('userCenter', ['urls', 'jquery'], function(urls, $){
      */
     function login(username, password, cb){
         if(isLogin) return cb && cb(null, info());
+        debugger;
         $.post(logUrl, {username: username, password: password}).success(function(res){
             if(res.status == 200){
                 isLogin = true;

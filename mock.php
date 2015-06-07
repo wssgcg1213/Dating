@@ -1,4 +1,5 @@
 <?php
+header("Content-Type: application/json");
 $type = $_REQUEST['type'];
 switch($type){
     case "login":
@@ -30,9 +31,11 @@ switch($type){
                 ]]
         ];
         break;
+    case "list":
+        die('{"data":[],"status":200,"info":"\u6210\u529f"}');
 }
 if(empty($data)){
  $data = [];
 }
-  header("Content-Type: application/json");
+
   echo json_encode($data);

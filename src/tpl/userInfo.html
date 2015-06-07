@@ -5,18 +5,8 @@
 </div>
 
 <ul class="tab">
-    <li class="selected">
-        <div class="border">
-            <i class="iconfont">&#xe610</i><span>基本资料</span>
-        </div>
-    </li>
-
-    <li>
-        <div>
-            <i class="iconfont">&#xe611</i><span>约会记录</span>
-        </div>
-    </li>
-
+    <li class="selected"><div class="border"><i class="iconfont">&#xe610</i><span>基本资料</span></div></li>
+    <li><div><i class="iconfont">&#xe611</i><span>约会记录</span></div></li>
 </ul>
 
 <div id="tab-container" class="swiper-container">
@@ -31,6 +21,9 @@
             </ul>
         </div>
         <ul class="tab2 swiper-slide">
+            <li class="no-one" ms-if="!data.mydate.length">
+                <img src="imgs/noop.png">
+            </li>
             <li class="content" ms-repeat="data.mydate" ms-on-tap="goDetail(el.date_id)">
                 <p class="title">{{el.title}}</p>
                 <div class="location"><i class="iconfont">&#xe612</i>地点：{{el.place}}</div>

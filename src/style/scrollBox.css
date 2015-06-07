@@ -149,3 +149,9 @@
 [data-dpr="3"] .scroll-container .prefix-content .title {
   font-size: 54px;
 }
+.scroll-container .no-one {
+  margin: 1rem 2rem;
+}
+.scroll-container .no-one img {
+  width: 100%;
+}

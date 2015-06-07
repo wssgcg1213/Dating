@@ -226,3 +226,12 @@
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
+.userinfo .no-one {
+  padding: 1rem 2rem;
+  position: absolute;
+  width: 50%;
+  box-sizing: border-box;
+}
+.userinfo .no-one img {
+  width: 100%;
+}

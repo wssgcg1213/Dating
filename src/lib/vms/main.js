@@ -3,7 +3,7 @@
  * 主VM
  * Nav vm
  */
-define("vms/main", ['jquery', 'dialog', 'swiper', 'avalon', '../mmState', '../mmHistory', '../mmState', 'vms/showBox', 'vms/nav'], function($){
+define("vms/main", ['jquery', 'dialog', 'swiper', 'avalon', 'mmState', 'vms/showBox', 'vms/nav'], function($){
     var av = avalon.vmodels;
     var vm = avalon.define({
         $id: "main",
@@ -19,7 +19,7 @@ define("vms/main", ['jquery', 'dialog', 'swiper', 'avalon', '../mmState', '../mm
              * @author Ling.
              */
             (function(){
-                if(avalon.vmodels['showBox'] && avalon.vmodels['showBox']['dateList'].length > 0){
+                if(avalon.vmodels['slider'] && avalon.vmodels['slider']['items'].length > 0){
                     avalon.vmodels['main']['state'] = 'ok';
                     return new Swiper('.swiper-container',{
                         pagination: '.pagination',

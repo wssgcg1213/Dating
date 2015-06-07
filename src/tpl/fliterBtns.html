@@ -1,16 +1,6 @@
 <div class="fliter-btns" ms-controller="category">
-    <a ms-on-tap="show('category')">全部分类<span class="iconfont">&#xe600;</span></a>
-    <a ms-on-tap="show('order')"><span class="line"></span>默认排序<span class="iconfont">&#xe600;</span></a>
-
-    <div id="order" class="btn-overlay" ms-on-tap="hide('order')">>
-        <div class="options-content" ms-on-tap="stopBubble">
-            <div class="options">
-                <span class="left">请选择排序方式</span>
-                <!--<span  class="right" ms-on-tap="hide('order')">确定</span>-->
-            </div>
-            <div class="options gray" ms-repeat="orderList" ms-on-tap="order(el.id)" ms-on-tap-1="hide('order')">{{el.type}}</div>
-        </div>
-    </div>
+    <a ms-on-tap="show('category')">{{active.category ? active.category : "全部分类"}}<span class="iconfont">&#xe600;</span></a>
+    <a ms-on-tap="show('order')"><span class="line"></span>{{active.order ? active.order : "默认排序"}}<span class="iconfont">&#xe600;</span></a>
 
     <div id="category" class="btn-overlay" ms-on-tap="hide('category')">
         <div class="options-content" ms-on-tap="stopBubble">
@@ -18,8 +8,19 @@
                 <span class="left">请选择分类</span>
                 <!--<span  class="right" ms-on-tap="hide('category')">确定</span>-->
             </div>
-            <div class="options gray" ms-on-tap="selectType(0)" ms-on-tap-1="hide('category')">全部分类</div>
-            <div class="options gray" ms-repeat="categories" ms-on-tap="selectType(el.id)" ms-on-tap-1="hide('category')">{{el.type}}</div>
+            <div class="options gray" ms-class-active="!active.category" ms-on-tap="selectType(0)" ms-on-tap-1="hide('category')">全部分类</div>
+            <div class="options gray" ms-repeat="categories" ms-class-active="el.type==active.category" ms-on-tap="selectType(el.id)" ms-on-tap-1="hide('category')">{{el.type}}</div>
+        </div>
+    </div>
+
+    <div id="order" class="btn-overlay" ms-on-tap="hide('order')">>
+        <div class="options-content" ms-on-tap="stopBubble">
+            <div class="options">
+                <span class="left">请选择排序方式</span>
+                <!--<span  class="right" ms-on-tap="hide('order')">确定</span>-->
+            </div>
+            <div class="options gray" ms-class-active="!active.order" ms-on-tap="order(0)" ms-on-tap-1="hide('order')">默认排序</div>
+            <div class="options gray" ms-repeat="orderList" ms-class-active="el.type==active.order" ms-on-tap="order(el.id)" ms-on-tap-1="hide('order')">{{el.type}}</div>
         </div>
     </div>
 </div>
