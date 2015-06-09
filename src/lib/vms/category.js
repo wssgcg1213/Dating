@@ -29,6 +29,7 @@ define('vms/category', ['jquery', 'userCenter', 'urls', 'avalon', 'dialog'], fun
         },
 
         hide: function(id){
+            $(this).addClass("active");
             $('#' + id).removeClass('show');
             setTimeout(function () {$('#' + id).hide()}, 400);
         },
@@ -63,6 +64,9 @@ define('vms/category', ['jquery', 'userCenter', 'urls', 'avalon', 'dialog'], fun
                 log("err", res);
                 $.Dialog.fail("服务器提了一个问题");
             });
-        }
+        },
+
+
+
     });
 });

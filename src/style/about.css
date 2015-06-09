@@ -1,0 +1,27 @@
+.about {
+  position: relative;
+}
+.about .logo {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  top: 0.92592593rem;
+}
+.about .creater {
+  position: fixed;
+  bottom: 0.18518519rem;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  font-size: 18px;
+  color: #333;
+}
+[data-dpr="2"] .about .creater {
+  font-size: 36px;
+}
+[data-dpr="3"] .about .creater {
+  font-size: 54px;
+}

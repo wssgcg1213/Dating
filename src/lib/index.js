@@ -44,6 +44,7 @@ require([
     'states/login', //登陆
     'states/publishDating', //发布界面
     'states/detail', //详情
+    'states/about',//关于页面
 
 ], function(avalon) {
     avalon.history.start({

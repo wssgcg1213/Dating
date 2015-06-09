@@ -49,7 +49,10 @@ define("vms/main", ['jquery', 'dialog', 'swiper', 'avalon', 'mmState', 'vms/show
                 e.preventDefault();
             });
         }
+
     });
+
+
 
     /**
      * 页面全局菊花 + overlay控制

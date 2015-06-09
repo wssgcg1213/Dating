@@ -450,8 +450,9 @@ input[type="search"]::-webkit-search-decoration {
 @font-face {
   font-family: "iconfont";
   src: url('iconfont.eot');
-  /* IE9*/
   src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('iconfont.woff') format('woff'), /* chrome、firefox */ url('iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('iconfont.svg#iconfont') format('svg');
+  
+  /* IE9*/
   /* iOS 4.1- */
 }
 html,
@@ -1288,7 +1289,6 @@ nav .rightMenu {
   padding: 0;
 }
 .userinfo #tab-container .detail-info li {
-  width: 100%;
   box-sizing: border-box;
   height: 1.34259259rem;
   line-height: 1.2962963rem;
@@ -1305,10 +1305,9 @@ nav .rightMenu {
   font-size: 48px;
 }
 .userinfo #tab-container .detail-info li span {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
+  float: left;
   width: 0.92592593rem;
+  white-space: nowrap;
 }
 .userinfo #tab-container .content {
   height: 3.7037037rem;
@@ -2162,6 +2161,22 @@ nav .rightMenu {
 [data-dpr="3"] .login-wrapper .trouble {
   font-size: 54px;
 }
+.login-wrapper .creater {
+  position: fixed;
+  bottom: 0.18518519rem;
+  color: #333;
+  font-size: 18px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+}
+[data-dpr="2"] .login-wrapper .creater {
+  font-size: 36px;
+}
+[data-dpr="3"] .login-wrapper .creater {
+  font-size: 54px;
+}
 /* dialog*/
 .box-overlay {
   background-color: rgba(0, 0, 0, 0.3);
@@ -2532,6 +2547,33 @@ nav .rightMenu {
 }
 [data-dpr="3"] .menu-overlay .line a {
   font-size: 51px;
+}
+.about {
+  position: relative;
+}
+.about .logo {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  top: 0.92592593rem;
+}
+.about .creater {
+  position: fixed;
+  bottom: 0.18518519rem;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  font-size: 18px;
+  color: #333;
+}
+[data-dpr="2"] .about .creater {
+  font-size: 36px;
+}
+[data-dpr="3"] .about .creater {
+  font-size: 54px;
 }
 .loading:after {
   content: " ";
