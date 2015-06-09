@@ -4,12 +4,12 @@
  * @Email i@zeroling.com
  */
 define('vms/letters', ['avalon', 'jquery', 'urls', 'userCenter', 'dialog'], function (avalon, $, urls, userCenter) {
-    var user = userCenter.info();
     return avalon.define({
         $id: "letters",
         data: {},
         action: function(type, to_id, date_id){
             type = type == 'accept' ? 1 : 0;
+            var user = userCenter.info();
             $.post(urls.dateaction, {
                 uid: user.uid,
                 token: user.token,

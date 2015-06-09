@@ -4,8 +4,6 @@
  * @Email i@zeroling.com
  */
 define('vms/userInfoEdit', ['avalon', 'jquery', 'urls', 'userCenter', 'dialog'], function (avalon, $, urls, userCenter) {
-    var user = userCenter.info();
-
     var vm = avalon.define({
         $id: "userInfoEdit",
         data: {},
@@ -54,7 +52,7 @@ define('vms/userInfoEdit', ['avalon', 'jquery', 'urls', 'userCenter', 'dialog'],
 
             var _grade = $$.gradeHash.filter(function(o){if(o.name == data.grade) return o})[0];
             var gradeId = _grade ? _grade.id : 0;
-
+            var user = userCenter.info();
             $.post(urls.editdata, {
                 uid: user.uid,
                 token: user.token,

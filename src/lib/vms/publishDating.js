@@ -6,9 +6,6 @@
 define('vms/publishDating', ['avalon', 'jquery', 'moment', 'eventproxy', 'urls', 'vms/main', 'userCenter', 'mmState', 'dialog', 'DateTimePicker'], function (avalon, $, moment, EP, urls, vmMain, userCenter) {
     var lunar = ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
         weeks = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"];
-
-    var user = userCenter.info();
-
     var vm = avalon.define({
         $id: "publishDating",
         /**
@@ -24,7 +21,7 @@ define('vms/publishDating', ['avalon', 'jquery', 'moment', 'eventproxy', 'urls',
                 }
                 return 0;
             }
-
+            var user = userCenter.info();
             var info = {
                 date_type: _vm.selectedDateTypeId,
                 title: _vm.yTitle.trim(),

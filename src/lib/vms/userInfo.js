@@ -4,8 +4,6 @@
  * @Email i@zeroling.com
  */
 define('vms/userInfo', ['avalon', 'userCenter', '../mmState'], function (avalon, userCenter) {
-    var user = userCenter.info();
-
     return avalon.define({
         $id : "userInfo",
         data: {},
@@ -15,7 +13,7 @@ define('vms/userInfo', ['avalon', 'userCenter', '../mmState'], function (avalon,
         },
         goUser: function(id){
             log("叔叔 我们来看看这个人:", id);
-            if(id == user.uid){
+            if(id == userCenter.info().uid){
                 avalon.router.navigate('userInfo');
                 return;
             }
