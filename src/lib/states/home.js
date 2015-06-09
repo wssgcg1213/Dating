@@ -105,7 +105,7 @@ define("states/home", ['urls', 'userCenter', 'eventproxy', 'vms/main', 'vms/nav'
 
     var loadingFlag = false;
     function scrollHandler(ev){
-        if(loadingFlag || $(this).height() + $(this).scrollTop() < $(document).height())return false;
+        if(loadingFlag || $(this).height() + $(this).scrollTop() < $(document).height() - 150)return false;
 
         loadingFlag = true;
         vmMain.state = 'loading';
