@@ -1289,7 +1289,6 @@ nav .rightMenu {
   padding: 0;
 }
 .userinfo #tab-container .detail-info li {
-  width: 100%;
   box-sizing: border-box;
   height: 1.34259259rem;
   line-height: 1.2962963rem;
@@ -1306,10 +1305,9 @@ nav .rightMenu {
   font-size: 48px;
 }
 .userinfo #tab-container .detail-info li span {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
+  float: left;
   width: 0.92592593rem;
+  white-space: nowrap;
 }
 .userinfo #tab-container .content {
   height: 3.7037037rem;
