@@ -33,14 +33,14 @@ define('vms/detail', ['request', 'userCenter', 'jquery', 'eventproxy', 'avalon',
         },
 
         collect: function(_id){ //收藏
-            if(vm.isCollected){
+            if(avalon.vmodels['detail'].isCollected){
                 return $.Dialog.success("已经收藏过了.");
             }
 
             _id = parseInt(_id);
             avalon.vmodels['main']['state'] = 'loading';
             var user = userCenter.info();
-            request('collect', {uid: user.uid, token: user.token, date_id: _id}).success(function(res){
+            request('collect', {uid: user.uid, token: user.token, date_id: _id}).done(function(res){
                 $.Dialog.success("收藏成功");
                 avalon.vmodels['detail']['isCollected'] = true;
             });
