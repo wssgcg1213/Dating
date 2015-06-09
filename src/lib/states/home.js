@@ -11,12 +11,15 @@ define("states/home", ['urls', 'userCenter', 'eventproxy', 'vms/main', 'vms/nav'
         controller: "main",
         url: "/",
         templateUrl: "tpl/indexCtrl.html",
-        onExit: function(){
-            //$(window).off('scroll',scrollHandle);
+        onExit:function(){
+            $(window).off('scroll', scrollHandler)
         },
         onEnter: function(){
             vmNav['state'] = 'home';
             vmMain['state'] = 'loading';
+
+            //add bang ding
+            $(window).on('scroll', scrollHandler);
 
             var user = userCenter.info();
             if(!user.state){
@@ -138,5 +141,41 @@ define("states/home", ['urls', 'userCenter', 'eventproxy', 'vms/main', 'vms/nav'
         }
     });
 
+    var loadingFlag = false;
+    function scrollHandler(ev){
+        if(loadingFlag || $(this).height() + $(this).scrollTop() < $(document).height())return false;
 
+        loadingFlag = true;
+        vmMain.state = 'loading';
+
+        var typeName = avalon.vmodels['category']['active']['category'], typeId = 0;
+        if(typeName){
+            typeId = $$.typeHash.filter(function(o){if(o.type == typeName) return o});
+            if(typeId && typeId.length >= 1){
+                typeId = typeId[0]['id'];
+            }else{
+                typeId = 0;
+            }
+        }
+        var user = userCenter.info();
+        var page = vmShowBox.page++;
+
+        $.post(urls.showBox, {
+            uid: user.uid,
+            token: user.token,
+            date_type: typeId,
+            page: page,
+            size: 10,
+            order: 1 //todo order
+        }).success(function(res){
+            if(res && res.status == 200 && res.data && Array.isArray(res.data)){
+                vmShowBox.dateList.pushArray(res.data);
+                vmMain.state = 'ok';
+            }else{
+                log('err', res);
+                $.Dialog.fail("服务器出错");
+            }
+            loadingFlag = false;
+        });
+    }
 });

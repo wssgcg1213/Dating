@@ -4,7 +4,6 @@
  * @Email i@zeroling.com
  */
 define('vms/category', ['jquery', 'userCenter', 'urls', 'avalon', 'dialog'], function ($, userCenter, urls) {
-    var user = userCenter.info();
     var orderList = [{
         id: 1,
         type: "时间排序"
@@ -50,6 +49,7 @@ define('vms/category', ['jquery', 'userCenter', 'urls', 'avalon', 'dialog'], fun
             avalon.vmodels['main']['state'] = 'loading';
             var type = $$.typeHash.filter(function(o){return o.id == typeId ? o : false})[0];
             avalon.vmodels['category']['active']['category'] = type ? type.type : ""; //对所有分类的处理
+            var user = userCenter.info();
             $.post(urls.dateList, {date_type: typeId, uid: user.uid, token: user.token}).success(function(res){
                 if(res && res.status == 200){
                     avalon.vmodels['showBox']['dateList'] = res.data;

@@ -4,7 +4,6 @@
  * @Email i@zeroling.com
  */
 define('vms/detail', ['urls', 'userCenter', 'jquery', 'eventproxy', 'avalon', 'vms/main'], function (urls, userCenter, $, EventProxy, avalon, vmMain) {
-    var user = userCenter.info();
     var vm = avalon.define({
         $id: "detail",
         data: {}, //detail的数据
@@ -13,7 +12,7 @@ define('vms/detail', ['urls', 'userCenter', 'jquery', 'eventproxy', 'avalon', 'v
 
         goUser: function(id){
             log("叔叔 我们来看看这个人:", id);
-            if(id == user.uid){
+            if(id == userCenter.info().uid){
                 avalon.router.navigate('userInfo');
                 return;
             }
@@ -26,7 +25,7 @@ define('vms/detail', ['urls', 'userCenter', 'jquery', 'eventproxy', 'avalon', 'v
 
             _id = parseInt(_id);
             vmMain['state'] = 'loading';
-
+            var user = userCenter.info();
             $.post(urls.report, {uid: user.uid, token: user.token, date_id: _id}).success(function(res){
                 if(res && res.status == 200){
                     $.Dialog.success("报名成功");
@@ -48,6 +47,7 @@ define('vms/detail', ['urls', 'userCenter', 'jquery', 'eventproxy', 'avalon', 'v
 
             _id = parseInt(_id);
             avalon.vmodels['main']['state'] = 'loading';
+            var user = userCenter.info();
             $.post(urls.collect, {uid: user.uid, token: user.token, date_id: _id}).success(function(res){
                 if(res && res.status == 200){
                     $.Dialog.success("收藏成功");

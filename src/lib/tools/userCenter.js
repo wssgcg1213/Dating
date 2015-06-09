@@ -167,6 +167,7 @@ define('userCenter', ['urls', 'jquery', 'avalon'], function(urls, $, avalon){
         if(!isLogin)return info();
         isLogin = false;
         uid = name = token = undefined;
+        _storage.clear();
         return info();
     }
 
@@ -220,6 +221,14 @@ define('userCenter', ['urls', 'jquery', 'avalon'], function(urls, $, avalon){
                 localStorage.setItem("datingExpires", +new Date + expires * 24 * 3600 * 1000);
             }else{
                 $.cookie('dating', str, {expires: expires});
+            }
+        },
+        clear: function(){
+            if(supportLocalStorage){
+                localStorage.removeItem('dating');
+                localStorage.removeItem('datingExpires');
+            }else{
+                $.removeCookie('dating');
             }
         }
     };
