@@ -1,0 +1,40 @@
+<div class="userWrapper">
+    <img class="userLogo" ms-src="data.head" alt=""/>
+    <p class="userName">{{data.nickname}}<i class="iconfont" ms-class-icon-male="data.gender==1" ms-class-icon-female="data.gender==2"></i></p>
+    <p class="motto">{{data.signature ? data.signature : "TA没有个性签名!"}}</p>
+</div>
+
+<ul class="tab">
+    <li class="selected"><div class="border"><i class="iconfont">&#xe610</i><span>基本资料</span></div></li>
+    <li><div><i class="iconfont">&#xe611</i><span>约会记录</span></div></li>
+</ul>
+
+<div id="tab-container" class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="tab1 swiper-slide">
+            <ul class="detail-info">
+                <li><span>学院</span>：{{data.academy}}</li>
+                <li><span>年级</span>：{{data.grade}}</li>
+                <li><span>电话</span>：{{data.telephone}}</li>
+                <li><span>QQ</span>：{{data.qq}}</li>
+                <li><span>微信</span>：{{data.weixin}}</li>
+            </ul>
+        </div>
+        <ul class="tab2 swiper-slide">
+            <li class="no-one" ms-if="!data.mydate.length">
+                <img src="imgs/noop.png">
+            </li>
+            <li class="content" ms-repeat="data.mydate" ms-on-tap="goDetail(el.date_id)">
+                <p class="title">{{el.title}}</p>
+                <div class="location"><i class="iconfont">&#xe612</i>地点：{{el.place}}</div>
+                <div class="time"><i class="iconfont">&#xe611</i>时间：{{el.date_time * 1000 | date("MM.dd HH:mm")}}</div>
+                <div class="cost">
+                    <i class="iconfont">&#xe60f</i>费用：{{el.cost_model | costModel}}
+                    <span>状态：{{el.date_status | statusFilter}}</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</div>
+

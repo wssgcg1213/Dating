@@ -38,8 +38,17 @@
       height: 100%;
       top: 0;
     }
-    #yTitle, #yLocation, #yPeople{
+    #yTitle{
+      width: 858rem/@psdWidth;
+    }
+    #yLocation{
       width: 50%;
+    }
+
+    #yPeople{
+      width: 747rem/@psdWidth;
+      right: 50rem/@psdWidth;
+      position: absolute;
     }
     .choose{
       float: right;
@@ -79,9 +88,22 @@
     color: #212121;
   }
   a.right, a.right:active, a.right:hover, a.right:visited{
-    float: right;
+//    float: right;
     color: #757575;
     text-decoration: none;
+  }
+  .right{
+    position: absolute;
+    right: 50rem/@psdWidth;
+    left: 2rem;
+  }
+
+  .right2{
+    color: #757575;
+    position: absolute;
+    right: 50rem/@psdWidth;
+    left: 333rem/@psdWidth;
+    text-align: right;
   }
 
   .time{

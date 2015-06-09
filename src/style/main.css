@@ -1378,6 +1378,8 @@ nav .rightMenu {
   margin: 0;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
+  background: none;
+  position: relative;
 }
 .userinfo .no-one {
   padding: 1rem 2rem;
@@ -1458,10 +1460,16 @@ nav .rightMenu {
   height: 100%;
   top: 0;
 }
-.pbl-dating .row #yTitle,
-.pbl-dating .row #yLocation,
-.pbl-dating .row #yPeople {
+.pbl-dating .row #yTitle {
+  width: 7.94444444rem;
+}
+.pbl-dating .row #yLocation {
   width: 50%;
+}
+.pbl-dating .row #yPeople {
+  width: 6.91666667rem;
+  right: 0.46296296rem;
+  position: absolute;
 }
 .pbl-dating .row .choose {
   float: right;
@@ -1506,9 +1514,20 @@ nav .rightMenu {
 .pbl-dating a.right:active,
 .pbl-dating a.right:hover,
 .pbl-dating a.right:visited {
-  float: right;
   color: #757575;
   text-decoration: none;
+}
+.pbl-dating .right {
+  position: absolute;
+  right: 0.46296296rem;
+  left: 2rem;
+}
+.pbl-dating .right2 {
+  color: #757575;
+  position: absolute;
+  right: 0.46296296rem;
+  left: 3.08333333rem;
+  text-align: right;
 }
 .pbl-dating .time {
   color: #44d48b;

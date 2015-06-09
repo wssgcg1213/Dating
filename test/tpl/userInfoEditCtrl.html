@@ -1,0 +1,54 @@
+<nav ms-include-src="'tpl/navBar.html'"></nav>
+<section class="userInfoEdit" ms-controller="userInfoEdit">
+    <div class="inputs-wrapper">
+        <div class="row">
+            <span class="title">昵称</span>
+            <input type="text" ms-duplex="data.nickname" placeholder="请填写昵称" ms-on-tap="active" ms-on-blur="blur">
+        </div>
+
+        <div class="row">
+            <span class="title">签名</span>
+            <input type="text" ms-duplex="data.signature" placeholder="请填写签名" ms-on-tap="active" ms-on-blur="blur">
+        </div>
+
+        <div class="row">
+            <span class="title">学院</span>
+            <select class="academy" ms-duplex="data.academy" ms-on-tap="active" ms-on-blur="blur">
+                <option ms-repeat="academyHash" ms-attr-value="el.name">{{el.name}}</option>
+            </select>
+            <a class="modify">{{data.academy ? data.academy : "点击修改"}}</a>
+        </div>
+
+        <div class="row">
+            <span class="title">年级</span>
+            <select class="grade" ms-duplex="data.grade" ms-on-tap="active" ms-on-blur="blur">
+                <option ms-repeat="gradeHash" ms-attr-value="el.name">{{el.name}}</option>
+            </select>
+            <a class="modify">{{data.grade ? data.grade : "点击修改"}}</a>
+        </div>
+
+        <div class="row">
+            <span class="title">性别</span>
+            <select class="gender" ms-duplex="data.gender" ms-on-tap="active" ms-on-blur="blur">
+                <option value="男">男</option>
+                <option value="女">女</option>
+            </select>
+            <a class="modify">{{data.gender ? data.gender : "点击修改"}}</a>
+        </div>
+
+        <div class="row">
+            <span class="title">电话</span>
+            <input type="text" ms-duplex="data.telephone" placeholder="请填写电话" ms-on-tap="active" ms-on-blur="blur">
+        </div>
+
+        <div class="row">
+            <span class="title">QQ</span>
+            <input type="text" ms-duplex="data.qq" placeholder="请填写QQ" ms-on-tap="active" ms-on-blur="blur">
+        </div>
+
+        <div class="row">
+            <span class="title">微信</span>
+            <input type="text" ms-duplex="data.weixin" placeholder="请填写微信" ms-on-tap="active" ms-on-blur="blur">
+        </div>
+    </div>
+</section>

@@ -33,7 +33,7 @@
                 <option value="男">男</option>
                 <option value="女">女</option>
             </select>
-            <a class="modify">{{data.gender ? data.gender : "点击修改"}}</a>
+            <a class="modify">{{data.gender ? (parseInt(data.gender) ? genderHash[data.gender] : data.gender) : "点击修改"}}</a>
         </div>
 
         <div class="row">

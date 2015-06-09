@@ -20,8 +20,6 @@ define("states/userInfoEdit", ['urls', 'userCenter', 'jquery', 'eventproxy', '..
                 return;
             }
 
-            var gradeHash, academyHash;
-
             function _fail(res){
                 log("api fail", res);
                 if(res.status == 409){
@@ -43,12 +41,12 @@ define("states/userInfoEdit", ['urls', 'userCenter', 'jquery', 'eventproxy', '..
                     return;
                 }
                 if(_check(aRes)){
-                    avalon.vmodels['userInfoEdit']['academyHash'] = academyHash = aRes.data;
+                    avalon.vmodels['userInfoEdit']['academyHash'] = $$.academyHash = aRes.data;
                 }else{
                     return;
                 }
                 if(_check(gRes)){
-                    avalon.vmodels['userInfoEdit']['gradeHash'] = gradeHash = gRes.data;
+                    avalon.vmodels['userInfoEdit']['gradeHash'] = $$.gradeHash = gRes.data;
                 }else{
                     return;
                 }
@@ -59,11 +57,19 @@ define("states/userInfoEdit", ['urls', 'userCenter', 'jquery', 'eventproxy', '..
 
             $.post(urls.userInfo, {uid: user.uid, token: user.token, get_uid: user.uid}).success(function(res){ep.emit('detail', res)}).fail(_fail);
 
-            if(!academyHash)
+            if(!$$.academyHash){
                 $.post(urls.academy).success(function(res){ep.emit('academyHash', res)}).fail(_fail);
+            }else{
+                ep.emit('academyHash', {status: 200, data: $$.academyHash});
+            }
 
-            if(!gradeHash)
+
+            if(!$$.gradeHash){
                 $.post(urls.gradeHash).success(function(res){ep.emit('gradeHash', res)}).fail(_fail);
+            }else{
+                ep.emit('gradeHash', {status: 200, data: $$.gradeHash});
+            }
+
         }
     })
 });

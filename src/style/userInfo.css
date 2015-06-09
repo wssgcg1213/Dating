@@ -225,6 +225,8 @@
   margin: 0;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
+  background: none;
+  position: relative;
 }
 .userinfo .no-one {
   padding: 1rem 2rem;

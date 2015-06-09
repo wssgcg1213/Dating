@@ -5,7 +5,8 @@ define('urls', function(){
     var urls = {
         //"login": "../mock.php?type=login",
         "login": "http://106.184.7.12:8002/index.php/api/public/login",
-        "slider": "../mock.php?type=pics",
+        //"slider": "../mock.php?type=pics",
+        "slider": "http://106.184.7.12:8002/index.php/api/public/banner",
         "publish": "http://106.184.7.12:8002/index.php/api/date/createdate",
         "showBox": "http://106.184.7.12:8002/index.php/api/date/datelist",
         //"showBox": "../mock.php?type=list",

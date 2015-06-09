@@ -6,7 +6,7 @@
 //检测是否登录
 //获取个人信息
 
-define('userCenter', ['urls', 'jquery'], function(urls, $){
+define('userCenter', ['urls', 'jquery', 'avalon'], function(urls, $, avalon){
     /*!
      * jQuery Cookie Plugin v1.4.1
      * https://github.com/carhartl/jquery-cookie
@@ -137,7 +137,6 @@ define('userCenter', ['urls', 'jquery'], function(urls, $){
      */
     function login(username, password, cb){
         if(isLogin) return cb && cb(null, info());
-        debugger;
         $.post(logUrl, {username: username, password: password}).success(function(res){
             if(res.status == 200){
                 isLogin = true;
@@ -151,6 +150,9 @@ define('userCenter', ['urls', 'jquery'], function(urls, $){
                     name: name
                 });
                 cb && cb(null, info());
+            }else if(res.status == 401){
+                log(res);
+                setTimeout(avalon.router.navigate.bind(avalon.router, 'login'), 0);
             }else{
                 cb && cb(true);
             }

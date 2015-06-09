@@ -1,0 +1,9 @@
+<div class="nav-container" ms-controller="nav">
+    <i class="iconfont menu" ms-if="iconmenu" ms-on-tap="toggleMenuState">&#xe60d;</i>
+    <a class="iconfont back" ms-if="iconback" ms-on-tap="back">&#xe60c;</a>
+
+    <a class="title" href="#!/">{{title}}</a>
+
+    <a class="iconfont plus" href="#!/publishDating" ms-if="iconplus">&#xe615;</a>
+    <a class="rightMenu" ms-if="rightMenu" ms-on-tap="rightMenuCallback">{{rightMenu}}</a>
+</div>

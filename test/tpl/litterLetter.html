@@ -1,0 +1,11 @@
+<div class="litterLetter" ms-controller="litterLetter">
+    <div class="list-wrapper" ms-repeat="list" ms-on-tap="goLetters(el.letter_id)">
+        <div class="list">
+            <img class="logo-wrapper" ms-src="el.user_avatar">
+            <div class="content">
+                <span class="username">{{el.user_name}}</span> {{el.content}}
+            </div>
+        </div>
+    </div>
+</div>
+

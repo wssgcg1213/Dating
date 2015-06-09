@@ -66,11 +66,12 @@ define("states/home", ['urls', 'userCenter', 'eventproxy', 'vms/main', 'vms/nav'
             });
 
             //加载过了就不再请求了
-            if(vmSlider['items'].length && vmCategory['categories'].length && vmShowBox['dateList'].length){
-                avalon.scan();
-                vmMain['state'] = 'ok';
-                return;
-            }
+            //if(vmSlider['items'].length && vmCategory['categories'].length && vmShowBox['dateList'].length){
+            //    avalon.scan();
+            //    vmMain['state'] = 'ok';
+            //    return;
+            //}
+            //取消这个逻辑
 
             /**
              * AJAX错误处理函数
