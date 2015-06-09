@@ -35,6 +35,7 @@ define('navState', ['noop', 'avalon'], function (noop, avalon) {
         userInfoPublic: getDefaultState('用户中心'),
         litterLetter: getDefaultState('私信'),
         letters: getDefaultState('私信'),
+        about: getDefaultState('关于'),
 
         userInfoEdit: {
             title: "个人中心",
