@@ -70,7 +70,8 @@
   float: right;
 }
 .inputs-wrapper .academy,
-.inputs-wrapper .grade {
+.inputs-wrapper .grade,
+.inputs-wrapper .gender {
   position: absolute;
   top: 0;
 }

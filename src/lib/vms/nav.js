@@ -45,10 +45,21 @@ define("vms/nav", ['jquery', 'navState', 'noop', 'mmState'], function($, navStat
     });
 
     vm.$watch('menuState', function(newStr){
-        if(newStr){
+        if(newStr){//打开
             $('.menu-overlay').addClass('active');
             $('.menu').addClass('active');
-        }else{
+            $('.wrapper').on('touchend', function _handler(e){
+                var target = e.target,
+                    $menu = $('.menu-overlay');
+                if(e.target == $menu.get(0) || $menu.find(target).length || e.target == $('.menu').get(0)){
+                    //在里面 do nothing
+                    //log(e);
+                }else{
+                    avalon.vmodels.nav.menuState = false;
+                    $('.wrapper').off('touchend', _handler);
+                }
+            });
+        }else{//关闭
             $('.menu-overlay').removeClass('active');
             $('.menu').removeClass('active');
         }

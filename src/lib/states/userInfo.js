@@ -18,12 +18,12 @@ define('states/userInfo', ['urls', 'userCenter', 'vms/nav', 'vms/main', 'vms/use
                 return;
             }
 
-            //避免重复加载
-            if(vmUserInfo.data && vmUserInfo.data.nickname){
-                avalon.scan();
-                vmMain['state'] = 'ok';
-                return;
-            }
+            //取消避免重复加载
+            //if(vmUserInfo.data && vmUserInfo.data.nickname){
+            //    avalon.scan();
+            //    vmMain['state'] = 'ok';
+            //    return;
+            //}
 
             //AJAX
             $.post(urls.userInfo, {uid: user.uid, get_uid: user.uid, token: user.token}).success(function(res){

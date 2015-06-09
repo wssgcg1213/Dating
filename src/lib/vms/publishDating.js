@@ -76,7 +76,10 @@ define('vms/publishDating', ['avalon', 'jquery', 'moment', 'eventproxy', 'urls',
                     setTimeout(avalon.router.navigate.bind(avalon.router, 'detail/' + res.date_id), 2200);
                 } else if (res.status == 409) {
                     log('发布失败', res);
-                    $.Dialog.fail(res.info);
+                    $.Dialog.fail(res.info, 2000);
+                    if(res.info == '请先完善个人信息'){
+                        return setTimeout(avalon.router.navigate.bind(avalon.router, 'userInfoEdit'), 2000);
+                    }
                 } else {
                     log('发布失败', res);
                     $.Dialog.fail('发布失败请重试');

@@ -1,0 +1,38 @@
+{
+  "name": "should",
+  "main": "should.js",
+  "homepage": "https://github.com/shouldjs/should.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/shouldjs/should.js.git"
+  },
+  "authors": [
+    "TJ Holowaychuk <tj@vision-media.ca> and contributors"
+  ],
+  "description": "test framework agnostic BDD-style assertions",
+  "keywords": [
+    "test",
+    "bdd",
+    "assert",
+    "should"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test",
+    "*.md",
+    "LICENSE",
+    "package.json"
+  ],
+  "version": "6.0.3",
+  "_release": "6.0.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "6.0.3",
+    "commit": "f9cd51af1a880ab20318145f5038b35e505b72c5"
+  },
+  "_source": "git://github.com/shouldjs/should.js.git",
+  "_target": "~6.0.3",
+  "_originalSource": "should"
+}

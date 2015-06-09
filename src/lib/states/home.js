@@ -11,6 +11,9 @@ define("states/home", ['urls', 'userCenter', 'eventproxy', 'vms/main', 'vms/nav'
         controller: "main",
         url: "/",
         templateUrl: "tpl/indexCtrl.html",
+        onExit: function(){
+            //$(window).off('scroll',scrollHandle);
+        },
         onEnter: function(){
             vmNav['state'] = 'home';
             vmMain['state'] = 'loading';
@@ -28,6 +31,11 @@ define("states/home", ['urls', 'userCenter', 'eventproxy', 'vms/main', 'vms/nav'
                  * @returns {*|boolean}
                  * @private
                  */
+
+                //showbox下拉加载
+                $(window).bind('scroll',scrollHandle);
+
+
                 function _check(resObj){
                     return resObj && resObj.status == 200 && resObj.data && Array.isArray(resObj.data);
                 }
@@ -46,6 +54,7 @@ define("states/home", ['urls', 'userCenter', 'eventproxy', 'vms/main', 'vms/nav'
                 //category == datetype约会类型表
                 if(_check(category)){
                     vmCategory['categories'] = category.data;
+                    if(!$$.typeHash) $$.typeHash = category.data;
                 }else{
                     log('err category:', category);
                     return $.Dialog.fail('服务器提了一个问题');
@@ -65,11 +74,12 @@ define("states/home", ['urls', 'userCenter', 'eventproxy', 'vms/main', 'vms/nav'
             });
 
             //加载过了就不再请求了
-            if(vmSlider['items'].length && vmCategory['categories'].length && vmShowBox['dateList'].length){
-                avalon.scan();
-                vmMain['state'] = 'ok';
-                return;
-            }
+            //if(vmSlider['items'].length && vmCategory['categories'].length && vmShowBox['dateList'].length){
+            //    avalon.scan();
+            //    vmMain['state'] = 'ok';
+            //    return;
+            //}
+            //取消这个逻辑
 
             /**
              * AJAX错误处理函数
@@ -91,6 +101,42 @@ define("states/home", ['urls', 'userCenter', 'eventproxy', 'vms/main', 'vms/nav'
                 size: 10,
                 order: 1
             }).success(function(res){ep.emit('showBox', res);}).fail(_failHandler);
+
+            function scrollHandle(e){
+                var page = 0;
+                var tHeight = $(document).height();
+                if($(window).scrollTop()+$(window).height() >= tHeight){
+                    ajaxer(avalon.vmodels['category'].active.category,page);
+                    page++;
+                    console.log(page);
+                }
+            }
+
+            function ajaxer(typeId,page){
+                $.post(urls.dateList,{
+                    date_type: typeId,
+                    uid: user.uid,
+                    token: user.token,
+                    page: page
+                }).success(function(res){
+                    if(res && res.state == 200){
+                        console.log(res.data);
+                        avalon.vmodels['showBox']['dateList'].concat(res.data);
+                        avalon.vmodels['main']['state'] = 'ok';
+                    }else if(res && res.state == 409){
+                        log("err", res);
+                        $.Dialog.fail("服务器提了一个问题");
+                    }else{
+                        log("err", res);
+                        $.Dialog.fail("服务器提了一个问题");
+                    }
+                }).fail(function(res){
+                    log("err", res);
+                    $.Dialog.fail("服务器提了一个问题");
+                });
+            }
         }
     });
+
+
 });
