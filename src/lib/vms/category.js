@@ -23,6 +23,7 @@ define('vms/category', ['jquery', 'userCenter', 'urls', 'avalon', 'dialog'], fun
         },
 
         hide: function(id){
+            $(this).addClass("active");
             $('#' + id).removeClass('show');
             setTimeout(function () {$('#' + id).hide()}, 400);
         },
