@@ -1383,7 +1383,7 @@ nav .rightMenu {
 .userinfo .no-one {
   padding: 1rem 2rem;
   position: absolute;
-  width: 50%;
+  width: 100%;
   box-sizing: border-box;
 }
 .userinfo .no-one img {
