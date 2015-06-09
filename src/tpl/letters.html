@@ -11,11 +11,12 @@
         </div>
     </div>
     <div class="letter-wrapper">
-            <p>他报名参加你的
-                "<span class="activity">{{data.content}}</span>"活动
+            <p>
+                <span class="activity">{{data.user_name}}</span>
+                {{data.content}}
             </p>
     </div>
-    <div class="fixed-footer" ms-if="data.user_date_status!=2">
+    <div class="fixed-footer" ms-if="data.user_date_status==2"><!-- 2是未处理 -->
         <ul>
             <li ms-on-tap="action('refuse',data.letter_id,data.date_id)">拒绝</li>
             <li ms-on-tap="action('accept',data.letter_id,data.date_id)" class="special">接受</li>

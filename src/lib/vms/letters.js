@@ -19,9 +19,15 @@ define('vms/letters', ['avalon', 'jquery', 'urls', 'userCenter', 'dialog'], func
             }).success(function(res){
                 if(res && res.status == 200){
                     log(res);
-                    //todo
+                    //todo ??
                 }else{
                     log('err', res);
+                    if(res.status == 409){
+                        $.Dialog.fail(res.info, 2000);
+                        return setTimeout(function(){
+                            location.reload();
+                        }, 2000);
+                    }
                     return $.Dialog.fail('服务器的毛病');
                 }
             }).fail(function(res){
