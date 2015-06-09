@@ -6,14 +6,14 @@
 //检测是否登录
 //获取个人信息
 
-define('userCenter', ['urls', 'jquery', 'avalon'], function(urls, $, avalon){
+define('userCenter', ['request', 'jquery', 'avalon'], function(request, $, avalon){
     /*!
      * jQuery Cookie Plugin v1.4.1
      * https://github.com/carhartl/jquery-cookie
      *
      * Copyright 2006, 2014 Klaus Hartl
      * Released under the MIT license
-     * 这是一个JQ的cookie插件 preload by ling
+     * 这是一个JQ的cookie插件 preloaded by ling
      */
     (function (factory) {
         if (typeof define === 'function' && define.amd) {
@@ -128,7 +128,6 @@ define('userCenter', ['urls', 'jquery', 'avalon'], function(urls, $, avalon){
      */
     var isLogin = false; //closure
     var uid, name, token;
-    var logUrl = urls.login;
 
     /**
      * 登陆 回调写法
@@ -137,26 +136,22 @@ define('userCenter', ['urls', 'jquery', 'avalon'], function(urls, $, avalon){
      */
     function login(username, password, cb){
         if(isLogin) return cb && cb(null, info());
-        $.post(logUrl, {username: username, password: password}).success(function(res){
-            if(res.status == 200){
+        request('login', {username: username, password: password})
+            .done(function(res){
                 isLogin = true;
                 uid = res.uid;
                 token = res.token;
                 name = res.name;
-
                 _storage.set({
                     uid: uid,
                     token: token,
                     name: name
                 });
                 cb && cb(null, info());
-            }else if(res.status == 401){
-                log(res);
-                setTimeout(avalon.router.navigate.bind(avalon.router, 'login'), 0);
-            }else{
-                cb && cb(true);
-            }
-        });
+            })
+            .fail(function(res){
+                cb && cb(res);
+            });
     }
 
     /**

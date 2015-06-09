@@ -2,7 +2,7 @@
  * Created by Liuchenling on 5/30/15.
  */
 
-define('states/detail', ['urls', 'userCenter', 'eventproxy', 'vms/detail', 'vms/nav', 'vms/main', 'mmState', 'dialog', 'avaFilters', 'score'], function(urls, userCenter, EventProxy, vmDetail, vmNav, vmMain){
+define('states/detail', ['request', 'userCenter', 'eventproxy', 'vms/detail', 'vms/nav', 'vms/main', 'mmState', 'dialog', 'avaFilters', 'score'], function(request, userCenter, EventProxy, vmDetail, vmNav, vmMain){
     avalon.state('detail', {
         url: '/detail/:id',
         templateUrl: "tpl/detailCtrl.html",
@@ -22,31 +22,15 @@ define('states/detail', ['urls', 'userCenter', 'eventproxy', 'vms/detail', 'vms/
             vmDetail.data = {};
             vmDetail.isSignedUp = vmDetail.isCollected = false;
 
-            var ep = EventProxy.create('detail', function(detailRes){
-                if(detailRes && detailRes.status == 200){
-                    vmDetail.data = detailRes.data;
-                    vmDetail['isCollected'] = detailRes.data.collection_status;
-                    vmDetail['isSignedUp'] = detailRes.data.apply_status;
-                }else{
-                    return _fail(detailRes);
-                }
-
-                avalon.scan();
-                vmMain['state'] = 'ok';
-            })
-
-            function _fail(res){
-                log("api fail", res);
-                if(res.status == 409){
-                    return $.Dialog.fail(res.info);
-                }
-                $.Dialog.fail("服务器开小差了");
-            }
-
             //获取detail的数据
-            $.post(urls.detail, {date_id: id, uid: user.uid, token: user.token}).success(function(res){
-                ep.emit('detail', res);
-            }).fail(_fail);
+            request('detail', {date_id: id, uid: user.uid, token: user.token})
+                .done(function(res){
+                    vmDetail.data = res.data;
+                    vmDetail['isCollected'] = res.data.collection_status;
+                    vmDetail['isSignedUp'] = res.data.apply_status;
+                    avalon.scan();
+                    vmMain['state'] = 'ok';
+                });
 
         }
     });

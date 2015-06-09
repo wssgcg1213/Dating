@@ -7,7 +7,7 @@
  * @Email i@zeroling.com
  */
 
-define("states/letters", ['urls', 'userCenter', 'vms/letters', 'vms/main', 'vms/nav', 'mmState', 'dialog', 'avaFilters'], function (urls, userCenter, vmLetters, vmMain, vmNav) {
+define("states/letters", ['urls', 'userCenter', 'request', 'vms/letters', 'vms/main', 'vms/nav', 'mmState', 'dialog', 'avaFilters'], function (urls, userCenter, request, vmLetters, vmMain, vmNav) {
     avalon.state('letters', {
         url: '/letters/:id',
         templateUrl: "tpl/lettersCtrl.html",
@@ -22,25 +22,12 @@ define("states/letters", ['urls', 'userCenter', 'vms/letters', 'vms/main', 'vms/
                 return;
             }
 
-            $.post(urls.letters, {
-                letter_id: id,
-                uid: user.uid,
-                token: user.token
-            }).success(function (res) {
-                if (res.status == 200) {
+            request('letters', {letter_id: id, uid: user.uid, token: user.token})
+                .done(function (res) {
                     vmLetters.data = res.data;
                     avalon.scan();
                     vmMain.state = 'ok';
-                } else {
-                    log("err", res);
-                    return $.Dialog.fail("服务器提了一个问题");
-                }
-            }).fail(function(res){
-                log("err", res);
-                return $.Dialog.fail("服务器提了一个问题");
-            });
-
-
+                });
         }
     });
 })

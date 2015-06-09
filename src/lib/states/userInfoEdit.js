@@ -4,7 +4,7 @@
 
 
 
-define("states/userInfoEdit", ['urls', 'userCenter', 'jquery', 'eventproxy', '../mmState', 'dialog', 'vms/main', 'vms/userInfoEdit', '../mmState', '../mmHistory'], function(urls, userCenter, $, EP){
+define("states/userInfoEdit", ['request', 'userCenter', 'jquery', 'eventproxy',  'dialog', 'vms/main', 'vms/userInfoEdit', 'mmState'], function(request, userCenter, $, EP){
     var av = avalon.vmodels;
     avalon.state('userInfoEdit',{
         url: "/userInfoEdit",
@@ -20,56 +20,28 @@ define("states/userInfoEdit", ['urls', 'userCenter', 'jquery', 'eventproxy', '..
                 return;
             }
 
-            function _fail(res){
-                log("api fail", res);
-                if(res.status == 409){
-                    return $.Dialog.fail(res.info);
-                }
-                $.Dialog.fail("服务器提了一个问题");
-            }
-            function _check(res){
-                if(res && res.status == 200 && res.data){
-                    return true;
-                }
-                _fail(res);
-                return false;
-            }
             var ep = EP.create('detail', 'academyHash', 'gradeHash', function(detail, aRes, gRes){
-                if(_check(detail)){
-                    avalon.vmodels['userInfoEdit']['data'] = detail.data;
-                }else{
-                    return;
-                }
-                if(_check(aRes)){
-                    avalon.vmodels['userInfoEdit']['academyHash'] = $$.academyHash = aRes.data;
-                }else{
-                    return;
-                }
-                if(_check(gRes)){
-                    avalon.vmodels['userInfoEdit']['gradeHash'] = $$.gradeHash = gRes.data;
-                }else{
-                    return;
-                }
-
+                avalon.vmodels['userInfoEdit']['data'] = detail.data;
+                avalon.vmodels['userInfoEdit']['academyHash'] = $$.academyHash = aRes.data;
+                avalon.vmodels['userInfoEdit']['gradeHash'] = $$.gradeHash = gRes.data;
                 avalon.scan();
                 av['main']['state'] = 'ok';
             });
 
-            $.post(urls.userInfo, {uid: user.uid, token: user.token, get_uid: user.uid}).success(function(res){ep.emit('detail', res)}).fail(_fail);
+            request('userInfo', {uid: user.uid, token: user.token, get_uid: user.uid})
+                .done(function(res){ep.emit('detail', res)});
 
             if(!$$.academyHash){
-                $.post(urls.academy).success(function(res){ep.emit('academyHash', res)}).fail(_fail);
+                request('academy').done(function(res){ep.emit('academyHash', res)});
             }else{
                 ep.emit('academyHash', {status: 200, data: $$.academyHash});
             }
 
-
             if(!$$.gradeHash){
-                $.post(urls.gradeHash).success(function(res){ep.emit('gradeHash', res)}).fail(_fail);
+                request('gradeHash').done(function(res){ep.emit('gradeHash', res)});
             }else{
                 ep.emit('gradeHash', {status: 200, data: $$.gradeHash});
             }
-
         }
     })
 });

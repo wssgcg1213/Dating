@@ -78,7 +78,8 @@ module.exports = function(grunt) {
                     DateTimePicker: "tools/DateTimePicker",
                     moment: "tools/moment",
                     score: "tools/jq.score",
-                    navState: "tools/navState"
+                    navState: "tools/navState",
+                    request: "tools/request"
                 }
             }
         }

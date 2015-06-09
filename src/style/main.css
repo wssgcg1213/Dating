@@ -2558,7 +2558,7 @@ nav .rightMenu {
           transform: translate(-50%, 0);
   top: 0.92592593rem;
 }
-.about .creater {
+.about .creator {
   position: fixed;
   bottom: 0.18518519rem;
   left: 50%;
@@ -2568,10 +2568,10 @@ nav .rightMenu {
   font-size: 18px;
   color: #333;
 }
-[data-dpr="2"] .about .creater {
+[data-dpr="2"] .about .creator {
   font-size: 36px;
 }
-[data-dpr="3"] .about .creater {
+[data-dpr="3"] .about .creator {
   font-size: 54px;
 }
 .loading:after {

@@ -3,8 +3,8 @@
  * @Author Ling.
  * @Email i@zeroling.com
  */
-define('vms/detail', ['urls', 'userCenter', 'jquery', 'eventproxy', 'avalon', 'vms/main'], function (urls, userCenter, $, EventProxy, avalon, vmMain) {
-    var vm = avalon.define({
+define('vms/detail', ['request', 'userCenter', 'jquery', 'eventproxy', 'avalon', 'vms/main'], function (request, userCenter, $, EventProxy, avalon, vmMain) {
+    return avalon.define({
         $id: "detail",
         data: {}, //detail的数据
         isSignedUp: false, //已经报名否
@@ -26,18 +26,10 @@ define('vms/detail', ['urls', 'userCenter', 'jquery', 'eventproxy', 'avalon', 'v
             _id = parseInt(_id);
             vmMain['state'] = 'loading';
             var user = userCenter.info();
-            $.post(urls.report, {uid: user.uid, token: user.token, date_id: _id}).success(function(res){
-                if(res && res.status == 200){
-                    $.Dialog.success("报名成功");
-                    avalon.vmodels['detail']['isSignedUp'] = true;
-                }else{
-                    log("报名 API fail", res);
-                    if(res.status == 409){
-                        return $.Dialog.fail(res.info);
-                    }
-                    $.Dialog.fail("服务器开小差了!");
-                }
-            }).fail(log.bind(this, "报名 API fail"));
+            request('report', {uid: user.uid, token: user.token, date_id: _id}).done(function(res){
+                $.Dialog.success("报名成功");
+                avalon.vmodels['detail']['isSignedUp'] = true;
+            });
         },
 
         collect: function(_id){ //收藏
@@ -48,21 +40,10 @@ define('vms/detail', ['urls', 'userCenter', 'jquery', 'eventproxy', 'avalon', 'v
             _id = parseInt(_id);
             avalon.vmodels['main']['state'] = 'loading';
             var user = userCenter.info();
-            $.post(urls.collect, {uid: user.uid, token: user.token, date_id: _id}).success(function(res){
-                if(res && res.status == 200){
-                    $.Dialog.success("收藏成功");
-                    avalon.vmodels['detail']['isCollected'] = true;
-                }else{
-                    log("收藏 API fail", res);
-                    if(res.status == 409){
-                        return $.Dialog.fail(res.info);
-                    }
-                    $.Dialog.fail("服务器开小差了!");
-                }
-            }).fail(log.bind(this, "收藏 API fail"));
-
+            request('collect', {uid: user.uid, token: user.token, date_id: _id}).success(function(res){
+                $.Dialog.success("收藏成功");
+                avalon.vmodels['detail']['isCollected'] = true;
+            });
         }
     });
-    
-    return vm;
 });

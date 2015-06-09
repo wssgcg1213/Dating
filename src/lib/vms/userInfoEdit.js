@@ -3,8 +3,8 @@
  * @Author Ling.
  * @Email i@zeroling.com
  */
-define('vms/userInfoEdit', ['avalon', 'jquery', 'urls', 'userCenter', 'dialog'], function (avalon, $, urls, userCenter) {
-    var vm = avalon.define({
+define('vms/userInfoEdit', ['avalon', 'jquery', 'request', 'userCenter', 'dialog'], function (avalon, $, request, userCenter) {
+    return avalon.define({
         $id: "userInfoEdit",
         data: {},
         academyHash: [],
@@ -23,14 +23,6 @@ define('vms/userInfoEdit', ['avalon', 'jquery', 'urls', 'userCenter', 'dialog'],
 
         finish: function(){
             var data = avalon.vmodels['userInfoEdit']['data'];
-            function _fail(res){
-                log('err', res);
-                if(res.status == 409){
-                    return $.Dialog.fail(res.info);
-                }
-                $.Dialog.fail("服务器出了问题");
-            }
-
             if(!data.nickname){
                 return $.Dialog.fail('请填写正确的昵称');
             }
@@ -47,13 +39,13 @@ define('vms/userInfoEdit', ['avalon', 'jquery', 'urls', 'userCenter', 'dialog'],
                 return $.Dialog.fail("请检查电话");
             }
 
-            var _academy = $$.academyHash.filter(function(o){if(o.name == data.academy) return o})[0];
-            var academyId = _academy ? _academy.id : 0;
+            var  _academy = $$.academyHash.filter(function(o){if(o.name == data.academy) return o})[0],
+                academyId = _academy ? _academy.id : 0,
+                   _grade = $$.gradeHash.filter(function(o){if(o.name == data.grade) return o})[0],
+                  gradeId = _grade ? _grade.id : 0,
+                     user = userCenter.info();
 
-            var _grade = $$.gradeHash.filter(function(o){if(o.name == data.grade) return o})[0];
-            var gradeId = _grade ? _grade.id : 0;
-            var user = userCenter.info();
-            $.post(urls.editdata, {
+            request('editdata', {
                 uid: user.uid,
                 token: user.token,
                 nickname: data.nickname,
@@ -64,16 +56,10 @@ define('vms/userInfoEdit', ['avalon', 'jquery', 'urls', 'userCenter', 'dialog'],
                 telephone: data.telephone,
                 qq: data.qq,
                 weixin: data.weixin
-            }).success(function(res){
-                if(res && res.status == 200){
-                    $.Dialog.success("修改成功", 2000);
-                    setTimeout(function(){
-                        avalon.router.navigate('userInfo');
-                    }, 2000);
-                }else{_fail(res);}
-            }).fail(_fail);
+            }).done(function(res){
+                $.Dialog.success("修改成功", 2000);
+                setTimeout(function(){avalon.router.navigate('userInfo')}, 2000);
+            });
         }
     });
-
-    return vm;
 });

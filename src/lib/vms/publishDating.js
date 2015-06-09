@@ -3,7 +3,7 @@
  * @Author Ling.
  * @Email i@zeroling.com
  */
-define('vms/publishDating', ['avalon', 'jquery', 'moment', 'eventproxy', 'urls', 'vms/main', 'userCenter', 'mmState', 'dialog', 'DateTimePicker'], function (avalon, $, moment, EP, urls, vmMain, userCenter) {
+define('vms/publishDating', ['avalon', 'jquery', 'moment', 'eventproxy', 'request', 'vms/main', 'userCenter', 'dialog', 'DateTimePicker'], function (avalon, $, moment, EP, request, vmMain, userCenter) {
     var lunar = ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
         weeks = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"];
     var vm = avalon.define({
@@ -66,21 +66,13 @@ define('vms/publishDating', ['avalon', 'jquery', 'moment', 'eventproxy', 'urls',
                 return $.Dialog.fail("请输入地址");
             }
 
-            $.post(urls.publish, info).success(function (res) {
-                if (res && res.status == 200) {
-                    log('发布成功', res);
-                    $.Dialog.success("发布成功!", 1500);
-                    setTimeout(avalon.router.navigate.bind(avalon.router, 'detail/' + res.date_id), 2200);
-                } else if (res.status == 409) {
-                    log('发布失败', res);
-                    $.Dialog.fail(res.info, 2000);
-                    if(res.info == '请先完善个人信息'){
-                        return setTimeout(avalon.router.navigate.bind(avalon.router, 'userInfoEdit'), 2000);
-                    }
-                } else {
-                    log('发布失败', res);
-                    $.Dialog.fail('发布失败请重试');
-                }
+            request('publish', info).done(function (res) {
+                log('发布成功', res);
+                $.Dialog.success("发布成功!", 1500);
+                setTimeout(avalon.router.navigate.bind(avalon.router, 'detail/' + res.date_id), 2200);
+            }).fail(function(res){
+                if(res.info == '请先完善个人信息')
+                    return setTimeout(avalon.router.navigate.bind(avalon.router, 'userInfoEdit'), 2000);
             });
         },
 
@@ -290,7 +282,6 @@ define('vms/publishDating', ['avalon', 'jquery', 'moment', 'eventproxy', 'urls',
     vm.$watch('yPeople', function (newStr, oldStr) {
         vm['yPeople'] = parseInt(newStr) || 0;
     });
-
 
     return vm;
 });
