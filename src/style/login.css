@@ -73,7 +73,7 @@
 [data-dpr="3"] .login-wrapper .trouble {
   font-size: 54px;
 }
-.login-wrapper .creater {
+.login-wrapper .creator {
   position: fixed;
   bottom: 0.18518519rem;
   color: #333;
@@ -83,9 +83,9 @@
       -ms-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
 }
-[data-dpr="2"] .login-wrapper .creater {
+[data-dpr="2"] .login-wrapper .creator {
   font-size: 36px;
 }
-[data-dpr="3"] .login-wrapper .creater {
+[data-dpr="3"] .login-wrapper .creator {
   font-size: 54px;
 }
