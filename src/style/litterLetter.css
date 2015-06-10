@@ -32,7 +32,7 @@
   overflow: hidden;
   white-space: nowrap;
   font-size: 16px;
-  line-height: 215 rem / 108;
+  line-height: 1.99074074rem;
 }
 [data-dpr="2"] .litterLetter .list .content {
   font-size: 32px;

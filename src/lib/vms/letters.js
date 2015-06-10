@@ -17,14 +17,13 @@ define('vms/letters', ['avalon', 'jquery', 'request', 'userCenter', 'dialog'], f
                 date_id: date_id,
                 action: type
             }).done(function(res){
-                log(res);
-                //todo ??
+                avalon.vmodels.letters.data.user_date_status = type; //1已接受, 0已拒绝
             }).fail(function(res){
                 if(res.status != 409) return;
                 $.Dialog.fail(res.info, 2000);
-                return setTimeout(function(){
-                    location.reload();
-                }, 2000);
+                //return setTimeout(function(){
+                //    location.reload();
+                //}, 2000);
             });
         }
     });
