@@ -17,16 +17,17 @@ define('states/history', ['request', 'userCenter', 'eventproxy', 'mmState', 'dia
             }
 
             $.when(
-                request('historyCreate',{uid: user.uid,token: user.token}),
-                request('historyJoin',{uid:user.uid,token:user.token})
+                request('historyCreate', {uid: user.uid,token: user.token}),
+                request('historyJoin', {uid:user.uid,token:user.token})
             ).done(function(createRes, joinRes){
-                    var data = []; //all in one
-
-                    av["showBox"].dateList = data.concat(createRes.data).concat(joinRes.data).sort(function(v1, v2){
+                    //all in one
+                    var data = [].concat(createRes.data).concat(joinRes.data).sort(function(v1, v2){
                         return v2.created_at - v1.created_at;
-                    }).forEach(function(v){
+                    });
+                    data.forEach(function(v){
                         v.date_at = v.date_time;
                     });
+                    av["showBox"].dateList = data;
 
                     avalon.scan();
                     avalon.vmodels['main']['state'] = 'ok';

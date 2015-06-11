@@ -45,13 +45,16 @@ define("states/home", ['request', 'userCenter', 'eventproxy', 'vms/main', 'vms/n
         }
     });
 
-    var loadingFlag = false;
+    var loadingFlag = false,
+        noMoreCount = 0;
     function scrollHandler(ev){
-        if(loadingFlag || $(this).height() + $(this).scrollTop() < $(document).height() - 150)return false;
+        if(loadingFlag || $(this).height() + $(this).scrollTop() < $(document).height()){
+            log(loadingFlag);
+            return false;
+        }
 
         loadingFlag = true;
         vmMain.state = 'loading';
-
         var typeName = avalon.vmodels['category']['active']['category'], typeId = 0;
         if(typeName){
             typeId = $$.typeHash.filter(function(o){if(o.type == typeName) return o});
@@ -62,19 +65,27 @@ define("states/home", ['request', 'userCenter', 'eventproxy', 'vms/main', 'vms/n
             }
         }
         var user = userCenter.info();
-        var page = vmShowBox.page++;
-
+        var page = vmShowBox.page;
+        if(!page) page = 1;
         request('showBox', {
             uid: user.uid,
             token: user.token,
             date_type: typeId,
-            page: page,
+            page: page + 1,
             size: 10,
             order: 1 //todo order
         }).done(function(res){
+            if(!res.data.length){
+                !noMoreCount ? $.Dialog.success("木有更多啦") : $.Dialog.success("真的木有了!");
+                noMoreCount++;
+                return setTimeout(function(){loadingFlag = false}, 2500);
+            }
             vmShowBox.dateList.pushArray(res.data);
             vmMain.state = 'ok';
-            loadingFlag = false;
+            vmShowBox.page = page + 1;
+            setTimeout(function(){
+                loadingFlag = false;
+            }, 2500);//反正延迟到nextLoop
         });
     }
 });
