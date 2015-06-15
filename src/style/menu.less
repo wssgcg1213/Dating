@@ -2,30 +2,46 @@
 
 //左侧抽屉
 .menu-overlay{
-  position: absolute;
+  .menu-flow{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 4rem;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    transition: background ease-in-out 400ms;
+  }
+  position: fixed;
   top: 0;
   left: -4rem;
   width: 4rem;
   height: 100%;
-  background-color: rgb(255, 63, 71);
+  background: rgb(255, 255, 255);
   z-index: 10;
   transition: transform ease-in-out 400ms;
   &.active{
     transform: translate3d(4rem, 0, 0);
+    .menu-flow{
+      background: rgba(0, 0, 0, 0.3);
+    }
   }
   
   padding-top: 140rem / @psdWidth;
 
   .line{
     height: 120rem / @psdWidth;
-    text-align: center;
+//    text-align: center;
+    margin-left: 48rem / @psdWidth;
     line-height: 120rem / @psdWidth;
 
     a{
-      color: #FFF;
+      color: #444;
       .rfz(17px);
       width: 100%;//->
       float: left;//为了创建块级元素, 有足够大的点击区域
     }
   }
+
+
 }

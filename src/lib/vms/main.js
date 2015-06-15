@@ -58,7 +58,9 @@ define("vms/main", ['jquery', 'dialog', 'swiper', 'avalon', 'mmState', 'vms/show
      * 页面全局菊花 + overlay控制
      */
     av['main'].$watch('state', function(s){
-        s == 'loading' ? $.Dialog.loading() : $.Dialog.close();
+        s == 'loading' && !$('.dialog-content').find('p').length
+            ? $.Dialog.loading()
+            : $.Dialog.close();
     });
     av['main']['state'] = 'loading';
 

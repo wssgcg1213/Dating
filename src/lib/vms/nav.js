@@ -44,24 +44,33 @@ define("vms/nav", ['jquery', 'navState', 'noop', 'mmState'], function($, navStat
         }
     });
 
+
+    function _h(e){
+        e.stopPropagation();
+        vm.menuState = false;
+        return false
+    }
     vm.$watch('menuState', function(newStr){
         if(newStr){//打开
-            $('.menu-overlay').addClass('active');
+            $('.menu-flow').show().on('touchmove', _h).on('touchstart', _h).on('touchend', _h);
+            setTimeout(function(){$('.menu-overlay').addClass('active')}, 16);
             $('.menu').addClass('active');
-            $('.wrapper').on('touchend', function _handler(e){
-                var target = e.target,
-                    $menu = $('.menu-overlay');
-                if(e.target == $menu.get(0) || $menu.find(target).length || e.target == $('.menu').get(0)){
-                    //在里面 do nothing
-                    //log(e);
-                }else{
-                    avalon.vmodels.nav.menuState = false;
-                    $('.wrapper').off('touchend', _handler);
-                }
-            });
-        }else{//关闭
+            //$('.wrapper').on('touchend', function _handler(e){
+            //    var target = e.target,
+            //        $menu = $('.menu-overlay');
+            //    if(e.target == $menu.get(0) || $menu.find(target).length || e.target == $('.menu').get(0)){
+            //        //在里面 do nothing
+            //        //log(e);
+            //    }else{
+            //        avalon.vmodels.nav.menuState = false;
+            //        $('.wrapper').off('touchend', _handler);
+            //    }
+            //});
+        }else{//关闭.
+            $('.menu-flow').off('touchmove', _h).off('touchstart', _h).off('touchend', _h);
             $('.menu-overlay').removeClass('active');
             $('.menu').removeClass('active');
+            setTimeout(function(){$('.menu-flow').hide()}, 400);
         }
     });
 

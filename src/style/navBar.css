@@ -6,7 +6,8 @@ nav {
   line-height: 1.2962963rem;
   background-color: #ff3f47;
   color: #ffffff;
-  position: relative;
+  position: fixed;
+  z-index: 11;
 }
 nav .nav-container {
   width: 100%;
