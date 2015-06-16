@@ -22,7 +22,7 @@
   transition: transform ease-in-out 400ms;
   &.active{
     transform: translate3d(4rem, 0, 0);
-    .menu-flow{
+    .menu-flow {
       background: rgba(0, 0, 0, 0.3);
     }
   }
@@ -31,16 +31,36 @@
 
   .line{
     height: 120rem / @psdWidth;
-//    text-align: center;
-    margin-left: 48rem / @psdWidth;
     line-height: 120rem / @psdWidth;
-
     a{
       color: #444;
-      .rfz(17px);
+      text-indent: 48rem / @psdWidth;
+      &.ms-click-active{
+        background-color: red;
+        color: #FFF;
+      }
+      .rfz(14px);
       width: 100%;//->
       float: left;//为了创建块级元素, 有足够大的点击区域
     }
+  }
+
+  .menu-avatar{
+    padding: 40rem/@psdWidth;
+    padding-right: 0;
+    height: 260rem/@psdWidth;
+    position: relative;
+    img{
+      width: 180rem/@psdWidth;
+      height: 180rem/@psdWidth;
+      border: 1px solid #ddd;
+      border-radius: 50%;
+    }
+    .menu-name{
+      position: absolute;
+      bottom: 40rem/@psdWidth;
+    }
+    border-bottom: 1px solid #ddd;
   }
 
 

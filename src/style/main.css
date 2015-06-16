@@ -1469,7 +1469,7 @@ nav .rightMenu {
   width: 50%;
 }
 .pbl-dating .row #yPeople {
-  width: 6.91666667rem;
+  width: 5.55555556rem;
   right: 0.46296296rem;
   position: absolute;
 }
@@ -2550,20 +2550,41 @@ nav .rightMenu {
 }
 .menu-overlay .line {
   height: 1.11111111rem;
-  margin-left: 0.44444444rem;
   line-height: 1.11111111rem;
 }
 .menu-overlay .line a {
   color: #444;
-  font-size: 17px;
+  text-indent: 0.44444444rem;
+  font-size: 14px;
   width: 100%;
   float: left;
 }
+.menu-overlay .line a.ms-click-active {
+  background-color: red;
+  color: #FFF;
+}
 [data-dpr="2"] .menu-overlay .line a {
-  font-size: 34px;
+  font-size: 28px;
 }
 [data-dpr="3"] .menu-overlay .line a {
-  font-size: 51px;
+  font-size: 42px;
+}
+.menu-overlay .menu-avatar {
+  padding: 0.37037037rem;
+  padding-right: 0;
+  height: 2.40740741rem;
+  position: relative;
+  border-bottom: 1px solid #ddd;
+}
+.menu-overlay .menu-avatar img {
+  width: 1.66666667rem;
+  height: 1.66666667rem;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+}
+.menu-overlay .menu-avatar .menu-name {
+  position: absolute;
+  bottom: 0.37037037rem;
 }
 .about {
   position: relative;

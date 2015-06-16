@@ -3,7 +3,8 @@
  * @Author Ling.
  * @Email i@zeroling.com
  */
-define("vms/nav", ['jquery', 'navState', 'noop', 'mmState'], function($, navState, noop){
+define("vms/nav", ['jquery', 'navState', 'noop', 'userCenter', 'mmState'], function($, navState, noop, userCenter){
+    var user = userCenter.info();
     /**
      * 顶部navBar的VM
      */
@@ -15,6 +16,8 @@ define("vms/nav", ['jquery', 'navState', 'noop', 'mmState'], function($, navStat
         iconplus: false,
         rightMenu: "",
         rightMenuCallback: noop,
+        head: user.head,
+        username: user.name,
 
         state: "",
         menuState: false,//标识菜单的呼出状态
@@ -55,17 +58,6 @@ define("vms/nav", ['jquery', 'navState', 'noop', 'mmState'], function($, navStat
             $('.menu-flow').show().on('touchmove', _h).on('touchstart', _h).on('touchend', _h);
             setTimeout(function(){$('.menu-overlay').addClass('active')}, 16);
             $('.menu').addClass('active');
-            //$('.wrapper').on('touchend', function _handler(e){
-            //    var target = e.target,
-            //        $menu = $('.menu-overlay');
-            //    if(e.target == $menu.get(0) || $menu.find(target).length || e.target == $('.menu').get(0)){
-            //        //在里面 do nothing
-            //        //log(e);
-            //    }else{
-            //        avalon.vmodels.nav.menuState = false;
-            //        $('.wrapper').off('touchend', _handler);
-            //    }
-            //});
         }else{//关闭.
             $('.menu-flow').off('touchmove', _h).off('touchstart', _h).off('touchend', _h);
             $('.menu-overlay').removeClass('active');
