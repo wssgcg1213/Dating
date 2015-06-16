@@ -26,6 +26,10 @@ define('states/detail', ['request', 'userCenter', 'eventproxy', 'vms/detail', 'v
             request('detail', {date_id: id, uid: user.uid, token: user.token})
                 .done(function(res){
                     vmDetail.data = res.data;
+                    if(res.data.joined.length == 0){
+                        vmDetail['isSomeoneSignedUp'] = false;
+                    }
+                    console.log('现在是否有人报名：'+ vmDetail['isSomeoneSignedUp']);
                     vmDetail['isCollected'] = res.data.collection_status;
                     vmDetail['isSignedUp'] = res.data.apply_status;
                     avalon.scan();

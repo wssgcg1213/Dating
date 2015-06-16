@@ -450,8 +450,9 @@ input[type="search"]::-webkit-search-decoration {
 @font-face {
   font-family: "iconfont";
   src: url('iconfont.eot');
-  /* IE9*/
   src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('iconfont.woff') format('woff'), /* chrome、firefox */ url('iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('iconfont.svg#iconfont') format('svg');
+  
+  /* IE9*/
   /* iOS 4.1- */
 }
 html,
@@ -1043,6 +1044,17 @@ nav .rightMenu {
 .detail-wrapper .user-wrapper .user-face-group {
   overflow: hidden;
   margin: 0.18518519rem 0.46296296rem;
+}
+.detail-wrapper .user-wrapper .user-face-group .someone-sign-up {
+  text-align: center;
+  color: #333;
+  font-size: 16px;
+}
+[data-dpr="2"] .detail-wrapper .user-wrapper .user-face-group .someone-sign-up {
+  font-size: 32px;
+}
+[data-dpr="3"] .detail-wrapper .user-wrapper .user-face-group .someone-sign-up {
+  font-size: 48px;
 }
 .detail-wrapper .user-wrapper .user-face {
   float: left;

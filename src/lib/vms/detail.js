@@ -9,6 +9,7 @@ define('vms/detail', ['request', 'userCenter', 'jquery', 'eventproxy', 'avalon',
         data: {}, //detail的数据
         isSignedUp: false, //已经报名否
         isCollected: false, //已经收藏否
+        isSomeoneSignedUp: true, //是否有人报名
 
         goUser: function(id){
             log("叔叔 我们来看看这个人:", id);

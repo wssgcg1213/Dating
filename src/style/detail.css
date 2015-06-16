@@ -107,6 +107,17 @@
   overflow: hidden;
   margin: 0.18518519rem 0.46296296rem;
 }
+.detail-wrapper .user-wrapper .user-face-group .someone-sign-up {
+  text-align: center;
+  color: #333;
+  font-size: 16px;
+}
+[data-dpr="2"] .detail-wrapper .user-wrapper .user-face-group .someone-sign-up {
+  font-size: 32px;
+}
+[data-dpr="3"] .detail-wrapper .user-wrapper .user-face-group .someone-sign-up {
+  font-size: 48px;
+}
 .detail-wrapper .user-wrapper .user-face {
   float: left;
   width: 20%;
