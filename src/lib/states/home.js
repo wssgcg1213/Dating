@@ -17,6 +17,9 @@ define("states/home", ['request', 'userCenter', 'eventproxy', 'vms/main', 'vms/n
                 return;
             }//认证处理
 
+            vmNav.head = user.head;
+            vmNav.username = user.name;
+
             //请求
             $.when(
                 request('slider'),

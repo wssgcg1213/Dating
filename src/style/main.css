@@ -2621,6 +2621,7 @@ nav .rightMenu {
   bottom: 0.37037037rem;
   color: #FFF;
   font-weight: bolder;
+  text-shadow: 0 0 3px #262626;
 }
 .about {
   position: relative;

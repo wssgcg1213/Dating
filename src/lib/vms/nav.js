@@ -4,7 +4,6 @@
  * @Email i@zeroling.com
  */
 define("vms/nav", ['jquery', 'navState', 'noop', 'userCenter', 'mmState'], function($, navState, noop, userCenter){
-    var user = userCenter.info();
     /**
      * 顶部navBar的VM
      */
@@ -16,8 +15,8 @@ define("vms/nav", ['jquery', 'navState', 'noop', 'userCenter', 'mmState'], funct
         iconplus: false,
         rightMenu: "",
         rightMenuCallback: noop,
-        head: user.head,
-        username: user.name,
+        head: "",
+        username: "",
 
         state: "",
         menuState: false,//标识菜单的呼出状态
