@@ -30,7 +30,7 @@
                 <div class="time"><i class="iconfont">&#xe611</i>时间：{{el.date_time * 1000 | date("MM.dd HH:mm")}}</div>
                 <div class="cost">
                     <i class="iconfont">&#xe60f</i>费用：{{el.cost_model | costModel}}
-                    <span>状态：{{el.date_status | statusFilter}}</span>
+                    <span>状态：{{el.date_status | myStatusFilter}}</span>
                 </div>
             </li>
         </ul>

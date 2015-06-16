@@ -935,20 +935,24 @@ nav .rightMenu {
 .scroll-container .no-one img {
   width: 100%;
 }
-#loadMore {
-  width: 100%;
-  height: 0.74074074rem;
-  line-height: 0.74074074rem;
+.scroll-container .load-more {
+  height: 1.11111111rem;
+  line-height: 1.11111111rem;
   background-color: #fff;
   text-align: center;
-  margin-top: 0.24074074rem;
-  font-size: 16px;
+  margin: 0.24074074rem;
+  border-radius: 2px;
+  font-size: 14px;
+  box-shadow: 0 1px 1px rgba(98, 98, 98, 0.3);
 }
-[data-dpr="2"] #loadMore {
-  font-size: 32px;
+[data-dpr="2"] .scroll-container .load-more {
+  font-size: 28px;
 }
-[data-dpr="3"] #loadMore {
-  font-size: 48px;
+[data-dpr="3"] .scroll-container .load-more {
+  font-size: 42px;
+}
+.scroll-container .load-more.ms-click-active {
+  background-color: #DDDDDD;
 }
 .detail-wrapper {
   width: 100%;
@@ -1619,7 +1623,7 @@ nav .rightMenu {
 .dtpicker-overlay {
   z-index: 2000;
   display: none;
-  min-width: 300px;
+  min-width: 200px;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.2);
   font-size: 70%;
@@ -2561,7 +2565,7 @@ nav .rightMenu {
   position: fixed;
   top: 0;
   left: 4rem;
-  width: 100%;
+  width: 500%;
   height: 100%;
   background: rgba(0, 0, 0, 0);
   -webkit-transition: background ease-in-out 400ms;
@@ -2612,6 +2616,8 @@ nav .rightMenu {
 .menu-overlay .menu-avatar .menu-name {
   position: absolute;
   bottom: 0.37037037rem;
+  color: #FFF;
+  font-weight: bolder;
 }
 .about {
   position: relative;

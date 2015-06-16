@@ -155,18 +155,22 @@
 .scroll-container .no-one img {
   width: 100%;
 }
-#loadMore {
-  width: 100%;
-  height: 0.74074074rem;
-  line-height: 0.74074074rem;
+.scroll-container .load-more {
+  height: 1.11111111rem;
+  line-height: 1.11111111rem;
   background-color: #fff;
   text-align: center;
-  margin-top: 0.24074074rem;
-  font-size: 16px;
+  margin: 0.24074074rem;
+  border-radius: 2px;
+  font-size: 14px;
+  box-shadow: 0 1px 1px rgba(98, 98, 98, 0.3);
 }
-[data-dpr="2"] #loadMore {
-  font-size: 32px;
+[data-dpr="2"] .scroll-container .load-more {
+  font-size: 28px;
 }
-[data-dpr="3"] #loadMore {
-  font-size: 48px;
+[data-dpr="3"] .scroll-container .load-more {
+  font-size: 42px;
+}
+.scroll-container .load-more.ms-click-active {
+  background-color: #DDDDDD;
 }

@@ -53,11 +53,19 @@ define("vms/nav", ['jquery', 'navState', 'noop', 'userCenter', 'mmState'], funct
         vm.menuState = false;
         return false
     }
+
+    var listenFlag = false;
     vm.$watch('menuState', function(newStr){
         if(newStr){//打开
             $('.menu-flow').show().on('touchmove', _h).on('touchstart', _h).on('touchend', _h);
             setTimeout(function(){$('.menu-overlay').addClass('active')}, 16);
             $('.menu').addClass('active');
+            if(!listenFlag){
+                $('.wrapper').on('touchstart', '.menu-overlay.active', function(e) {
+                    e.preventDefault();
+                });
+                listenFlag = true;
+            }
         }else{//关闭.`
             $('.menu-flow').off('touchmove', _h).off('touchstart', _h).off('touchend', _h);
             $('.menu-overlay').removeClass('active');

@@ -8,6 +8,11 @@ define('vms/category', ['jquery', 'userCenter', 'request', 'avalon', 'dialog'], 
         id: 1,
         type: "时间排序"
     }];
+
+    $('.wrapper').on('touchstart', '.btn-overlay.show', function(e){
+        e.preventDefault();
+    });
+
     return avalon.define({
         $id: "category",
         orderList: orderList, //排序方式
@@ -36,7 +41,9 @@ define('vms/category', ['jquery', 'userCenter', 'request', 'avalon', 'dialog'], 
 
         show: function (id) {
             $('#' + id).show();
-            setTimeout(function () {$('#' + id).addClass('show')}, 0);
+            setTimeout(function () {
+                $('#' + id).addClass('show');
+            }, 0);
         },
 
         stopBubble: function (e) {

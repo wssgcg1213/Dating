@@ -102,4 +102,14 @@ define('avaFilters', ['avalon'], function(){
         }
         return "未知";
     }
+
+    avalon.filters.myStatusFilter = function(n){
+        n = parseInt(n);
+        switch(n){
+            case 0: return "已结束";
+            case 1: return "成功";
+            case 2: return "等待中";
+        }
+        return "未知";
+    }
 });
