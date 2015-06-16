@@ -105,6 +105,8 @@
 }
 .scroll-container .prefix-content .content .time i {
   color: #44d48b;
+  position: relative;
+  top: 2px;
 }
 .scroll-container .prefix-content .content .cost i {
   color: #ff7660;
