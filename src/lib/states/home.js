@@ -8,14 +8,14 @@ define("states/home", ['request', 'userCenter', 'eventproxy', 'vms/main', 'vms/n
         url: "/",
         templateUrl: "tpl/indexCtrl.html",
         onExit:function(){
-            $(window).off('scroll', scrollHandler)
+            $("#loadMore").off("touch",scrollHandler);
         },
         onEnter: function(){
             vmNav['state'] = 'home';
             vmMain['state'] = 'loading';
 
             //add bang ding
-            $(window).on('scroll', scrollHandler);
+            $("#loadMore").on("touch",scrollHandler);
 
             var user = userCenter.info();
             if(!user.state){
@@ -47,12 +47,12 @@ define("states/home", ['request', 'userCenter', 'eventproxy', 'vms/main', 'vms/n
 
     var loadingFlag = false,
         noMoreCount = 0;
-    function scrollHandler(ev){
-        if(loadingFlag || $(this).height() + $(this).scrollTop() < $(document).height()){
-            log(loadingFlag);
-            return false;
-        }
 
+    function scrollHandler(ev){
+        //if(loadingFlag || $(this).height() + $(this).scrollTop() < $(document).height()){
+        //    log(loadingFlag);
+        //    return false;
+        //}
         loadingFlag = true;
         vmMain.state = 'loading';
         var typeName = avalon.vmodels['category']['active']['category'], typeId = 0;
