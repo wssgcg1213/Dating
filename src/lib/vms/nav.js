@@ -58,7 +58,7 @@ define("vms/nav", ['jquery', 'navState', 'noop', 'userCenter', 'mmState'], funct
             $('.menu-flow').show().on('touchmove', _h).on('touchstart', _h).on('touchend', _h);
             setTimeout(function(){$('.menu-overlay').addClass('active')}, 16);
             $('.menu').addClass('active');
-        }else{//关闭.
+        }else{//关闭.`
             $('.menu-flow').off('touchmove', _h).off('touchstart', _h).off('touchend', _h);
             $('.menu-overlay').removeClass('active');
             $('.menu').removeClass('active');

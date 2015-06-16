@@ -54,6 +54,7 @@
   padding-right: 0;
   height: 2.40740741rem;
   position: relative;
+  background: url('../imgs/bg.jpg');
   border-bottom: 1px solid #ddd;
 }
 .menu-overlay .menu-avatar img {
