@@ -6,6 +6,9 @@
   color: #333333;
   border-bottom: 1px solid #DDD;
 }
+.fliter-btns .ms-click-active {
+  background-color: #F2F2F2;
+}
 .fliter-btns .iconfont {
   color: #666666;
 }

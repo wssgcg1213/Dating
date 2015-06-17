@@ -29,12 +29,18 @@ nav{
     color: #FFF;
     text-decoration: none;
     outline: none;
+    &.ms-click-active{
+      color: #aa9b9c;
+    }
   }
 
   .menu{
     transition: transform ease-in-out 400ms;
     &.active{
       transform: rotate(90deg);
+    }
+    &.ms-click-active{
+      color: #aa9b9c;
     }
   }
 
@@ -43,6 +49,9 @@ nav{
     color: #FFF;
     text-decoration: none;
     outline: none;
+    &.ms-click-active{
+      color: #aa9b9c;
+    }
   }
 
   .plus{//只有这玩意儿是靠右的
@@ -53,7 +62,7 @@ nav{
     color: #FFF;
     text-decoration: none;
     outline: none;
-    &:hover{
+    &.ms-click-active{
       color: #aa9b9c;
     }
   }
@@ -63,5 +72,8 @@ nav{
     right: 0;
     padding: 0 43rem / @psdWidth;
     .rfz(18px);
+    &.ms-click-active{
+      color: #aa9b9c;
+    }
   }
 }

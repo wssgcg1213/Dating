@@ -524,6 +524,10 @@ nav .back {
 [data-dpr="3"] nav .back {
   font-size: 72px;
 }
+nav .menu.ms-click-active,
+nav .back.ms-click-active {
+  color: #aa9b9c;
+}
 nav .menu {
   -webkit-transition: -webkit-transform ease-in-out 400ms;
           transition: transform ease-in-out 400ms;
@@ -532,6 +536,9 @@ nav .menu.active {
   -webkit-transform: rotate(90deg);
       -ms-transform: rotate(90deg);
           transform: rotate(90deg);
+}
+nav .menu.ms-click-active {
+  color: #aa9b9c;
 }
 nav .title {
   font-size: 24px;
@@ -544,6 +551,9 @@ nav .title {
 }
 [data-dpr="3"] nav .title {
   font-size: 72px;
+}
+nav .title.ms-click-active {
+  color: #aa9b9c;
 }
 nav .plus {
   position: absolute;
@@ -560,7 +570,7 @@ nav .plus {
 [data-dpr="3"] nav .plus {
   font-size: 72px;
 }
-nav .plus:hover {
+nav .plus.ms-click-active {
   color: #aa9b9c;
 }
 nav .rightMenu {
@@ -574,6 +584,9 @@ nav .rightMenu {
 }
 [data-dpr="3"] nav .rightMenu {
   font-size: 54px;
+}
+nav .rightMenu.ms-click-active {
+  color: #aa9b9c;
 }
 .swiper-container {
   margin: 0 auto;
@@ -663,6 +676,9 @@ nav .rightMenu {
   background-color: #FFF;
   color: #333333;
   border-bottom: 1px solid #DDD;
+}
+.fliter-btns .ms-click-active {
+  background-color: #F2F2F2;
 }
 .fliter-btns .iconfont {
   color: #666666;
@@ -805,14 +821,18 @@ nav .rightMenu {
 .scroll-container:after {
   clear: both;
 }
+.scroll-container .prefix-content {
+  background-color: #fff;
+}
+.scroll-container .prefix-content.ms-click-active {
+  background-color: #F2F2F2;
+}
 .scroll-container .prefix-content .person-wrapper {
   width: 100%;
-  background-color: #fff;
 }
 .scroll-container .prefix-content .person {
   width: 100%;
   height: 1.85185185rem;
-  background-color: #fff;
   position: relative;
   display: table-cell;
   vertical-align: middle;
@@ -863,7 +883,6 @@ nav .rightMenu {
 .scroll-container .prefix-content .content {
   overflow: hidden;
   height: auto;
-  background-color: #fff;
   padding-left: 0.46296296rem;
 }
 .scroll-container .prefix-content .content p {
@@ -957,6 +976,7 @@ nav .rightMenu {
   background-color: #DDDDDD;
 }
 .detail-wrapper {
+  margin-bottom: 1.34259259rem;
   width: 100%;
   font-size: 18px;
 }
@@ -1080,6 +1100,8 @@ nav .rightMenu {
   float: left;
   width: 20%;
   margin-bottom: 0.18518519rem;
+  text-align: center;
+  overflow: hidden;
 }
 .detail-wrapper .user-wrapper .logo-wrapper {
   border: 1px solid #dddddd;
@@ -1087,6 +1109,15 @@ nav .rightMenu {
   height: 1.57407407rem;
   border-radius: 50%;
   overflow: hidden;
+}
+.detail-wrapper .user-wrapper .nickname {
+  font-size: 13px;
+}
+[data-dpr="2"] .detail-wrapper .user-wrapper .nickname {
+  font-size: 26px;
+}
+[data-dpr="3"] .detail-wrapper .user-wrapper .nickname {
+  font-size: 39px;
 }
 .detail-wrapper .divWrapper {
   background-color: #fff;
@@ -1153,6 +1184,9 @@ nav .rightMenu {
   background-color: #fff;
   width: 100%;
   border-top: 1px solid #dddddd;
+}
+.detail-wrapper .fixed-footer .ms-click-active {
+  background-color: #f2f2f2;
 }
 .detail-wrapper .fixed-footer a {
   color: #000000;
@@ -2280,7 +2314,7 @@ nav .rightMenu {
   background: url(../imgs/success.png) 0.23148148rem center no-repeat;
   background-size: 0.92592593rem 0.92592593rem;
   padding: 0.2rem 0.3rem 0.2rem 1.63rem;
-  background-size: 1rem;
+  background-size: 0.8rem;
 }
 .dialog-fail {
   margin: 0 auto;
@@ -2288,7 +2322,7 @@ nav .rightMenu {
   background-size: 0.92592593rem 0.92592593rem;
   padding: 0.2rem 0.3rem 0.2rem 1.63rem;
   background: #333333 url(../imgs/fail.png) 0.23148148rem center no-repeat;
-  background-size: 1rem;
+  background-size: 0.8rem;
 }
 .userInfoPublic a {
   color: #666666;

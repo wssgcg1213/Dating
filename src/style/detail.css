@@ -1,4 +1,5 @@
 .detail-wrapper {
+  margin-bottom: 1.34259259rem;
   width: 100%;
   font-size: 18px;
 }
@@ -122,6 +123,8 @@
   float: left;
   width: 20%;
   margin-bottom: 0.18518519rem;
+  text-align: center;
+  overflow: hidden;
 }
 .detail-wrapper .user-wrapper .logo-wrapper {
   border: 1px solid #dddddd;
@@ -129,6 +132,15 @@
   height: 1.57407407rem;
   border-radius: 50%;
   overflow: hidden;
+}
+.detail-wrapper .user-wrapper .nickname {
+  font-size: 13px;
+}
+[data-dpr="2"] .detail-wrapper .user-wrapper .nickname {
+  font-size: 26px;
+}
+[data-dpr="3"] .detail-wrapper .user-wrapper .nickname {
+  font-size: 39px;
 }
 .detail-wrapper .divWrapper {
   background-color: #fff;
@@ -195,6 +207,9 @@
   background-color: #fff;
   width: 100%;
   border-top: 1px solid #dddddd;
+}
+.detail-wrapper .fixed-footer .ms-click-active {
+  background-color: #f2f2f2;
 }
 .detail-wrapper .fixed-footer a {
   color: #000000;

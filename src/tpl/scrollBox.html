@@ -3,7 +3,12 @@
         <img src="imgs/noop.png">
     </div>
     <ul>
-        <li class="prefix-content" ms-repeat="dateList" ms-on-tap="goDetail(el.date_id)">
+        <li class="prefix-content"
+            ms-repeat="dateList"
+            ms-on-tap="goDetail(el.date_id)"
+            ms-on-touchstart="$(this).addClass('ms-click-active')"
+            ms-on-touchend="$(this).removeClass('ms-click-active')"
+                >
             <div class="person-wrapper">
                 <div class="person">
                     <img class="logo-wrapper" ms-attr-src="el.head"/>

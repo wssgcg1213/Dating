@@ -65,7 +65,7 @@
   background: url(../imgs/success.png) 0.23148148rem center no-repeat;
   background-size: 0.92592593rem 0.92592593rem;
   padding: 0.2rem 0.3rem 0.2rem 1.63rem;
-  background-size: 1rem;
+  background-size: 0.8rem;
 }
 .dialog-fail {
   margin: 0 auto;
@@ -73,5 +73,5 @@
   background-size: 0.92592593rem 0.92592593rem;
   padding: 0.2rem 0.3rem 0.2rem 1.63rem;
   background: #333333 url(../imgs/fail.png) 0.23148148rem center no-repeat;
-  background-size: 1rem;
+  background-size: 0.8rem;
 }

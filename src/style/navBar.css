@@ -44,6 +44,10 @@ nav .back {
 [data-dpr="3"] nav .back {
   font-size: 72px;
 }
+nav .menu.ms-click-active,
+nav .back.ms-click-active {
+  color: #aa9b9c;
+}
 nav .menu {
   -webkit-transition: -webkit-transform ease-in-out 400ms;
           transition: transform ease-in-out 400ms;
@@ -52,6 +56,9 @@ nav .menu.active {
   -webkit-transform: rotate(90deg);
       -ms-transform: rotate(90deg);
           transform: rotate(90deg);
+}
+nav .menu.ms-click-active {
+  color: #aa9b9c;
 }
 nav .title {
   font-size: 24px;
@@ -64,6 +71,9 @@ nav .title {
 }
 [data-dpr="3"] nav .title {
   font-size: 72px;
+}
+nav .title.ms-click-active {
+  color: #aa9b9c;
 }
 nav .plus {
   position: absolute;
@@ -80,7 +90,7 @@ nav .plus {
 [data-dpr="3"] nav .plus {
   font-size: 72px;
 }
-nav .plus:hover {
+nav .plus.ms-click-active {
   color: #aa9b9c;
 }
 nav .rightMenu {
@@ -94,4 +104,7 @@ nav .rightMenu {
 }
 [data-dpr="3"] nav .rightMenu {
   font-size: 54px;
+}
+nav .rightMenu.ms-click-active {
+  color: #aa9b9c;
 }

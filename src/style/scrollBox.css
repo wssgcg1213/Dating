@@ -25,14 +25,18 @@
 .scroll-container:after {
   clear: both;
 }
+.scroll-container .prefix-content {
+  background-color: #fff;
+}
+.scroll-container .prefix-content.ms-click-active {
+  background-color: #F2F2F2;
+}
 .scroll-container .prefix-content .person-wrapper {
   width: 100%;
-  background-color: #fff;
 }
 .scroll-container .prefix-content .person {
   width: 100%;
   height: 1.85185185rem;
-  background-color: #fff;
   position: relative;
   display: table-cell;
   vertical-align: middle;
@@ -83,7 +87,6 @@
 .scroll-container .prefix-content .content {
   overflow: hidden;
   height: auto;
-  background-color: #fff;
   padding-left: 0.46296296rem;
 }
 .scroll-container .prefix-content .content p {

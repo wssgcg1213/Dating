@@ -26,13 +26,11 @@
         <div class="requirement">
             <p class="title">要求</p>
             <ul>
-                <li>年级：{{data.grade}}</li>
+                <li>年级：{{data.grade.length ? data.grade : "不限"}}</li>
                 <li>性别：{{data.gender_limit | genderLimit}}</li>
                 <li>人数限制：{{data.people_limit | peopleLimit}}</li>
             </ul>
         </div>
-        
-        
 
     </div>
 
@@ -40,8 +38,9 @@
         <p class="apply">已报名</p>
         <div class="user-face-group">
             <p class="someone-sign-up" ms-if="data.joined.length==0">暂时还没有人参加</p>
-            <div class="user-face" ms-repeat-j="data.joined">
-                <img class="logo-wrapper" ms-src="j.head" ms-attr-title="j.nickname" ms-on-tap="goUser(j.user_id)"/>
+            <div class="user-face" ms-repeat-j="data.joined" ms-on-tap="goUser(j.user_id)">
+                <img class="logo-wrapper" ms-src="j.head" ms-attr-title="j.nickname">
+                <span class="nickname">{{j.nickname}}</span>
             </div>
         </div>
     </div>
